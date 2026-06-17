@@ -4,38 +4,21 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "test": "vitest run --exclude tests/e2e/**",
-    "test:watch": "vitest --exclude tests/e2e/**",
-    "e2e": "playwright test",
+    "generate": "node scripts/generate.mjs",
+    "dev": "npm run generate && vite preview --host 127.0.0.1 --port 4173",
+    "build": "npm run generate",
+    "test": "node --test tests/unit/*.test.mjs",
+    "e2e": "playwright test --config=playwright.config.mjs",
     "lint": "eslint .",
-    "preview": "vite preview",
+    "preview": "npm run generate && vite preview --host 127.0.0.1 --port 4173",
     "docs:zip": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"if (!(Test-Path release)) { New-Item -ItemType Directory release | Out-Null }; Compress-Archive -Path README.md,AGENTS.md,SKILL.md,TODO.md,docs -DestinationPath release/web-studi-generator-docs.zip -Force\""
   },
-  "dependencies": {
-    "lucide-react": "^1.20.0",
-    "react": "^19.2.6",
-    "react-dom": "^19.2.6"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.61.0",
-    "@testing-library/jest-dom": "^6.9.1",
-    "@testing-library/react": "^16.3.2",
-    "@testing-library/user-event": "^14.6.1",
-    "@types/node": "^24.12.3",
-    "@types/react": "^19.2.14",
-    "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^6.0.1",
     "eslint": "^10.3.0",
-    "eslint-plugin-react-hooks": "^7.1.1",
-    "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.6.0",
-    "jsdom": "^29.1.1",
-    "typescript": "~6.0.2",
-    "typescript-eslint": "^8.59.2",
-    "vite": "^8.0.12",
-    "vitest": "^4.1.9"
+    "vite": "^8.0.12"
   }
 }

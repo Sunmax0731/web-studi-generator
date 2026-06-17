@@ -7,8 +7,8 @@
       "status": "complete",
       "evidence": [
         "npm run lint passed",
-        "npm test passed: 1 file and 5 tests",
-        "npm run build passed",
+        "npm test passed: 3 tests",
+        "npm run build passed: 3 studies generated",
         "npm run e2e passed: 1 Chromium test",
         "Playwright runtime gate passed on desktop and mobile"
       ]
@@ -16,23 +16,25 @@
     "cost": {
       "rating": "A-",
       "status": "complete",
-      "evidence": ["Static MVP with local sample data", "No backend service required"]
+      "evidence": ["Static generator", "No backend service required", "GitHub Pages publishing"]
     },
     "delivery": {
       "rating": "A-",
       "status": "complete",
       "evidence": [
-        "README, AGENTS, SKILL, TODO, design docs, test plan, QCDS, and release checklist prepared",
-        "release/web-studi-generator-docs.zip generated"
+        "Static generator implemented",
+        "Data contracts and templates implemented",
+        "GitHub Pages workflow implemented"
       ]
     },
     "satisfaction": {
       "rating": "A-",
       "status": "complete",
       "evidence": [
-        "Non-blank rendered UI verified",
-        "Theme switching, category filtering, answer selection, and font size interaction verified",
-        "Desktop and mobile screenshots reviewed"
+        "Generated top page verified",
+        "Generated study page verified",
+        "Generated mock-test settings and answering verified",
+        "Mobile screenshot reviewed"
       ]
     }
   },
@@ -41,8 +43,9 @@
     "browser": "Playwright Chromium",
     "browserPluginAttempt": "in-app Browser iab unavailable",
     "nonBlank": true,
-    "majorElements": true,
-    "primaryInteraction": true,
+    "topPage": true,
+    "studyPage": true,
+    "mockTestInteraction": true,
     "responsiveCheck": true
   }
 }

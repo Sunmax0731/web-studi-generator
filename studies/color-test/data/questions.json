@@ -1,0 +1,43 @@
+[
+  {
+    "id": "color-test-q1",
+    "category": "色の三属性",
+    "pattern": "true-false",
+    "prompt": "彩度は色の鮮やかさを表す属性である。",
+    "visualHint": "低彩度から高彩度へ変化するカラーバーを添付できます。",
+    "choices": [
+      { "id": "a", "label": "正しい" },
+      { "id": "b", "label": "誤り" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "彩度は色の鮮やかさ、明度は明るさを表します。"
+  },
+  {
+    "id": "color-test-q2",
+    "category": "配色",
+    "pattern": "multiple-select",
+    "prompt": "トーンをそろえた配色の効果として適切なものをすべて選べ。",
+    "choices": [
+      { "id": "a", "label": "統一感が出やすい" },
+      { "id": "b", "label": "印象を制御しやすい" },
+      { "id": "c", "label": "色相差が必ずなくなる" },
+      { "id": "d", "label": "明度と彩度の方向性をそろえられる" }
+    ],
+    "correctChoiceIds": ["a", "b", "d"],
+    "explanation": "トーン配色は明度・彩度のまとまりを使って印象を整えます。"
+  },
+  {
+    "id": "color-test-q3",
+    "category": "色名・慣用色",
+    "pattern": "single-choice",
+    "prompt": "慣用色名の説明として最も適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "文化や生活の中で慣用的に使われてきた色名" },
+      { "id": "b", "label": "RGB 値だけで表記する色名" },
+      { "id": "c", "label": "必ず無彩色だけを示す色名" },
+      { "id": "d", "label": "明度だけを数値で表す色名" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "慣用色名は、桜色や藍色のように文化的・慣用的に定着した色名です。"
+  }
+]

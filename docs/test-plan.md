@@ -4,37 +4,41 @@
 
 | Check | Command | Purpose | Status |
 | --- | --- | --- | --- |
-| Lint | `npm run lint` | TypeScript/React style and obvious code issues | Passed |
-| Unit tests | `npm test` | Exam metrics, duration formatting, category filtering, answer correctness | Passed: 1 file, 5 tests |
-| Production build | `npm run build` | TypeScript build and Vite production bundle | Passed |
-| E2E smoke | `npm run e2e` | Browser render and primary mock-test workflow | Passed: 1 Chromium test |
-| Docs ZIP | `npm run docs:zip` | Release documentation bundle | Passed |
+| Lint | `npm run lint` | Generator, templates, and tests style check | Passed |
+| Unit tests | `npm test` | Schema validation and exam metric helpers | Passed: 3 tests |
+| Static build | `npm run build` | Generate GitHub Pages files into `dist/` | Passed: 3 studies generated |
+| E2E smoke | `npm run e2e` | Browser verification of generated static site | Passed: 1 Chromium test |
+| Docs ZIP | `npm run docs:zip` | Release documentation bundle | Pending |
 
 ## Runtime Gate
 
-Platform runtime gate for Web apps:
+Platform runtime gate for generated Web pages:
 
-- Open in Chrome or headless browser. Passed with Playwright Chromium after Browser plugin `iab` was unavailable.
-- Confirm non-blank rendering. Passed on desktop 1440x1000 and mobile 390x900.
-- Confirm major elements: theme rail, generator blueprint, question pattern matrix, settings panel, timing metrics, mock-test preview. Passed by DOM counts and screenshots.
-- Exercise the primary workflow. Passed:
-  1. Load app.
-  2. Switch to 色彩検定.
-  3. Change to 1問 display.
-  4. Filter category to 配色.
-  5. Select all correct choices in the multiple-select question.
-  6. Confirm correctness feedback appears.
-- Check one mobile-width render for layout overflow. Passed by screenshot review.
+- Open generated site in Chrome or headless browser. Passed with Playwright Chromium after Browser `iab` was unavailable.
+- Confirm non-blank top page. Passed.
+- Confirm the three sample studies are linked. Passed.
+- Open a study page and confirm units and sources. Passed.
+- Open a mock-test page. Passed.
+- Change display mode to one-question. Passed.
+- Change category. Passed.
+- Change total exam time. Passed.
+- Change font size. Passed.
+- Answer a multiple-select question. Passed.
+- Confirm correctness feedback. Passed.
+- Confirm elapsed time, remaining time, average answer time, and remaining-question pace are visible. Passed.
+- Check one mobile-width render for overflow. Passed at 390x900.
 
-## Manual Scenarios
+## Manual Scenario For Future Source Intake
 
-- Basic information technology theme shows technology, management, and strategy categories.
-- Hunting trap license theme shows law, animal identification, and trap safety categories.
-- Multi-question mode displays more than one question when the filtered theme has multiple questions.
-- Remaining time and per-question available time update when elapsed time changes.
+1. Place local files under `materials/<study-id>/`.
+2. Send Web page URLs in chat.
+3. Codex reads sources and updates `studies/<study-id>/`.
+4. Run `npm run build`.
+5. Review generated pages.
+6. Push to `main` for GitHub Pages deployment.
 
-## Known Test Boundaries
+## Known Boundaries
 
-- MVP does not fetch or parse external pages/PDFs yet.
-- MVP uses seeded sample content for the three requested themes.
-- Generated diagrams/illustrations are represented by visual hints, not production illustration assets.
+- Source reading is performed by Codex during the session, not by a committed crawler.
+- PDF/web extraction adapters are not automated CLI commands yet.
+- Study-specific diagrams and images are represented by `visualHint` text until asset copying is added.

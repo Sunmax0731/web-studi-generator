@@ -1,0 +1,21 @@
+{
+  "id": "trap-hunting",
+  "slug": "trap-hunting",
+  "title": "狩猟免許（わな）",
+  "description": "法令、鳥獣判別、わなの構造と安全確認を整理し、選択式模擬テストで確認する静的学習サイトです。",
+  "accent": "#b45309",
+  "categories": ["法令", "鳥獣判別", "わなの構造と安全"],
+  "examSettings": {
+    "presentationMode": "multi",
+    "totalMinutes": 40,
+    "fontFamily": "system",
+    "fontSize": 17
+  },
+  "sources": [
+    {
+      "kind": "local",
+      "label": "狩猟免許（わな）サンプル資料",
+      "path": "materials/trap-hunting/sample-notes.md"
+    }
+  ]
+}

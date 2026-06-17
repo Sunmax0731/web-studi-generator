@@ -2,9 +2,11 @@
 
 ## Scope
 
-- MVP foundation for arbitrary study-page and mock-test generation.
-- Sample themes for 基本情報技術者試験, 色彩検定, and 狩猟免許（わな）.
-- React/Vite app with unit and browser smoke tests.
+- Static site generator foundation.
+- Source intake contract through `materials/` and chat-provided URLs.
+- Study data contract under `studies/`.
+- Generated GitHub Pages output under `dist/`.
+- Sample generated studies for 基本情報技術者試験, 色彩検定, and 狩猟免許（わな）.
 
 ## Required Before Push
 
@@ -12,12 +14,17 @@
 - [x] `npm test`
 - [x] `npm run build`
 - [x] `npm run e2e`
-- [x] Browser runtime gate documented in `docs/qcds-evaluation.md`
+- [x] Runtime gate documented in `docs/qcds-evaluation.md`
 - [x] `npm run docs:zip`
-- [x] `git status --short --branch` reviewed before release
-- [x] Commit created on `codex/study-generator-foundation`
-- [x] Public GitHub remote `origin` configured
-- [x] Branch pushed
+- [ ] `git status --short --branch` reviewed
+- [ ] Commit created on `codex/static-site-generator-foundation`
+- [ ] Branch pushed
+- [ ] `main` pushed when release is requested
+
+## Required After Main Push
+
+- [ ] GitHub Pages workflow completed
+- [ ] Published URL returns HTTP 200 when feasible
 
 ## Release Artifact
 

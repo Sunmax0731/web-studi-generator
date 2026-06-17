@@ -1,0 +1,7 @@
+{
+  "studies": [
+    { "id": "basic-info" },
+    { "id": "color-test" },
+    { "id": "trap-hunting" }
+  ]
+}

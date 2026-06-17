@@ -12,25 +12,24 @@ Only these exact ratings are allowed:
 
 | Area | Rating | Evidence |
 | --- | --- | --- |
-| Quality | A- | `npm run lint`, `npm test`, `npm run build`, `npm run e2e`, and Playwright runtime gate passed. MVP still uses seeded content instead of source ingestion adapters. |
-| Cost | A- | MVP uses local static sample data and avoids backend or paid runtime dependencies. |
-| Delivery | A- | Docs, TODO, tests, QCDS, release checklist, and docs ZIP are prepared. GitHub push is part of the final release step. |
-| Satisfaction | A- | Desktop and mobile runtime screenshots showed non-blank UI, expected controls, working answer flow, and no major overlap. |
+| Quality | A- | `npm run lint`, `npm test`, `npm run build`, `npm run e2e`, and Playwright runtime gate passed. Source extraction remains Codex-session driven rather than a committed crawler. |
+| Cost | A- | Static generation uses Node, local JSON, and GitHub Pages without backend hosting. |
+| Delivery | A- | Static generator, data contracts, templates, tests, and GitHub Pages workflow are implemented. Awaiting final push and workflow confirmation. |
+| Satisfaction | A- | Generated top page, study page, mock-test settings, answering, and responsive mobile render were verified. |
 
 ## Runtime Gate
 
 Status: Passed
 
-Required Web app gate:
+Required generated Web page gate:
 
+- Browser plugin note: in-app Browser `iab` was attempted and unavailable.
 - Headless browser: Playwright Chromium.
-- Browser plugin note: in-app Browser was attempted first, but `iab` was unavailable.
 - Non-blank render: passed.
-- Major elements visible: passed.
-- Primary interaction path verified: passed.
+- Top page, study page, and mock-test page visible: passed.
+- Mock-test settings and answer interaction verified: passed.
 - Responsive width checked: passed at 390x900.
 
 ## Notes
 
 - Runtime screenshots are stored in ignored `output/` artifacts.
-- Concept reference `docs/assets/ui-concept.png` and runtime screenshots were visually reviewed.

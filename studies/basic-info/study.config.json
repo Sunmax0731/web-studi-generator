@@ -1,0 +1,21 @@
+{
+  "id": "basic-info",
+  "slug": "basic-info",
+  "title": "基本情報技術者試験",
+  "description": "テクノロジ、マネジメント、ストラテジをカテゴリ別に学習し、選択式の模擬テストで確認する静的学習サイトです。",
+  "accent": "#2563eb",
+  "categories": ["テクノロジ", "マネジメント", "ストラテジ"],
+  "examSettings": {
+    "presentationMode": "multi",
+    "totalMinutes": 60,
+    "fontFamily": "system",
+    "fontSize": 17
+  },
+  "sources": [
+    {
+      "kind": "local",
+      "label": "基本情報技術者試験 サンプル資料",
+      "path": "materials/basic-info/sample-notes.md"
+    }
+  ]
+}

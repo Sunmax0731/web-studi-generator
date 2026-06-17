@@ -5,8 +5,8 @@ This repository is part of the WebApp domain under `D:\AI\WebApp`.
 ## Scope
 
 - Repository: `D:\AI\WebApp\web-studi-generator`
-- Purpose: Foundation for generating study pages and mock tests for arbitrary domains and certifications.
-- Runtime: Browser-based React/Vite app.
+- Purpose: Codex-driven static study-site generator for arbitrary domains and certifications.
+- Runtime: Node-based generator that outputs static GitHub Pages files.
 
 ## Working Rules
 
@@ -16,6 +16,9 @@ This repository is part of the WebApp domain under `D:\AI\WebApp`.
 - Update `TODO.md` before implementing newly discovered work.
 - Keep implementation, docs, test evidence, QCDS, and release checklist aligned in the same task.
 - Store temporary runtime screenshots, traces, and debug captures under `output/`; do not commit them.
+- Keep local source documents under `materials/`.
+- Keep generated study definitions under `studies/`.
+- Keep generated deploy output under `dist/`; do not commit it.
 - If project structure, workflow, or canonical paths change, update this file and `SKILL.md`.
 
 ## Quality Gates
@@ -23,7 +26,7 @@ This repository is part of the WebApp domain under `D:\AI\WebApp`.
 - `npm run lint`
 - `npm test`
 - `npm run build`
-- Browser or headless runtime gate: non-blank render, core UI visible, primary mock-test interaction works.
+- Browser or headless runtime gate: generated static site renders, core pages are visible, primary mock-test settings and answering interaction work.
 - `npm run docs:zip`
 
 ## Git

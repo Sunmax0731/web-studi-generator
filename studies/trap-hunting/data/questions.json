@@ -1,0 +1,43 @@
+[
+  {
+    "id": "trap-hunting-q1",
+    "category": "わなの構造と安全",
+    "pattern": "counting",
+    "prompt": "わな設置時の安全確認として適切なものはいくつあるか。標識の設置、見回り計画、錯誤捕獲時の連絡先確認、周辺利用者への配慮。",
+    "choices": [
+      { "id": "a", "label": "1 個" },
+      { "id": "b", "label": "2 個" },
+      { "id": "c", "label": "3 個" },
+      { "id": "d", "label": "4 個" }
+    ],
+    "correctChoiceIds": ["d"],
+    "explanation": "列挙された 4 項目はいずれも安全管理に関係する確認項目です。"
+  },
+  {
+    "id": "trap-hunting-q2",
+    "category": "法令",
+    "pattern": "single-choice",
+    "prompt": "わなを設置した場合に必要な表示として最も適切なものはどれか。",
+    "visualHint": "標識札の配置例を図で示せます。",
+    "choices": [
+      { "id": "a", "label": "設置者情報などを示す標識" },
+      { "id": "b", "label": "獲物の販売価格" },
+      { "id": "c", "label": "任意の装飾札" },
+      { "id": "d", "label": "設置場所の地価" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "わなの設置には設置者を確認できる標識などの法令遵守が必要になります。"
+  },
+  {
+    "id": "trap-hunting-q3",
+    "category": "鳥獣判別",
+    "pattern": "true-false",
+    "prompt": "錯誤捕獲が発生した場合は、状況に応じて関係先へ連絡し、適切な対応を取る必要がある。",
+    "choices": [
+      { "id": "a", "label": "正しい" },
+      { "id": "b", "label": "誤り" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "錯誤捕獲時は安全を確保し、関係先への連絡や指示に従った対応が必要です。"
+  }
+]

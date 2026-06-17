@@ -1,0 +1,85 @@
+[
+  {
+    "id": "basic-info-q1",
+    "category": "テクノロジ",
+    "pattern": "single-choice",
+    "prompt": "二分探索の前提として最も適切なものはどれか。",
+    "visualHint": "整列済み配列を中央から半分ずつ探索する図を添付できます。",
+    "choices": [
+      { "id": "a", "label": "対象データがキー順に整列されている" },
+      { "id": "b", "label": "対象データがハッシュ化されている" },
+      { "id": "c", "label": "対象データが木構造で保存されている" },
+      { "id": "d", "label": "対象データが更新されない" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "二分探索は整列済みデータを前提に探索範囲を半分に絞ります。"
+  },
+  {
+    "id": "basic-info-q2",
+    "category": "マネジメント",
+    "pattern": "cloze",
+    "prompt": "WBS はプロジェクトの成果物や作業を（　）して管理しやすくする手法である。",
+    "choices": [
+      { "id": "a", "label": "階層的に分解" },
+      { "id": "b", "label": "時系列に暗号化" },
+      { "id": "c", "label": "担当者別に秘匿" },
+      { "id": "d", "label": "費用だけで評価" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "WBS は Work Breakdown Structure の略で、作業を階層的に分解します。"
+  },
+  {
+    "id": "basic-info-q3",
+    "category": "ストラテジ",
+    "pattern": "matching",
+    "prompt": "SWOT 分析の組み合わせとして適切なものを選べ。",
+    "choices": [
+      { "id": "a", "label": "Strength: 強み / Threat: 脅威" },
+      { "id": "b", "label": "Strength: 速度 / Threat: 取引" },
+      { "id": "c", "label": "Weakness: 市場 / Opportunity: 損失" },
+      { "id": "d", "label": "Opportunity: 組織 / Threat: 技術" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "SWOT は強み、弱み、機会、脅威の 4 要素で分析します。"
+  },
+  {
+    "id": "basic-info-q4",
+    "category": "テクノロジ",
+    "pattern": "multiple-select",
+    "prompt": "関係データベースの説明として適切なものをすべて選べ。",
+    "choices": [
+      { "id": "a", "label": "表形式でデータを管理する" },
+      { "id": "b", "label": "SQL による問い合わせが使われる" },
+      { "id": "c", "label": "主キーは行を識別するために使われる" },
+      { "id": "d", "label": "必ず画像だけを保存する" }
+    ],
+    "correctChoiceIds": ["a", "b", "c"],
+    "explanation": "関係データベースは表、SQL、主キーなどを基本概念として扱います。"
+  },
+  {
+    "id": "basic-info-q5",
+    "category": "マネジメント",
+    "pattern": "counting",
+    "prompt": "プロジェクトのリスク対応として適切なものはいくつあるか。回避、軽減、転嫁、受容。",
+    "choices": [
+      { "id": "a", "label": "1 個" },
+      { "id": "b", "label": "2 個" },
+      { "id": "c", "label": "3 個" },
+      { "id": "d", "label": "4 個" }
+    ],
+    "correctChoiceIds": ["d"],
+    "explanation": "列挙された 4 つはいずれも代表的なリスク対応です。"
+  },
+  {
+    "id": "basic-info-q6",
+    "category": "ストラテジ",
+    "pattern": "true-false",
+    "prompt": "著作権は、創作された著作物を保護する権利である。",
+    "choices": [
+      { "id": "a", "label": "正しい" },
+      { "id": "b", "label": "誤り" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "著作権は、思想または感情を創作的に表現した著作物を保護します。"
+  }
+]

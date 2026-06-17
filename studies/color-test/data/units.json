@@ -1,0 +1,23 @@
+[
+  {
+    "id": "color-test-unit-1",
+    "category": "色の三属性",
+    "title": "色の三属性",
+    "objective": "色相、明度、彩度の違いを図と文章で説明できる。",
+    "outline": ["色相環", "明度スケール", "彩度の変化"]
+  },
+  {
+    "id": "color-test-unit-2",
+    "category": "配色",
+    "title": "配色技法",
+    "objective": "類似色相、補色色相、トーン配色を例から判定する。",
+    "outline": ["類似配色", "補色配色", "トーン統一"]
+  },
+  {
+    "id": "color-test-unit-3",
+    "category": "色名・慣用色",
+    "title": "色名の整理",
+    "objective": "系統色名と慣用色名の役割を区別できる。",
+    "outline": ["系統色名", "慣用色名", "色の印象"]
+  }
+]

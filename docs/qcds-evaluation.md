@@ -12,10 +12,10 @@ Only these exact ratings are allowed:
 
 | Area | Rating | Evidence |
 | --- | --- | --- |
-| Quality | A- | FE now has separate 科目A and 科目B mock-test variants, with data validation enforcing 科目A 60 questions / 90 minutes and 科目B 20 questions / 100 minutes. `npm run lint`, `npm test`, `npm run build`, `npm run e2e`, and Playwright runtime screenshots passed. |
+| Quality | A- | FE variants keep the official 科目A/科目B counts, and the mock-test runtime now randomizes answer choices and displayed symbols per attempt. `npm run lint`, `npm test`, `npm run build`, `npm run e2e`, and Playwright runtime checks passed. |
 | Cost | A- | The solution remains static JSON plus Node generation with no backend hosting or crawler dependency. |
 | Delivery | A- | The generator now supports optional `examVariants`, and the FE study uses it for production-form practice. |
-| Satisfaction | A- | The requested official question counts and durations are represented directly in generated mock-test pages. |
+| Satisfaction | A- | The requested official question counts and durations are represented directly in generated mock-test pages, and answer symbols no longer stay tied to fixed source choice IDs. |
 
 ## Runtime Gate
 
@@ -28,6 +28,7 @@ Required generated Web page gate:
 - 科目B: 100 minutes, 20 questions: passed.
 - Questions hidden until Start: passed.
 - Figure/image question render in 科目A: passed.
+- Answer choice order and displayed A/B/C/D symbols randomize per attempt: passed.
 - Category selector absent during answering: passed.
 - Read-only category metadata visible while solving: passed.
 - Mock-test settings and answer interaction verified: passed.
@@ -35,5 +36,5 @@ Required generated Web page gate:
 
 ## Notes
 
-- Runtime screenshots are stored in ignored `output/fe-variant-runtime/` artifacts.
+- Runtime screenshots are stored in ignored `output/answer-symbol-runtime/` artifacts.
 - The generated `dist/` directory remains ignored and should not be committed.

@@ -46,6 +46,25 @@ test('generated static site starts FE subject A and B mock tests with official c
   await expect(page.locator('.question-card').first().locator('.question-meta')).toContainText('セキュリティ')
 })
 
+test('mock-test answer symbols are reassigned when choices are randomized between attempts', async ({ page }) => {
+  await page.goto('/studies/basic-info/mock-test/kamoku-a/')
+
+  await page.evaluate(() => {
+    Math.random = () => 0.999
+  })
+  await page.getByRole('button', { name: '開始' }).click()
+  const firstOrder = await visibleChoiceLabelsForPrompt(page, '10進数の37')
+
+  await page.getByRole('button', { name: 'リセット' }).click()
+  await page.evaluate(() => {
+    Math.random = () => 0
+  })
+  await page.getByRole('button', { name: '開始' }).click()
+  const secondOrder = await visibleChoiceLabelsForPrompt(page, '10進数の37')
+
+  expect(secondOrder).not.toEqual(firstOrder)
+})
+
 async function answerFirstQuestionCorrectly(page) {
   const firstCard = page.locator('.question-card').first()
   const choiceCount = await firstCard.locator('.choice-list button').count()
@@ -53,4 +72,13 @@ async function answerFirstQuestionCorrectly(page) {
     await firstCard.locator('.choice-list button').nth(index).click()
     if ((await page.locator('.answer-feedback.correct').count()) > 0) return
   }
+}
+
+async function visibleChoiceLabelsForPrompt(page, promptText) {
+  const card = page.locator('.question-card').filter({ hasText: promptText }).first()
+  await expect(card).toBeVisible()
+  await expect(card.locator('.choice-list button b')).toHaveText(['A', 'B', 'C', 'D'])
+  return card.locator('.choice-list button span').evaluateAll((nodes) =>
+    nodes.map((node) => node.textContent.trim()),
+  )
 }

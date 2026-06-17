@@ -24,6 +24,7 @@
     serif: '"Noto Serif JP", "Yu Mincho", serif',
     mono: '"Roboto Mono", "SFMono-Regular", monospace',
   }
+  const optionSymbols = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
   const els = {
     presentationMode: root.querySelector('[data-setting="presentationMode"]'),
@@ -93,7 +94,7 @@
       state.answers = {}
       state.currentIndex = 0
       state.elapsedSeconds = 0
-      state.activeQuestions = groupedRandomQuestions()
+      state.activeQuestions = prepareAttemptQuestions()
       render()
     }
 
@@ -161,7 +162,7 @@
     section.className = 'start-message'
     section.innerHTML = `
       <h2>開始を押すと問題が表示されます</h2>
-      <p>問題は開始ごとにカテゴリ単位でまとまり、各カテゴリ内でランダムな順番になります。</p>
+      <p>問題と選択肢の記号は開始ごとにランダムな順番になります。</p>
     `
     return section
   }
@@ -191,14 +192,15 @@
     }
 
     const choiceList = article.querySelector('.choice-list')
-    for (const choice of question.choices) {
+    question.choices.forEach((choice, index) => {
+      const displaySymbol = optionSymbols[index] || String(index + 1)
       const button = document.createElement('button')
       button.type = 'button'
       button.setAttribute('aria-pressed', selected.includes(choice.id) ? 'true' : 'false')
-      button.innerHTML = `<b>${escapeHtml(choice.id.toUpperCase())}</b><span>${escapeHtml(choice.label)}</span>`
+      button.innerHTML = `<b>${escapeHtml(displaySymbol)}</b><span>${escapeHtml(choice.label)}</span>`
       button.addEventListener('click', () => selectChoice(question, choice.id))
       choiceList.append(button)
-    }
+    })
 
     if (selected.length > 0) {
       const feedback = document.createElement('div')
@@ -276,6 +278,13 @@
         : [choiceId]
     state.answers[question.id] = next
     render()
+  }
+
+  function prepareAttemptQuestions() {
+    return groupedRandomQuestions().map((question) => ({
+      ...question,
+      choices: shuffle(question.choices),
+    }))
   }
 
   function groupedRandomQuestions() {

@@ -2,17 +2,14 @@
 
 ## Scope
 
-- Expand the existing 基本情報技術者試験 study to production-form volume.
-- Add optional `examVariants` generation support.
-- Generate 科目A as 90 minutes / 60 questions.
-- Generate 科目B as 100 minutes / 20 questions, with 4 security questions and 16 algorithm/programming questions.
+- Randomize mock-test answer choice order and displayed A/B/C/D symbols on each attempt.
+- Keep existing 基本情報技術者試験 科目A as 90 minutes / 60 questions.
+- Keep existing 基本情報技術者試験 科目B as 100 minutes / 20 questions.
 - Keep generated GitHub Pages output under ignored `dist/`.
 
 ## Required Before Push
 
-- [x] Provided IPA/public-question links reviewed.
-- [x] Internet sources reviewed for current FE format.
-- [x] `materials/` remains empty.
+- [x] `materials/` remains empty or absent.
 - [x] `npm run lint`
 - [x] `npm test`
 - [x] `npm run build`
@@ -20,14 +17,14 @@
 - [x] Runtime gate documented in `docs/qcds-evaluation.md`
 - [x] `npm run docs:zip`
 - [x] `git status --short --branch` reviewed
-- [x] Commit created on `codex/expand-fe-exam-volume`
-- [x] Branch pushed
-- [x] `main` pushed for production reflection
+- [ ] Commit created on `codex/randomize-answer-symbols`
+- [ ] Branch pushed
+- [ ] `main` pushed for production reflection
 
 ## Required After Main Push
 
-- [x] GitHub Pages workflow completed
-- [x] Published URL returns HTTP 200 when feasible
+- [ ] GitHub Pages workflow completed
+- [ ] Published URL returns HTTP 200 when feasible
 
 ## Release Artifact
 

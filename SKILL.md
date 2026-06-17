@@ -63,6 +63,7 @@ For browser QA, verify:
 - Display mode, total time, font, and font size controls work.
 - Category appears as read-only question metadata.
 - Figure/image questions render.
+- Answer choice order and displayed symbols randomize per attempt.
 - Answer selection shows feedback.
 - Remaining time, average answer time, and remaining-question pace are visible.
 - Desktop and mobile widths do not overlap or clip primary text.

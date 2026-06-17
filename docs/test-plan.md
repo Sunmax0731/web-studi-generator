@@ -7,8 +7,8 @@
 | Lint | `npm run lint` | Generator, templates, and tests style check | Passed |
 | Unit tests | `npm test` | Schema validation, exam metric helpers, and FE variant counts | Passed: 3 tests |
 | Static build | `npm run build` | Generate GitHub Pages files into `dist/` | Passed: 3 studies generated |
-| E2E smoke | `npm run e2e` | Browser verification of generated static site and FE 科目A/科目B mock-test interaction | Passed: 1 Chromium test |
-| Docs ZIP | `npm run docs:zip` | Release documentation bundle | Pending for the current task |
+| E2E smoke | `npm run e2e` | Browser verification of generated static site, FE variants, and per-attempt answer-symbol randomization | Passed: 2 Chromium tests |
+| Docs ZIP | `npm run docs:zip` | Release documentation bundle | Passed |
 
 ## Runtime Gate
 
@@ -26,11 +26,12 @@ Required generated Web page gate for this task:
 - Category selector is absent during answering. Passed.
 - Category is shown as read-only question metadata. Passed.
 - Figure question renders in 科目A. Passed.
+- Answer choice order and displayed A/B/C/D symbols are randomized per attempt. Passed.
 - Answer selection shows correctness feedback. Passed.
 - Remaining time, average answer time, and remaining-question pace are visible. Passed.
 - Desktop and mobile widths do not overlap or clip primary text. Passed at 1440x1000 and 390x900.
 
-Runtime screenshots are stored under ignored `output/fe-variant-runtime/`.
+Runtime screenshots are stored under ignored `output/answer-symbol-runtime/`.
 
 ## Manual Scenario For Future Source Intake
 

@@ -9,11 +9,12 @@
         "npm run lint passed",
         "npm test passed: 3 tests",
         "npm run build passed: 3 studies generated",
-        "npm run e2e passed: 1 Chromium test",
+        "npm run e2e passed: 2 Chromium tests",
         "Playwright runtime gate passed on desktop and mobile",
         "Questions hidden until Start",
         "Figure question rendered",
-        "Read-only category metadata visible"
+        "Read-only category metadata visible",
+        "Answer choice order and displayed symbols randomize per attempt"
       ]
     },
     "cost": {
@@ -43,6 +44,7 @@
         "Figure question rendering verified",
         "Category displayed as read-only metadata",
         "Generated mock-test settings and answering verified",
+        "Per-attempt answer-symbol randomization requested",
         "Mobile screenshot reviewed"
       ]
     }
@@ -55,6 +57,7 @@
     "topPage": true,
     "studyPage": true,
     "mockTestInteraction": true,
+    "answerSymbolRandomization": true,
     "questionsHiddenUntilStart": true,
     "figureQuestionRendered": true,
     "categorySelectorHidden": true,

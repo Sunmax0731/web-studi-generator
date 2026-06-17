@@ -21,8 +21,8 @@
 - [x] Runtime gate documented in `docs/qcds-evaluation.md`
 - [x] `npm run docs:zip`
 - [x] `git status --short --branch` reviewed
-- [ ] Commit created on `codex/mock-test-mode-controls`
-- [ ] Branch pushed
+- [x] Commit created on `codex/mock-test-mode-controls`
+- [x] Branch pushed
 - [ ] `main` pushed for production reflection when requested or appropriate
 
 ## Required After Main Push

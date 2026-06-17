@@ -38,6 +38,8 @@
 
 ## Follow-Up Backlog
 
+- [x] Expand the 狩猟免許 study from わな猟 only to 網猟、わな猟、第一種銃猟、第二種銃猟 exam variants with updated source-backed practice questions.
+- [x] Expand the 狩猟免許 backing question pools beyond the 30-question syllabus count to 54 questions per license variant.
 - [x] Expand the 基本情報技術者試験 study with IPA FE syllabus and recent mock-test source material.
 - [x] Expand the 基本情報技術者試験 mock-test volume to 科目A 60 questions / 90 minutes and 科目B 20 questions / 100 minutes.
 - [x] Expand the 基本情報技術者試験 question pool with additional past-exam-inspired practice questions for stronger randomization.

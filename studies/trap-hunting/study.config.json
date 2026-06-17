@@ -1,21 +1,91 @@
 {
   "id": "trap-hunting",
   "slug": "trap-hunting",
-  "title": "狩猟免許（わな）",
-  "description": "法令、鳥獣判別、わなの構造と安全確認を整理し、選択式模擬テストで確認する静的学習サイトです。",
-  "accent": "#b45309",
-  "categories": ["法令", "鳥獣判別", "わなの構造と安全"],
+  "title": "狩猟免許",
+  "description": "網猟、わな猟、第一種銃猟、第二種銃猟の免許区分ごとに、法令、猟具、鳥獣、保護管理を確認する静的模擬テストです。",
+  "accent": "#0f766e",
+  "categories": ["法令", "猟具", "鳥獣", "鳥獣保護管理"],
   "examSettings": {
     "presentationMode": "multi",
-    "totalMinutes": 40,
+    "totalMinutes": 90,
+    "questionCount": 30,
     "fontFamily": "system",
     "fontSize": 17
   },
+  "examVariants": [
+    {
+      "id": "ami-hunting",
+      "title": "網猟免許 模擬試験",
+      "description": "使用できる猟具: 網（むそう網、はり網、つき網、なげ網） / 30問・90分",
+      "totalMinutes": 90,
+      "questionCount": 30,
+      "categoryOrder": ["法令", "猟具", "鳥獣", "鳥獣保護管理"]
+    },
+    {
+      "id": "wana-hunting",
+      "title": "わな猟免許 模擬試験",
+      "description": "使用できる猟具: わな（くくりわな、はこわな、はこおとし、囲いわな） / 30問・90分",
+      "totalMinutes": 90,
+      "questionCount": 30,
+      "categoryOrder": ["法令", "猟具", "鳥獣", "鳥獣保護管理"]
+    },
+    {
+      "id": "type1-gun",
+      "title": "第一種銃猟免許 模擬試験",
+      "description": "使用できる猟具: 装薬銃（ライフル銃・散弾銃）、空気銃（圧縮ガス銃を含む。） / 30問・90分",
+      "totalMinutes": 90,
+      "questionCount": 30,
+      "categoryOrder": ["法令", "猟具", "鳥獣", "鳥獣保護管理"]
+    },
+    {
+      "id": "type2-gun",
+      "title": "第二種銃猟免許 模擬試験",
+      "description": "使用できる猟具: 空気銃（圧縮ガス銃を含む。） / 30問・90分",
+      "totalMinutes": 90,
+      "questionCount": 30,
+      "categoryOrder": ["法令", "猟具", "鳥獣", "鳥獣保護管理"]
+    }
+  ],
   "sources": [
     {
+      "kind": "web",
+      "label": "高知県 狩猟免許試験の試験内容",
+      "url": "https://www.pref.kochi.lg.jp/doc/sikennaiyo/"
+    },
+    {
+      "kind": "web",
+      "label": "環境省 狩猟免許を取得する",
+      "url": "https://www.env.go.jp/nature/choju/effort/effort8/hunter/license.html"
+    },
+    {
+      "kind": "web",
+      "label": "大阪府猟友会 狩猟免許の種類",
+      "url": "https://www.ryoyu-kai.or.jp/license/"
+    },
+    {
+      "kind": "web",
+      "label": "狩猟免許過去問ドリル",
+      "url": "https://www.shuryo-menkyo.com/"
+    },
+    {
+      "kind": "web",
+      "label": "JQOS 狩猟免許 過去問題",
+      "url": "https://jqos.jp/kokka/shuryomenkyo/kakomon"
+    },
+    {
+      "kind": "web",
+      "label": "QuizGenerator 狩猟免許クイズ",
+      "url": "https://quizgenerator.net/quizhoster/files/b5c607f3f7552baa268dbb68eb1bdf12/"
+    },
+    {
       "kind": "local",
-      "label": "狩猟免許（わな）サンプル資料",
-      "path": "studies/trap-hunting/sources/sample-notes.md"
+      "label": "ユーザー提供 URL メモ",
+      "path": "studies/trap-hunting/sources/2026-06-17T15-36-04-352Z/source-links.md"
+    },
+    {
+      "kind": "local",
+      "label": "ユーザー提供シラバス PDF",
+      "path": "studies/trap-hunting/sources/2026-06-17T15-36-04-352Z/syllabus.pdf"
     }
   ]
 }

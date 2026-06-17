@@ -1,23 +1,441 @@
 [
   {
-    "id": "trap-hunting-q1",
-    "category": "わなの構造と安全",
-    "pattern": "counting",
-    "prompt": "わな設置時の安全確認として適切なものはいくつあるか。標識の設置、見回り計画、錯誤捕獲時の連絡先確認、周辺利用者への配慮。",
+    "id": "hunting-law-001",
+    "category": "法令",
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
+    "pattern": "single-choice",
+    "prompt": "狩猟免許の知識試験の形式として適切なものはどれか。",
     "choices": [
-      { "id": "a", "label": "1 個" },
-      { "id": "b", "label": "2 個" },
-      { "id": "c", "label": "3 個" },
-      { "id": "d", "label": "4 個" }
+      { "id": "a", "label": "三つの選択肢から正解を一つ選ぶ筆記試験" },
+      { "id": "b", "label": "記述式だけで構成される筆記試験" },
+      { "id": "c", "label": "技能試験に合格した人だけが受ける口述試験" }
     ],
-    "correctChoiceIds": ["d"],
-    "explanation": "列挙された 4 項目はいずれも安全管理に関係する確認項目です。"
+    "correctChoiceIds": ["a"],
+    "explanation": "知識試験は三肢択一式で行われます。"
   },
   {
-    "id": "trap-hunting-q2",
+    "id": "hunting-law-002",
     "category": "法令",
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
     "pattern": "single-choice",
-    "prompt": "わなを設置した場合に必要な表示として最も適切なものはどれか。",
+    "prompt": "狩猟免許の知識試験について、標準的な問題数と制限時間の組み合わせとして適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "30問・90分" },
+      { "id": "b", "label": "20問・60分" },
+      { "id": "c", "label": "50問・120分" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "知識試験は30問、試験時間90分として案内されています。"
+  },
+  {
+    "id": "hunting-law-003",
+    "category": "法令",
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
+    "pattern": "single-choice",
+    "prompt": "知識試験の合格基準として適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "正答率70%以上" },
+      { "id": "b", "label": "正答率50%以上" },
+      { "id": "c", "label": "全問正解" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "知識試験は70%以上の正答率が合格基準です。"
+  },
+  {
+    "id": "hunting-law-004",
+    "category": "法令",
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
+    "pattern": "single-choice",
+    "prompt": "狩猟免許制度の説明として適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "網猟、わな猟、第一種銃猟、第二種銃猟の4種類がある" },
+      { "id": "b", "label": "全国共通で一種類の免許だけがある" },
+      { "id": "c", "label": "銃猟免許を取ると自動的に銃の所持許可も得られる" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "狩猟免許は猟法ごとに4種類へ分かれます。銃を所持するには別の所持許可が必要です。"
+  },
+  {
+    "id": "hunting-law-005",
+    "category": "法令",
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
+    "pattern": "single-choice",
+    "prompt": "実際に狩猟を行うために、狩猟免許の取得後に年度ごとに必要となる手続として適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "狩猟をする場所を管轄する都道府県で狩猟者登録を受ける" },
+      { "id": "b", "label": "免許を取得した時点で全国どこでも登録なしに狩猟できる" },
+      { "id": "c", "label": "猟具を購入すれば登録手続は不要になる" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "免許とは別に、狩猟期間ごと・区域ごとの狩猟者登録が必要です。"
+  },
+  {
+    "id": "hunting-law-006",
+    "category": "法令",
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
+    "pattern": "single-choice",
+    "prompt": "銃猟を行う場合の説明として適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "狩猟免許とは別に、銃刀法に基づく銃の所持許可が必要になる" },
+      { "id": "b", "label": "第一種銃猟免許があれば、銃の所持許可申請は不要である" },
+      { "id": "c", "label": "第二種銃猟免許では銃を使わないため、所持許可とは関係がない" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "銃猟免許と銃の所持許可は別制度です。銃を所持するには公安委員会の許可が必要です。"
+  },
+  {
+    "id": "hunting-law-007",
+    "category": "法令",
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
+    "pattern": "single-choice",
+    "prompt": "狩猟免許試験の知識試験で問われる内容として適切でないものはどれか。",
+    "choices": [
+      { "id": "a", "label": "鳥獣保護管理法や狩猟免許制度" },
+      { "id": "b", "label": "猟具の種類や取り扱い" },
+      { "id": "c", "label": "獲物の市場販売価格の予測" }
+    ],
+    "correctChoiceIds": ["c"],
+    "explanation": "知識試験では法令、猟具、鳥獣、保護管理が中心で、市場価格の予測は試験範囲ではありません。"
+  },
+  {
+    "id": "hunting-law-008",
+    "category": "法令",
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
+    "pattern": "true-false",
+    "prompt": "狩猟免許試験は、知識試験、適性試験、技能試験から構成される。",
+    "choices": [
+      { "id": "a", "label": "正しい" },
+      { "id": "b", "label": "誤り" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "狩猟免許試験は知識、適性、技能の3種類で構成されます。"
+  },
+  {
+    "id": "hunting-law-009",
+    "category": "法令",
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
+    "pattern": "single-choice",
+    "prompt": "特定猟具使用禁止区域の説明として適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "危険防止や静穏保持のため、指定された猟具の使用が制限される区域" },
+      { "id": "b", "label": "狩猟鳥獣だけを必ず捕獲しなければならない区域" },
+      { "id": "c", "label": "狩猟者登録を省略できる区域" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "特定猟具使用禁止区域では、区域ごとに指定された猟具の使用が禁止・制限されます。"
+  },
+  {
+    "id": "hunting-law-010",
+    "category": "法令",
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
+    "pattern": "single-choice",
+    "prompt": "運行中の自動車から発砲することについて適切な判断はどれか。",
+    "choices": [
+      { "id": "a", "label": "低速走行であっても原則として禁止される" },
+      { "id": "b", "label": "同乗者が安全を確認すれば認められる" },
+      { "id": "c", "label": "空気銃に限って常に認められる" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "運行中の自動車からの発砲は危険な猟法として禁止されます。"
+  },
+  {
+    "id": "hunting-law-011",
+    "category": "法令",
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
+    "pattern": "single-choice",
+    "prompt": "公道に関する捕獲規制として適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "公道上での捕獲や、公道上を弾丸が通過する方法による捕獲は禁止される" },
+      { "id": "b", "label": "農道や林道は公道ではないため、常に捕獲できる" },
+      { "id": "c", "label": "公道から私有地へ向けて発砲する場合は規制されない" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "公道上の捕獲や公道上を弾丸が通過する捕獲は認められません。"
+  },
+  {
+    "id": "hunting-law-012",
+    "category": "法令",
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
+    "pattern": "single-choice",
+    "prompt": "銃猟の時間規制として適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "日没後から日の出前までの銃猟は禁止される" },
+      { "id": "b", "label": "満月の夜は日没後でも銃猟できる" },
+      { "id": "c", "label": "日没と日の出は全国一律に固定時刻で決められる" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "銃猟は日没後から日の出前まで禁止され、日の出・日没は暦による時刻で判断します。"
+  },
+  {
+    "id": "hunting-law-013",
+    "category": "法令",
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
+    "pattern": "single-choice",
+    "prompt": "適性試験で確認される項目として適切な組み合わせはどれか。",
+    "choices": [
+      { "id": "a", "label": "視力、聴力、運動能力" },
+      { "id": "b", "label": "筆記速度、暗算、地図記号" },
+      { "id": "c", "label": "猟具購入歴、車両保有、登山経験" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "適性試験では視力、聴力、運動能力が確認されます。"
+  },
+  {
+    "id": "hunting-animal-001",
+    "category": "鳥獣",
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
+    "pattern": "single-choice",
+    "prompt": "高知県のわな猟技能試験で狩猟鳥獣として例示されている獣類だけを含む組み合わせはどれか。",
+    "choices": [
+      { "id": "a", "label": "ニホンジカ、タヌキ、アナグマ" },
+      { "id": "b", "label": "ニホンザル、カモシカ、ニホンリス" },
+      { "id": "c", "label": "ムササビ、モモンガ、オコジョ" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "ニホンジカ、タヌキ、アナグマは狩猟鳥獣として例示されています。"
+  },
+  {
+    "id": "hunting-animal-002",
+    "category": "鳥獣",
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
+    "pattern": "single-choice",
+    "prompt": "非狩猟鳥獣が含まれる組み合わせはどれか。",
+    "choices": [
+      { "id": "a", "label": "ニホンザル、カモシカ、イタチ（メス）" },
+      { "id": "b", "label": "タヌキ、キツネ、ハクビシン" },
+      { "id": "c", "label": "ミンク、アライグマ、テン" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "ニホンザル、カモシカ、イタチ（メス）は非狩猟鳥獣として例示されています。"
+  },
+  {
+    "id": "hunting-animal-003",
+    "category": "鳥獣",
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
+    "pattern": "single-choice",
+    "prompt": "狩猟鳥として扱われるものだけを含む組み合わせはどれか。",
+    "choices": [
+      { "id": "a", "label": "ヤマシギ、タシギ、キジバト" },
+      { "id": "b", "label": "ドバト、モズ、ホオジロ" },
+      { "id": "c", "label": "オシドリ、トモエガモ、オオバン" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "ヤマシギ、タシギ、キジバトは狩猟鳥獣として扱われる鳥類です。"
+  },
+  {
+    "id": "hunting-animal-004",
+    "category": "鳥獣",
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
+    "pattern": "single-choice",
+    "prompt": "カモ類の識別で非狩猟鳥獣として扱うべきものはどれか。",
+    "choices": [
+      { "id": "a", "label": "ホオジロガモ" },
+      { "id": "b", "label": "カルガモ" },
+      { "id": "c", "label": "ハシビロガモ" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "ホオジロガモは非狩猟鳥獣として扱われます。カルガモ、ハシビロガモは狩猟鳥獣の例です。"
+  },
+  {
+    "id": "hunting-animal-005",
+    "category": "鳥獣",
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
+    "pattern": "single-choice",
+    "prompt": "高知県が説明するわな猟の鳥獣判別について適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "獣類の絵を見て、狩猟鳥獣かどうかと名称を判断する" },
+      { "id": "b", "label": "鳥類だけを対象に、鳴き声で種類を判断する" },
+      { "id": "c", "label": "魚類と昆虫を含めて判別する" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "わな猟の鳥獣判別では、獣類について狩猟鳥獣か否かと名称を判断します。"
+  },
+  {
+    "id": "hunting-animal-006",
+    "category": "鳥獣",
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
+    "pattern": "single-choice",
+    "prompt": "第一種銃猟の鳥獣判別について適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "鳥類と獣類の両方が対象になり、狩猟鳥獣か否かを判断する" },
+      { "id": "b", "label": "獣類だけが対象で、鳥類は出題されない" },
+      { "id": "c", "label": "猟具名だけを判断し、鳥獣名は問われない" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "第一種銃猟の鳥獣判別では、鳥類と獣類の両方が対象になります。"
+  },
+  {
+    "id": "hunting-animal-007",
+    "category": "鳥獣",
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
+    "pattern": "single-choice",
+    "prompt": "狩猟獣だけを含む組み合わせとして適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "シマリス、キツネ、イタチ（オス）" },
+      { "id": "b", "label": "ニホンリス、ムササビ、モモンガ" },
+      { "id": "c", "label": "ニホンザル、オコジョ、イタチ（メス）" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "シマリス、キツネ、イタチ（オス）は狩猟獣として扱われます。"
+  },
+  {
+    "id": "hunting-animal-008",
+    "category": "鳥獣",
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
+    "pattern": "true-false",
+    "prompt": "狩猟鳥獣と似た外見の非狩猟鳥獣を誤って捕獲しないため、識別力は技能試験だけでなく実際の狩猟でも重要である。",
+    "choices": [
+      { "id": "a", "label": "正しい" },
+      { "id": "b", "label": "誤り" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "誤認は違法捕獲や事故につながるため、識別力は試験対策と実務の両方で重要です。"
+  },
+  {
+    "id": "hunting-animal-009",
+    "category": "鳥獣",
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
+    "pattern": "single-choice",
+    "prompt": "鳥獣判別で狩猟鳥獣と判断した場合の技能試験上の基本対応として適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "狩猟鳥獣か否かに加えて、その名前も答える" },
+      { "id": "b", "label": "名前は答えず、捕獲価格だけを答える" },
+      { "id": "c", "label": "どの鳥獣でも一律に非狩猟鳥獣と答える" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "狩猟鳥獣については、狩猟鳥獣か否かだけでなく名称も求められます。"
+  },
+  {
+    "id": "hunting-management-001",
+    "category": "鳥獣保護管理",
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
+    "pattern": "single-choice",
+    "prompt": "鳥獣の個体数管理について適切な考え方はどれか。",
+    "choices": [
+      { "id": "a", "label": "増えすぎても減りすぎても問題があるため、適正な密度水準で維持する" },
+      { "id": "b", "label": "鳥獣は多ければ多いほど必ず望ましい" },
+      { "id": "c", "label": "農林水産業被害があるため、すべての鳥獣をゼロに近づける" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "個体数管理では、生態系や被害防止の観点から適正な密度水準の維持が重要です。"
+  },
+  {
+    "id": "hunting-management-002",
+    "category": "鳥獣保護管理",
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
+    "pattern": "single-choice",
+    "prompt": "鳥獣保護管理法の目的に含まれる考え方として適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "生物多様性の確保、生活環境の保全、農林水産業の健全な発展に資すること" },
+      { "id": "b", "label": "狩猟を趣味として無制限に広げること" },
+      { "id": "c", "label": "捕獲数を常に最大化して地域差をなくすこと" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "鳥獣の保護及び管理並びに狩猟の適正化を通じて、生物多様性や生活環境、農林水産業に資することが目的です。"
+  },
+  {
+    "id": "hunting-ami-tool-001",
+    "category": "猟具",
+    "examId": "ami-hunting",
+    "pattern": "single-choice",
+    "prompt": "網猟免許で使用できる猟具の組み合わせとして適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "むそう網、はり網、つき網、なげ網" },
+      { "id": "b", "label": "くくりわな、はこわな、囲いわな" },
+      { "id": "c", "label": "ライフル銃、散弾銃、空気銃" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "網猟免許の猟具は、むそう網、はり網、つき網、なげ網です。"
+  },
+  {
+    "id": "hunting-ami-tool-002",
+    "category": "猟具",
+    "examId": "ami-hunting",
+    "pattern": "single-choice",
+    "prompt": "網猟の技能試験に関する説明として適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "使用可能猟具と禁止猟具を判別し、使用可能な網を取り扱う" },
+      { "id": "b", "label": "模造散弾銃を分解・結合する" },
+      { "id": "c", "label": "空気銃の圧縮操作だけを行う" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "網猟やわな猟では、使用可能猟具と禁止猟具の判別と、使用可能猟具の取り扱いが問われます。"
+  },
+  {
+    "id": "hunting-ami-tool-003",
+    "category": "猟具",
+    "examId": "ami-hunting",
+    "pattern": "true-false",
+    "prompt": "網猟免許で使用できる猟具には、装薬銃や空気銃が含まれる。",
+    "choices": [
+      { "id": "a", "label": "正しい" },
+      { "id": "b", "label": "誤り" }
+    ],
+    "correctChoiceIds": ["b"],
+    "explanation": "網猟免許の対象は網であり、銃器は銃猟免許の範囲です。"
+  },
+  {
+    "id": "hunting-ami-tool-004",
+    "category": "猟具",
+    "examId": "ami-hunting",
+    "pattern": "single-choice",
+    "prompt": "網猟で安全管理上もっとも適切な準備はどれか。",
+    "choices": [
+      { "id": "a", "label": "設置場所、対象鳥獣、周辺利用者、回収予定を事前に確認する" },
+      { "id": "b", "label": "網を設置した後は回収まで見回らない" },
+      { "id": "c", "label": "対象外の鳥獣がかかっても確認を後回しにする" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "設置・見回り・回収と錯誤捕獲への備えは安全な網猟に不可欠です。"
+  },
+  {
+    "id": "hunting-ami-tool-005",
+    "category": "猟具",
+    "examId": "ami-hunting",
+    "pattern": "single-choice",
+    "prompt": "網猟免許とわな猟免許の違いとして適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "網猟は網、わな猟はくくりわなやはこわな等を扱う" },
+      { "id": "b", "label": "網猟は銃、わな猟は空気銃だけを扱う" },
+      { "id": "c", "label": "どちらも猟具の種類に違いはない" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "免許区分は使用できる猟具で分かれます。"
+  },
+  {
+    "id": "hunting-ami-tool-006",
+    "category": "猟具",
+    "examId": "ami-hunting",
+    "pattern": "counting",
+    "prompt": "網猟免許で使用できる網はいくつあるか。むそう網、はり網、つき網、なげ網。",
+    "choices": [
+      { "id": "a", "label": "2つ" },
+      { "id": "b", "label": "3つ" },
+      { "id": "c", "label": "4つ" }
+    ],
+    "correctChoiceIds": ["c"],
+    "explanation": "列挙された4種類はいずれも網猟免許で扱う網です。"
+  },
+  {
+    "id": "hunting-wana-tool-001",
+    "category": "猟具",
+    "examId": "wana-hunting",
+    "pattern": "single-choice",
+    "prompt": "わな猟免許で使用できる猟具の組み合わせとして適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "くくりわな、はこわな、はこおとし、囲いわな" },
+      { "id": "b", "label": "むそう網、はり網、つき網、なげ網" },
+      { "id": "c", "label": "ライフル銃、散弾銃、空気銃" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "わな猟免許の猟具は、くくりわな、はこわな、はこおとし、囲いわなです。"
+  },
+  {
+    "id": "hunting-wana-tool-002",
+    "category": "猟具",
+    "examId": "wana-hunting",
+    "pattern": "single-choice",
+    "prompt": "わな設置時の標識について適切なものはどれか。",
     "visualHint": "標識札の配置例を図で示せます。",
     "figure": {
       "kind": "notice",
@@ -25,24 +443,814 @@
       "caption": "わな設置場所に設置者情報などを示す標識を置くイメージ"
     },
     "choices": [
-      { "id": "a", "label": "設置者情報などを示す標識" },
-      { "id": "b", "label": "獲物の販売価格" },
-      { "id": "c", "label": "任意の装飾札" },
-      { "id": "d", "label": "設置場所の地価" }
+      { "id": "a", "label": "設置者を確認できる標識などを設置する" },
+      { "id": "b", "label": "見つかりにくくするため標識は付けない" },
+      { "id": "c", "label": "標識には獲物の販売価格だけを書く" }
     ],
     "correctChoiceIds": ["a"],
-    "explanation": "わなの設置には設置者を確認できる標識などの法令遵守が必要になります。"
+    "explanation": "わなを設置する場合は、設置者を確認できる標識など法令に沿った表示が必要です。"
   },
   {
-    "id": "trap-hunting-q3",
-    "category": "鳥獣判別",
+    "id": "hunting-wana-tool-003",
+    "category": "猟具",
+    "examId": "wana-hunting",
+    "pattern": "single-choice",
+    "prompt": "高知県の説明で、わな猟技能試験の使用できない猟具として例示されているものはどれか。",
+    "choices": [
+      { "id": "a", "label": "とらばさみ" },
+      { "id": "b", "label": "金属製のはこわな" },
+      { "id": "c", "label": "竹筒式ストッパー付きのくくりわな" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "とらばさみは使用できない猟具として例示されています。"
+  },
+  {
+    "id": "hunting-wana-tool-004",
+    "category": "猟具",
+    "examId": "wana-hunting",
+    "pattern": "counting",
+    "prompt": "わな設置時の安全確認として適切なものはいくつあるか。標識の設置、見回り計画、錯誤捕獲時の連絡先確認、周辺利用者への配慮。",
+    "choices": [
+      { "id": "a", "label": "2つ" },
+      { "id": "b", "label": "3つ" },
+      { "id": "c", "label": "4つ" }
+    ],
+    "correctChoiceIds": ["c"],
+    "explanation": "列挙された4項目はいずれも安全管理に関係します。"
+  },
+  {
+    "id": "hunting-wana-tool-005",
+    "category": "猟具",
+    "examId": "wana-hunting",
     "pattern": "true-false",
-    "prompt": "錯誤捕獲が発生した場合は、状況に応じて関係先へ連絡し、適切な対応を取る必要がある。",
+    "prompt": "錯誤捕獲が発生した場合は、安全を確保し、状況に応じて関係先へ連絡して適切に対応する必要がある。",
     "choices": [
       { "id": "a", "label": "正しい" },
       { "id": "b", "label": "誤り" }
     ],
     "correctChoiceIds": ["a"],
-    "explanation": "錯誤捕獲時は安全を確保し、関係先への連絡や指示に従った対応が必要です。"
+    "explanation": "錯誤捕獲時は安全確保、関係先への連絡、指示に従った対応が必要です。"
+  },
+  {
+    "id": "hunting-wana-tool-006",
+    "category": "猟具",
+    "examId": "wana-hunting",
+    "pattern": "single-choice",
+    "prompt": "わな猟技能試験の猟具取り扱いで問われる内容として適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "複数の猟具について使用してよいかを判別し、使用可能な猟具を一つ架設する" },
+      { "id": "b", "label": "ライフル銃の分解と結合だけを行う" },
+      { "id": "c", "label": "距離目測だけで猟具判別は行わない" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "わな猟では猟具の使用可否判別と、使用可能猟具の架設が問われます。"
+  },
+  {
+    "id": "hunting-type1-tool-001",
+    "category": "猟具",
+    "examId": "type1-gun",
+    "pattern": "single-choice",
+    "prompt": "第一種銃猟免許で使用できる猟具の範囲として適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "装薬銃（ライフル銃・散弾銃）と空気銃（圧縮ガス銃を含む。）" },
+      { "id": "b", "label": "空気銃だけ" },
+      { "id": "c", "label": "網とわなだけ" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "第一種銃猟免許では、装薬銃と空気銃を使用できます。"
+  },
+  {
+    "id": "hunting-type1-tool-002",
+    "category": "猟具",
+    "examId": "type1-gun",
+    "pattern": "single-choice",
+    "prompt": "第一種銃猟の技能試験で行う目測の組み合わせとして適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "300m、50m、30m、10m" },
+      { "id": "b", "label": "500m、200m、100m、5m" },
+      { "id": "c", "label": "50mだけ" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "第一種銃猟では300m、50m、30m、10mの距離目測が行われます。"
+  },
+  {
+    "id": "hunting-type1-tool-003",
+    "category": "猟具",
+    "examId": "type1-gun",
+    "pattern": "single-choice",
+    "prompt": "第一種銃猟の銃器取り扱いとして適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "模造散弾銃の点検、分解・結合、装填、射撃姿勢、脱包操作などを行う" },
+      { "id": "b", "label": "網を捕獲可能な状態に組み立てるだけでよい" },
+      { "id": "c", "label": "銃口の向きは試験では確認されない" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "第一種銃猟では散弾銃・空気銃の操作や団体行動での安全な取り扱いが問われます。"
+  },
+  {
+    "id": "hunting-type1-tool-004",
+    "category": "猟具",
+    "examId": "type1-gun",
+    "pattern": "single-choice",
+    "prompt": "ライフル銃の使用に関する説明として適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "捕獲対象など法令上の条件を満たす場合に限って使用できる" },
+      { "id": "b", "label": "どの鳥獣にも、どの場所でも無条件に使用できる" },
+      { "id": "c", "label": "第一種銃猟免許ではライフル銃を扱わない" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "ライフル銃は第一種銃猟免許の範囲ですが、対象や場所などの法令条件を守る必要があります。"
+  },
+  {
+    "id": "hunting-type1-tool-005",
+    "category": "猟具",
+    "examId": "type1-gun",
+    "pattern": "true-false",
+    "prompt": "第一種銃猟免許の技能試験では、休憩時の銃器の取り扱いや団体行動での銃器保持も安全確認の対象になる。",
+    "choices": [
+      { "id": "a", "label": "正しい" },
+      { "id": "b", "label": "誤り" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "第一種銃猟では個人操作だけでなく、団体行動や休憩時の銃器取り扱いも問われます。"
+  },
+  {
+    "id": "hunting-type1-tool-006",
+    "category": "猟具",
+    "examId": "type1-gun",
+    "pattern": "single-choice",
+    "prompt": "装薬銃の安全な受け渡しとして適切な考え方はどれか。",
+    "choices": [
+      { "id": "a", "label": "脱包を確認し、銃口の向きと受け渡し方法を安全に保つ" },
+      { "id": "b", "label": "安全装置がかかっていれば装填したまま渡してよい" },
+      { "id": "c", "label": "離れている相手には合図して投げ渡す" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "銃器の受け渡しでは脱包、銃口方向、直接の安全な受け渡しが基本です。"
+  },
+  {
+    "id": "hunting-type2-tool-001",
+    "category": "猟具",
+    "examId": "type2-gun",
+    "pattern": "single-choice",
+    "prompt": "第二種銃猟免許で使用できる猟具として適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "空気銃（圧縮ガス銃を含む。）" },
+      { "id": "b", "label": "ライフル銃と散弾銃" },
+      { "id": "c", "label": "くくりわなとはこわな" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "第二種銃猟免許の範囲は空気銃です。"
+  },
+  {
+    "id": "hunting-type2-tool-002",
+    "category": "猟具",
+    "examId": "type2-gun",
+    "pattern": "single-choice",
+    "prompt": "第二種銃猟の技能試験で行う目測の組み合わせとして適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "300m、30m、10m" },
+      { "id": "b", "label": "300m、50m、30m、10m" },
+      { "id": "c", "label": "50m、5m" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "第二種銃猟では300m、30m、10mの距離目測が行われます。"
+  },
+  {
+    "id": "hunting-type2-tool-003",
+    "category": "猟具",
+    "examId": "type2-gun",
+    "pattern": "single-choice",
+    "prompt": "第二種銃猟の猟具取り扱いとして適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "空気銃の圧縮操作、装填、射撃姿勢を行う" },
+      { "id": "b", "label": "散弾銃の分解・結合を中心に行う" },
+      { "id": "c", "label": "網の組み立てだけを行う" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "第二種銃猟では空気銃の圧縮操作、装填、射撃姿勢が問われます。"
+  },
+  {
+    "id": "hunting-type2-tool-004",
+    "category": "猟具",
+    "examId": "type2-gun",
+    "pattern": "true-false",
+    "prompt": "第二種銃猟免許だけで、ライフル銃や散弾銃を使った狩猟ができる。",
+    "choices": [
+      { "id": "a", "label": "正しい" },
+      { "id": "b", "label": "誤り" }
+    ],
+    "correctChoiceIds": ["b"],
+    "explanation": "ライフル銃や散弾銃は第一種銃猟免許の範囲で、第二種銃猟免許は空気銃が対象です。"
+  },
+  {
+    "id": "hunting-type2-tool-005",
+    "category": "猟具",
+    "examId": "type2-gun",
+    "pattern": "single-choice",
+    "prompt": "第二種銃猟免許で銃を実際に所持する場合の説明として適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "狩猟免許とは別に、銃の所持許可と適切な保管管理が必要になる" },
+      { "id": "b", "label": "空気銃であれば所持許可や保管管理は不要である" },
+      { "id": "c", "label": "狩猟者登録をすれば銃の所持許可も自動的に得られる" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "空気銃であっても、所持には銃刀法に基づく許可と安全な保管管理が必要です。"
+  },
+  {
+    "id": "hunting-type2-tool-006",
+    "category": "猟具",
+    "examId": "type2-gun",
+    "pattern": "single-choice",
+    "prompt": "第一種銃猟免許と第二種銃猟免許の違いとして適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "第一種は装薬銃と空気銃、第二種は空気銃を扱う" },
+      { "id": "b", "label": "第一種は網、第二種はわなを扱う" },
+      { "id": "c", "label": "どちらも装薬銃だけを扱い、空気銃は含まれない" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "第一種銃猟免許は装薬銃と空気銃、第二種銃猟免許は空気銃の免許です。"
+  },
+  {
+    "id": "hunting-law-014",
+    "category": "法令",
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
+    "pattern": "single-choice",
+    "prompt": "狩猟免許の区分を選ぶ考え方として適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "実際に使用しようとする猟具に対応した免許区分を受ける" },
+      { "id": "b", "label": "どの猟具を使う場合でも、最も受験者が多い区分だけを受ける" },
+      { "id": "c", "label": "狩猟者登録をすれば免許区分は関係なくなる" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "免許区分は使用できる猟具と対応しているため、使う猟具に合う区分が必要です。"
+  },
+  {
+    "id": "hunting-law-015",
+    "category": "法令",
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
+    "pattern": "single-choice",
+    "prompt": "狩猟免許の受験申請について適切な説明はどれか。",
+    "choices": [
+      { "id": "a", "label": "試験日、場所、申請書類などの詳細は都道府県の担当部局に確認する" },
+      { "id": "b", "label": "全国で同一日程・同一会場でだけ実施される" },
+      { "id": "c", "label": "猟友会に加入していれば申請書類は不要になる" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "狩猟免許試験は都道府県ごとに実施され、申請の詳細も地域ごとに確認します。"
+  },
+  {
+    "id": "hunting-law-016",
+    "category": "法令",
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
+    "pattern": "single-choice",
+    "prompt": "網猟免許・わな猟免許の受験年齢に関する説明として適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "原則として18歳以上が対象になる" },
+      { "id": "b", "label": "原則として20歳以上が対象になる" },
+      { "id": "c", "label": "年齢制限はなく、猟具を持っていれば受験できる" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "網猟・わな猟は18歳以上、銃猟免許は20歳以上として案内されています。"
+  },
+  {
+    "id": "hunting-law-017",
+    "category": "法令",
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
+    "pattern": "single-choice",
+    "prompt": "第一種・第二種銃猟免許の受験年齢に関する説明として適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "原則として20歳以上が対象になる" },
+      { "id": "b", "label": "原則として18歳以上が対象になる" },
+      { "id": "c", "label": "銃を所持していれば年齢は問われない" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "銃猟免許は20歳以上として案内されています。"
+  },
+  {
+    "id": "hunting-law-018",
+    "category": "法令",
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
+    "pattern": "single-choice",
+    "prompt": "銃砲や火薬類に関係する法令の理解として適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "狩猟免許試験では鳥獣保護管理法だけでなく、銃刀法や火薬類取締法の関連知識も重要になる" },
+      { "id": "b", "label": "銃を使う場合でも、鳥獣保護管理法以外の法令は一切関係しない" },
+      { "id": "c", "label": "火薬類の扱いは狩猟者登録だけで自動的に許可される" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "銃猟では鳥獣保護管理法に加えて、銃刀法や火薬類取締法の理解も必要です。"
+  },
+  {
+    "id": "hunting-law-019",
+    "category": "法令",
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
+    "pattern": "single-choice",
+    "prompt": "鳥獣保護区に関する基本的な理解として適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "鳥獣の保護を図るために指定され、捕獲には区域ごとの規制確認が必要になる" },
+      { "id": "b", "label": "狩猟者登録をした人だけが自由に捕獲できる区域である" },
+      { "id": "c", "label": "銃猟だけが禁止され、網やわなは常に使用できる区域である" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "鳥獣保護区などでは捕獲の可否や方法に規制があるため、区域ごとの確認が必要です。"
+  },
+  {
+    "id": "hunting-animal-010",
+    "category": "鳥獣",
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
+    "pattern": "single-choice",
+    "prompt": "狩猟鳥獣に含まれる組み合わせとして適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "スズメ、ムクドリ、キジバト" },
+      { "id": "b", "label": "ドバト、モズ、カケス" },
+      { "id": "c", "label": "オシドリ、トモエガモ、オオバン" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "スズメ、ムクドリ、キジバトは狩猟鳥獣として扱われる代表例です。"
+  },
+  {
+    "id": "hunting-animal-011",
+    "category": "鳥獣",
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
+    "pattern": "single-choice",
+    "prompt": "狩猟鳥獣に含まれるカモ類だけを含む組み合わせはどれか。",
+    "choices": [
+      { "id": "a", "label": "マガモ、カルガモ、コガモ" },
+      { "id": "b", "label": "オシドリ、トモエガモ、ホオジロガモ" },
+      { "id": "c", "label": "ウミアイサ、ビロウドキンクロ、コオリガモ" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "マガモ、カルガモ、コガモは狩猟鳥獣のカモ類として扱われます。"
+  },
+  {
+    "id": "hunting-animal-012",
+    "category": "鳥獣",
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
+    "pattern": "single-choice",
+    "prompt": "イタチの判別について適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "オスは狩猟鳥獣、メスは非狩猟鳥獣として区別する" },
+      { "id": "b", "label": "オスもメスも常に狩猟鳥獣として扱う" },
+      { "id": "c", "label": "オスもメスも常に非狩猟鳥獣として扱う" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "技能試験の例示でも、イタチはオスとメスの扱いを区別します。"
+  },
+  {
+    "id": "hunting-animal-013",
+    "category": "鳥獣",
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
+    "pattern": "single-choice",
+    "prompt": "外来種を含む狩猟獣の組み合わせとして適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "アライグマ、ミンク、ハクビシン" },
+      { "id": "b", "label": "ニホンザル、カモシカ、オコジョ" },
+      { "id": "c", "label": "ムササビ、モモンガ、ニホンリス" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "アライグマ、ミンク、ハクビシンは狩猟獣として扱われる代表例です。"
+  },
+  {
+    "id": "hunting-animal-014",
+    "category": "鳥獣",
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
+    "pattern": "single-choice",
+    "prompt": "わな猟で特に誤認を避けるべき非狩猟獣の組み合わせとして適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "カモシカ、ニホンザル、ニホンリス" },
+      { "id": "b", "label": "タヌキ、キツネ、アナグマ" },
+      { "id": "c", "label": "ニホンジカ、イノシシ、テン" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "カモシカ、ニホンザル、ニホンリスは非狩猟鳥獣として誤認防止が重要です。"
+  },
+  {
+    "id": "hunting-animal-015",
+    "category": "鳥獣",
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
+    "pattern": "single-choice",
+    "prompt": "狩猟鳥獣の名前を答える技能試験で、もっとも適切な学習方法はどれか。",
+    "choices": [
+      { "id": "a", "label": "狩猟鳥獣と非狩猟鳥獣を、似た種の組み合わせで比較して覚える" },
+      { "id": "b", "label": "名前を覚えず、すべて狩猟鳥獣と答える練習だけをする" },
+      { "id": "c", "label": "猟具名だけを覚え、鳥獣名の学習は省略する" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "技能試験では狩猟鳥獣か否かと名称が問われるため、似た種との比較が有効です。"
+  },
+  {
+    "id": "hunting-animal-016",
+    "category": "鳥獣",
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
+    "pattern": "single-choice",
+    "prompt": "大型獣の大きさに関する判断として適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "一般にイノシシはタヌキより大きい" },
+      { "id": "b", "label": "一般にキツネはニホンジカより大きい" },
+      { "id": "c", "label": "一般にメスのイタチはオスのイタチより大きい" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "高知県の例題テーマと同様に、代表的な大きさの比較を押さえる必要があります。"
+  },
+  {
+    "id": "hunting-animal-017",
+    "category": "鳥獣",
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
+    "pattern": "true-false",
+    "prompt": "鳥類を対象にする銃猟や網猟では、狩猟鳥と保護鳥の誤認が違法捕獲につながるため、鳥類の識別も重要である。",
+    "choices": [
+      { "id": "a", "label": "正しい" },
+      { "id": "b", "label": "誤り" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "鳥類を扱う猟法では、狩猟鳥と非狩猟鳥の判別が重要です。"
+  },
+  {
+    "id": "hunting-management-003",
+    "category": "鳥獣保護管理",
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
+    "pattern": "single-choice",
+    "prompt": "錯誤捕獲を防ぐ考え方として適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "対象種の痕跡、通り道、周辺の非対象種の生息状況を確認して猟具を設置する" },
+      { "id": "b", "label": "捕獲効率だけを優先し、対象外の鳥獣の可能性は考えない" },
+      { "id": "c", "label": "錯誤捕獲は試験上の用語で、実際の猟では考えなくてよい" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "錯誤捕獲の防止は鳥獣保護管理と安全管理の両面で重要です。"
+  },
+  {
+    "id": "hunting-management-004",
+    "category": "鳥獣保護管理",
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
+    "pattern": "single-choice",
+    "prompt": "農林水産業被害と鳥獣保護管理の関係として適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "被害防止と生態系保全の両方を考え、適正な管理を行う" },
+      { "id": "b", "label": "被害があれば、法令上の手続や区域規制を確認せずに捕獲してよい" },
+      { "id": "c", "label": "農林水産業被害は狩猟制度とは一切関係がない" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "鳥獣保護管理では、被害防止と生態系保全の両立が求められます。"
+  },
+  {
+    "id": "hunting-management-005",
+    "category": "鳥獣保護管理",
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
+    "pattern": "single-choice",
+    "prompt": "捕獲数制限がある鳥獣への対応として適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "鳥獣ごとの制限や地域の告示を確認し、上限を超えないようにする" },
+      { "id": "b", "label": "狩猟免許があれば、すべての鳥獣を無制限に捕獲できる" },
+      { "id": "c", "label": "捕獲数制限は銃猟だけに関係し、他の猟法には一切関係しない" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "捕獲数には鳥獣や地域ごとの制限があるため、最新の規制を確認します。"
+  },
+  {
+    "id": "hunting-management-006",
+    "category": "鳥獣保護管理",
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
+    "pattern": "true-false",
+    "prompt": "鳥獣保護管理では、個体数だけでなく、生息環境、生活環境、農林水産業への影響も考慮する。",
+    "choices": [
+      { "id": "a", "label": "正しい" },
+      { "id": "b", "label": "誤り" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "鳥獣保護管理は、生態系や生活環境、産業被害などを総合的に考えます。"
+  },
+  {
+    "id": "hunting-ami-tool-007",
+    "category": "猟具",
+    "examId": "ami-hunting",
+    "pattern": "single-choice",
+    "prompt": "網猟で捕獲対象や場所の確認が重要な理由として適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "対象外の鳥獣や人への危険を避け、適法な捕獲にするため" },
+      { "id": "b", "label": "網猟では設置後の管理が不要になるため" },
+      { "id": "c", "label": "網猟では鳥獣の識別が試験範囲に含まれないため" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "網猟でも、対象鳥獣、設置場所、周辺安全、錯誤捕獲防止を確認します。"
+  },
+  {
+    "id": "hunting-ami-tool-008",
+    "category": "猟具",
+    "examId": "ami-hunting",
+    "pattern": "single-choice",
+    "prompt": "網猟免許の猟具として不適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "はこわな" },
+      { "id": "b", "label": "むそう網" },
+      { "id": "c", "label": "なげ網" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "はこわなはわな猟の猟具であり、網猟免許の網ではありません。"
+  },
+  {
+    "id": "hunting-ami-tool-009",
+    "category": "猟具",
+    "examId": "ami-hunting",
+    "pattern": "single-choice",
+    "prompt": "網猟で使用可能猟具の判別を誤った場合のリスクとして適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "禁止猟具の使用や対象外捕獲につながるおそれがある" },
+      { "id": "b", "label": "試験点だけの問題で、実際の法令遵守には影響しない" },
+      { "id": "c", "label": "網猟では禁止猟具という考え方がない" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "猟具の使用可否判別は技能試験でも実務でも重要です。"
+  },
+  {
+    "id": "hunting-ami-tool-010",
+    "category": "猟具",
+    "examId": "ami-hunting",
+    "pattern": "true-false",
+    "prompt": "網猟免許では、鳥獣判別や猟具判別に加えて、使用可能な網の取り扱いも確認される。",
+    "choices": [
+      { "id": "a", "label": "正しい" },
+      { "id": "b", "label": "誤り" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "網猟では、鳥獣判別、猟具の使用可否判別、使用可能猟具の取り扱いが重要です。"
+  },
+  {
+    "id": "hunting-ami-tool-011",
+    "category": "猟具",
+    "examId": "ami-hunting",
+    "pattern": "single-choice",
+    "prompt": "つき網・なげ網を含む網猟の学習で優先すべき観点はどれか。",
+    "choices": [
+      { "id": "a", "label": "網の種類、対象、設置・使用方法、安全確認を区別して覚える" },
+      { "id": "b", "label": "網の名前だけを暗記し、使用方法や安全確認は学ばない" },
+      { "id": "c", "label": "銃器操作を覚えれば網の学習は不要になる" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "網猟では猟具名だけでなく、使い方と安全確認を区別して理解します。"
+  },
+  {
+    "id": "hunting-ami-tool-012",
+    "category": "猟具",
+    "examId": "ami-hunting",
+    "pattern": "counting",
+    "prompt": "網猟の準備として確認すべきものはいくつあるか。対象鳥獣、使用できる網の種類、設置場所の規制、回収・見回り計画。",
+    "choices": [
+      { "id": "a", "label": "2つ" },
+      { "id": "b", "label": "3つ" },
+      { "id": "c", "label": "4つ" }
+    ],
+    "correctChoiceIds": ["c"],
+    "explanation": "列挙された4項目はいずれも網猟の準備で確認すべき事項です。"
+  },
+  {
+    "id": "hunting-wana-tool-007",
+    "category": "猟具",
+    "examId": "wana-hunting",
+    "pattern": "single-choice",
+    "prompt": "くくりわなの安全管理として適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "対象動物の通り道、締め付け部、ストッパー、標識、見回りを確認する" },
+      { "id": "b", "label": "人が通る道に目立たないよう設置し、標識を省略する" },
+      { "id": "c", "label": "設置後は捕獲されるまで見回らない" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "くくりわなでは構造確認、標識、見回り、周辺安全が重要です。"
+  },
+  {
+    "id": "hunting-wana-tool-008",
+    "category": "猟具",
+    "examId": "wana-hunting",
+    "pattern": "single-choice",
+    "prompt": "わな猟免許の猟具として不適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "むそう網" },
+      { "id": "b", "label": "はこわな" },
+      { "id": "c", "label": "囲いわな" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "むそう網は網猟の猟具であり、わな猟免許のわなではありません。"
+  },
+  {
+    "id": "hunting-wana-tool-009",
+    "category": "猟具",
+    "examId": "wana-hunting",
+    "pattern": "single-choice",
+    "prompt": "はこわなの取り扱いで適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "対象動物、扉の作動、安全な設置場所、標識、見回りを確認する" },
+      { "id": "b", "label": "扉の作動確認は捕獲効率に関係しないため不要である" },
+      { "id": "c", "label": "人家や道路の近くでも、標識がなければ安全である" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "はこわなは作動確認、設置場所、標識、見回りなどの安全管理が必要です。"
+  },
+  {
+    "id": "hunting-wana-tool-010",
+    "category": "猟具",
+    "examId": "wana-hunting",
+    "pattern": "true-false",
+    "prompt": "わな猟では、使用可能猟具と使用できない猟具の判別が技能試験の重要な要素になる。",
+    "choices": [
+      { "id": "a", "label": "正しい" },
+      { "id": "b", "label": "誤り" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "わな猟の技能試験では、複数の猟具について使用可否を判別します。"
+  },
+  {
+    "id": "hunting-wana-tool-011",
+    "category": "猟具",
+    "examId": "wana-hunting",
+    "pattern": "single-choice",
+    "prompt": "囲いわなの学習で押さえるべき観点として適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "対象動物の侵入経路、扉や囲いの構造、標識、見回り、錯誤捕獲対応" },
+      { "id": "b", "label": "囲いが大きければ対象外の鳥獣を気にしなくてよい" },
+      { "id": "c", "label": "囲いわなはわな猟免許の範囲ではない" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "囲いわなでも構造と安全管理、錯誤捕獲対応が重要です。"
+  },
+  {
+    "id": "hunting-wana-tool-012",
+    "category": "猟具",
+    "examId": "wana-hunting",
+    "pattern": "counting",
+    "prompt": "わな猟免許で扱うわなはいくつあるか。くくりわな、はこわな、はこおとし、囲いわな。",
+    "choices": [
+      { "id": "a", "label": "2つ" },
+      { "id": "b", "label": "3つ" },
+      { "id": "c", "label": "4つ" }
+    ],
+    "correctChoiceIds": ["c"],
+    "explanation": "列挙された4種類はいずれもわな猟免許で扱うわなです。"
+  },
+  {
+    "id": "hunting-type1-tool-007",
+    "category": "猟具",
+    "examId": "type1-gun",
+    "pattern": "single-choice",
+    "prompt": "散弾銃の安全管理として適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "脱包確認、銃口方向、安全装置、周囲と矢先の確認を徹底する" },
+      { "id": "b", "label": "安全装置があれば銃口方向の確認は不要である" },
+      { "id": "c", "label": "休憩時は装填したまま地面に置いてよい" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "銃器では脱包、銃口方向、周囲確認を含む安全管理が基本です。"
+  },
+  {
+    "id": "hunting-type1-tool-008",
+    "category": "猟具",
+    "examId": "type1-gun",
+    "pattern": "single-choice",
+    "prompt": "第一種銃猟で扱う装薬銃として適切な組み合わせはどれか。",
+    "choices": [
+      { "id": "a", "label": "ライフル銃、散弾銃" },
+      { "id": "b", "label": "むそう網、はり網" },
+      { "id": "c", "label": "くくりわな、はこわな" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "第一種銃猟では装薬銃としてライフル銃や散弾銃を扱います。"
+  },
+  {
+    "id": "hunting-type1-tool-009",
+    "category": "猟具",
+    "examId": "type1-gun",
+    "pattern": "single-choice",
+    "prompt": "銃器を持って移動する団体行動で適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "銃口を安全な方向に保ち、隊列や受け渡しの合図を守る" },
+      { "id": "b", "label": "仲間が近くにいるほど銃口方向の確認は省略できる" },
+      { "id": "c", "label": "弾が入っていれば受け渡しの手順を短縮できる" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "団体行動では、銃口方向、保持方法、受け渡し手順を守ることが重要です。"
+  },
+  {
+    "id": "hunting-type1-tool-010",
+    "category": "猟具",
+    "examId": "type1-gun",
+    "pattern": "true-false",
+    "prompt": "第一種銃猟免許では、模造散弾銃と模造空気銃の両方に関する操作が技能試験で扱われる。",
+    "choices": [
+      { "id": "a", "label": "正しい" },
+      { "id": "b", "label": "誤り" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "第一種銃猟では散弾銃の点検・分解等に加え、空気銃の操作も扱われます。"
+  },
+  {
+    "id": "hunting-type1-tool-011",
+    "category": "猟具",
+    "examId": "type1-gun",
+    "pattern": "single-choice",
+    "prompt": "弾丸が到達するおそれがある方向への発砲について適切な判断はどれか。",
+    "choices": [
+      { "id": "a", "label": "人、飼養動物、建物、車両、船舶などへ向かう発砲は避けなければならない" },
+      { "id": "b", "label": "空気銃なら建物に向けても常に認められる" },
+      { "id": "c", "label": "獲物が見えれば矢先の確認は不要である" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "銃猟では矢先と弾丸の到達範囲を確認し、危険な方向への発砲を避けます。"
+  },
+  {
+    "id": "hunting-type1-tool-012",
+    "category": "猟具",
+    "examId": "type1-gun",
+    "pattern": "counting",
+    "prompt": "第一種銃猟の目測対象はいくつあるか。300m、50m、30m、10m。",
+    "choices": [
+      { "id": "a", "label": "2つ" },
+      { "id": "b", "label": "3つ" },
+      { "id": "c", "label": "4つ" }
+    ],
+    "correctChoiceIds": ["c"],
+    "explanation": "第一種銃猟では4種類の距離目測が扱われます。"
+  },
+  {
+    "id": "hunting-type2-tool-007",
+    "category": "猟具",
+    "examId": "type2-gun",
+    "pattern": "single-choice",
+    "prompt": "空気銃の技能試験操作として適切な組み合わせはどれか。",
+    "choices": [
+      { "id": "a", "label": "圧縮操作、装填、射撃姿勢" },
+      { "id": "b", "label": "散弾銃の分解、結合、脱包" },
+      { "id": "c", "label": "網の組み立て、わなの架設" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "第二種銃猟では空気銃の圧縮操作、装填、射撃姿勢が中心です。"
+  },
+  {
+    "id": "hunting-type2-tool-008",
+    "category": "猟具",
+    "examId": "type2-gun",
+    "pattern": "single-choice",
+    "prompt": "第二種銃猟免許の範囲として不適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "散弾銃" },
+      { "id": "b", "label": "空気銃" },
+      { "id": "c", "label": "圧縮ガス銃を含む空気銃" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "散弾銃は第一種銃猟免許の範囲で、第二種銃猟免許は空気銃が対象です。"
+  },
+  {
+    "id": "hunting-type2-tool-009",
+    "category": "猟具",
+    "examId": "type2-gun",
+    "pattern": "single-choice",
+    "prompt": "空気銃で狩猟を行う場合の安全確認として適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "銃口方向、装填状態、矢先、対象鳥獣、周辺の人や建物を確認する" },
+      { "id": "b", "label": "装薬銃ではないため、矢先確認は不要である" },
+      { "id": "c", "label": "反動が小さいため、保管や運搬の安全管理は不要である" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "空気銃でも銃器としての安全確認と保管管理が必要です。"
+  },
+  {
+    "id": "hunting-type2-tool-010",
+    "category": "猟具",
+    "examId": "type2-gun",
+    "pattern": "true-false",
+    "prompt": "第二種銃猟免許では、目測として300m、30m、10mが扱われる。",
+    "choices": [
+      { "id": "a", "label": "正しい" },
+      { "id": "b", "label": "誤り" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "第二種銃猟では300m、30m、10mの目測が扱われます。"
+  },
+  {
+    "id": "hunting-type2-tool-011",
+    "category": "猟具",
+    "examId": "type2-gun",
+    "pattern": "single-choice",
+    "prompt": "空気銃の所持許可と狩猟免許の関係として適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "狩猟免許は狩猟制度上の資格で、銃の所持許可は別に必要になる" },
+      { "id": "b", "label": "第二種銃猟免許を取得すると、空気銃の所持許可証も同時に交付される" },
+      { "id": "c", "label": "空気銃は猟具ではないため、狩猟免許とも所持許可とも関係しない" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "第二種銃猟免許と空気銃の所持許可は別制度です。"
+  },
+  {
+    "id": "hunting-type2-tool-012",
+    "category": "猟具",
+    "examId": "type2-gun",
+    "pattern": "counting",
+    "prompt": "第二種銃猟の目測対象はいくつあるか。300m、30m、10m。",
+    "choices": [
+      { "id": "a", "label": "2つ" },
+      { "id": "b", "label": "3つ" },
+      { "id": "c", "label": "4つ" }
+    ],
+    "correctChoiceIds": ["b"],
+    "explanation": "第二種銃猟では3種類の距離目測が扱われます。"
   }
 ]

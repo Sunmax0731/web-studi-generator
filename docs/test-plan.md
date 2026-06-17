@@ -4,46 +4,34 @@
 
 | Check | Command | Purpose | Status |
 | --- | --- | --- | --- |
-| Lint | `npm run lint` | Generator, templates, and tests style check | Passed |
-| Unit tests | `npm test` | Schema validation, exam metric helpers, expanded FE question pools, and 色彩検定 variant counts | Passed: 3 tests |
+| Lint | `npm run lint` | Generator, templates, study data, and tests style check | Passed |
+| Unit tests | `npm test` | Schema validation, exam metric helpers, FE/color variants, and 狩猟免許 4-variant pool counts | Passed: 3 tests |
 | Static build | `npm run build` | Generate GitHub Pages files into `dist/` | Passed: 3 studies generated |
-| E2E smoke | `npm run e2e` | Browser verification of generated static site, expanded FE pools, FE variants, 色彩検定 variants, per-attempt question-count selection, and answer-symbol randomization | Passed: 4 Chromium tests |
-| Runtime gate | Playwright fallback script | Open generated mock-test pages, verify FE default counts and expanded pool maxima, start attempts, and check console health | Passed |
+| E2E smoke | `npm run e2e` | Browser verification of generated static site, existing variants, per-attempt question-count selection, answer-symbol randomization, and 狩猟免許 variants | Passed: 5 Chromium tests |
+| Runtime gate | Playwright fallback script | Open 狩猟免許 study and mock-test pages, verify desktop/mobile rendering and start interaction | Passed |
 | Docs ZIP | `npm run docs:zip` | Release documentation bundle | Passed |
 
 ## Runtime Gate
 
 Required generated Web page gate for this task:
 
-- Top page is non-blank and links the registered studies. Passed.
-- Basic information study page shows 5 units and recorded local/web sources. Passed.
-- Basic information study page shows 科目A and 科目B mock-test choices. Passed.
-- 科目A mock-test page opens at `/studies/basic-info/mock-test/kamoku-a/`. Passed.
-- 科目A has 90 minutes and defaults to 60 questions from a 90-question pool. Passed.
-- 科目A question-count setting defaults to 60 and can start an attempt with 10 questions. Passed.
-- 科目A single-question mode respects a 3-question attempt and shows `1 / 3` in the pager. Passed.
-- 科目B mock-test page opens at `/studies/basic-info/mock-test/kamoku-b/`. Passed.
-- 科目B has 100 minutes and defaults to 20 questions from a 35-question pool. Passed.
-- 色彩検定 study page shows 4 mock-test choices: 3級, 2級, 1級1次, 1級2次. Passed.
-- 色彩検定 study page groups learning units by 3級, 2級, 1級1次, and 1級2次. Passed.
-- 色彩検定 3級 mock-test page opens at `/studies/color-test/mock-test/grade-3/`. Passed.
-- 色彩検定 3級 has 60 minutes and 97 questions. Passed.
-- 色彩検定 2級 mock-test page opens at `/studies/color-test/mock-test/grade-2/`. Passed.
-- 色彩検定 2級 has 70 minutes and 104 questions. Passed.
-- 色彩検定 1級1次 mock-test page opens at `/studies/color-test/mock-test/grade-1-first/`. Passed.
-- 色彩検定 1級1次 has 80 minutes and 109 questions. Passed.
-- 色彩検定 1級2次 mock-test page opens at `/studies/color-test/mock-test/grade-1-second/`. Passed.
-- 色彩検定 1級2次 has 90 minutes and 31 questions, shown in single-question mode with pager. Passed.
+- Top page links the registered studies. Passed via E2E.
+- 狩猟免許 study page opens at `/studies/trap-hunting/`. Passed.
+- 狩猟免許 study page shows 4 mock-test choices: 網猟免許, わな猟免許, 第一種銃猟免許, 第二種銃猟免許. Passed.
+- 狩猟免許 study page groups learning units by the 4 exam variants. Passed.
+- 網猟免許 mock-test page opens at `/studies/trap-hunting/mock-test/ami-hunting/`. Passed.
+- わな猟免許 mock-test page opens at `/studies/trap-hunting/mock-test/wana-hunting/`. Passed.
+- 第一種銃猟免許 mock-test page opens at `/studies/trap-hunting/mock-test/type1-gun/`. Passed.
+- 第二種銃猟免許 mock-test page opens at `/studies/trap-hunting/mock-test/type2-gun/`. Passed.
+- Each 狩猟免許 variant defaults to 90 minutes and 30 questions from a 54-question pool. Passed.
+- Each 狩猟免許 variant includes its own 猟具 question set. Passed.
 - Questions are hidden until Start is pressed. Passed.
-- Display mode, total time, question count, and font size controls work. Passed.
-- Category selector is absent during answering. Passed.
+- Starting an attempt displays 30 questions. Passed.
+- Category selector is absent during answering. Passed via existing E2E.
 - Category is shown as read-only question metadata. Passed.
-- Figure question renders in 科目A. Passed.
-- Answer choice order and displayed A/B/C/D symbols are randomized per attempt. Passed.
-- Answer selection shows correctness feedback. Passed.
-- Remaining time, average answer time, and remaining-question pace are visible. Passed.
+- Figure question renders in the わな猟 variant. Passed via generated content and existing figure checks.
 - Desktop and mobile widths do not overlap or clip primary text. Passed at 1440x1000 and 390x900.
-- Browser plugin path was attempted but `iab` was unavailable; Playwright fallback verified `/studies/basic-info/mock-test/kamoku-a/` default 60 from max 90 and `/studies/basic-info/mock-test/kamoku-b/` max 35, no console warnings/errors. Passed.
+- Browser plugin path was attempted but `iab` was unavailable; Playwright fallback verified `/studies/trap-hunting/`, `/studies/trap-hunting/mock-test/type1-gun/`, and `/studies/trap-hunting/mock-test/ami-hunting/` with no console warnings/errors. Passed.
 
 Runtime screenshots are stored under ignored `output/playwright/`.
 
@@ -61,6 +49,5 @@ Runtime screenshots are stored under ignored `output/playwright/`.
 
 - Source reading is performed by Codex during the session, not by a committed crawler.
 - PDF/web extraction adapters are not automated CLI commands yet.
-- The FE mock questions are original practice questions based on syllabus and public-question themes, not verbatim copies of published question booklets.
-- The 色彩検定 mock questions are original practice questions based on the official level guide, public examples, and public model-answer structure, not verbatim copies of published question booklets.
+- The 狩猟免許 mock questions are original practice questions based on public syllabus and public-question themes, not verbatim copies of published question booklets.
 - Inline generated figures are supported for registered figure kinds. Study-specific uploaded image asset copying is still a follow-up.

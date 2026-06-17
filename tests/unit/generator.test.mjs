@@ -65,6 +65,24 @@ test('registered studies satisfy the static generation schema', async () => {
         assert.equal(questions.filter((question) => question.examId === examId).length, questionCount)
       }
     }
+    if (entry.id === 'trap-hunting') {
+      const expectedVariants = [
+        ['ami-hunting', 90, 30, 54],
+        ['wana-hunting', 90, 30, 54],
+        ['type1-gun', 90, 30, 54],
+        ['type2-gun', 90, 30, 54],
+      ]
+      assert.deepEqual(
+        config.examVariants.map((variant) => [variant.id, variant.totalMinutes, variant.questionCount]),
+        expectedVariants.map(([id, minutes, questionCount]) => [id, minutes, questionCount]),
+      )
+      for (const [examId, , , poolCount] of expectedVariants) {
+        assert.equal(
+          questions.filter((question) => question.examId === examId || question.examIds?.includes(examId)).length,
+          poolCount,
+        )
+      }
+    }
   }
   assert.ok(figureCount >= 3)
 })

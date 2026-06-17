@@ -1,5 +1,5 @@
 {
-  "date": "2026-06-17",
+  "date": "2026-06-18",
   "allowedRatings": ["S+", "S-", "A+", "A-", "B+", "B-", "C+", "C-", "D+", "D-"],
   "ratings": {
     "quality": {
@@ -9,17 +9,13 @@
         "npm run lint passed",
         "npm test passed: 3 tests",
         "npm run build passed: 3 studies generated",
-        "npm run e2e passed: 3 Chromium tests",
-        "Playwright runtime gate passed for FE and color-test variants",
-        "Color-test grade-3: 60 minutes and 97 questions",
-        "Color-test grade-2: 70 minutes and 104 questions",
-        "Color-test grade-1-first: 80 minutes and 109 questions",
-        "Color-test grade-1-second: 90 minutes and 31 questions",
-        "Color-test learning units grouped by grade",
+        "npm run e2e passed: 5 Chromium tests",
+        "狩猟免許 variants: ami-hunting, wana-hunting, type1-gun, type2-gun",
+        "Each 狩猟免許 variant defaults to 90 minutes and 30 questions from a 54-question pool",
+        "License-specific 猟具 question sets verified",
         "Questions hidden until Start",
-        "Figure question rendered",
         "Read-only category metadata visible",
-        "Answer choice order and displayed symbols randomize per attempt"
+        "Runtime gate passed for desktop and mobile"
       ]
     },
     "cost": {
@@ -31,10 +27,10 @@
       "rating": "A-",
       "status": "complete",
       "evidence": [
-        "Static generator implemented",
-        "Data contracts and templates implemented",
-        "GitHub Pages workflow implemented",
-        "Color-test sources archived from materials",
+        "Existing examVariants model reused",
+        "Trap-hunting study expanded to full 狩猟免許 coverage",
+        "User-provided materials archived under studies/trap-hunting/sources",
+        "materials inbox left empty",
         "GitHub Pages workflow ready for branch push"
       ]
     },
@@ -42,17 +38,11 @@
       "rating": "A-",
       "status": "complete",
       "evidence": [
-        "Generated top page verified",
-        "Generated study page verified",
-        "Color-test 3級, 2級, 1級1次, and 1級2次 mock tests verified",
-        "Color-test study page separates learning units by grade",
-        "Generated top page title simplified",
-        "Start-before-question behavior verified",
-        "Figure question rendering verified",
-        "Category displayed as read-only metadata",
+        "Generated 狩猟免許 study page verified",
+        "網猟免許, わな猟免許, 第一種銃猟免許, 第二種銃猟免許 mock tests verified",
+        "Allowed tool descriptions visible in variant descriptions",
         "Generated mock-test settings and answering verified",
-        "Per-attempt answer-symbol randomization requested",
-        "Syllabus-aligned timing and question counts verified"
+        "Source-backed practice themes recorded in study config"
       ]
     }
   },
@@ -64,11 +54,11 @@
     "topPage": true,
     "studyPage": true,
     "mockTestInteraction": true,
-    "colorTestVariants": true,
-    "colorTestUnitGroups": true,
-    "answerSymbolRandomization": true,
+    "huntingLicenseVariants": true,
+    "huntingLicenseUnitGroups": true,
+    "huntingLicenseQuestionCounts": true,
+    "huntingLicensePoolCounts": true,
     "questionsHiddenUntilStart": true,
-    "figureQuestionRendered": true,
     "categorySelectorHidden": true,
     "categoryMetadataReadOnly": true,
     "responsiveCheck": true

@@ -12,10 +12,10 @@ Only these exact ratings are allowed:
 
 | Area | Rating | Evidence |
 | --- | --- | --- |
-| Quality | A- | 基本情報技術者試験 now has expanded backing pools: 科目A 90 questions for 60-question attempts and 科目B 35 questions for 20-question attempts. Schema validation now allows pools larger than the default attempt size, and `npm run lint`, `npm test`, `npm run build`, and `npm run e2e` passed. |
-| Cost | A- | The solution remains static JSON plus Node generation with no backend hosting or crawler dependency. |
-| Delivery | A- | The existing study JSON and generator schema were extended without adding dependencies or changing the static publishing model. |
-| Satisfaction | A- | Learners still default to the official 60/20-question attempt sizes, but repeated attempts now sample from a larger FE practice pool for better randomization. |
+| Quality | A- | 狩猟免許 study now covers 網猟、わな猟、第一種銃猟、第二種銃猟 as separate exam variants. Each variant defaults to 30 questions and 90 minutes, backed by a 54-question pool with license-specific 猟具 questions. `npm run lint`, `npm test`, `npm run build`, and `npm run e2e` passed. |
+| Cost | A- | The solution remains static JSON plus Node generation with no backend, crawler, or runtime service dependency. |
+| Delivery | A- | Existing `examVariants` support was reused; source materials were archived under `studies/trap-hunting/sources/`, and `materials/` was left empty. |
+| Satisfaction | A- | Learners can choose the requested license genre and run a mock test aligned to the 30-question, 90-minute knowledge-test format while repeated attempts draw from a larger 54-question pool. |
 
 ## Runtime Gate
 
@@ -23,25 +23,22 @@ Status: Passed
 
 Required generated Web page gate:
 
-- Top page, FE study page, and FE 科目A/科目B mock-test pages visible: passed.
-- 科目A: 90 minutes, default 60 questions, 90-question pool: passed.
-- 科目A question-count setting defaults to 60 and can start 10-question and 3-question attempts: passed.
-- 科目B: 100 minutes, default 20 questions, 35-question pool: passed.
-- 色彩検定 3級: 60 minutes, 97 questions: passed.
-- 色彩検定 2級: 70 minutes, 104 questions: passed.
-- 色彩検定 1級1次: 80 minutes, 109 questions: passed.
-- 色彩検定 1級2次: 90 minutes, 31 questions: passed.
-- 色彩検定 learning units grouped by grade: passed.
-- Questions hidden until Start: passed.
-- Figure/image question render in 科目A: passed.
-- Answer choice order and displayed A/B/C/D symbols randomize per attempt: passed.
-- Category selector absent during answering: passed.
+- 狩猟免許 study page visible at `/studies/trap-hunting/`: passed.
+- Four mock-test choices visible: 網猟免許, わな猟免許, 第一種銃猟免許, 第二種銃猟免許: passed.
+- Variant learning-unit groups visible: passed.
+- 網猟免許 mock-test page opens and starts with 30 questions from a 54-question pool: passed.
+- わな猟免許 mock-test page opens and has its own 猟具/標識 content: passed.
+- 第一種銃猟免許 mock-test page opens and starts with 30 questions from a 54-question pool: passed.
+- 第二種銃猟免許 mock-test page opens and starts with 30 questions from a 54-question pool: passed.
+- Each variant defaults to 90 minutes and 30 questions with max question count 54: passed.
+- Questions are hidden until Start: passed.
 - Read-only category metadata visible while solving: passed.
-- Mock-test display, timing, question-count settings, and answer interaction verified: passed.
+- Mock-test display, timing, question-count settings, and answer interaction verified by E2E: passed.
 - Responsive desktop and mobile widths checked at 1440x1000 and 390x900: passed.
-- Browser plugin path attempted but `iab` was unavailable; Playwright fallback verified 科目A default 60 from max 90 and 科目B max 35 with no console warnings/errors: passed.
+- Browser plugin path attempted but `iab` was unavailable; Playwright fallback verified the 狩猟免許 study, 第一種銃猟 started state, and 網猟 mobile started state with no console warnings/errors: passed.
 
 ## Notes
 
 - Runtime artifacts remain under ignored `output/` paths.
 - The generated `dist/` directory remains ignored and should not be committed.
+- 狩猟免許 practice questions are original questions based on public syllabus and public-question themes, not verbatim copies of published question listings.

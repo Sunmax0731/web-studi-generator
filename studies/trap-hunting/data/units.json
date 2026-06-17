@@ -1,23 +1,58 @@
 [
   {
-    "id": "trap-hunting-unit-1",
+    "id": "hunting-common-law",
     "category": "法令",
-    "title": "わな猟の基本法令",
-    "objective": "禁止事項、標識、区域制限などを状況文から判断する。",
-    "outline": ["狩猟期間と区域", "標識の設置", "禁止猟法"]
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
+    "title": "共通法令と試験形式",
+    "objective": "狩猟免許制度、知識試験の形式、狩猟者登録、禁止事項を区分横断で判断する。",
+    "outline": ["三肢択一 30 問 90 分", "合格基準 70% 以上", "狩猟免許と銃所持許可の違い", "禁止場所と禁止猟法"]
   },
   {
-    "id": "trap-hunting-unit-2",
-    "category": "鳥獣判別",
-    "title": "対象鳥獣と錯誤捕獲",
-    "objective": "対象鳥獣の判別と、錯誤捕獲時の対応を説明できる。",
-    "outline": ["対象鳥獣", "判別の観点", "錯誤捕獲時の連絡"]
+    "id": "hunting-common-animals",
+    "category": "鳥獣",
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
+    "title": "狩猟鳥獣と誤認防止",
+    "objective": "狩猟鳥獣と非狩猟鳥獣を、獣類・鳥類の代表例から識別する。",
+    "outline": ["狩猟鳥獣の代表例", "非狩猟鳥獣との区別", "免許区分ごとの技能試験範囲", "錯誤捕獲・誤射の防止"]
   },
   {
-    "id": "trap-hunting-unit-3",
-    "category": "わなの構造と安全",
-    "title": "わなの構造と安全確認",
-    "objective": "くくりわな・箱わなの特徴と点検観点を説明できる。",
-    "outline": ["くくりわな", "箱わな", "見回りと事故防止"]
+    "id": "hunting-common-management",
+    "category": "鳥獣保護管理",
+    "examIds": ["ami-hunting", "wana-hunting", "type1-gun", "type2-gun"],
+    "title": "鳥獣保護管理の考え方",
+    "objective": "個体数管理、生活環境の保全、農林水産業被害防止を制度の目的と結びつける。",
+    "outline": ["生物多様性", "生活環境の保全", "農林水産業の健全な発展", "適正密度の維持"]
+  },
+  {
+    "id": "hunting-ami-tools",
+    "category": "猟具",
+    "examId": "ami-hunting",
+    "title": "網猟免許の猟具",
+    "objective": "むそう網、はり網、つき網、なげ網の区分と安全な取り扱いを判断する。",
+    "outline": ["むそう網", "はり網", "つき網", "なげ網", "網の使用可否判別"]
+  },
+  {
+    "id": "hunting-wana-tools",
+    "category": "猟具",
+    "examId": "wana-hunting",
+    "title": "わな猟免許の猟具",
+    "objective": "くくりわな、はこわな、はこおとし、囲いわなの区分と安全管理を判断する。",
+    "outline": ["くくりわな", "はこわな", "はこおとし", "囲いわな", "標識と見回り"]
+  },
+  {
+    "id": "hunting-type1-tools",
+    "category": "猟具",
+    "examId": "type1-gun",
+    "title": "第一種銃猟免許の猟具",
+    "objective": "装薬銃と空気銃の範囲、銃器操作、目測、安全管理を判断する。",
+    "outline": ["ライフル銃", "散弾銃", "空気銃", "点検・分解・結合", "300m・50m・30m・10m の目測"]
+  },
+  {
+    "id": "hunting-type2-tools",
+    "category": "猟具",
+    "examId": "type2-gun",
+    "title": "第二種銃猟免許の猟具",
+    "objective": "空気銃・圧縮ガス銃の範囲、圧縮操作、装填、射撃姿勢、目測を判断する。",
+    "outline": ["空気銃", "圧縮ガス銃", "圧縮操作", "装填", "300m・30m・10m の目測"]
   }
 ]

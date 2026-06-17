@@ -129,6 +129,39 @@ test('color test grade variants open with syllabus timings and question counts',
   }
 })
 
+test('hunting license variants open with license-specific tool categories', async ({ page }) => {
+  await page.goto('/studies/trap-hunting/')
+
+  await expect(page.getByRole('heading', { name: '狩猟免許' })).toBeVisible()
+  await expect(page.locator('.exam-choice')).toHaveCount(4)
+  await expect(page.locator('.unit-group')).toHaveCount(4)
+  await expect(page.getByLabel('模擬試験を選択').getByRole('heading', { name: '網猟免許 模擬試験' })).toBeVisible()
+  await expect(page.getByLabel('模擬試験を選択').getByRole('heading', { name: 'わな猟免許 模擬試験' })).toBeVisible()
+  await expect(page.getByLabel('模擬試験を選択').getByRole('heading', { name: '第一種銃猟免許 模擬試験' })).toBeVisible()
+  await expect(page.getByLabel('模擬試験を選択').getByRole('heading', { name: '第二種銃猟免許 模擬試験' })).toBeVisible()
+
+  const variants = [
+    ['ami-hunting', '網猟免許 模擬試験', 'むそう網、はり網、つき網、なげ網'],
+    ['wana-hunting', 'わな猟免許 模擬試験', 'くくりわな、はこわな、はこおとし、囲いわな'],
+    ['type1-gun', '第一種銃猟免許 模擬試験', '装薬銃（ライフル銃・散弾銃）と空気銃'],
+    ['type2-gun', '第二種銃猟免許 模擬試験', '空気銃（圧縮ガス銃を含む。）'],
+  ]
+
+  for (const [id, title, toolText] of variants) {
+    await page.goto(`/studies/trap-hunting/mock-test/${id}/`)
+    await expect(page).toHaveTitle(`狩猟免許 ${title}`)
+    await expect(page.getByLabel('全体の解答時間（分）')).toHaveValue('90')
+    await expect(page.locator('[data-setting="questionCount"]')).toHaveValue('30')
+    await expect(page.locator('[data-setting="questionCount"]')).toHaveAttribute('max', '54')
+    await expect(page.locator('.question-card')).toHaveCount(0)
+    await expect(page.getByText('開始を押すと問題が表示されます')).toBeVisible()
+    await page.getByRole('button', { name: '開始' }).click()
+    await expect(page.locator('.question-card')).toHaveCount(30)
+    await expect(page.locator('.question-meta').first()).toContainText('分類:')
+    await expect(page.locator('.question-card').filter({ hasText: toolText }).first()).toBeVisible()
+  }
+})
+
 async function answerFirstQuestionCorrectly(page) {
   const firstCard = page.locator('.question-card').first()
   const choiceCount = await firstCard.locator('.choice-list button').count()

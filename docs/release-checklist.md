@@ -23,7 +23,7 @@
 - [x] `git status --short --branch` reviewed
 - [x] Commit created on `codex/mock-test-mode-controls`
 - [x] Branch pushed
-- [ ] `main` pushed for production reflection when requested or appropriate
+- [x] `main` pushed for production reflection when requested or appropriate
 
 ## Required After Main Push
 

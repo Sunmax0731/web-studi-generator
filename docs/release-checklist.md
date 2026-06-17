@@ -27,8 +27,8 @@
 
 ## Required After Main Push
 
-- [ ] GitHub Pages workflow completed
-- [ ] Published URL returns HTTP 200 when feasible
+- [x] GitHub Pages workflow completed
+- [x] Published URL returns HTTP 200 when feasible
 
 ## Release Artifact
 

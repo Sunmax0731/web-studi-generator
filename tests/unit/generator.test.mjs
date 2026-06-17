@@ -50,6 +50,21 @@ test('registered studies satisfy the static generation schema', async () => {
       assert.equal(config.examVariants[1].totalMinutes, 100)
       assert.equal(questions.filter((question) => question.examId === 'kamoku-b').length, 20)
     }
+    if (entry.id === 'color-test') {
+      const expectedVariants = [
+        ['grade-3', 60, 97],
+        ['grade-2', 70, 104],
+        ['grade-1-first', 80, 109],
+        ['grade-1-second', 90, 31],
+      ]
+      assert.deepEqual(
+        config.examVariants.map((variant) => [variant.id, variant.totalMinutes, variant.questionCount]),
+        expectedVariants,
+      )
+      for (const [examId, , questionCount] of expectedVariants) {
+        assert.equal(questions.filter((question) => question.examId === examId).length, questionCount)
+      }
+    }
   }
   assert.ok(figureCount >= 3)
 })

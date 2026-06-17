@@ -65,6 +65,39 @@ test('mock-test answer symbols are reassigned when choices are randomized betwee
   expect(secondOrder).not.toEqual(firstOrder)
 })
 
+test('color test grade variants open with syllabus timings and question counts', async ({ page }) => {
+  await page.goto('/studies/color-test/')
+
+  await expect(page.getByRole('heading', { name: '色彩検定' })).toBeVisible()
+  await expect(page.locator('.exam-choice')).toHaveCount(4)
+  await expect(page.getByRole('heading', { name: '3級 模擬試験' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: '2級 模擬試験' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: '1級1次 模擬試験' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: '1級2次 模擬試験' })).toBeVisible()
+
+  const variants = [
+    ['grade-3', '3級 模擬試験', '60', 97, false],
+    ['grade-2', '2級 模擬試験', '70', 104, false],
+    ['grade-1-first', '1級1次 模擬試験', '80', 109, false],
+    ['grade-1-second', '1級2次 模擬試験', '90', 31, true],
+  ]
+
+  for (const [id, title, minutes, questions, singleMode] of variants) {
+    await page.goto(`/studies/color-test/mock-test/${id}/`)
+    await expect(page).toHaveTitle(`色彩検定 ${title}`)
+    await expect(page.getByLabel('全体の解答時間（分）')).toHaveValue(minutes)
+    await expect(page.locator('.question-card')).toHaveCount(0)
+    await expect(page.getByText('開始を押すと問題が表示されます')).toBeVisible()
+    await page.getByRole('button', { name: '開始' }).click()
+    await expect(page.locator('.question-card')).toHaveCount(singleMode ? 1 : questions)
+    if (singleMode) {
+      await expect(page.locator('.pager')).toBeVisible()
+      await expect(page.locator('[data-page-status]')).toHaveText(`1 / ${questions}`)
+    }
+    await expect(page.locator('.question-meta').first()).toContainText('分類:')
+  }
+})
+
 async function answerFirstQuestionCorrectly(page) {
   const firstCard = page.locator('.question-card').first()
   const choiceCount = await firstCard.locator('.choice-list button').count()

@@ -3,6 +3,7 @@
 ## Scope
 
 - Expand 色彩検定 with 3級・2級・1級1次・1級2次 mock-test variants.
+- Group 色彩検定 learning units by grade on the generated study page.
 - Set 色彩検定 3級 as 60 minutes / 97 questions.
 - Set 色彩検定 2級 as 70 minutes / 104 questions.
 - Set 色彩検定 1級1次 as 80 minutes / 109 questions.

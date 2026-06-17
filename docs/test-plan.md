@@ -22,6 +22,7 @@ Required generated Web page gate for this task:
 - 科目B mock-test page opens at `/studies/basic-info/mock-test/kamoku-b/`. Passed.
 - 科目B has 100 minutes and 20 questions. Passed.
 - 色彩検定 study page shows 4 mock-test choices: 3級, 2級, 1級1次, 1級2次. Passed.
+- 色彩検定 study page groups learning units by 3級, 2級, 1級1次, and 1級2次. Passed.
 - 色彩検定 3級 mock-test page opens at `/studies/color-test/mock-test/grade-3/`. Passed.
 - 色彩検定 3級 has 60 minutes and 97 questions. Passed.
 - 色彩検定 2級 mock-test page opens at `/studies/color-test/mock-test/grade-2/`. Passed.

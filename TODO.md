@@ -42,6 +42,7 @@
 - [x] Randomize mock-test answer choice order and displayed symbols on each attempt.
 - [x] Expand the 色彩検定 study with 3級・2級・1級1次・1級2次 exam variants using current source materials.
 - [x] Validate 色彩検定 mock-test timings and question counts against recorded source evidence.
+- [x] Group 色彩検定 learning units by grade on the generated study page.
 - [ ] Add optional JSON schema files for editor tooling.
 - [ ] Add a Codex URL intake log command that appends reviewed URLs to a selected study.
 - [ ] Add link checker for generated pages.

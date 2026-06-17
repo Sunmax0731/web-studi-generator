@@ -25,7 +25,7 @@
     {
       "id": "grade-3",
       "title": "3級 模擬試験",
-      "description": "公式の試験時間60分に合わせた 97 問の基礎確認",
+      "description": "60分 / 97問。色彩基礎、PCCS、配色、色彩心理、生活分野を中心に確認します。",
       "totalMinutes": 60,
       "questionCount": 97,
       "categoryOrder": [
@@ -39,7 +39,7 @@
     {
       "id": "grade-2",
       "title": "2級 模擬試験",
-      "description": "公式の試験時間70分に合わせた 104 問の応用確認",
+      "description": "70分 / 104問。光と色、表色系、配色、ファッション、インテリア、景観まで確認します。",
       "totalMinutes": 70,
       "questionCount": 104,
       "categoryOrder": [
@@ -54,7 +54,7 @@
     {
       "id": "grade-1-first",
       "title": "1級1次 模擬試験",
-      "description": "公式の試験時間80分に合わせた 109 問の専門知識確認",
+      "description": "80分 / 109問。色彩文化、ビジネス、測色、表色系、各分野の専門知識を確認します。",
       "totalMinutes": 80,
       "questionCount": 109,
       "categoryOrder": [
@@ -70,7 +70,7 @@
     {
       "id": "grade-1-second",
       "title": "1級2次 模擬試験",
-      "description": "公式の試験時間90分に合わせた 31 問の記述・実技対策",
+      "description": "90分 / 31問。色票選択、測色、配色イメージ、記述判断を1問ずつ確認します。",
       "totalMinutes": 90,
       "questionCount": 31,
       "presentationMode": "single",

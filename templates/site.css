@@ -264,6 +264,33 @@ code {
   gap: 12px;
 }
 
+.unit-group {
+  display: grid;
+  gap: 12px;
+}
+
+.unit-group + .unit-group {
+  margin-top: 18px;
+}
+
+.unit-group > header {
+  padding: 4px 0 2px;
+  border-bottom: 1px solid #dbe3ef;
+}
+
+.unit-group h3,
+.unit-group p {
+  margin: 0;
+}
+
+.unit-group h3 {
+  font-size: 18px;
+}
+
+.unit-group p {
+  color: #52657c;
+}
+
 .unit-block {
   display: block;
   padding: 18px;

@@ -70,10 +70,15 @@ test('color test grade variants open with syllabus timings and question counts',
 
   await expect(page.getByRole('heading', { name: '色彩検定' })).toBeVisible()
   await expect(page.locator('.exam-choice')).toHaveCount(4)
-  await expect(page.getByRole('heading', { name: '3級 模擬試験' })).toBeVisible()
-  await expect(page.getByRole('heading', { name: '2級 模擬試験' })).toBeVisible()
-  await expect(page.getByRole('heading', { name: '1級1次 模擬試験' })).toBeVisible()
-  await expect(page.getByRole('heading', { name: '1級2次 模擬試験' })).toBeVisible()
+  await expect(page.locator('.unit-group')).toHaveCount(4)
+  await expect(page.getByLabel('模擬試験を選択').getByRole('heading', { name: '3級 模擬試験' })).toBeVisible()
+  await expect(page.getByLabel('模擬試験を選択').getByRole('heading', { name: '2級 模擬試験' })).toBeVisible()
+  await expect(page.getByLabel('模擬試験を選択').getByRole('heading', { name: '1級1次 模擬試験' })).toBeVisible()
+  await expect(page.getByLabel('模擬試験を選択').getByRole('heading', { name: '1級2次 模擬試験' })).toBeVisible()
+  await expect(page.locator('.unit-group').filter({ hasText: '3級 模擬試験' }).locator('.unit-block')).toHaveCount(5)
+  await expect(page.locator('.unit-group').filter({ hasText: '2級 模擬試験' }).locator('.unit-block')).toHaveCount(6)
+  await expect(page.locator('.unit-group').filter({ hasText: '1級1次 模擬試験' }).locator('.unit-block')).toHaveCount(7)
+  await expect(page.locator('.unit-group').filter({ hasText: '1級2次 模擬試験' }).locator('.unit-block')).toHaveCount(4)
 
   const variants = [
     ['grade-3', '3級 模擬試験', '60', 97, false],

@@ -96,6 +96,17 @@ export function validateStudy(study, context = 'study') {
     }
   }
 
+  for (const [index, unit] of (study.units ?? []).entries()) {
+    const label = `${context}: units[${index}]`
+    if (examVariantIds.size > 0) {
+      for (const examId of getQuestionExamIds(unit)) {
+        if (!examVariantIds.has(examId)) {
+          errors.push(`${label}: examId "${examId}" is not defined`)
+        }
+      }
+    }
+  }
+
   for (const variant of study.examVariants ?? []) {
     const actualCount = (study.questions ?? []).filter((question) =>
       getQuestionExamIds(question).includes(variant.id),

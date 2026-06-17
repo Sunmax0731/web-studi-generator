@@ -34,6 +34,23 @@ export function validateStudy(study, context = 'study') {
     errors.push(`${context}: questions must not be empty`)
   }
 
+  const examVariantIds = new Set()
+  for (const [index, variant] of (study.examVariants ?? []).entries()) {
+    const label = `${context}: examVariants[${index}]`
+    if (!variant.id) errors.push(`${label}: id is required`)
+    if (!variant.title) errors.push(`${label}: title is required`)
+    if (!Number.isInteger(variant.totalMinutes) || variant.totalMinutes <= 0) {
+      errors.push(`${label}: totalMinutes must be a positive integer`)
+    }
+    if (!Number.isInteger(variant.questionCount) || variant.questionCount <= 0) {
+      errors.push(`${label}: questionCount must be a positive integer`)
+    }
+    if (variant.id) {
+      if (examVariantIds.has(variant.id)) errors.push(`${label}: duplicate id "${variant.id}"`)
+      examVariantIds.add(variant.id)
+    }
+  }
+
   for (const [index, question] of (study.questions ?? []).entries()) {
     const label = `${context}: questions[${index}]`
     if (!question.id) errors.push(`${label}: id is required`)
@@ -66,7 +83,35 @@ export function validateStudy(study, context = 'study') {
         errors.push(`${label}: figure.caption is required when figure is set`)
       }
     }
+    if (examVariantIds.size > 0) {
+      const questionExamIds = getQuestionExamIds(question)
+      if (questionExamIds.length === 0) {
+        errors.push(`${label}: examId or examIds is required when examVariants are set`)
+      }
+      for (const examId of questionExamIds) {
+        if (!examVariantIds.has(examId)) {
+          errors.push(`${label}: examId "${examId}" is not defined`)
+        }
+      }
+    }
+  }
+
+  for (const variant of study.examVariants ?? []) {
+    const actualCount = (study.questions ?? []).filter((question) =>
+      getQuestionExamIds(question).includes(variant.id),
+    ).length
+    if (variant.questionCount && actualCount !== variant.questionCount) {
+      errors.push(
+        `${context}: examVariants "${variant.id}" expects ${variant.questionCount} questions but has ${actualCount}`,
+      )
+    }
   }
 
   return errors
+}
+
+function getQuestionExamIds(question) {
+  if (Array.isArray(question.examIds)) return question.examIds
+  if (question.examId) return [question.examId]
+  return []
 }

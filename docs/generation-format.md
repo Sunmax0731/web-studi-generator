@@ -42,6 +42,28 @@ Required fields:
 }
 ```
 
+Optional `examVariants` generates multiple mock-test pages for one study:
+
+```json
+[
+  {
+    "id": "kamoku-a",
+    "title": "科目A 模擬試験",
+    "description": "90分 / 60問",
+    "totalMinutes": 90,
+    "questionCount": 60,
+    "categoryOrder": ["テクノロジ", "セキュリティ", "マネジメント", "ストラテジ"]
+  }
+]
+```
+
+When `examVariants` is set, each question must declare `examId` or `examIds`. The generator writes:
+
+```text
+dist/studies/<slug>/mock-test/
+dist/studies/<slug>/mock-test/<exam-id>/
+```
+
 ## Units
 
 `studies/<study-id>/data/units.json`
@@ -62,6 +84,8 @@ Each question has:
 
 - `id`
 - `category`
+- `examId` optional unless `examVariants` is set
+- `examIds` optional when a question belongs to multiple variants
 - `pattern`
 - `prompt`
 - `visualHint` optional

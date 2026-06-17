@@ -22,7 +22,30 @@ async function main() {
     const studyDir = path.join(distDir, 'studies', study.slug)
     await mkdir(path.join(studyDir, 'mock-test'), { recursive: true })
     await writeFile(path.join(studyDir, 'index.html'), renderStudyPage(study))
-    await writeFile(path.join(studyDir, 'mock-test', 'index.html'), renderMockTestPage(study))
+    if (study.examVariants?.length) {
+      const variants = buildExamVariants(study)
+      await writeFile(path.join(studyDir, 'mock-test', 'index.html'), renderMockTestLandingPage(study, variants))
+      for (const variant of variants) {
+        await mkdir(path.join(studyDir, 'mock-test', variant.id), { recursive: true })
+        await writeFile(
+          path.join(studyDir, 'mock-test', variant.id, 'index.html'),
+          renderMockTestPage(study, variant, {
+            assetPrefix: '../../../..',
+            homeHref: '../../../../',
+            studyHref: '../../',
+          }),
+        )
+      }
+    } else {
+      await writeFile(
+        path.join(studyDir, 'mock-test', 'index.html'),
+        renderMockTestPage(study, buildDefaultVariant(study), {
+          assetPrefix: '../../..',
+          homeHref: '../../../',
+          studyHref: '../',
+        }),
+      )
+    }
   }
 
   console.log(`Generated ${studies.length} studies into ${path.relative(repoRoot, distDir)}`)
@@ -102,6 +125,8 @@ function renderStudyPage(study) {
     )
     .join('')
 
+  const examActions = renderExamActions(study)
+
   return pageShell({
     title: study.title,
     bodyClass: 'study',
@@ -109,10 +134,7 @@ function renderStudyPage(study) {
     homeHref: '../../',
     main: `
       ${studyHeader(study)}
-      <section class="action-row">
-        <a class="button primary" href="./mock-test/">模擬テストを開始</a>
-        <a class="button" href="../../">サイト一覧へ戻る</a>
-      </section>
+      ${examActions}
       <section class="layout-two">
         <div>
           <h2>学習単元</h2>
@@ -127,20 +149,84 @@ function renderStudyPage(study) {
   })
 }
 
-function renderMockTestPage(study) {
-  const categoryOrder = JSON.stringify(study.categories)
-  const questions = JSON.stringify(study.questions)
-  const settings = JSON.stringify(study.examSettings)
+function renderExamActions(study) {
+  if (study.examVariants?.length) {
+    const cards = buildExamVariants(study)
+      .map(
+        (variant) => `
+          <article class="exam-choice">
+            <div>
+              <h2>${escapeHtml(variant.title)}</h2>
+              <p>${escapeHtml(variant.description || `${variant.totalMinutes}分 / ${variant.questionCount}問`)}</p>
+            </div>
+            <a class="button primary" href="./mock-test/${escapeAttribute(variant.id)}/">開始</a>
+          </article>`,
+      )
+      .join('')
+    return `
+      <section class="action-row">
+        <a class="button" href="../../">サイト一覧へ戻る</a>
+      </section>
+      <section class="exam-choice-grid" aria-label="模擬試験を選択">
+        ${cards}
+      </section>`
+  }
+
+  return `
+    <section class="action-row">
+      <a class="button primary" href="./mock-test/">模擬テストを開始</a>
+      <a class="button" href="../../">サイト一覧へ戻る</a>
+    </section>`
+}
+
+function renderMockTestLandingPage(study, variants) {
+  const cards = variants
+    .map(
+      (variant) => `
+        <article class="exam-choice">
+          <div>
+            <h2>${escapeHtml(variant.title)}</h2>
+            <p>${escapeHtml(variant.description || `${variant.totalMinutes}分 / ${variant.questionCount}問`)}</p>
+          </div>
+          <a class="button primary" href="./${escapeAttribute(variant.id)}/">開始</a>
+        </article>`,
+    )
+    .join('')
 
   return pageShell({
     title: `${study.title} 模擬テスト`,
-    bodyClass: 'mock-test',
+    bodyClass: 'study',
     assetPrefix: '../../..',
     homeHref: '../../../',
     main: `
       ${studyHeader(study)}
       <section class="action-row">
         <a class="button" href="../">学習ページへ戻る</a>
+      </section>
+      <section class="exam-choice-grid" aria-label="模擬試験を選択">
+        ${cards}
+      </section>`,
+  })
+}
+
+function renderMockTestPage(study, variant, links) {
+  const categoryOrder = JSON.stringify(variant.categoryOrder)
+  const questions = JSON.stringify(variant.questions)
+  const settings = JSON.stringify(variant.settings)
+
+  return pageShell({
+    title: `${study.title} ${variant.title}`,
+    bodyClass: 'mock-test',
+    assetPrefix: links.assetPrefix,
+    homeHref: links.homeHref,
+    main: `
+      ${studyHeader(study)}
+      <section class="exam-title">
+        <p>${escapeHtml(variant.description || `${variant.totalMinutes}分 / ${variant.questionCount}問`)}</p>
+        <h2>${escapeHtml(variant.title)}</h2>
+      </section>
+      <section class="action-row">
+        <a class="button" href="${links.studyHref}">学習ページへ戻る</a>
       </section>
       <section class="exam-app" data-exam-root>
         <aside class="settings-panel" aria-label="模擬テスト設定">
@@ -193,8 +279,44 @@ function renderMockTestPage(study) {
           patternLabels: ${JSON.stringify(questionPatternLabels)}
         };
       </script>
-      <script src="../../../assets/runtime.js"></script>`,
+      <script src="${links.assetPrefix}/assets/runtime.js"></script>`,
   })
+}
+
+function buildExamVariants(study) {
+  return study.examVariants.map((variant) => {
+    const questions = study.questions.filter((question) => questionMatchesVariant(question, variant.id))
+    const categoryOrder = (variant.categoryOrder || study.categories).filter((category) =>
+      questions.some((question) => question.category === category),
+    )
+    return {
+      ...variant,
+      questions,
+      categoryOrder,
+      settings: {
+        ...study.examSettings,
+        presentationMode: variant.presentationMode || study.examSettings.presentationMode,
+        totalMinutes: variant.totalMinutes,
+      },
+    }
+  })
+}
+
+function buildDefaultVariant(study) {
+  return {
+    id: 'default',
+    title: '模擬テスト',
+    totalMinutes: study.examSettings.totalMinutes,
+    questionCount: study.questions.length,
+    questions: study.questions,
+    categoryOrder: study.categories,
+    settings: study.examSettings,
+  }
+}
+
+function questionMatchesVariant(question, variantId) {
+  if (Array.isArray(question.examIds)) return question.examIds.includes(variantId)
+  return question.examId === variantId
 }
 
 function studyHeader(study) {

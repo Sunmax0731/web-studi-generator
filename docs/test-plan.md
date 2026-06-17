@@ -5,32 +5,32 @@
 | Check | Command | Purpose | Status |
 | --- | --- | --- | --- |
 | Lint | `npm run lint` | Generator, templates, and tests style check | Passed |
-| Unit tests | `npm test` | Schema validation and exam metric helpers | Passed: 3 tests |
+| Unit tests | `npm test` | Schema validation, exam metric helpers, and FE variant counts | Passed: 3 tests |
 | Static build | `npm run build` | Generate GitHub Pages files into `dist/` | Passed: 3 studies generated |
-| E2E smoke | `npm run e2e` | Browser verification of generated static site and FE mock-test interaction | Passed: 1 Chromium test |
+| E2E smoke | `npm run e2e` | Browser verification of generated static site and FE 科目A/科目B mock-test interaction | Passed: 1 Chromium test |
 | Docs ZIP | `npm run docs:zip` | Release documentation bundle | Pending for the current task |
 
 ## Runtime Gate
 
-Platform runtime gate for generated Web pages:
+Required generated Web page gate for this task:
 
-- In-app Browser note: `iab` was attempted and unavailable in this environment.
-- Headless browser: Playwright Chromium.
-- Non-blank top page: passed.
-- Top page shows `資格試験学習ページ` and links the registered studies: passed.
-- Basic information study page shows 5 units and recorded local/web sources: passed.
-- Mock-test page opens: passed.
-- Questions are hidden until Start is pressed: passed.
-- Display mode, total time, and font size controls work: passed.
-- Category selector is absent during answering: passed.
-- Category is shown as read-only question metadata: passed.
-- 18 FE questions render after Start: passed.
-- Figure question renders: passed.
-- Answer selection shows correctness feedback: passed.
-- Remaining time, average answer time, and remaining-question pace are visible: passed.
-- Desktop and mobile widths render without primary text overlap in screenshots: passed at 1440x1000 and 390x900.
+- Top page is non-blank and links the registered studies. Passed.
+- Basic information study page shows 5 units and recorded local/web sources. Passed.
+- Basic information study page shows 科目A and 科目B mock-test choices. Passed.
+- 科目A mock-test page opens at `/studies/basic-info/mock-test/kamoku-a/`. Passed.
+- 科目A has 90 minutes and 60 questions. Passed.
+- 科目B mock-test page opens at `/studies/basic-info/mock-test/kamoku-b/`. Passed.
+- 科目B has 100 minutes and 20 questions. Passed.
+- Questions are hidden until Start is pressed. Passed.
+- Display mode, total time, and font size controls work. Passed.
+- Category selector is absent during answering. Passed.
+- Category is shown as read-only question metadata. Passed.
+- Figure question renders in 科目A. Passed.
+- Answer selection shows correctness feedback. Passed.
+- Remaining time, average answer time, and remaining-question pace are visible. Passed.
+- Desktop and mobile widths do not overlap or clip primary text. Passed at 1440x1000 and 390x900.
 
-Runtime screenshots are stored under ignored `output/fe-runtime/`.
+Runtime screenshots are stored under ignored `output/fe-variant-runtime/`.
 
 ## Manual Scenario For Future Source Intake
 
@@ -46,4 +46,5 @@ Runtime screenshots are stored under ignored `output/fe-runtime/`.
 
 - Source reading is performed by Codex during the session, not by a committed crawler.
 - PDF/web extraction adapters are not automated CLI commands yet.
+- The FE mock questions are original practice questions based on syllabus and public-question themes, not verbatim copies of published question booklets.
 - Inline generated figures are supported for registered figure kinds. Study-specific uploaded image asset copying is still a follow-up.

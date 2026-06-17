@@ -38,6 +38,7 @@
 ## Follow-Up Backlog
 
 - [x] Expand the 基本情報技術者試験 study with IPA FE syllabus and recent mock-test source material.
+- [x] Expand the 基本情報技術者試験 mock-test volume to 科目A 60 questions / 90 minutes and 科目B 20 questions / 100 minutes.
 - [ ] Add optional JSON schema files for editor tooling.
 - [ ] Add a Codex URL intake log command that appends reviewed URLs to a selected study.
 - [ ] Add link checker for generated pages.

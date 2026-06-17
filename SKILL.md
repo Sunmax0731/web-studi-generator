@@ -20,6 +20,7 @@ Use this workflow when changing or using `web-studi-generator`.
 6. Codex updates:
    - `studies/<study-id>/data/units.json`
    - `studies/<study-id>/data/questions.json`
+   - `studies/<study-id>/study.config.json` when sources or exam variants change
 7. Codex moves processed input files from `materials/` to `studies/<study-id>/sources/`.
 8. Codex leaves `materials/` empty.
 9. Codex runs `npm run generate`.
@@ -35,6 +36,8 @@ Use this workflow when changing or using `web-studi-generator`.
 - Keep publishable generated output in `dist/`; it is ignored by Git.
 - Validate study data before rendering.
 - Generated mock-test pages may use small vanilla JavaScript for learner-side settings, timing, answering, and scoring.
+- Use `examVariants` in `study.config.json` when one study needs multiple mock-test pages such as 科目A and 科目B.
+- Questions for variant studies must declare `examId` or `examIds`; generated variant pages live under `dist/studies/<slug>/mock-test/<exam-id>/`.
 - Treat Japanese text as UTF-8 source content; do not rewrite apparent mojibake without checking encoding.
 
 ## Validation Workflow
@@ -55,6 +58,7 @@ For browser QA, verify:
 - All registered studies are linked.
 - A study page shows units and sources.
 - A mock-test page opens.
+- Variant mock-test pages open when `examVariants` is configured.
 - Questions are hidden until Start is pressed.
 - Display mode, total time, font, and font size controls work.
 - Category appears as read-only question metadata.

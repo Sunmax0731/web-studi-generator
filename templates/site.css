@@ -84,6 +84,7 @@ main {
 .hero-band,
 .study-header,
 .study-card,
+.exam-choice,
 .source-panel,
 .settings-panel,
 .exam-workspace,
@@ -190,6 +191,41 @@ code {
   gap: 10px;
   flex-wrap: wrap;
   margin: 18px 0;
+}
+
+.exam-choice-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 18px 0;
+}
+
+.exam-choice {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: center;
+  padding: 18px;
+}
+
+.exam-choice h2,
+.exam-choice p,
+.exam-title h2,
+.exam-title p {
+  margin: 0;
+}
+
+.exam-choice p,
+.exam-title p {
+  color: #475569;
+}
+
+.exam-title {
+  margin: 18px 0;
+}
+
+.exam-title h2 {
+  font-size: 26px;
 }
 
 .button,
@@ -504,6 +540,7 @@ code {
 
 @media (max-width: 940px) {
   .study-grid,
+  .exam-choice-grid,
   .layout-two,
   .exam-app {
     grid-template-columns: 1fr;
@@ -531,6 +568,7 @@ code {
 
   .hero-band,
   .study-header,
+  .exam-choice,
   .source-panel,
   .settings-panel,
   .exam-workspace,

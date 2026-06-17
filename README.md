@@ -12,6 +12,7 @@
 2. Web ページを使いたい場合は、調査対象 URL を `materials/` 内の Markdown またはテキストにも保存し、Codex とのチャットでも URL を送ります。
 3. Codex がチャット指示を実行トリガーとして資料と URL を読み取り、`studies/<study-id>/study.config.json` と `studies/<study-id>/data/*.json` を更新します。
 4. `npm run generate` または `npm run build` で `dist/` に静的サイトを生成します。
+   科目別の模擬試験を定義した study は `dist/studies/<slug>/mock-test/<exam-id>/` も生成します。
 5. `npm run e2e` で生成ページと模擬テストの操作を確認します。
 6. 処理済み資料は `studies/<study-id>/sources/` に移動し、`materials/` は空に戻します。
 7. `main` に push すると GitHub Actions が `dist/` を GitHub Pages に公開します。
@@ -38,6 +39,7 @@ dist/                   GitHub Pages 用の生成結果。Git 管理外
 生成される模擬テストページには、以下の機能があります。
 
 - 1ページに複数問 / 1ページに1問の表示切替
+- 科目別模擬試験ページ
 - カテゴリ絞り込み
 - 全体の解答時間設定
 - 経過時間

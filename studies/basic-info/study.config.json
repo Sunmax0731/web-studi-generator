@@ -2,7 +2,7 @@
   "id": "basic-info",
   "slug": "basic-info",
   "title": "基本情報技術者試験",
-  "description": "IPAの試験要綱と近年の公開問題を基に、科目Aの知識確認と科目Bのアルゴリズム・情報セキュリティ読解を横断して練習する模擬試験です。",
+  "description": "IPAの試験要綱と近年の公開問題を基に、科目A 60問・90分、科目B 20問・100分の本番形式に合わせて練習する模擬試験です。",
   "accent": "#2563eb",
   "categories": [
     "テクノロジ",
@@ -13,11 +13,44 @@
   ],
   "examSettings": {
     "presentationMode": "multi",
-    "totalMinutes": 60,
+    "totalMinutes": 90,
     "fontFamily": "system",
     "fontSize": 17
   },
+  "examVariants": [
+    {
+      "id": "kamoku-a",
+      "title": "科目A 模擬試験",
+      "description": "90分 / 60問。テクノロジ、マネジメント、ストラテジを横断する四肢択一中心の知識確認です。",
+      "totalMinutes": 90,
+      "questionCount": 60,
+      "categoryOrder": ["テクノロジ", "セキュリティ", "マネジメント", "ストラテジ"]
+    },
+    {
+      "id": "kamoku-b",
+      "title": "科目B 模擬試験",
+      "description": "100分 / 20問。情報セキュリティ4問、アルゴリズムとプログラミング16問の構成です。",
+      "totalMinutes": 100,
+      "questionCount": 20,
+      "categoryOrder": ["セキュリティ", "アルゴリズムとプログラミング"]
+    }
+  ],
   "sources": [
+    {
+      "kind": "web",
+      "label": "IPA 基本情報技術者試験 試験時間・出題形式・出題数",
+      "url": "https://www.ipa.go.jp/shiken/kubun/fe.html"
+    },
+    {
+      "kind": "web",
+      "label": "IPA ITパスポート試験・基本情報技術者試験パンフレット",
+      "url": "https://www.ipa.go.jp/shiken/about/gmcbt8000000cy3n-att/pamphlet_IP-FE.pdf"
+    },
+    {
+      "kind": "web",
+      "label": "IPA 令和7年度 SG・FE 公開問題一覧",
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/sg_fe/koukai/2025r07.html"
+    },
     {
       "kind": "local",
       "label": "情報処理技術者試験 試験要綱 Ver.5.5",

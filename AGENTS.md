@@ -20,6 +20,7 @@ This repository is part of the WebApp domain under `D:\AI\WebApp`.
 - After a Codex generation run, move processed materials to `studies/<study-id>/sources/` and leave `materials/` empty.
 - Keep generated study definitions under `studies/`.
 - Keep generated deploy output under `dist/`; do not commit it.
+- For studies with multiple exam variants, keep variant metadata in `study.config.json` and tag questions with `examId` or `examIds`.
 - If project structure, workflow, or canonical paths change, update this file and `SKILL.md`.
 
 ## Quality Gates

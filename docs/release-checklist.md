@@ -2,14 +2,17 @@
 
 ## Scope
 
-- Static site generator foundation.
-- Source intake contract through `materials/` and chat-provided URLs.
-- Study data contract under `studies/`.
-- Generated GitHub Pages output under `dist/`.
-- Sample generated studies for 基本情報技術者試験, 色彩検定, and 狩猟免許（わな）.
+- Expand the existing 基本情報技術者試験 study using `materials/ipa-FE`.
+- Add IPA FE syllabus and recent public-question URLs as recorded sources.
+- Replace unreadable basic-info sample text with readable Japanese study data.
+- Generate 5 FE-aligned units and 18 original mock-test questions across テクノロジ, アルゴリズムとプログラミング, セキュリティ, マネジメント, and ストラテジ.
+- Keep generated GitHub Pages output under ignored `dist/`.
 
 ## Required Before Push
 
+- [x] `materials/ipa-FE` reviewed.
+- [x] Processed materials archived to `studies/basic-info/sources/`.
+- [x] `materials/` left empty.
 - [x] `npm run lint`
 - [x] `npm test`
 - [x] `npm run build`
@@ -17,14 +20,13 @@
 - [x] Runtime gate documented in `docs/qcds-evaluation.md`
 - [x] `npm run docs:zip`
 - [x] `git status --short --branch` reviewed
-- [x] Commit created on `codex/static-site-generator-foundation`
+- [x] Commit created on `codex/add-fe-mock-questions`
 - [x] Branch pushed
-- [x] `main` pushed when release is requested
 
 ## Required After Main Push
 
-- [x] GitHub Pages workflow completed
-- [x] Published URL returns HTTP 200 when feasible
+- [ ] GitHub Pages workflow completed
+- [ ] Published URL returns HTTP 200 when feasible
 
 ## Release Artifact
 

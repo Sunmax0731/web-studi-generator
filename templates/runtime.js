@@ -169,8 +169,7 @@
   function renderQuestion(question, localIndex) {
     const article = document.createElement('article')
     article.className = 'question-card'
-    const displayIndex =
-      state.settings.presentationMode === 'single' ? state.currentIndex + 1 : localIndex + 1
+    const displayIndex = state.settings.presentationMode === 'single' ? state.currentIndex + 1 : localIndex + 1
     const selected = state.answers[question.id] || []
     article.innerHTML = `
       <div class="question-meta">
@@ -205,7 +204,7 @@
       const feedback = document.createElement('div')
       const correct = isAnswerCorrect(question, selected)
       feedback.className = correct ? 'answer-feedback correct' : 'answer-feedback'
-      feedback.textContent = `${correct ? '正答です。' : '選択を見直してください。'} ${question.explanation}`
+      feedback.textContent = `${correct ? '正解です。' : '選択を見直してください。'} ${question.explanation}`
       article.append(feedback)
     }
 
@@ -336,8 +335,7 @@
       averageAnswerSeconds: answeredCount === 0 ? 0 : elapsedSeconds / answeredCount,
       remainingSeconds,
       unansweredCount,
-      secondsPerRemainingQuestion:
-        unansweredCount === 0 ? 0 : remainingSeconds / unansweredCount,
+      secondsPerRemainingQuestion: unansweredCount === 0 ? 0 : remainingSeconds / unansweredCount,
     }
   }
 

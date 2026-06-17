@@ -120,7 +120,7 @@ function renderStudyPage(study) {
         </div>
         <aside class="source-panel">
           <h2>資料と URL</h2>
-          <p>Codex セッションでは、この一覧にローカル資料とチャットで渡された URL を追記し、生成データを更新します。</p>
+          <p>Codex セッションで参照したローカル資料とチャットで渡された URL を記録しています。</p>
           <ul>${sources}</ul>
         </aside>
       </section>`,
@@ -213,7 +213,7 @@ function pageShell({ title, bodyClass, assetPrefix, homeHref, main }) {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Codex で生成する静的学習ページと模擬テスト" />
+    <meta name="description" content="Codexで生成する静的学習ページと模擬テスト" />
     <link rel="icon" href="${assetPrefix}/favicon.svg" />
     <link rel="stylesheet" href="${assetPrefix}/assets/site.css" />
     <title>${escapeHtml(title)}</title>

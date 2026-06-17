@@ -3,88 +3,256 @@
     "id": "basic-info-q1",
     "category": "テクノロジ",
     "pattern": "single-choice",
-    "prompt": "二分探索の前提として最も適切なものはどれか。",
-    "visualHint": "整列済み配列を中央から半分ずつ探索する図を添付できます。",
-    "figure": {
-      "kind": "binary-search",
-      "title": "二分探索の確認位置",
-      "caption": "整列済み配列の中央を確認し、探索範囲を半分に絞るイメージ"
-    },
+    "prompt": "浮動小数点数の演算で発生する丸め誤差の説明として、最も適切なものはどれか。",
     "choices": [
-      { "id": "a", "label": "対象データがキー順に整列されている" },
-      { "id": "b", "label": "対象データがハッシュ化されている" },
-      { "id": "c", "label": "対象データが木構造で保存されている" },
-      { "id": "d", "label": "対象データが更新されない" }
+      { "id": "a", "label": "表現できる桁数に限りがあるため、下位桁を丸めることで生じる誤差" },
+      { "id": "b", "label": "演算結果が最大値を超えたときだけ発生する誤差" },
+      { "id": "c", "label": "絶対値がほぼ等しい数を減算したときに上位桁が失われる誤差" },
+      { "id": "d", "label": "通信路上でビットが反転したときに発生する誤差" }
     ],
     "correctChoiceIds": ["a"],
-    "explanation": "二分探索は整列済みデータを前提に探索範囲を半分に絞ります。"
+    "explanation": "丸め誤差は、有限桁で表現するために四捨五入、切上げ、切捨てなどを行うことで生じる。cは桁落ちの説明である。"
   },
   {
     "id": "basic-info-q2",
-    "category": "マネジメント",
-    "pattern": "cloze",
-    "prompt": "WBS はプロジェクトの成果物や作業を（　）して管理しやすくする手法である。",
+    "category": "テクノロジ",
+    "pattern": "single-choice",
+    "prompt": "MTBFが3,600時間、MTTRが400時間のシステムの稼働率はどれか。",
     "choices": [
-      { "id": "a", "label": "階層的に分解" },
-      { "id": "b", "label": "時系列に暗号化" },
-      { "id": "c", "label": "担当者別に秘匿" },
-      { "id": "d", "label": "費用だけで評価" }
+      { "id": "a", "label": "0.80" },
+      { "id": "b", "label": "0.85" },
+      { "id": "c", "label": "0.90" },
+      { "id": "d", "label": "0.95" }
     ],
-    "correctChoiceIds": ["a"],
-    "explanation": "WBS は Work Breakdown Structure の略で、作業を階層的に分解します。"
+    "correctChoiceIds": ["c"],
+    "explanation": "稼働率は MTBF / (MTBF + MTTR) で求める。3,600 / (3,600 + 400) = 0.90 である。"
   },
   {
     "id": "basic-info-q3",
-    "category": "ストラテジ",
+    "category": "テクノロジ",
     "pattern": "matching",
-    "prompt": "SWOT 分析の組み合わせとして適切なものを選べ。",
+    "prompt": "関係データベースのキーと制約の組合せとして、最も適切なものはどれか。",
     "choices": [
-      { "id": "a", "label": "Strength: 強み / Threat: 脅威" },
-      { "id": "b", "label": "Strength: 速度 / Threat: 取引" },
-      { "id": "c", "label": "Weakness: 市場 / Opportunity: 損失" },
-      { "id": "d", "label": "Opportunity: 組織 / Threat: 技術" }
+      { "id": "a", "label": "主キー: 行を一意に識別する属性又は属性の組" },
+      { "id": "b", "label": "外部キー: 表の全ての列を暗号化する属性" },
+      { "id": "c", "label": "候補キー: NULLだけを格納するための属性" },
+      { "id": "d", "label": "参照整合性: 同じ表内で列名を重複させる制約" }
     ],
     "correctChoiceIds": ["a"],
-    "explanation": "SWOT は強み、弱み、機会、脅威の 4 要素で分析します。"
+    "explanation": "主キーは行を一意に識別する。外部キーは別表などの主キーを参照し、参照整合性は参照先が存在することを保つ制約である。"
   },
   {
     "id": "basic-info-q4",
     "category": "テクノロジ",
-    "pattern": "multiple-select",
-    "prompt": "関係データベースの説明として適切なものをすべて選べ。",
+    "pattern": "single-choice",
+    "prompt": "SQL文 `SELECT * FROM 商品 WHERE 仕入先ID IN ('M002', 'M004')` と同じ条件になるものはどれか。",
     "choices": [
-      { "id": "a", "label": "表形式でデータを管理する" },
-      { "id": "b", "label": "SQL による問い合わせが使われる" },
-      { "id": "c", "label": "主キーは行を識別するために使われる" },
-      { "id": "d", "label": "必ず画像だけを保存する" }
+      { "id": "a", "label": "仕入先ID = 'M002' AND 仕入先ID = 'M004'" },
+      { "id": "b", "label": "仕入先ID = 'M002' OR 仕入先ID = 'M004'" },
+      { "id": "c", "label": "仕入先ID <> 'M002' AND 仕入先ID <> 'M004'" },
+      { "id": "d", "label": "仕入先ID BETWEEN 'M002' AND 'M004' AND 仕入先ID IS NULL" }
     ],
-    "correctChoiceIds": ["a", "b", "c"],
-    "explanation": "関係データベースは表、SQL、主キーなどを基本概念として扱います。"
+    "correctChoiceIds": ["b"],
+    "explanation": "INは列の値が指定した候補のいずれかに一致する行を選ぶ。したがってOR条件と同じ意味になる。"
   },
   {
     "id": "basic-info-q5",
-    "category": "マネジメント",
-    "pattern": "counting",
-    "prompt": "プロジェクトのリスク対応として適切なものはいくつあるか。回避、軽減、転嫁、受容。",
+    "category": "アルゴリズムとプログラミング",
+    "pattern": "single-choice",
+    "prompt": "整列済み配列に対する二分探索の前提として、最も適切なものはどれか。",
+    "visualHint": "探索範囲の中央を調べ、目的値との大小関係で探索範囲を半分に狭める。",
+    "figure": {
+      "kind": "binary-search",
+      "title": "二分探索の確認位置",
+      "caption": "整列済み配列の中央を確認し、探索範囲を半分ずつ狭める。"
+    },
     "choices": [
-      { "id": "a", "label": "1 個" },
-      { "id": "b", "label": "2 個" },
-      { "id": "c", "label": "3 個" },
-      { "id": "d", "label": "4 個" }
+      { "id": "a", "label": "対象データがキー順に整列されている" },
+      { "id": "b", "label": "対象データがハッシュ表に格納されている" },
+      { "id": "c", "label": "対象データが木構造で保存されていない" },
+      { "id": "d", "label": "対象データが更新されない" }
     ],
-    "correctChoiceIds": ["d"],
-    "explanation": "列挙された 4 つはいずれも代表的なリスク対応です。"
+    "correctChoiceIds": ["a"],
+    "explanation": "二分探索は整列済みデータを前提に、中央値との大小比較で探索範囲を狭める探索法である。"
   },
   {
     "id": "basic-info-q6",
-    "category": "ストラテジ",
+    "category": "アルゴリズムとプログラミング",
+    "pattern": "cloze",
+    "prompt": "1から20までの整数について、4で割り切れる数の個数を数える処理では、条件式 `i mod 4 = 0` が（　）回真になる。",
+    "choices": [
+      { "id": "a", "label": "4" },
+      { "id": "b", "label": "5" },
+      { "id": "c", "label": "6" },
+      { "id": "d", "label": "20" }
+    ],
+    "correctChoiceIds": ["b"],
+    "explanation": "4で割り切れる数は4、8、12、16、20の5個である。"
+  },
+  {
+    "id": "basic-info-q7",
+    "category": "アルゴリズムとプログラミング",
+    "pattern": "single-choice",
+    "prompt": "空のスタックに push(3), push(8), pop(), push(5), pop() を順に実行したとき、最後の pop() が返す値はどれか。",
+    "choices": [
+      { "id": "a", "label": "3" },
+      { "id": "b", "label": "5" },
+      { "id": "c", "label": "8" },
+      { "id": "d", "label": "未定義の値" }
+    ],
+    "correctChoiceIds": ["b"],
+    "explanation": "スタックは後入れ先出しである。最初のpopで8を取り出し、その後pushした5が最後のpopで取り出される。"
+  },
+  {
+    "id": "basic-info-q8",
+    "category": "アルゴリズムとプログラミング",
+    "pattern": "counting",
+    "prompt": "配列A = {2, 5, 8, 11, 14} の各要素について、偶数なら変数countを1増やす。処理後のcountはいくつか。",
+    "choices": [
+      { "id": "a", "label": "2" },
+      { "id": "b", "label": "3" },
+      { "id": "c", "label": "4" },
+      { "id": "d", "label": "5" }
+    ],
+    "correctChoiceIds": ["b"],
+    "explanation": "偶数は2、8、14の3個である。"
+  },
+  {
+    "id": "basic-info-q9",
+    "category": "セキュリティ",
+    "pattern": "matching",
+    "prompt": "情報セキュリティの三要素と説明の組合せとして、最も適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "機密性: 許可された者だけが情報にアクセスできる状態" },
+      { "id": "b", "label": "完全性: 必要なときに情報を利用できる状態" },
+      { "id": "c", "label": "可用性: 情報が改ざんされていない状態" },
+      { "id": "d", "label": "機密性: システムが停止しない状態" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "機密性はアクセス制御、完全性は正確さ・改ざん防止、可用性は必要時に利用できることを表す。"
+  },
+  {
+    "id": "basic-info-q10",
+    "category": "セキュリティ",
+    "pattern": "single-choice",
+    "prompt": "WAFの説明として、最も適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "Webアプリケーションへの通信内容を検査し、攻撃と判断したアクセスを遮断する" },
+      { "id": "b", "label": "無線LANの暗号化方式を定める規格である" },
+      { "id": "c", "label": "ログを長期保存するだけのバックアップ装置である" },
+      { "id": "d", "label": "OSのファイルシステムを暗号化する機能である" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "WAFはWeb Application Firewallの略で、SQLインジェクションやXSSなどWebアプリケーションを狙う攻撃への対策に使う。"
+  },
+  {
+    "id": "basic-info-q11",
+    "category": "セキュリティ",
+    "pattern": "multiple-select",
+    "prompt": "ハッシュ関数の性質として適切なものをすべて選べ。",
+    "choices": [
+      { "id": "a", "label": "任意長の入力から固定長のハッシュ値を求める" },
+      { "id": "b", "label": "同じ入力からは同じハッシュ値が得られる" },
+      { "id": "c", "label": "ハッシュ値から元の入力を容易に復元することを目的とする" },
+      { "id": "d", "label": "改ざん検知やメッセージ認証に利用される" }
+    ],
+    "correctChoiceIds": ["a", "b", "d"],
+    "explanation": "暗号学的ハッシュ関数は固定長の値を出力し、同じ入力には同じ値を返す。元データの復元を目的としない。"
+  },
+  {
+    "id": "basic-info-q12",
+    "category": "セキュリティ",
     "pattern": "true-false",
-    "prompt": "著作権は、創作された著作物を保護する権利である。",
+    "prompt": "HTTPSでは、サーバ証明書を用いて接続先サーバの正当性を確認できる。",
     "choices": [
       { "id": "a", "label": "正しい" },
       { "id": "b", "label": "誤り" }
     ],
     "correctChoiceIds": ["a"],
-    "explanation": "著作権は、思想または感情を創作的に表現した著作物を保護します。"
+    "explanation": "HTTPSではTLSを利用し、サーバ証明書によって接続先の確認や暗号化通信を実現する。"
+  },
+  {
+    "id": "basic-info-q13",
+    "category": "マネジメント",
+    "pattern": "cloze",
+    "prompt": "WBSは、プロジェクトの成果物や作業を（　）して管理しやすくする手法である。",
+    "choices": [
+      { "id": "a", "label": "階層的に分解" },
+      { "id": "b", "label": "時系列だけで暗号化" },
+      { "id": "c", "label": "担当者名だけで分類" },
+      { "id": "d", "label": "費用だけで評価" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "WBSはWork Breakdown Structureの略で、成果物や作業を階層的に分解してスコープを明確にする。"
+  },
+  {
+    "id": "basic-info-q14",
+    "category": "マネジメント",
+    "pattern": "counting",
+    "prompt": "プロジェクトリスクへの代表的な対応として、回避、軽減、転嫁、受容を挙げた。この中でリスク対応に該当するものはいくつあるか。",
+    "choices": [
+      { "id": "a", "label": "1個" },
+      { "id": "b", "label": "2個" },
+      { "id": "c", "label": "3個" },
+      { "id": "d", "label": "4個" }
+    ],
+    "correctChoiceIds": ["d"],
+    "explanation": "回避、軽減、転嫁、受容はいずれも代表的なリスク対応である。"
+  },
+  {
+    "id": "basic-info-q15",
+    "category": "マネジメント",
+    "pattern": "single-choice",
+    "prompt": "サービスレベル合意書（SLA）の説明として、最も適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "提供するサービスの品質水準や責任範囲を利用者と提供者の間で合意した文書" },
+      { "id": "b", "label": "ソースコードの著作権を放棄するための契約書" },
+      { "id": "c", "label": "全ての障害を未然に防止する暗号化方式" },
+      { "id": "d", "label": "プロジェクトの全作業を1日単位で固定する工程表" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "SLAはサービスの可用性、応答時間、サポート範囲など、合意したサービス水準を明確にする文書である。"
+  },
+  {
+    "id": "basic-info-q16",
+    "category": "ストラテジ",
+    "pattern": "matching",
+    "prompt": "SWOT分析の要素と意味の組合せとして、最も適切なものはどれか。",
+    "choices": [
+      { "id": "a", "label": "Strength: 強み / Threat: 脅威" },
+      { "id": "b", "label": "Strength: 市場 / Threat: 技術" },
+      { "id": "c", "label": "Weakness: 機会 / Opportunity: 弱み" },
+      { "id": "d", "label": "Opportunity: 原価 / Threat: 利益" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "SWOTは強み、弱み、機会、脅威の4要素で、内部環境と外部環境を整理する。"
+  },
+  {
+    "id": "basic-info-q17",
+    "category": "ストラテジ",
+    "pattern": "single-choice",
+    "prompt": "システム調達で提案依頼書（RFP）を作成する主な目的はどれか。",
+    "choices": [
+      { "id": "a", "label": "要求事項や評価基準を提示し、供給者から提案を受けるため" },
+      { "id": "b", "label": "開発完了後のソースコードを暗号化するため" },
+      { "id": "c", "label": "運用中の全ログを削除するため" },
+      { "id": "d", "label": "プロジェクトのリスクを全て供給者に移すため" }
+    ],
+    "correctChoiceIds": ["a"],
+    "explanation": "RFPはRequest For Proposalの略で、発注側が要求事項、前提条件、評価基準などを示し、提案を求める文書である。"
+  },
+  {
+    "id": "basic-info-q18",
+    "category": "ストラテジ",
+    "pattern": "single-choice",
+    "prompt": "販売価格が1個1,000円、変動費が1個600円、固定費が200,000円の商品の損益分岐点販売数量はどれか。",
+    "choices": [
+      { "id": "a", "label": "200個" },
+      { "id": "b", "label": "333個" },
+      { "id": "c", "label": "500個" },
+      { "id": "d", "label": "600個" }
+    ],
+    "correctChoiceIds": ["c"],
+    "explanation": "1個当たりの限界利益は1,000 - 600 = 400円。固定費200,000円を400円で割ると500個である。"
   }
 ]

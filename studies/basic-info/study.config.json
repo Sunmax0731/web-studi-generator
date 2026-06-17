@@ -2,9 +2,15 @@
   "id": "basic-info",
   "slug": "basic-info",
   "title": "基本情報技術者試験",
-  "description": "テクノロジ、マネジメント、ストラテジをカテゴリ別に学習し、選択式の模擬テストで確認する静的学習サイトです。",
+  "description": "IPAの試験要綱と近年の公開問題を基に、科目Aの知識確認と科目Bのアルゴリズム・情報セキュリティ読解を横断して練習する模擬試験です。",
   "accent": "#2563eb",
-  "categories": ["テクノロジ", "マネジメント", "ストラテジ"],
+  "categories": [
+    "テクノロジ",
+    "アルゴリズムとプログラミング",
+    "セキュリティ",
+    "マネジメント",
+    "ストラテジ"
+  ],
   "examSettings": {
     "presentationMode": "multi",
     "totalMinutes": 60,
@@ -14,8 +20,93 @@
   "sources": [
     {
       "kind": "local",
-      "label": "基本情報技術者試験 サンプル資料",
-      "path": "studies/basic-info/sources/sample-notes.md"
+      "label": "情報処理技術者試験 試験要綱 Ver.5.5",
+      "path": "studies/basic-info/sources/2026-06-17T11-56-13-835Z/ipa-FE/youkou_ver5_5.pdf"
+    },
+    {
+      "kind": "local",
+      "label": "情報処理技術者試験 試験要綱 Ver.5.5 変更箇所表示版",
+      "path": "studies/basic-info/sources/2026-06-17T11-56-13-835Z/ipa-FE/youkou_ver5_5_henkou.pdf"
+    },
+    {
+      "kind": "local",
+      "label": "基本情報技術者試験 公開問題・模擬試験 URL 一覧",
+      "path": "studies/basic-info/sources/2026-06-17T11-56-13-835Z/ipa-FE/source-links.md"
+    },
+    {
+      "kind": "web",
+      "label": "IPA 令和7年度 基本情報技術者試験 科目A 公開問題",
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/sg_fe/koukai/tbl5kb0000005r9r-att/2025r07_fe_kamoku_a_qs.pdf"
+    },
+    {
+      "kind": "web",
+      "label": "IPA 令和7年度 基本情報技術者試験 科目A 解答例",
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/sg_fe/koukai/tbl5kb0000005r9r-att/2025r07_fe_kamoku_a_ans.pdf"
+    },
+    {
+      "kind": "web",
+      "label": "IPA 令和7年度 基本情報技術者試験 科目B 公開問題",
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/sg_fe/koukai/tbl5kb0000005r9r-att/2025r07_fe_kamoku_b_qs.pdf"
+    },
+    {
+      "kind": "web",
+      "label": "IPA 令和7年度 基本情報技術者試験 科目B 解答例",
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/sg_fe/koukai/tbl5kb0000005r9r-att/2025r07_fe_kamoku_b_ans.pdf"
+    },
+    {
+      "kind": "web",
+      "label": "IPA 令和6年度 基本情報技術者試験 科目A 公開問題",
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/sg_fe/koukai/eid2eo0000007g1d-att/2024r06_fe_kamoku_a_qs.pdf"
+    },
+    {
+      "kind": "web",
+      "label": "IPA 令和6年度 基本情報技術者試験 科目A 解答例",
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/sg_fe/koukai/eid2eo0000007g1d-att/2024r06_fe_kamoku_a_ans.pdf"
+    },
+    {
+      "kind": "web",
+      "label": "IPA 令和6年度 基本情報技術者試験 科目B 公開問題",
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/sg_fe/koukai/eid2eo0000007g1d-att/2024r06_fe_kamoku_b_qs.pdf"
+    },
+    {
+      "kind": "web",
+      "label": "IPA 令和6年度 基本情報技術者試験 科目B 解答例",
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/sg_fe/koukai/eid2eo0000007g1d-att/2024r06_fe_kamoku_b_ans.pdf"
+    },
+    {
+      "kind": "web",
+      "label": "IPA 令和5年度 基本情報技術者試験 科目A 公開問題",
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/sg_fe/koukai/t6hhco0000003zx0-att/2023r05_fe_kamoku_a_qs.pdf"
+    },
+    {
+      "kind": "web",
+      "label": "IPA 令和5年度 基本情報技術者試験 科目A 解答例",
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/sg_fe/koukai/t6hhco0000003zx0-att/2023r05_fe_kamoku_a_ans.pdf"
+    },
+    {
+      "kind": "web",
+      "label": "IPA 令和5年度 基本情報技術者試験 科目B 公開問題",
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/sg_fe/koukai/t6hhco0000003zx0-att/2023r05_fe_kamoku_b_qs.pdf"
+    },
+    {
+      "kind": "web",
+      "label": "IPA 令和5年度 基本情報技術者試験 科目B 解答例",
+      "url": "https://www.ipa.go.jp/shiken/mondai-kaiotu/sg_fe/koukai/t6hhco0000003zx0-att/2023r05_fe_kamoku_b_ans.pdf"
+    },
+    {
+      "kind": "web",
+      "label": "基本情報技術者試験ドットコム 午前対策オリジナル模擬試験1",
+      "url": "https://www.fe-siken.com/kakomon/01_moshi/"
+    },
+    {
+      "kind": "web",
+      "label": "基本情報技術者試験過去問道場 令和6年問題一覧",
+      "url": "https://www.ipa-siken.com/exam/list?examCd=fe202401"
+    },
+    {
+      "kind": "web",
+      "label": "基本情報技術者試験過去問道場 令和5年問題一覧",
+      "url": "https://www.ipa-siken.com/exam/list?examCd=fe202301"
     }
   ]
 }

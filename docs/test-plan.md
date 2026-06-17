@@ -5,10 +5,10 @@
 | Check | Command | Purpose | Status |
 | --- | --- | --- | --- |
 | Lint | `npm run lint` | Generator, templates, and tests style check | Passed |
-| Unit tests | `npm test` | Schema validation, exam metric helpers, FE variant counts, and 色彩検定 variant counts | Passed: 3 tests |
+| Unit tests | `npm test` | Schema validation, exam metric helpers, expanded FE question pools, and 色彩検定 variant counts | Passed: 3 tests |
 | Static build | `npm run build` | Generate GitHub Pages files into `dist/` | Passed: 3 studies generated |
-| E2E smoke | `npm run e2e` | Browser verification of generated static site, FE variants, 色彩検定 variants, per-attempt question-count selection, and answer-symbol randomization | Passed: 4 Chromium tests |
-| Runtime gate | Playwright fallback script | Open generated mock-test page, set question count, start attempt, check desktop/mobile rendering and console health | Passed |
+| E2E smoke | `npm run e2e` | Browser verification of generated static site, expanded FE pools, FE variants, 色彩検定 variants, per-attempt question-count selection, and answer-symbol randomization | Passed: 4 Chromium tests |
+| Runtime gate | Playwright fallback script | Open generated mock-test pages, verify FE default counts and expanded pool maxima, start attempts, and check console health | Passed |
 | Docs ZIP | `npm run docs:zip` | Release documentation bundle | Passed |
 
 ## Runtime Gate
@@ -19,11 +19,11 @@ Required generated Web page gate for this task:
 - Basic information study page shows 5 units and recorded local/web sources. Passed.
 - Basic information study page shows 科目A and 科目B mock-test choices. Passed.
 - 科目A mock-test page opens at `/studies/basic-info/mock-test/kamoku-a/`. Passed.
-- 科目A has 90 minutes and 60 questions. Passed.
+- 科目A has 90 minutes and defaults to 60 questions from a 90-question pool. Passed.
 - 科目A question-count setting defaults to 60 and can start an attempt with 10 questions. Passed.
 - 科目A single-question mode respects a 3-question attempt and shows `1 / 3` in the pager. Passed.
 - 科目B mock-test page opens at `/studies/basic-info/mock-test/kamoku-b/`. Passed.
-- 科目B has 100 minutes and 20 questions. Passed.
+- 科目B has 100 minutes and defaults to 20 questions from a 35-question pool. Passed.
 - 色彩検定 study page shows 4 mock-test choices: 3級, 2級, 1級1次, 1級2次. Passed.
 - 色彩検定 study page groups learning units by 3級, 2級, 1級1次, and 1級2次. Passed.
 - 色彩検定 3級 mock-test page opens at `/studies/color-test/mock-test/grade-3/`. Passed.
@@ -43,7 +43,7 @@ Required generated Web page gate for this task:
 - Answer selection shows correctness feedback. Passed.
 - Remaining time, average answer time, and remaining-question pace are visible. Passed.
 - Desktop and mobile widths do not overlap or clip primary text. Passed at 1440x1000 and 390x900.
-- Browser plugin path was attempted but `iab` was unavailable; Playwright fallback verified `/studies/basic-info/mock-test/kamoku-a/` with 7 desktop questions and 5 mobile questions, no console warnings/errors, and no framework overlay. Passed.
+- Browser plugin path was attempted but `iab` was unavailable; Playwright fallback verified `/studies/basic-info/mock-test/kamoku-a/` default 60 from max 90 and `/studies/basic-info/mock-test/kamoku-b/` max 35, no console warnings/errors. Passed.
 
 Runtime screenshots are stored under ignored `output/playwright/`.
 

@@ -2,11 +2,11 @@
 
 ## Scope
 
-- Add a question-count setting to generated mock-test pages.
-- Default the setting to each mock-test variant's configured question count.
-- Clamp requested question counts between 1 and the available generated questions.
-- Randomly sample the requested number of questions at Start while preserving category-grouped display.
-- Verify multi-question and single-question modes with reduced question counts.
+- Expand 基本情報技術者試験 practice pools with past-exam-inspired original questions.
+- Keep 科目A default attempt size at 60 questions while increasing its pool to 90 questions.
+- Keep 科目B default attempt size at 20 questions while increasing its pool to 35 questions.
+- Update schema validation so variant `questionCount` means minimum/default attempt size, not an exact pool size.
+- Verify randomized attempts still honor the default counts and expanded maxima.
 - Keep generated GitHub Pages output under ignored `dist/`.
 
 ## Required Before Push
@@ -19,14 +19,14 @@
 - [x] Runtime gate documented in `docs/qcds-evaluation.md`
 - [x] `npm run docs:zip`
 - [x] `git status --short --branch` reviewed
-- [x] Commit created on `codex/question-count-setting`
+- [x] Commit created on `codex/expand-fe-question-pool`
 - [x] Branch pushed
-- [x] `main` pushed for production reflection when requested or appropriate
+- [ ] `main` pushed for production reflection when requested or appropriate
 
 ## Required After Main Push
 
-- [x] GitHub Pages workflow completed
-- [x] Published URL returns HTTP 200 when feasible
+- [ ] GitHub Pages workflow completed
+- [ ] Published URL returns HTTP 200 when feasible
 
 ## Release Artifact
 

@@ -45,10 +45,10 @@ test('registered studies satisfy the static generation schema', async () => {
     if (entry.id === 'basic-info') {
       assert.equal(config.examVariants[0].questionCount, 60)
       assert.equal(config.examVariants[0].totalMinutes, 90)
-      assert.equal(questions.filter((question) => question.examId === 'kamoku-a').length, 60)
+      assert.equal(questions.filter((question) => question.examId === 'kamoku-a').length, 90)
       assert.equal(config.examVariants[1].questionCount, 20)
       assert.equal(config.examVariants[1].totalMinutes, 100)
-      assert.equal(questions.filter((question) => question.examId === 'kamoku-b').length, 20)
+      assert.equal(questions.filter((question) => question.examId === 'kamoku-b').length, 35)
     }
     if (entry.id === 'color-test') {
       const expectedVariants = [

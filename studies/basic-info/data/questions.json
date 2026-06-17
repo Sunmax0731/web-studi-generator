@@ -1,82 +1,3607 @@
 [
-  {"id":"fe-a-q001","examId":"kamoku-a","category":"テクノロジ","pattern":"single-choice","prompt":"10進数の37を2進数で表したものはどれか。","choices":[{"id":"a","label":"100101"},{"id":"b","label":"100111"},{"id":"c","label":"101001"},{"id":"d","label":"110001"}],"correctChoiceIds":["a"],"explanation":"37は32+4+1なので、2進数では100101である。"},
-  {"id":"fe-a-q002","examId":"kamoku-a","category":"テクノロジ","pattern":"single-choice","prompt":"浮動小数点数の演算で発生する丸め誤差の説明として、最も適切なものはどれか。","choices":[{"id":"a","label":"表現できる桁数に限りがあるため、下位桁を丸めることで生じる誤差"},{"id":"b","label":"演算結果が最大値を超えたときだけ発生する誤差"},{"id":"c","label":"絶対値がほぼ等しい数を減算したときに上位桁が失われる誤差"},{"id":"d","label":"通信路上でビットが反転したときに発生する誤差"}],"correctChoiceIds":["a"],"explanation":"丸め誤差は、有限桁で表現するために四捨五入、切上げ、切捨てなどを行うことで生じる。"},
-  {"id":"fe-a-q003","examId":"kamoku-a","category":"テクノロジ","pattern":"single-choice","prompt":"整列済み配列に対する二分探索の前提として、最も適切なものはどれか。","visualHint":"探索範囲の中央を調べ、目的値との大小関係で探索範囲を半分に狭める。","figure":{"kind":"binary-search","title":"二分探索の確認位置","caption":"整列済み配列の中央を確認し、探索範囲を半分ずつ狭める。"},"choices":[{"id":"a","label":"対象データがキー順に整列されている"},{"id":"b","label":"対象データがハッシュ表に格納されている"},{"id":"c","label":"対象データが木構造で保存されていない"},{"id":"d","label":"対象データが更新されない"}],"correctChoiceIds":["a"],"explanation":"二分探索は整列済みデータを前提に、中央値との大小比較で探索範囲を狭める探索法である。"},
-  {"id":"fe-a-q004","examId":"kamoku-a","category":"テクノロジ","pattern":"matching","prompt":"スタックとキューの説明の組合せとして、最も適切なものはどれか。","choices":[{"id":"a","label":"スタック: 後入れ先出し / キュー: 先入れ先出し"},{"id":"b","label":"スタック: 先入れ先出し / キュー: 後入れ先出し"},{"id":"c","label":"スタック: キーで直接参照 / キュー: 木構造で探索"},{"id":"d","label":"スタック: 常に整列済み / キュー: 常に重複禁止"}],"correctChoiceIds":["a"],"explanation":"スタックはLIFO、キューはFIFOのデータ構造である。"},
-  {"id":"fe-a-q005","examId":"kamoku-a","category":"テクノロジ","pattern":"single-choice","prompt":"ハッシュ表を利用する主な利点はどれか。","choices":[{"id":"a","label":"キーから格納位置を求め、平均的に高速に探索できる"},{"id":"b","label":"全データを常に昇順で保持できる"},{"id":"c","label":"暗号化された通信路を自動的に確立できる"},{"id":"d","label":"データの容量を必ず半分にできる"}],"correctChoiceIds":["a"],"explanation":"ハッシュ表はハッシュ関数でキーを格納位置に対応付け、平均的に高速な探索・挿入を実現する。"},
-  {"id":"fe-a-q006","examId":"kamoku-a","category":"テクノロジ","pattern":"single-choice","prompt":"キャッシュメモリをCPUと主記憶の間に置く主な目的はどれか。","choices":[{"id":"a","label":"CPUと主記憶の速度差による待ち時間を減らす"},{"id":"b","label":"主記憶のデータを恒久的に保存する"},{"id":"c","label":"ネットワークの暗号化を担当する"},{"id":"d","label":"補助記憶装置の容量を増やす"}],"correctChoiceIds":["a"],"explanation":"キャッシュメモリは高速な小容量メモリで、よく使うデータを保持してアクセス時間を短縮する。"},
-  {"id":"fe-a-q007","examId":"kamoku-a","category":"テクノロジ","pattern":"counting","prompt":"1バイトを8ビットとすると、2MiBは何バイトか。","choices":[{"id":"a","label":"2,000,000バイト"},{"id":"b","label":"2,048,000バイト"},{"id":"c","label":"2,097,152バイト"},{"id":"d","label":"16,777,216バイト"}],"correctChoiceIds":["c"],"explanation":"1MiBは1,024×1,024=1,048,576バイトなので、2MiBは2,097,152バイトである。"},
-  {"id":"fe-a-q008","examId":"kamoku-a","category":"テクノロジ","pattern":"single-choice","prompt":"RAID1の特徴として、最も適切なものはどれか。","choices":[{"id":"a","label":"同じデータを複数のディスクに書き込み、耐障害性を高める"},{"id":"b","label":"データを細分化して複数ディスクに分散し、冗長性なしで高速化する"},{"id":"c","label":"光ディスクだけを対象とするバックアップ方式である"},{"id":"d","label":"メモリ上のプロセスを自動的に複製する"}],"correctChoiceIds":["a"],"explanation":"RAID1はミラーリングであり、同一データを複数ディスクに保持する。"},
-  {"id":"fe-a-q009","examId":"kamoku-a","category":"テクノロジ","pattern":"single-choice","prompt":"仮想化技術の説明として、最も適切なものはどれか。","choices":[{"id":"a","label":"物理資源を論理的に分割又は統合して、複数の環境として利用できるようにする"},{"id":"b","label":"全てのプログラムを機械語に事前変換する"},{"id":"c","label":"通信内容を画像形式に変換する"},{"id":"d","label":"ファイルを必ず圧縮して保存する"}],"correctChoiceIds":["a"],"explanation":"仮想化はサーバ、OS、ネットワークなどの物理資源を抽象化し、柔軟に利用する技術である。"},
-  {"id":"fe-a-q010","examId":"kamoku-a","category":"テクノロジ","pattern":"single-choice","prompt":"OSにおけるプロセス管理の説明として、最も適切なものはどれか。","choices":[{"id":"a","label":"実行中のプログラムにCPU時間や資源を割り当てる"},{"id":"b","label":"画面の配色だけを管理する"},{"id":"c","label":"企業の経営戦略を策定する"},{"id":"d","label":"通信パケットの物理的な電圧を決める"}],"correctChoiceIds":["a"],"explanation":"プロセス管理は、プロセスの生成、終了、状態遷移、CPU割当てなどを扱うOSの機能である。"},
-  {"id":"fe-a-q011","examId":"kamoku-a","category":"テクノロジ","pattern":"single-choice","prompt":"SQL文 `SELECT * FROM 商品 WHERE 仕入先ID IN ('M002', 'M004')` と同じ条件になるものはどれか。","choices":[{"id":"a","label":"仕入先ID = 'M002' AND 仕入先ID = 'M004'"},{"id":"b","label":"仕入先ID = 'M002' OR 仕入先ID = 'M004'"},{"id":"c","label":"仕入先ID <> 'M002' AND 仕入先ID <> 'M004'"},{"id":"d","label":"仕入先ID BETWEEN 'M002' AND 'M004' AND 仕入先ID IS NULL"}],"correctChoiceIds":["b"],"explanation":"INは列の値が指定した候補のいずれかに一致する行を選ぶ。したがってOR条件と同じ意味になる。"},
-  {"id":"fe-a-q012","examId":"kamoku-a","category":"テクノロジ","pattern":"single-choice","prompt":"データベースの正規化を行う主な目的はどれか。","choices":[{"id":"a","label":"データの重複や更新時の不整合を減らす"},{"id":"b","label":"全ての表を1列だけにする"},{"id":"c","label":"データを暗号化して復号不能にする"},{"id":"d","label":"SQLを使用できないようにする"}],"correctChoiceIds":["a"],"explanation":"正規化はデータの重複や更新異常を減らし、整合性を保ちやすくする設計手法である。"},
-  {"id":"fe-a-q013","examId":"kamoku-a","category":"テクノロジ","pattern":"multiple-select","prompt":"トランザクションのACID特性として適切なものをすべて選べ。","choices":[{"id":"a","label":"原子性"},{"id":"b","label":"一貫性"},{"id":"c","label":"独立性"},{"id":"d","label":"圧縮性"}],"correctChoiceIds":["a","b","c"],"explanation":"ACIDは原子性、一貫性、独立性、永続性を表す。圧縮性は含まれない。"},
-  {"id":"fe-a-q014","examId":"kamoku-a","category":"テクノロジ","pattern":"matching","prompt":"OSI基本参照モデルにおいて、IPが主に属する層はどれか。","choices":[{"id":"a","label":"ネットワーク層"},{"id":"b","label":"トランスポート層"},{"id":"c","label":"セッション層"},{"id":"d","label":"アプリケーション層"}],"correctChoiceIds":["a"],"explanation":"IPは経路制御や宛先への配送を扱うネットワーク層のプロトコルである。"},
-  {"id":"fe-a-q015","examId":"kamoku-a","category":"テクノロジ","pattern":"single-choice","prompt":"TCPの特徴として、UDPと比較して最も適切なものはどれか。","choices":[{"id":"a","label":"コネクションを確立し、到達確認や再送制御を行う"},{"id":"b","label":"必ず暗号化される"},{"id":"c","label":"IPアドレスをドメイン名に変換する"},{"id":"d","label":"物理層だけで利用される"}],"correctChoiceIds":["a"],"explanation":"TCPは信頼性を重視するコネクション型のトランスポート層プロトコルである。"},
-  {"id":"fe-a-q016","examId":"kamoku-a","category":"テクノロジ","pattern":"single-choice","prompt":"DNSの役割として、最も適切なものはどれか。","choices":[{"id":"a","label":"ドメイン名とIPアドレスを対応付ける"},{"id":"b","label":"Webページの見た目を定義する"},{"id":"c","label":"CPU命令を解釈する"},{"id":"d","label":"画像の色数を固定する"}],"correctChoiceIds":["a"],"explanation":"DNSは名前解決によって、ドメイン名からIPアドレスなどの情報を得る仕組みである。"},
-  {"id":"fe-a-q017","examId":"kamoku-a","category":"テクノロジ","pattern":"single-choice","prompt":"HTTPステータスコード404の意味として、最も適切なものはどれか。","choices":[{"id":"a","label":"要求された資源が見つからない"},{"id":"b","label":"要求が成功した"},{"id":"c","label":"サーバ内部で処理不能なエラーが起きた"},{"id":"d","label":"認証が必ず成功した"}],"correctChoiceIds":["a"],"explanation":"404 Not Foundは、指定されたURLのリソースが見つからないことを表す。"},
-  {"id":"fe-a-q018","examId":"kamoku-a","category":"テクノロジ","pattern":"single-choice","prompt":"可逆圧縮の説明として、最も適切なものはどれか。","choices":[{"id":"a","label":"圧縮後のデータから元のデータを完全に復元できる"},{"id":"b","label":"復元時に必ず画質が低下する"},{"id":"c","label":"音声データだけに使える"},{"id":"d","label":"暗号化と同じ意味である"}],"correctChoiceIds":["a"],"explanation":"可逆圧縮は、圧縮前のデータを完全に復元できる方式である。"},
-  {"id":"fe-a-q019","examId":"kamoku-a","category":"テクノロジ","pattern":"single-choice","prompt":"RGB方式で表現する対象として、最も適切なものはどれか。","choices":[{"id":"a","label":"ディスプレイ上の色"},{"id":"b","label":"ネットワークの経路"},{"id":"c","label":"関係データベースの正規形"},{"id":"d","label":"プロジェクトの作業分解"}],"correctChoiceIds":["a"],"explanation":"RGBは赤、緑、青の光の三原色を組み合わせて表示色を表す方式である。"},
-  {"id":"fe-a-q020","examId":"kamoku-a","category":"テクノロジ","pattern":"single-choice","prompt":"教師あり学習の説明として、最も適切なものはどれか。","choices":[{"id":"a","label":"入力データと正解ラベルの組を用いてモデルを学習する"},{"id":"b","label":"正解ラベルを一切使わずに暗号鍵を生成する"},{"id":"c","label":"ネットワーク機器だけを自動設定する"},{"id":"d","label":"データを必ず昇順に整列する"}],"correctChoiceIds":["a"],"explanation":"教師あり学習では、正解ラベル付きデータから入力と出力の関係を学習する。"},
-  {"id":"fe-a-q021","examId":"kamoku-a","category":"テクノロジ","pattern":"single-choice","prompt":"生成AIのハルシネーションへの対策として、最も適切なものはどれか。","choices":[{"id":"a","label":"重要な出力は信頼できる出典や実データで検証する"},{"id":"b","label":"出力を常に正解として扱う"},{"id":"c","label":"プロンプトを短くすれば誤りは完全になくなる"},{"id":"d","label":"ネットワークを切断すれば事実誤認はなくなる"}],"correctChoiceIds":["a"],"explanation":"生成AIはもっともらしい誤情報を出すことがあるため、重要な内容は検証が必要である。"},
-  {"id":"fe-a-q022","examId":"kamoku-a","category":"テクノロジ","pattern":"single-choice","prompt":"REST APIでHTTPのGETメソッドを使う場面として、最も適切なものはどれか。","choices":[{"id":"a","label":"サーバ上の資源を取得する"},{"id":"b","label":"必ず資源を削除する"},{"id":"c","label":"TCP接続を暗号化する"},{"id":"d","label":"CPUの割込みを禁止する"}],"correctChoiceIds":["a"],"explanation":"GETは主にリソースの取得に用いられるHTTPメソッドである。"},
-  {"id":"fe-a-q023","examId":"kamoku-a","category":"テクノロジ","pattern":"single-choice","prompt":"ブラックボックステストの説明として、最も適切なものはどれか。","choices":[{"id":"a","label":"内部構造ではなく、入力と出力の関係に着目して確認する"},{"id":"b","label":"ソースコードの全行を必ず読む"},{"id":"c","label":"CPUの回路だけを検査する"},{"id":"d","label":"利用者には結果を見せない"}],"correctChoiceIds":["a"],"explanation":"ブラックボックステストは仕様に基づき、内部構造を意識せず入出力を確認する。"},
-  {"id":"fe-a-q024","examId":"kamoku-a","category":"テクノロジ","pattern":"single-choice","prompt":"CIの説明として、最も適切なものはどれか。","choices":[{"id":"a","label":"変更を頻繁に統合し、自動ビルドや自動テストで確認する"},{"id":"b","label":"本番障害が起きた後だけ手作業でテストする"},{"id":"c","label":"著作権を管理する法律である"},{"id":"d","label":"会計上の固定費を求める手法である"}],"correctChoiceIds":["a"],"explanation":"CIは継続的インテグレーションで、変更を小さく頻繁に統合し自動検証する考え方である。"},
-  {"id":"fe-a-q025","examId":"kamoku-a","category":"セキュリティ","pattern":"matching","prompt":"情報セキュリティの三要素と説明の組合せとして、最も適切なものはどれか。","choices":[{"id":"a","label":"機密性: 許可された者だけが情報にアクセスできる状態"},{"id":"b","label":"完全性: 必要なときに情報を利用できる状態"},{"id":"c","label":"可用性: 情報が改ざんされていない状態"},{"id":"d","label":"機密性: システムが停止しない状態"}],"correctChoiceIds":["a"],"explanation":"機密性はアクセス制御、完全性は正確さ・改ざん防止、可用性は必要時に利用できることを表す。"},
-  {"id":"fe-a-q026","examId":"kamoku-a","category":"セキュリティ","pattern":"single-choice","prompt":"WAFの説明として、最も適切なものはどれか。","choices":[{"id":"a","label":"Webアプリケーションへの通信内容を検査し、攻撃と判断したアクセスを遮断する"},{"id":"b","label":"無線LANの暗号化方式を定める規格である"},{"id":"c","label":"ログを長期保存するだけのバックアップ装置である"},{"id":"d","label":"OSのファイルシステムを暗号化する機能である"}],"correctChoiceIds":["a"],"explanation":"WAFはWeb Application Firewallの略で、Webアプリケーションを狙う攻撃への対策に使う。"},
-  {"id":"fe-a-q027","examId":"kamoku-a","category":"セキュリティ","pattern":"multiple-select","prompt":"ハッシュ関数の性質として適切なものをすべて選べ。","choices":[{"id":"a","label":"任意長の入力から固定長のハッシュ値を求める"},{"id":"b","label":"同じ入力からは同じハッシュ値が得られる"},{"id":"c","label":"ハッシュ値から元の入力を容易に復元することを目的とする"},{"id":"d","label":"改ざん検知やメッセージ認証に利用される"}],"correctChoiceIds":["a","b","d"],"explanation":"暗号学的ハッシュ関数は固定長の値を出力し、同じ入力には同じ値を返す。元データの復元を目的としない。"},
-  {"id":"fe-a-q028","examId":"kamoku-a","category":"セキュリティ","pattern":"true-false","prompt":"HTTPSでは、サーバ証明書を用いて接続先サーバの正当性を確認できる。","choices":[{"id":"a","label":"正しい"},{"id":"b","label":"誤り"}],"correctChoiceIds":["a"],"explanation":"HTTPSではTLSを利用し、サーバ証明書によって接続先の確認や暗号化通信を実現する。"},
-  {"id":"fe-a-q029","examId":"kamoku-a","category":"セキュリティ","pattern":"single-choice","prompt":"多要素認証の説明として、最も適切なものはどれか。","choices":[{"id":"a","label":"知識、所持、生体など異なる要素を組み合わせて本人確認する"},{"id":"b","label":"同じパスワードを2回入力する"},{"id":"c","label":"認証を省略して利便性を高める"},{"id":"d","label":"利用者IDを暗号化して保存しない"}],"correctChoiceIds":["a"],"explanation":"多要素認証は、パスワード、端末、指紋など性質の異なる認証要素を組み合わせる。"},
-  {"id":"fe-a-q030","examId":"kamoku-a","category":"セキュリティ","pattern":"single-choice","prompt":"SQLインジェクション対策として、最も適切なものはどれか。","choices":[{"id":"a","label":"プレースホルダを用いたバインド機構でSQLを組み立てる"},{"id":"b","label":"画面の文字色を変更する"},{"id":"c","label":"全てのSELECT文を削除する"},{"id":"d","label":"ログイン画面を非表示にする"}],"correctChoiceIds":["a"],"explanation":"入力値をSQL文字列へ直接連結せず、プレースホルダなどでSQL構造と値を分離することが有効である。"},
-  {"id":"fe-a-q031","examId":"kamoku-a","category":"セキュリティ","pattern":"single-choice","prompt":"クロスサイトスクリプティング（XSS）の対策として、最も適切なものはどれか。","choices":[{"id":"a","label":"出力時にHTMLとして解釈される特殊文字を適切にエスケープする"},{"id":"b","label":"データベースを正規化する"},{"id":"c","label":"全ての通信をUDPにする"},{"id":"d","label":"画像ファイルを必ず圧縮する"}],"correctChoiceIds":["a"],"explanation":"XSSでは不正なスクリプトがブラウザで実行されるため、出力エスケープなどが重要である。"},
-  {"id":"fe-a-q032","examId":"kamoku-a","category":"セキュリティ","pattern":"single-choice","prompt":"ランサムウェア被害に備える対策として、最も適切なものはどれか。","choices":[{"id":"a","label":"重要データを復元可能な形で定期的にバックアップする"},{"id":"b","label":"バックアップを本番サーバだけに保存する"},{"id":"c","label":"脆弱性情報を確認しない"},{"id":"d","label":"全利用者に管理者権限を付与する"}],"correctChoiceIds":["a"],"explanation":"ランサムウェア対策では、感染予防とともに、隔離されたバックアップから復旧できることが重要である。"},
-  {"id":"fe-a-q033","examId":"kamoku-a","category":"セキュリティ","pattern":"single-choice","prompt":"最小権限の原則の説明として、最も適切なものはどれか。","choices":[{"id":"a","label":"利用者やプログラムに業務上必要な最小限の権限だけを与える"},{"id":"b","label":"全員に同一の管理者権限を与える"},{"id":"c","label":"権限管理を行わない"},{"id":"d","label":"パスワードを共有して運用を簡単にする"}],"correctChoiceIds":["a"],"explanation":"最小権限の原則は、侵害時の影響範囲を小さくするためにも有効である。"},
-  {"id":"fe-a-q034","examId":"kamoku-a","category":"セキュリティ","pattern":"single-choice","prompt":"SIEMの利用目的として、最も適切なものはどれか。","choices":[{"id":"a","label":"複数の機器やシステムのログを収集・相関分析し、異常を検知する"},{"id":"b","label":"表計算ソフトで原価を計算する"},{"id":"c","label":"画面設計だけを自動化する"},{"id":"d","label":"データベースの主キーを決定する"}],"correctChoiceIds":["a"],"explanation":"SIEMはSecurity Information and Event Managementで、ログの統合管理と分析に用いられる。"},
-  {"id":"fe-a-q035","examId":"kamoku-a","category":"マネジメント","pattern":"cloze","prompt":"WBSは、プロジェクトの成果物や作業を（　）して管理しやすくする手法である。","choices":[{"id":"a","label":"階層的に分解"},{"id":"b","label":"時系列だけで暗号化"},{"id":"c","label":"担当者名だけで分類"},{"id":"d","label":"費用だけで評価"}],"correctChoiceIds":["a"],"explanation":"WBSはWork Breakdown Structureの略で、成果物や作業を階層的に分解してスコープを明確にする。"},
-  {"id":"fe-a-q036","examId":"kamoku-a","category":"マネジメント","pattern":"counting","prompt":"プロジェクトリスクへの代表的な対応として、回避、軽減、転嫁、受容を挙げた。この中でリスク対応に該当するものはいくつあるか。","choices":[{"id":"a","label":"1個"},{"id":"b","label":"2個"},{"id":"c","label":"3個"},{"id":"d","label":"4個"}],"correctChoiceIds":["d"],"explanation":"回避、軽減、転嫁、受容はいずれも代表的なリスク対応である。"},
-  {"id":"fe-a-q037","examId":"kamoku-a","category":"マネジメント","pattern":"single-choice","prompt":"サービスレベル合意書（SLA）の説明として、最も適切なものはどれか。","choices":[{"id":"a","label":"提供するサービスの品質水準や責任範囲を利用者と提供者の間で合意した文書"},{"id":"b","label":"ソースコードの著作権を放棄するための契約書"},{"id":"c","label":"全ての障害を未然に防止する暗号化方式"},{"id":"d","label":"プロジェクトの全作業を1日単位で固定する工程表"}],"correctChoiceIds":["a"],"explanation":"SLAはサービスの可用性、応答時間、サポート範囲など、合意したサービス水準を明確にする文書である。"},
-  {"id":"fe-a-q038","examId":"kamoku-a","category":"マネジメント","pattern":"matching","prompt":"インシデント管理と問題管理の組合せとして、最も適切なものはどれか。","choices":[{"id":"a","label":"インシデント管理: 早期復旧 / 問題管理: 根本原因の除去"},{"id":"b","label":"インシデント管理: 会計監査 / 問題管理: 売上予測"},{"id":"c","label":"インシデント管理: 著作権管理 / 問題管理: 特許出願"},{"id":"d","label":"インシデント管理: 市場分析 / 問題管理: 価格決定"}],"correctChoiceIds":["a"],"explanation":"インシデント管理はサービスの早期復旧、問題管理は再発防止のための原因究明を重視する。"},
-  {"id":"fe-a-q039","examId":"kamoku-a","category":"マネジメント","pattern":"single-choice","prompt":"変更管理の目的として、最も適切なものはどれか。","choices":[{"id":"a","label":"変更による影響とリスクを評価し、統制された形で実施する"},{"id":"b","label":"全ての変更を記録せず即時実施する"},{"id":"c","label":"利用者の問い合わせを全て拒否する"},{"id":"d","label":"開発工程を必ず滝のように一方向にする"}],"correctChoiceIds":["a"],"explanation":"変更管理は、サービスやシステムへの変更を計画・承認・記録し、影響を管理する。"},
-  {"id":"fe-a-q040","examId":"kamoku-a","category":"マネジメント","pattern":"single-choice","prompt":"サービスデスクの役割として、最も適切なものはどれか。","choices":[{"id":"a","label":"利用者からの問い合わせや障害報告の単一窓口となる"},{"id":"b","label":"企業の株価を決定する"},{"id":"c","label":"全てのソースコードを暗号化する"},{"id":"d","label":"データベースの表を正規化する"}],"correctChoiceIds":["a"],"explanation":"サービスデスクは利用者とITサービス提供側の窓口として、問い合わせやインシデントを受け付ける。"},
-  {"id":"fe-a-q041","examId":"kamoku-a","category":"マネジメント","pattern":"single-choice","prompt":"システム監査人に求められる独立性の説明として、最も適切なものはどれか。","choices":[{"id":"a","label":"監査対象から独立した立場で客観的に評価する"},{"id":"b","label":"監査対象の開発責任者を兼務する"},{"id":"c","label":"監査結果を必ず隠す"},{"id":"d","label":"監査証拠を残さない"}],"correctChoiceIds":["a"],"explanation":"システム監査では、監査人の独立性と客観性が重要である。"},
-  {"id":"fe-a-q042","examId":"kamoku-a","category":"マネジメント","pattern":"single-choice","prompt":"内部統制の説明として、最も適切なものはどれか。","choices":[{"id":"a","label":"業務の有効性、信頼性、法令遵守などを確保するための仕組み"},{"id":"b","label":"全ての業務を外部委託すること"},{"id":"c","label":"全社員に同じパスワードを配ること"},{"id":"d","label":"売上高を暗号化すること"}],"correctChoiceIds":["a"],"explanation":"内部統制は、組織目的を達成するために業務を統制する仕組みである。"},
-  {"id":"fe-a-q043","examId":"kamoku-a","category":"マネジメント","pattern":"single-choice","prompt":"ファンクションポイント法の説明として、最も適切なものはどれか。","choices":[{"id":"a","label":"外部入力、外部出力など利用者から見た機能量でソフトウェア規模を見積もる"},{"id":"b","label":"プログラムの行数だけで必ず見積もる"},{"id":"c","label":"機械学習の正解率を求める"},{"id":"d","label":"ネットワークのIPアドレスを割り当てる"}],"correctChoiceIds":["a"],"explanation":"ファンクションポイント法は、利用者から見た機能に基づいてソフトウェア規模を見積もる。"},
-  {"id":"fe-a-q044","examId":"kamoku-a","category":"マネジメント","pattern":"single-choice","prompt":"クリティカルパスの説明として、最も適切なものはどれか。","choices":[{"id":"a","label":"プロジェクト全体の所要期間を左右する余裕時間が最小の経路"},{"id":"b","label":"最も費用の安い作業だけを結んだ経路"},{"id":"c","label":"全ての作業の担当者を示す一覧"},{"id":"d","label":"品質保証で使う暗号鍵の経路"}],"correctChoiceIds":["a"],"explanation":"クリティカルパス上の作業が遅れると、プロジェクト全体の完了も遅れる。"},
-  {"id":"fe-a-q045","examId":"kamoku-a","category":"ストラテジ","pattern":"matching","prompt":"SWOT分析の要素と意味の組合せとして、最も適切なものはどれか。","choices":[{"id":"a","label":"Strength: 強み / Threat: 脅威"},{"id":"b","label":"Strength: 市場 / Threat: 技術"},{"id":"c","label":"Weakness: 機会 / Opportunity: 弱み"},{"id":"d","label":"Opportunity: 原価 / Threat: 利益"}],"correctChoiceIds":["a"],"explanation":"SWOTは強み、弱み、機会、脅威の4要素で、内部環境と外部環境を整理する。"},
-  {"id":"fe-a-q046","examId":"kamoku-a","category":"ストラテジ","pattern":"single-choice","prompt":"システム調達で提案依頼書（RFP）を作成する主な目的はどれか。","choices":[{"id":"a","label":"要求事項や評価基準を提示し、供給者から提案を受けるため"},{"id":"b","label":"開発完了後のソースコードを暗号化するため"},{"id":"c","label":"運用中の全ログを削除するため"},{"id":"d","label":"プロジェクトのリスクを全て供給者に移すため"}],"correctChoiceIds":["a"],"explanation":"RFPはRequest For Proposalの略で、発注側が要求事項、前提条件、評価基準などを示し、提案を求める文書である。"},
-  {"id":"fe-a-q047","examId":"kamoku-a","category":"ストラテジ","pattern":"single-choice","prompt":"販売価格が1個1,000円、変動費が1個600円、固定費が200,000円の商品の損益分岐点販売数量はどれか。","choices":[{"id":"a","label":"200個"},{"id":"b","label":"333個"},{"id":"c","label":"500個"},{"id":"d","label":"600個"}],"correctChoiceIds":["c"],"explanation":"1個当たりの限界利益は1,000 - 600 = 400円。固定費200,000円を400円で割ると500個である。"},
-  {"id":"fe-a-q048","examId":"kamoku-a","category":"ストラテジ","pattern":"true-false","prompt":"著作権は、創作された著作物を保護する権利である。","choices":[{"id":"a","label":"正しい"},{"id":"b","label":"誤り"}],"correctChoiceIds":["a"],"explanation":"著作権は、思想又は感情を創作的に表現した著作物を保護する権利である。"},
-  {"id":"fe-a-q049","examId":"kamoku-a","category":"ストラテジ","pattern":"single-choice","prompt":"個人情報保護の観点で、利用目的を超えて個人データを利用する場合に原則として必要なことはどれか。","choices":[{"id":"a","label":"本人の同意を得る"},{"id":"b","label":"社内で口頭共有するだけでよい"},{"id":"c","label":"利用目的を削除する"},{"id":"d","label":"暗号化すれば目的外利用は常に自由である"}],"correctChoiceIds":["a"],"explanation":"個人情報は、原則として特定した利用目的の範囲内で取り扱う必要がある。目的外利用では本人同意などが必要になる。"},
-  {"id":"fe-a-q050","examId":"kamoku-a","category":"ストラテジ","pattern":"matching","prompt":"KGIとKPIの組合せとして、最も適切なものはどれか。","choices":[{"id":"a","label":"KGI: 最終目標指標 / KPI: 達成過程を測る重要業績評価指標"},{"id":"b","label":"KGI: 暗号方式 / KPI: 通信プロトコル"},{"id":"c","label":"KGI: 入力装置 / KPI: 出力装置"},{"id":"d","label":"KGI: 例外処理 / KPI: 排他制御"}],"correctChoiceIds":["a"],"explanation":"KGIは最終的な目標、KPIは目標達成に向けた過程を測る指標である。"},
-  {"id":"fe-a-q051","examId":"kamoku-a","category":"ストラテジ","pattern":"single-choice","prompt":"BCPの説明として、最も適切なものはどれか。","choices":[{"id":"a","label":"災害や障害時にも重要業務を継続又は早期復旧するための計画"},{"id":"b","label":"全ての業務を停止するための手順書"},{"id":"c","label":"CPUの命令実行計画"},{"id":"d","label":"販売単価を決める表"}],"correctChoiceIds":["a"],"explanation":"BCPは事業継続計画であり、非常時に重要業務を維持・復旧するための計画である。"},
-  {"id":"fe-a-q052","examId":"kamoku-a","category":"ストラテジ","pattern":"matching","prompt":"クラウドサービスの分類と説明の組合せとして、最も適切なものはどれか。","choices":[{"id":"a","label":"SaaS: 利用者がアプリケーション機能をサービスとして利用する"},{"id":"b","label":"IaaS: 完成済み業務アプリケーションだけを提供する"},{"id":"c","label":"PaaS: 利用者の端末だけを販売する"},{"id":"d","label":"SaaS: 物理サーバ室だけを貸す"}],"correctChoiceIds":["a"],"explanation":"SaaSはアプリケーションをサービスとして提供する形態である。IaaSは基盤、PaaSは開発・実行環境を提供する。"},
-  {"id":"fe-a-q053","examId":"kamoku-a","category":"ストラテジ","pattern":"single-choice","prompt":"DXの説明として、最も適切なものはどれか。","choices":[{"id":"a","label":"デジタル技術を活用して業務やビジネスモデルを変革すること"},{"id":"b","label":"紙の帳票を必ず廃棄するだけの活動"},{"id":"c","label":"プログラムを全て機械語で書くこと"},{"id":"d","label":"通信を全て禁止すること"}],"correctChoiceIds":["a"],"explanation":"DXは単なるデジタル化にとどまらず、競争力や価値創出につながる変革を指す。"},
-  {"id":"fe-a-q054","examId":"kamoku-a","category":"ストラテジ","pattern":"single-choice","prompt":"IoTの説明として、最も適切なものはどれか。","choices":[{"id":"a","label":"センサーや機器などのモノをネットワークに接続し、データを活用する仕組み"},{"id":"b","label":"人間が紙で帳票を回覧する仕組み"},{"id":"c","label":"コンパイラだけを指す用語"},{"id":"d","label":"OSのスケジューリング方式"}],"correctChoiceIds":["a"],"explanation":"IoTはInternet of Thingsで、モノがネットワークにつながりデータを収集・制御する仕組みである。"},
-  {"id":"fe-a-q055","examId":"kamoku-a","category":"ストラテジ","pattern":"matching","prompt":"経営管理システムと目的の組合せとして、最も適切なものはどれか。","choices":[{"id":"a","label":"CRM: 顧客との関係を管理する"},{"id":"b","label":"SCM: 社員の勤怠だけを暗号化する"},{"id":"c","label":"ERP: ネットワークの物理層だけを管理する"},{"id":"d","label":"CRM: CPUのキャッシュを制御する"}],"correctChoiceIds":["a"],"explanation":"CRMは顧客関係管理、SCMは供給連鎖管理、ERPは企業資源計画を支援する。"},
-  {"id":"fe-a-q056","examId":"kamoku-a","category":"ストラテジ","pattern":"single-choice","prompt":"PPMで市場成長率が高く、市場占有率も高い事業は一般に何と呼ばれるか。","choices":[{"id":"a","label":"花形"},{"id":"b","label":"金のなる木"},{"id":"c","label":"負け犬"},{"id":"d","label":"問題児ではなく必ず撤退事業"}],"correctChoiceIds":["a"],"explanation":"PPMでは市場成長率も相対的市場占有率も高い事業を花形と呼ぶ。"},
-  {"id":"fe-a-q057","examId":"kamoku-a","category":"ストラテジ","pattern":"single-choice","prompt":"内外作基準を検討する場面として、最も適切なものはどれか。","choices":[{"id":"a","label":"システム開発を自社で行うか外部委託するかを判断する"},{"id":"b","label":"TCPとUDPのポート番号を割り当てる"},{"id":"c","label":"主記憶の容量を2倍にする"},{"id":"d","label":"全てのデータを削除する"}],"correctChoiceIds":["a"],"explanation":"内外作基準は、開発や運用を内製するか外部委託するかを判断する基準である。"},
-  {"id":"fe-a-q058","examId":"kamoku-a","category":"ストラテジ","pattern":"single-choice","prompt":"DCF法で投資評価を行うときに考慮するものはどれか。","choices":[{"id":"a","label":"将来キャッシュフローを現在価値に割り引いた価値"},{"id":"b","label":"画面の色相だけ"},{"id":"c","label":"キューの先頭要素だけ"},{"id":"d","label":"暗号鍵の長さだけ"}],"correctChoiceIds":["a"],"explanation":"DCF法は将来得られるキャッシュフローを割引率で現在価値に換算して評価する。"},
-  {"id":"fe-a-q059","examId":"kamoku-a","category":"ストラテジ","pattern":"single-choice","prompt":"データを時系列で変化の傾向として示すのに適したグラフはどれか。","choices":[{"id":"a","label":"折れ線グラフ"},{"id":"b","label":"ER図"},{"id":"c","label":"状態遷移表だけ"},{"id":"d","label":"WBSだけ"}],"correctChoiceIds":["a"],"explanation":"時系列の推移や傾向を示すには折れ線グラフが適している。"},
-  {"id":"fe-a-q060","examId":"kamoku-a","category":"ストラテジ","pattern":"single-choice","prompt":"AI利活用で説明可能性を重視する理由として、最も適切なものはどれか。","choices":[{"id":"a","label":"判断根拠を把握し、利用者や関係者が妥当性を検証しやすくするため"},{"id":"b","label":"AIの処理を必ず手計算に戻すため"},{"id":"c","label":"全てのデータを公開するため"},{"id":"d","label":"ネットワークを不要にするため"}],"correctChoiceIds":["a"],"explanation":"説明可能性は、AIの判断を理解・検証し、適切な利用や説明責任に役立てるために重要である。"},
-  {"id":"fe-b-q001","examId":"kamoku-b","category":"セキュリティ","pattern":"single-choice","prompt":"社内利用者に届いたメールに、実在する取引先名と請求書確認用URLが含まれていた。URLのドメインが取引先の正規ドメインと1文字だけ異なる場合、最初に疑うべき攻撃はどれか。","choices":[{"id":"a","label":"フィッシング"},{"id":"b","label":"リフレクション攻撃"},{"id":"c","label":"ブルートフォース攻撃"},{"id":"d","label":"ゼロ除算"}],"correctChoiceIds":["a"],"explanation":"正規サイトに似せたURLで認証情報などを入力させる手口はフィッシングである。"},
-  {"id":"fe-b-q002","examId":"kamoku-b","category":"セキュリティ","pattern":"single-choice","prompt":"Webサーバのログに、同じURLへ短時間に多数の異常なPOST要求があり、直後に応答時間が急増した。可用性への攻撃として最も疑うべきものはどれか。","choices":[{"id":"a","label":"DoS攻撃"},{"id":"b","label":"辞書式圧縮"},{"id":"c","label":"正規化"},{"id":"d","label":"二分探索"}],"correctChoiceIds":["a"],"explanation":"大量の要求でサービス提供能力を低下させる攻撃はDoS攻撃に該当する。"},
-  {"id":"fe-b-q003","examId":"kamoku-b","category":"セキュリティ","pattern":"single-choice","prompt":"利用者が部署異動した後も旧部署の機密フォルダを閲覧できていた。是正策として最も適切なものはどれか。","choices":[{"id":"a","label":"職務変更時にアクセス権を棚卸しし、不要な権限を削除する"},{"id":"b","label":"全利用者へ管理者権限を付与する"},{"id":"c","label":"フォルダ名だけを変更する"},{"id":"d","label":"ログ取得を停止する"}],"correctChoiceIds":["a"],"explanation":"職務に必要な最小限の権限を維持するため、異動や退職時の権限見直しが必要である。"},
-  {"id":"fe-b-q004","examId":"kamoku-b","category":"セキュリティ","pattern":"single-choice","prompt":"ログイン画面で入力された文字列をそのままSQL文に連結している。最も優先して修正すべき実装はどれか。","choices":[{"id":"a","label":"プレースホルダを使ってSQL構造と入力値を分離する"},{"id":"b","label":"送信ボタンの色を変更する"},{"id":"c","label":"結果件数を常に0件にする"},{"id":"d","label":"画面のフォントサイズを固定する"}],"correctChoiceIds":["a"],"explanation":"SQLインジェクション対策として、入力値をSQL文字列へ直接連結しない実装が必要である。"},
-  {"id":"fe-b-q005","examId":"kamoku-b","category":"アルゴリズムとプログラミング","pattern":"counting","prompt":"配列A = {2, 5, 8, 11, 14} の各要素について、偶数なら変数countを1増やす。処理後のcountはいくつか。","choices":[{"id":"a","label":"2"},{"id":"b","label":"3"},{"id":"c","label":"4"},{"id":"d","label":"5"}],"correctChoiceIds":["b"],"explanation":"偶数は2、8、14の3個である。"},
-  {"id":"fe-b-q006","examId":"kamoku-b","category":"アルゴリズムとプログラミング","pattern":"single-choice","prompt":"空のスタックに push(3), push(8), pop(), push(5), pop() を順に実行したとき、最後の pop() が返す値はどれか。","choices":[{"id":"a","label":"3"},{"id":"b","label":"5"},{"id":"c","label":"8"},{"id":"d","label":"未定義の値"}],"correctChoiceIds":["b"],"explanation":"スタックは後入れ先出しである。最初のpopで8を取り出し、その後pushした5が最後のpopで取り出される。"},
-  {"id":"fe-b-q007","examId":"kamoku-b","category":"アルゴリズムとプログラミング","pattern":"single-choice","prompt":"空のキューに enqueue(4), enqueue(9), dequeue(), enqueue(2), dequeue() を順に実行した。最後のdequeue()が返す値はどれか。","choices":[{"id":"a","label":"2"},{"id":"b","label":"4"},{"id":"c","label":"9"},{"id":"d","label":"未定義"}],"correctChoiceIds":["c"],"explanation":"キューは先入れ先出しである。最初のdequeueで4、最後のdequeueで9が取り出される。"},
-  {"id":"fe-b-q008","examId":"kamoku-b","category":"アルゴリズムとプログラミング","pattern":"counting","prompt":"変数sを0にして、iを1から5まで1ずつ増やしながら s ← s + i を実行する。終了時のsはいくつか。","choices":[{"id":"a","label":"10"},{"id":"b","label":"15"},{"id":"c","label":"20"},{"id":"d","label":"25"}],"correctChoiceIds":["b"],"explanation":"1+2+3+4+5=15である。"},
-  {"id":"fe-b-q009","examId":"kamoku-b","category":"アルゴリズムとプログラミング","pattern":"single-choice","prompt":"配列 {3, 7, 9, 12, 15, 20, 24} から15を二分探索する。最初に比較する値はどれか。","choices":[{"id":"a","label":"3"},{"id":"b","label":"9"},{"id":"c","label":"12"},{"id":"d","label":"15"}],"correctChoiceIds":["c"],"explanation":"要素数7の中央は4番目なので、最初に12と比較する。"},
-  {"id":"fe-b-q010","examId":"kamoku-b","category":"アルゴリズムとプログラミング","pattern":"single-choice","prompt":"バブルソートで隣接要素を昇順に交換する。配列 {4, 2, 3} に対して左から1回走査した直後の配列はどれか。","choices":[{"id":"a","label":"{2, 3, 4}"},{"id":"b","label":"{2, 4, 3}"},{"id":"c","label":"{4, 3, 2}"},{"id":"d","label":"{3, 2, 4}"}],"correctChoiceIds":["a"],"explanation":"4と2を交換して{2,4,3}、次に4と3を交換して{2,3,4}となる。"},
-  {"id":"fe-b-q011","examId":"kamoku-b","category":"アルゴリズムとプログラミング","pattern":"single-choice","prompt":"関数 f(n) が n=0 のとき1を返し、それ以外では n × f(n-1) を返す。f(4) の値はどれか。","choices":[{"id":"a","label":"10"},{"id":"b","label":"16"},{"id":"c","label":"24"},{"id":"d","label":"120"}],"correctChoiceIds":["c"],"explanation":"4×3×2×1×f(0)=24である。"},
-  {"id":"fe-b-q012","examId":"kamoku-b","category":"アルゴリズムとプログラミング","pattern":"counting","prompt":"3行4列の二次元配列の全要素を、二重ループで1回ずつ処理する。処理回数は何回か。","choices":[{"id":"a","label":"7"},{"id":"b","label":"12"},{"id":"c","label":"16"},{"id":"d","label":"34"}],"correctChoiceIds":["b"],"explanation":"3×4=12要素なので、処理回数は12回である。"},
-  {"id":"fe-b-q013","examId":"kamoku-b","category":"アルゴリズムとプログラミング","pattern":"single-choice","prompt":"文字列 S = \"abcabc\" に含まれる文字 'a' の個数を数えるといくつか。","choices":[{"id":"a","label":"1"},{"id":"b","label":"2"},{"id":"c","label":"3"},{"id":"d","label":"6"}],"correctChoiceIds":["b"],"explanation":"文字'a'は1文字目と4文字目に現れるので2個である。"},
-  {"id":"fe-b-q014","examId":"kamoku-b","category":"アルゴリズムとプログラミング","pattern":"single-choice","prompt":"要素数nの配列を先頭から末尾まで1回調べる線形探索の最悪時間計算量はどれか。","choices":[{"id":"a","label":"O(1)"},{"id":"b","label":"O(log n)"},{"id":"c","label":"O(n)"},{"id":"d","label":"O(n^2)"}],"correctChoiceIds":["c"],"explanation":"最悪の場合、全要素を1回ずつ調べるためO(n)である。"},
-  {"id":"fe-b-q015","examId":"kamoku-b","category":"アルゴリズムとプログラミング","pattern":"single-choice","prompt":"10進数13を2進数へ変換する処理で、正しい結果はどれか。","choices":[{"id":"a","label":"1011"},{"id":"b","label":"1101"},{"id":"c","label":"1110"},{"id":"d","label":"10001"}],"correctChoiceIds":["b"],"explanation":"13は8+4+1なので2進数では1101である。"},
-  {"id":"fe-b-q016","examId":"kamoku-b","category":"アルゴリズムとプログラミング","pattern":"single-choice","prompt":"ハッシュ表で衝突が発生した場合の処理として、最も適切なものはどれか。","choices":[{"id":"a","label":"チェイン法やオープンアドレス法などで別の格納方法を用いる"},{"id":"b","label":"表全体を必ず削除する"},{"id":"c","label":"キーを全て同じ値にする"},{"id":"d","label":"探索を常に中止する"}],"correctChoiceIds":["a"],"explanation":"ハッシュ値が同じになる衝突には、チェイン法やオープンアドレス法などの対処方法がある。"},
-  {"id":"fe-b-q017","examId":"kamoku-b","category":"アルゴリズムとプログラミング","pattern":"single-choice","prompt":"幅優先探索で一般に利用されるデータ構造はどれか。","choices":[{"id":"a","label":"キュー"},{"id":"b","label":"スタックだけ"},{"id":"c","label":"ヒープだけ"},{"id":"d","label":"リングバッファ禁止リスト"}],"correctChoiceIds":["a"],"explanation":"幅優先探索では、近い頂点から順に処理するためキューを用いるのが一般的である。"},
-  {"id":"fe-b-q018","examId":"kamoku-b","category":"アルゴリズムとプログラミング","pattern":"single-choice","prompt":"データ {2, 4, 4, 10} の平均値はどれか。","choices":[{"id":"a","label":"4"},{"id":"b","label":"5"},{"id":"c","label":"6"},{"id":"d","label":"10"}],"correctChoiceIds":["b"],"explanation":"合計は20、データ数は4なので平均は5である。"},
-  {"id":"fe-b-q019","examId":"kamoku-b","category":"アルゴリズムとプログラミング","pattern":"single-choice","prompt":"配列Aの添字が0から始まるとき、A = {6, 1, 9, 4} に対する A[2] の値はどれか。","choices":[{"id":"a","label":"1"},{"id":"b","label":"4"},{"id":"c","label":"6"},{"id":"d","label":"9"}],"correctChoiceIds":["d"],"explanation":"0始まりではA[0]=6、A[1]=1、A[2]=9である。"},
-  {"id":"fe-b-q020","examId":"kamoku-b","category":"アルゴリズムとプログラミング","pattern":"single-choice","prompt":"2つの整列済み配列を1つの整列済み配列にまとめる処理はどれか。","choices":[{"id":"a","label":"マージ"},{"id":"b","label":"暗号化"},{"id":"c","label":"正規化"},{"id":"d","label":"認証"}],"correctChoiceIds":["a"],"explanation":"整列済み列を順に比較して統合する処理はマージであり、マージソートでも使われる。"}
+  {
+    "id": "fe-a-q001",
+    "examId": "kamoku-a",
+    "category": "テクノロジ",
+    "pattern": "single-choice",
+    "prompt": "10進数の37を2進数で表したものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "100101"
+      },
+      {
+        "id": "b",
+        "label": "100111"
+      },
+      {
+        "id": "c",
+        "label": "101001"
+      },
+      {
+        "id": "d",
+        "label": "110001"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "37は32+4+1なので、2進数では100101である。"
+  },
+  {
+    "id": "fe-a-q002",
+    "examId": "kamoku-a",
+    "category": "テクノロジ",
+    "pattern": "single-choice",
+    "prompt": "浮動小数点数の演算で発生する丸め誤差の説明として、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "表現できる桁数に限りがあるため、下位桁を丸めることで生じる誤差"
+      },
+      {
+        "id": "b",
+        "label": "演算結果が最大値を超えたときだけ発生する誤差"
+      },
+      {
+        "id": "c",
+        "label": "絶対値がほぼ等しい数を減算したときに上位桁が失われる誤差"
+      },
+      {
+        "id": "d",
+        "label": "通信路上でビットが反転したときに発生する誤差"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "丸め誤差は、有限桁で表現するために四捨五入、切上げ、切捨てなどを行うことで生じる。"
+  },
+  {
+    "id": "fe-a-q003",
+    "examId": "kamoku-a",
+    "category": "テクノロジ",
+    "pattern": "single-choice",
+    "prompt": "整列済み配列に対する二分探索の前提として、最も適切なものはどれか。",
+    "visualHint": "探索範囲の中央を調べ、目的値との大小関係で探索範囲を半分に狭める。",
+    "figure": {
+      "kind": "binary-search",
+      "title": "二分探索の確認位置",
+      "caption": "整列済み配列の中央を確認し、探索範囲を半分ずつ狭める。"
+    },
+    "choices": [
+      {
+        "id": "a",
+        "label": "対象データがキー順に整列されている"
+      },
+      {
+        "id": "b",
+        "label": "対象データがハッシュ表に格納されている"
+      },
+      {
+        "id": "c",
+        "label": "対象データが木構造で保存されていない"
+      },
+      {
+        "id": "d",
+        "label": "対象データが更新されない"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "二分探索は整列済みデータを前提に、中央値との大小比較で探索範囲を狭める探索法である。"
+  },
+  {
+    "id": "fe-a-q004",
+    "examId": "kamoku-a",
+    "category": "テクノロジ",
+    "pattern": "matching",
+    "prompt": "スタックとキューの説明の組合せとして、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "スタック: 後入れ先出し / キュー: 先入れ先出し"
+      },
+      {
+        "id": "b",
+        "label": "スタック: 先入れ先出し / キュー: 後入れ先出し"
+      },
+      {
+        "id": "c",
+        "label": "スタック: キーで直接参照 / キュー: 木構造で探索"
+      },
+      {
+        "id": "d",
+        "label": "スタック: 常に整列済み / キュー: 常に重複禁止"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "スタックはLIFO、キューはFIFOのデータ構造である。"
+  },
+  {
+    "id": "fe-a-q005",
+    "examId": "kamoku-a",
+    "category": "テクノロジ",
+    "pattern": "single-choice",
+    "prompt": "ハッシュ表を利用する主な利点はどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "キーから格納位置を求め、平均的に高速に探索できる"
+      },
+      {
+        "id": "b",
+        "label": "全データを常に昇順で保持できる"
+      },
+      {
+        "id": "c",
+        "label": "暗号化された通信路を自動的に確立できる"
+      },
+      {
+        "id": "d",
+        "label": "データの容量を必ず半分にできる"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "ハッシュ表はハッシュ関数でキーを格納位置に対応付け、平均的に高速な探索・挿入を実現する。"
+  },
+  {
+    "id": "fe-a-q006",
+    "examId": "kamoku-a",
+    "category": "テクノロジ",
+    "pattern": "single-choice",
+    "prompt": "キャッシュメモリをCPUと主記憶の間に置く主な目的はどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "CPUと主記憶の速度差による待ち時間を減らす"
+      },
+      {
+        "id": "b",
+        "label": "主記憶のデータを恒久的に保存する"
+      },
+      {
+        "id": "c",
+        "label": "ネットワークの暗号化を担当する"
+      },
+      {
+        "id": "d",
+        "label": "補助記憶装置の容量を増やす"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "キャッシュメモリは高速な小容量メモリで、よく使うデータを保持してアクセス時間を短縮する。"
+  },
+  {
+    "id": "fe-a-q007",
+    "examId": "kamoku-a",
+    "category": "テクノロジ",
+    "pattern": "counting",
+    "prompt": "1バイトを8ビットとすると、2MiBは何バイトか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "2,000,000バイト"
+      },
+      {
+        "id": "b",
+        "label": "2,048,000バイト"
+      },
+      {
+        "id": "c",
+        "label": "2,097,152バイト"
+      },
+      {
+        "id": "d",
+        "label": "16,777,216バイト"
+      }
+    ],
+    "correctChoiceIds": [
+      "c"
+    ],
+    "explanation": "1MiBは1,024×1,024=1,048,576バイトなので、2MiBは2,097,152バイトである。"
+  },
+  {
+    "id": "fe-a-q008",
+    "examId": "kamoku-a",
+    "category": "テクノロジ",
+    "pattern": "single-choice",
+    "prompt": "RAID1の特徴として、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "同じデータを複数のディスクに書き込み、耐障害性を高める"
+      },
+      {
+        "id": "b",
+        "label": "データを細分化して複数ディスクに分散し、冗長性なしで高速化する"
+      },
+      {
+        "id": "c",
+        "label": "光ディスクだけを対象とするバックアップ方式である"
+      },
+      {
+        "id": "d",
+        "label": "メモリ上のプロセスを自動的に複製する"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "RAID1はミラーリングであり、同一データを複数ディスクに保持する。"
+  },
+  {
+    "id": "fe-a-q009",
+    "examId": "kamoku-a",
+    "category": "テクノロジ",
+    "pattern": "single-choice",
+    "prompt": "仮想化技術の説明として、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "物理資源を論理的に分割又は統合して、複数の環境として利用できるようにする"
+      },
+      {
+        "id": "b",
+        "label": "全てのプログラムを機械語に事前変換する"
+      },
+      {
+        "id": "c",
+        "label": "通信内容を画像形式に変換する"
+      },
+      {
+        "id": "d",
+        "label": "ファイルを必ず圧縮して保存する"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "仮想化はサーバ、OS、ネットワークなどの物理資源を抽象化し、柔軟に利用する技術である。"
+  },
+  {
+    "id": "fe-a-q010",
+    "examId": "kamoku-a",
+    "category": "テクノロジ",
+    "pattern": "single-choice",
+    "prompt": "OSにおけるプロセス管理の説明として、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "実行中のプログラムにCPU時間や資源を割り当てる"
+      },
+      {
+        "id": "b",
+        "label": "画面の配色だけを管理する"
+      },
+      {
+        "id": "c",
+        "label": "企業の経営戦略を策定する"
+      },
+      {
+        "id": "d",
+        "label": "通信パケットの物理的な電圧を決める"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "プロセス管理は、プロセスの生成、終了、状態遷移、CPU割当てなどを扱うOSの機能である。"
+  },
+  {
+    "id": "fe-a-q011",
+    "examId": "kamoku-a",
+    "category": "テクノロジ",
+    "pattern": "single-choice",
+    "prompt": "SQL文 `SELECT * FROM 商品 WHERE 仕入先ID IN ('M002', 'M004')` と同じ条件になるものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "仕入先ID = 'M002' AND 仕入先ID = 'M004'"
+      },
+      {
+        "id": "b",
+        "label": "仕入先ID = 'M002' OR 仕入先ID = 'M004'"
+      },
+      {
+        "id": "c",
+        "label": "仕入先ID <> 'M002' AND 仕入先ID <> 'M004'"
+      },
+      {
+        "id": "d",
+        "label": "仕入先ID BETWEEN 'M002' AND 'M004' AND 仕入先ID IS NULL"
+      }
+    ],
+    "correctChoiceIds": [
+      "b"
+    ],
+    "explanation": "INは列の値が指定した候補のいずれかに一致する行を選ぶ。したがってOR条件と同じ意味になる。"
+  },
+  {
+    "id": "fe-a-q012",
+    "examId": "kamoku-a",
+    "category": "テクノロジ",
+    "pattern": "single-choice",
+    "prompt": "データベースの正規化を行う主な目的はどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "データの重複や更新時の不整合を減らす"
+      },
+      {
+        "id": "b",
+        "label": "全ての表を1列だけにする"
+      },
+      {
+        "id": "c",
+        "label": "データを暗号化して復号不能にする"
+      },
+      {
+        "id": "d",
+        "label": "SQLを使用できないようにする"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "正規化はデータの重複や更新異常を減らし、整合性を保ちやすくする設計手法である。"
+  },
+  {
+    "id": "fe-a-q013",
+    "examId": "kamoku-a",
+    "category": "テクノロジ",
+    "pattern": "multiple-select",
+    "prompt": "トランザクションのACID特性として適切なものをすべて選べ。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "原子性"
+      },
+      {
+        "id": "b",
+        "label": "一貫性"
+      },
+      {
+        "id": "c",
+        "label": "独立性"
+      },
+      {
+        "id": "d",
+        "label": "圧縮性"
+      }
+    ],
+    "correctChoiceIds": [
+      "a",
+      "b",
+      "c"
+    ],
+    "explanation": "ACIDは原子性、一貫性、独立性、永続性を表す。圧縮性は含まれない。"
+  },
+  {
+    "id": "fe-a-q014",
+    "examId": "kamoku-a",
+    "category": "テクノロジ",
+    "pattern": "matching",
+    "prompt": "OSI基本参照モデルにおいて、IPが主に属する層はどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "ネットワーク層"
+      },
+      {
+        "id": "b",
+        "label": "トランスポート層"
+      },
+      {
+        "id": "c",
+        "label": "セッション層"
+      },
+      {
+        "id": "d",
+        "label": "アプリケーション層"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "IPは経路制御や宛先への配送を扱うネットワーク層のプロトコルである。"
+  },
+  {
+    "id": "fe-a-q015",
+    "examId": "kamoku-a",
+    "category": "テクノロジ",
+    "pattern": "single-choice",
+    "prompt": "TCPの特徴として、UDPと比較して最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "コネクションを確立し、到達確認や再送制御を行う"
+      },
+      {
+        "id": "b",
+        "label": "必ず暗号化される"
+      },
+      {
+        "id": "c",
+        "label": "IPアドレスをドメイン名に変換する"
+      },
+      {
+        "id": "d",
+        "label": "物理層だけで利用される"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "TCPは信頼性を重視するコネクション型のトランスポート層プロトコルである。"
+  },
+  {
+    "id": "fe-a-q016",
+    "examId": "kamoku-a",
+    "category": "テクノロジ",
+    "pattern": "single-choice",
+    "prompt": "DNSの役割として、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "ドメイン名とIPアドレスを対応付ける"
+      },
+      {
+        "id": "b",
+        "label": "Webページの見た目を定義する"
+      },
+      {
+        "id": "c",
+        "label": "CPU命令を解釈する"
+      },
+      {
+        "id": "d",
+        "label": "画像の色数を固定する"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "DNSは名前解決によって、ドメイン名からIPアドレスなどの情報を得る仕組みである。"
+  },
+  {
+    "id": "fe-a-q017",
+    "examId": "kamoku-a",
+    "category": "テクノロジ",
+    "pattern": "single-choice",
+    "prompt": "HTTPステータスコード404の意味として、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "要求された資源が見つからない"
+      },
+      {
+        "id": "b",
+        "label": "要求が成功した"
+      },
+      {
+        "id": "c",
+        "label": "サーバ内部で処理不能なエラーが起きた"
+      },
+      {
+        "id": "d",
+        "label": "認証が必ず成功した"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "404 Not Foundは、指定されたURLのリソースが見つからないことを表す。"
+  },
+  {
+    "id": "fe-a-q018",
+    "examId": "kamoku-a",
+    "category": "テクノロジ",
+    "pattern": "single-choice",
+    "prompt": "可逆圧縮の説明として、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "圧縮後のデータから元のデータを完全に復元できる"
+      },
+      {
+        "id": "b",
+        "label": "復元時に必ず画質が低下する"
+      },
+      {
+        "id": "c",
+        "label": "音声データだけに使える"
+      },
+      {
+        "id": "d",
+        "label": "暗号化と同じ意味である"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "可逆圧縮は、圧縮前のデータを完全に復元できる方式である。"
+  },
+  {
+    "id": "fe-a-q019",
+    "examId": "kamoku-a",
+    "category": "テクノロジ",
+    "pattern": "single-choice",
+    "prompt": "RGB方式で表現する対象として、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "ディスプレイ上の色"
+      },
+      {
+        "id": "b",
+        "label": "ネットワークの経路"
+      },
+      {
+        "id": "c",
+        "label": "関係データベースの正規形"
+      },
+      {
+        "id": "d",
+        "label": "プロジェクトの作業分解"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "RGBは赤、緑、青の光の三原色を組み合わせて表示色を表す方式である。"
+  },
+  {
+    "id": "fe-a-q020",
+    "examId": "kamoku-a",
+    "category": "テクノロジ",
+    "pattern": "single-choice",
+    "prompt": "教師あり学習の説明として、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "入力データと正解ラベルの組を用いてモデルを学習する"
+      },
+      {
+        "id": "b",
+        "label": "正解ラベルを一切使わずに暗号鍵を生成する"
+      },
+      {
+        "id": "c",
+        "label": "ネットワーク機器だけを自動設定する"
+      },
+      {
+        "id": "d",
+        "label": "データを必ず昇順に整列する"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "教師あり学習では、正解ラベル付きデータから入力と出力の関係を学習する。"
+  },
+  {
+    "id": "fe-a-q021",
+    "examId": "kamoku-a",
+    "category": "テクノロジ",
+    "pattern": "single-choice",
+    "prompt": "生成AIのハルシネーションへの対策として、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "重要な出力は信頼できる出典や実データで検証する"
+      },
+      {
+        "id": "b",
+        "label": "出力を常に正解として扱う"
+      },
+      {
+        "id": "c",
+        "label": "プロンプトを短くすれば誤りは完全になくなる"
+      },
+      {
+        "id": "d",
+        "label": "ネットワークを切断すれば事実誤認はなくなる"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "生成AIはもっともらしい誤情報を出すことがあるため、重要な内容は検証が必要である。"
+  },
+  {
+    "id": "fe-a-q022",
+    "examId": "kamoku-a",
+    "category": "テクノロジ",
+    "pattern": "single-choice",
+    "prompt": "REST APIでHTTPのGETメソッドを使う場面として、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "サーバ上の資源を取得する"
+      },
+      {
+        "id": "b",
+        "label": "必ず資源を削除する"
+      },
+      {
+        "id": "c",
+        "label": "TCP接続を暗号化する"
+      },
+      {
+        "id": "d",
+        "label": "CPUの割込みを禁止する"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "GETは主にリソースの取得に用いられるHTTPメソッドである。"
+  },
+  {
+    "id": "fe-a-q023",
+    "examId": "kamoku-a",
+    "category": "テクノロジ",
+    "pattern": "single-choice",
+    "prompt": "ブラックボックステストの説明として、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "内部構造ではなく、入力と出力の関係に着目して確認する"
+      },
+      {
+        "id": "b",
+        "label": "ソースコードの全行を必ず読む"
+      },
+      {
+        "id": "c",
+        "label": "CPUの回路だけを検査する"
+      },
+      {
+        "id": "d",
+        "label": "利用者には結果を見せない"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "ブラックボックステストは仕様に基づき、内部構造を意識せず入出力を確認する。"
+  },
+  {
+    "id": "fe-a-q024",
+    "examId": "kamoku-a",
+    "category": "テクノロジ",
+    "pattern": "single-choice",
+    "prompt": "CIの説明として、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "変更を頻繁に統合し、自動ビルドや自動テストで確認する"
+      },
+      {
+        "id": "b",
+        "label": "本番障害が起きた後だけ手作業でテストする"
+      },
+      {
+        "id": "c",
+        "label": "著作権を管理する法律である"
+      },
+      {
+        "id": "d",
+        "label": "会計上の固定費を求める手法である"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "CIは継続的インテグレーションで、変更を小さく頻繁に統合し自動検証する考え方である。"
+  },
+  {
+    "id": "fe-a-q025",
+    "examId": "kamoku-a",
+    "category": "セキュリティ",
+    "pattern": "matching",
+    "prompt": "情報セキュリティの三要素と説明の組合せとして、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "機密性: 許可された者だけが情報にアクセスできる状態"
+      },
+      {
+        "id": "b",
+        "label": "完全性: 必要なときに情報を利用できる状態"
+      },
+      {
+        "id": "c",
+        "label": "可用性: 情報が改ざんされていない状態"
+      },
+      {
+        "id": "d",
+        "label": "機密性: システムが停止しない状態"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "機密性はアクセス制御、完全性は正確さ・改ざん防止、可用性は必要時に利用できることを表す。"
+  },
+  {
+    "id": "fe-a-q026",
+    "examId": "kamoku-a",
+    "category": "セキュリティ",
+    "pattern": "single-choice",
+    "prompt": "WAFの説明として、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Webアプリケーションへの通信内容を検査し、攻撃と判断したアクセスを遮断する"
+      },
+      {
+        "id": "b",
+        "label": "無線LANの暗号化方式を定める規格である"
+      },
+      {
+        "id": "c",
+        "label": "ログを長期保存するだけのバックアップ装置である"
+      },
+      {
+        "id": "d",
+        "label": "OSのファイルシステムを暗号化する機能である"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "WAFはWeb Application Firewallの略で、Webアプリケーションを狙う攻撃への対策に使う。"
+  },
+  {
+    "id": "fe-a-q027",
+    "examId": "kamoku-a",
+    "category": "セキュリティ",
+    "pattern": "multiple-select",
+    "prompt": "ハッシュ関数の性質として適切なものをすべて選べ。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "任意長の入力から固定長のハッシュ値を求める"
+      },
+      {
+        "id": "b",
+        "label": "同じ入力からは同じハッシュ値が得られる"
+      },
+      {
+        "id": "c",
+        "label": "ハッシュ値から元の入力を容易に復元することを目的とする"
+      },
+      {
+        "id": "d",
+        "label": "改ざん検知やメッセージ認証に利用される"
+      }
+    ],
+    "correctChoiceIds": [
+      "a",
+      "b",
+      "d"
+    ],
+    "explanation": "暗号学的ハッシュ関数は固定長の値を出力し、同じ入力には同じ値を返す。元データの復元を目的としない。"
+  },
+  {
+    "id": "fe-a-q028",
+    "examId": "kamoku-a",
+    "category": "セキュリティ",
+    "pattern": "true-false",
+    "prompt": "HTTPSでは、サーバ証明書を用いて接続先サーバの正当性を確認できる。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "正しい"
+      },
+      {
+        "id": "b",
+        "label": "誤り"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "HTTPSではTLSを利用し、サーバ証明書によって接続先の確認や暗号化通信を実現する。"
+  },
+  {
+    "id": "fe-a-q029",
+    "examId": "kamoku-a",
+    "category": "セキュリティ",
+    "pattern": "single-choice",
+    "prompt": "多要素認証の説明として、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "知識、所持、生体など異なる要素を組み合わせて本人確認する"
+      },
+      {
+        "id": "b",
+        "label": "同じパスワードを2回入力する"
+      },
+      {
+        "id": "c",
+        "label": "認証を省略して利便性を高める"
+      },
+      {
+        "id": "d",
+        "label": "利用者IDを暗号化して保存しない"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "多要素認証は、パスワード、端末、指紋など性質の異なる認証要素を組み合わせる。"
+  },
+  {
+    "id": "fe-a-q030",
+    "examId": "kamoku-a",
+    "category": "セキュリティ",
+    "pattern": "single-choice",
+    "prompt": "SQLインジェクション対策として、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "プレースホルダを用いたバインド機構でSQLを組み立てる"
+      },
+      {
+        "id": "b",
+        "label": "画面の文字色を変更する"
+      },
+      {
+        "id": "c",
+        "label": "全てのSELECT文を削除する"
+      },
+      {
+        "id": "d",
+        "label": "ログイン画面を非表示にする"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "入力値をSQL文字列へ直接連結せず、プレースホルダなどでSQL構造と値を分離することが有効である。"
+  },
+  {
+    "id": "fe-a-q031",
+    "examId": "kamoku-a",
+    "category": "セキュリティ",
+    "pattern": "single-choice",
+    "prompt": "クロスサイトスクリプティング（XSS）の対策として、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "出力時にHTMLとして解釈される特殊文字を適切にエスケープする"
+      },
+      {
+        "id": "b",
+        "label": "データベースを正規化する"
+      },
+      {
+        "id": "c",
+        "label": "全ての通信をUDPにする"
+      },
+      {
+        "id": "d",
+        "label": "画像ファイルを必ず圧縮する"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "XSSでは不正なスクリプトがブラウザで実行されるため、出力エスケープなどが重要である。"
+  },
+  {
+    "id": "fe-a-q032",
+    "examId": "kamoku-a",
+    "category": "セキュリティ",
+    "pattern": "single-choice",
+    "prompt": "ランサムウェア被害に備える対策として、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "重要データを復元可能な形で定期的にバックアップする"
+      },
+      {
+        "id": "b",
+        "label": "バックアップを本番サーバだけに保存する"
+      },
+      {
+        "id": "c",
+        "label": "脆弱性情報を確認しない"
+      },
+      {
+        "id": "d",
+        "label": "全利用者に管理者権限を付与する"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "ランサムウェア対策では、感染予防とともに、隔離されたバックアップから復旧できることが重要である。"
+  },
+  {
+    "id": "fe-a-q033",
+    "examId": "kamoku-a",
+    "category": "セキュリティ",
+    "pattern": "single-choice",
+    "prompt": "最小権限の原則の説明として、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "利用者やプログラムに業務上必要な最小限の権限だけを与える"
+      },
+      {
+        "id": "b",
+        "label": "全員に同一の管理者権限を与える"
+      },
+      {
+        "id": "c",
+        "label": "権限管理を行わない"
+      },
+      {
+        "id": "d",
+        "label": "パスワードを共有して運用を簡単にする"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "最小権限の原則は、侵害時の影響範囲を小さくするためにも有効である。"
+  },
+  {
+    "id": "fe-a-q034",
+    "examId": "kamoku-a",
+    "category": "セキュリティ",
+    "pattern": "single-choice",
+    "prompt": "SIEMの利用目的として、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "複数の機器やシステムのログを収集・相関分析し、異常を検知する"
+      },
+      {
+        "id": "b",
+        "label": "表計算ソフトで原価を計算する"
+      },
+      {
+        "id": "c",
+        "label": "画面設計だけを自動化する"
+      },
+      {
+        "id": "d",
+        "label": "データベースの主キーを決定する"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "SIEMはSecurity Information and Event Managementで、ログの統合管理と分析に用いられる。"
+  },
+  {
+    "id": "fe-a-q035",
+    "examId": "kamoku-a",
+    "category": "マネジメント",
+    "pattern": "cloze",
+    "prompt": "WBSは、プロジェクトの成果物や作業を（　）して管理しやすくする手法である。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "階層的に分解"
+      },
+      {
+        "id": "b",
+        "label": "時系列だけで暗号化"
+      },
+      {
+        "id": "c",
+        "label": "担当者名だけで分類"
+      },
+      {
+        "id": "d",
+        "label": "費用だけで評価"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "WBSはWork Breakdown Structureの略で、成果物や作業を階層的に分解してスコープを明確にする。"
+  },
+  {
+    "id": "fe-a-q036",
+    "examId": "kamoku-a",
+    "category": "マネジメント",
+    "pattern": "counting",
+    "prompt": "プロジェクトリスクへの代表的な対応として、回避、軽減、転嫁、受容を挙げた。この中でリスク対応に該当するものはいくつあるか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "1個"
+      },
+      {
+        "id": "b",
+        "label": "2個"
+      },
+      {
+        "id": "c",
+        "label": "3個"
+      },
+      {
+        "id": "d",
+        "label": "4個"
+      }
+    ],
+    "correctChoiceIds": [
+      "d"
+    ],
+    "explanation": "回避、軽減、転嫁、受容はいずれも代表的なリスク対応である。"
+  },
+  {
+    "id": "fe-a-q037",
+    "examId": "kamoku-a",
+    "category": "マネジメント",
+    "pattern": "single-choice",
+    "prompt": "サービスレベル合意書（SLA）の説明として、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "提供するサービスの品質水準や責任範囲を利用者と提供者の間で合意した文書"
+      },
+      {
+        "id": "b",
+        "label": "ソースコードの著作権を放棄するための契約書"
+      },
+      {
+        "id": "c",
+        "label": "全ての障害を未然に防止する暗号化方式"
+      },
+      {
+        "id": "d",
+        "label": "プロジェクトの全作業を1日単位で固定する工程表"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "SLAはサービスの可用性、応答時間、サポート範囲など、合意したサービス水準を明確にする文書である。"
+  },
+  {
+    "id": "fe-a-q038",
+    "examId": "kamoku-a",
+    "category": "マネジメント",
+    "pattern": "matching",
+    "prompt": "インシデント管理と問題管理の組合せとして、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "インシデント管理: 早期復旧 / 問題管理: 根本原因の除去"
+      },
+      {
+        "id": "b",
+        "label": "インシデント管理: 会計監査 / 問題管理: 売上予測"
+      },
+      {
+        "id": "c",
+        "label": "インシデント管理: 著作権管理 / 問題管理: 特許出願"
+      },
+      {
+        "id": "d",
+        "label": "インシデント管理: 市場分析 / 問題管理: 価格決定"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "インシデント管理はサービスの早期復旧、問題管理は再発防止のための原因究明を重視する。"
+  },
+  {
+    "id": "fe-a-q039",
+    "examId": "kamoku-a",
+    "category": "マネジメント",
+    "pattern": "single-choice",
+    "prompt": "変更管理の目的として、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "変更による影響とリスクを評価し、統制された形で実施する"
+      },
+      {
+        "id": "b",
+        "label": "全ての変更を記録せず即時実施する"
+      },
+      {
+        "id": "c",
+        "label": "利用者の問い合わせを全て拒否する"
+      },
+      {
+        "id": "d",
+        "label": "開発工程を必ず滝のように一方向にする"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "変更管理は、サービスやシステムへの変更を計画・承認・記録し、影響を管理する。"
+  },
+  {
+    "id": "fe-a-q040",
+    "examId": "kamoku-a",
+    "category": "マネジメント",
+    "pattern": "single-choice",
+    "prompt": "サービスデスクの役割として、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "利用者からの問い合わせや障害報告の単一窓口となる"
+      },
+      {
+        "id": "b",
+        "label": "企業の株価を決定する"
+      },
+      {
+        "id": "c",
+        "label": "全てのソースコードを暗号化する"
+      },
+      {
+        "id": "d",
+        "label": "データベースの表を正規化する"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "サービスデスクは利用者とITサービス提供側の窓口として、問い合わせやインシデントを受け付ける。"
+  },
+  {
+    "id": "fe-a-q041",
+    "examId": "kamoku-a",
+    "category": "マネジメント",
+    "pattern": "single-choice",
+    "prompt": "システム監査人に求められる独立性の説明として、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "監査対象から独立した立場で客観的に評価する"
+      },
+      {
+        "id": "b",
+        "label": "監査対象の開発責任者を兼務する"
+      },
+      {
+        "id": "c",
+        "label": "監査結果を必ず隠す"
+      },
+      {
+        "id": "d",
+        "label": "監査証拠を残さない"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "システム監査では、監査人の独立性と客観性が重要である。"
+  },
+  {
+    "id": "fe-a-q042",
+    "examId": "kamoku-a",
+    "category": "マネジメント",
+    "pattern": "single-choice",
+    "prompt": "内部統制の説明として、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "業務の有効性、信頼性、法令遵守などを確保するための仕組み"
+      },
+      {
+        "id": "b",
+        "label": "全ての業務を外部委託すること"
+      },
+      {
+        "id": "c",
+        "label": "全社員に同じパスワードを配ること"
+      },
+      {
+        "id": "d",
+        "label": "売上高を暗号化すること"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "内部統制は、組織目的を達成するために業務を統制する仕組みである。"
+  },
+  {
+    "id": "fe-a-q043",
+    "examId": "kamoku-a",
+    "category": "マネジメント",
+    "pattern": "single-choice",
+    "prompt": "ファンクションポイント法の説明として、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "外部入力、外部出力など利用者から見た機能量でソフトウェア規模を見積もる"
+      },
+      {
+        "id": "b",
+        "label": "プログラムの行数だけで必ず見積もる"
+      },
+      {
+        "id": "c",
+        "label": "機械学習の正解率を求める"
+      },
+      {
+        "id": "d",
+        "label": "ネットワークのIPアドレスを割り当てる"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "ファンクションポイント法は、利用者から見た機能に基づいてソフトウェア規模を見積もる。"
+  },
+  {
+    "id": "fe-a-q044",
+    "examId": "kamoku-a",
+    "category": "マネジメント",
+    "pattern": "single-choice",
+    "prompt": "クリティカルパスの説明として、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "プロジェクト全体の所要期間を左右する余裕時間が最小の経路"
+      },
+      {
+        "id": "b",
+        "label": "最も費用の安い作業だけを結んだ経路"
+      },
+      {
+        "id": "c",
+        "label": "全ての作業の担当者を示す一覧"
+      },
+      {
+        "id": "d",
+        "label": "品質保証で使う暗号鍵の経路"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "クリティカルパス上の作業が遅れると、プロジェクト全体の完了も遅れる。"
+  },
+  {
+    "id": "fe-a-q045",
+    "examId": "kamoku-a",
+    "category": "ストラテジ",
+    "pattern": "matching",
+    "prompt": "SWOT分析の要素と意味の組合せとして、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "Strength: 強み / Threat: 脅威"
+      },
+      {
+        "id": "b",
+        "label": "Strength: 市場 / Threat: 技術"
+      },
+      {
+        "id": "c",
+        "label": "Weakness: 機会 / Opportunity: 弱み"
+      },
+      {
+        "id": "d",
+        "label": "Opportunity: 原価 / Threat: 利益"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "SWOTは強み、弱み、機会、脅威の4要素で、内部環境と外部環境を整理する。"
+  },
+  {
+    "id": "fe-a-q046",
+    "examId": "kamoku-a",
+    "category": "ストラテジ",
+    "pattern": "single-choice",
+    "prompt": "システム調達で提案依頼書（RFP）を作成する主な目的はどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "要求事項や評価基準を提示し、供給者から提案を受けるため"
+      },
+      {
+        "id": "b",
+        "label": "開発完了後のソースコードを暗号化するため"
+      },
+      {
+        "id": "c",
+        "label": "運用中の全ログを削除するため"
+      },
+      {
+        "id": "d",
+        "label": "プロジェクトのリスクを全て供給者に移すため"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "RFPはRequest For Proposalの略で、発注側が要求事項、前提条件、評価基準などを示し、提案を求める文書である。"
+  },
+  {
+    "id": "fe-a-q047",
+    "examId": "kamoku-a",
+    "category": "ストラテジ",
+    "pattern": "single-choice",
+    "prompt": "販売価格が1個1,000円、変動費が1個600円、固定費が200,000円の商品の損益分岐点販売数量はどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "200個"
+      },
+      {
+        "id": "b",
+        "label": "333個"
+      },
+      {
+        "id": "c",
+        "label": "500個"
+      },
+      {
+        "id": "d",
+        "label": "600個"
+      }
+    ],
+    "correctChoiceIds": [
+      "c"
+    ],
+    "explanation": "1個当たりの限界利益は1,000 - 600 = 400円。固定費200,000円を400円で割ると500個である。"
+  },
+  {
+    "id": "fe-a-q048",
+    "examId": "kamoku-a",
+    "category": "ストラテジ",
+    "pattern": "true-false",
+    "prompt": "著作権は、創作された著作物を保護する権利である。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "正しい"
+      },
+      {
+        "id": "b",
+        "label": "誤り"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "著作権は、思想又は感情を創作的に表現した著作物を保護する権利である。"
+  },
+  {
+    "id": "fe-a-q049",
+    "examId": "kamoku-a",
+    "category": "ストラテジ",
+    "pattern": "single-choice",
+    "prompt": "個人情報保護の観点で、利用目的を超えて個人データを利用する場合に原則として必要なことはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "本人の同意を得る"
+      },
+      {
+        "id": "b",
+        "label": "社内で口頭共有するだけでよい"
+      },
+      {
+        "id": "c",
+        "label": "利用目的を削除する"
+      },
+      {
+        "id": "d",
+        "label": "暗号化すれば目的外利用は常に自由である"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "個人情報は、原則として特定した利用目的の範囲内で取り扱う必要がある。目的外利用では本人同意などが必要になる。"
+  },
+  {
+    "id": "fe-a-q050",
+    "examId": "kamoku-a",
+    "category": "ストラテジ",
+    "pattern": "matching",
+    "prompt": "KGIとKPIの組合せとして、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "KGI: 最終目標指標 / KPI: 達成過程を測る重要業績評価指標"
+      },
+      {
+        "id": "b",
+        "label": "KGI: 暗号方式 / KPI: 通信プロトコル"
+      },
+      {
+        "id": "c",
+        "label": "KGI: 入力装置 / KPI: 出力装置"
+      },
+      {
+        "id": "d",
+        "label": "KGI: 例外処理 / KPI: 排他制御"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "KGIは最終的な目標、KPIは目標達成に向けた過程を測る指標である。"
+  },
+  {
+    "id": "fe-a-q051",
+    "examId": "kamoku-a",
+    "category": "ストラテジ",
+    "pattern": "single-choice",
+    "prompt": "BCPの説明として、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "災害や障害時にも重要業務を継続又は早期復旧するための計画"
+      },
+      {
+        "id": "b",
+        "label": "全ての業務を停止するための手順書"
+      },
+      {
+        "id": "c",
+        "label": "CPUの命令実行計画"
+      },
+      {
+        "id": "d",
+        "label": "販売単価を決める表"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "BCPは事業継続計画であり、非常時に重要業務を維持・復旧するための計画である。"
+  },
+  {
+    "id": "fe-a-q052",
+    "examId": "kamoku-a",
+    "category": "ストラテジ",
+    "pattern": "matching",
+    "prompt": "クラウドサービスの分類と説明の組合せとして、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "SaaS: 利用者がアプリケーション機能をサービスとして利用する"
+      },
+      {
+        "id": "b",
+        "label": "IaaS: 完成済み業務アプリケーションだけを提供する"
+      },
+      {
+        "id": "c",
+        "label": "PaaS: 利用者の端末だけを販売する"
+      },
+      {
+        "id": "d",
+        "label": "SaaS: 物理サーバ室だけを貸す"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "SaaSはアプリケーションをサービスとして提供する形態である。IaaSは基盤、PaaSは開発・実行環境を提供する。"
+  },
+  {
+    "id": "fe-a-q053",
+    "examId": "kamoku-a",
+    "category": "ストラテジ",
+    "pattern": "single-choice",
+    "prompt": "DXの説明として、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "デジタル技術を活用して業務やビジネスモデルを変革すること"
+      },
+      {
+        "id": "b",
+        "label": "紙の帳票を必ず廃棄するだけの活動"
+      },
+      {
+        "id": "c",
+        "label": "プログラムを全て機械語で書くこと"
+      },
+      {
+        "id": "d",
+        "label": "通信を全て禁止すること"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "DXは単なるデジタル化にとどまらず、競争力や価値創出につながる変革を指す。"
+  },
+  {
+    "id": "fe-a-q054",
+    "examId": "kamoku-a",
+    "category": "ストラテジ",
+    "pattern": "single-choice",
+    "prompt": "IoTの説明として、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "センサーや機器などのモノをネットワークに接続し、データを活用する仕組み"
+      },
+      {
+        "id": "b",
+        "label": "人間が紙で帳票を回覧する仕組み"
+      },
+      {
+        "id": "c",
+        "label": "コンパイラだけを指す用語"
+      },
+      {
+        "id": "d",
+        "label": "OSのスケジューリング方式"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "IoTはInternet of Thingsで、モノがネットワークにつながりデータを収集・制御する仕組みである。"
+  },
+  {
+    "id": "fe-a-q055",
+    "examId": "kamoku-a",
+    "category": "ストラテジ",
+    "pattern": "matching",
+    "prompt": "経営管理システムと目的の組合せとして、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "CRM: 顧客との関係を管理する"
+      },
+      {
+        "id": "b",
+        "label": "SCM: 社員の勤怠だけを暗号化する"
+      },
+      {
+        "id": "c",
+        "label": "ERP: ネットワークの物理層だけを管理する"
+      },
+      {
+        "id": "d",
+        "label": "CRM: CPUのキャッシュを制御する"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "CRMは顧客関係管理、SCMは供給連鎖管理、ERPは企業資源計画を支援する。"
+  },
+  {
+    "id": "fe-a-q056",
+    "examId": "kamoku-a",
+    "category": "ストラテジ",
+    "pattern": "single-choice",
+    "prompt": "PPMで市場成長率が高く、市場占有率も高い事業は一般に何と呼ばれるか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "花形"
+      },
+      {
+        "id": "b",
+        "label": "金のなる木"
+      },
+      {
+        "id": "c",
+        "label": "負け犬"
+      },
+      {
+        "id": "d",
+        "label": "問題児ではなく必ず撤退事業"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "PPMでは市場成長率も相対的市場占有率も高い事業を花形と呼ぶ。"
+  },
+  {
+    "id": "fe-a-q057",
+    "examId": "kamoku-a",
+    "category": "ストラテジ",
+    "pattern": "single-choice",
+    "prompt": "内外作基準を検討する場面として、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "システム開発を自社で行うか外部委託するかを判断する"
+      },
+      {
+        "id": "b",
+        "label": "TCPとUDPのポート番号を割り当てる"
+      },
+      {
+        "id": "c",
+        "label": "主記憶の容量を2倍にする"
+      },
+      {
+        "id": "d",
+        "label": "全てのデータを削除する"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "内外作基準は、開発や運用を内製するか外部委託するかを判断する基準である。"
+  },
+  {
+    "id": "fe-a-q058",
+    "examId": "kamoku-a",
+    "category": "ストラテジ",
+    "pattern": "single-choice",
+    "prompt": "DCF法で投資評価を行うときに考慮するものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "将来キャッシュフローを現在価値に割り引いた価値"
+      },
+      {
+        "id": "b",
+        "label": "画面の色相だけ"
+      },
+      {
+        "id": "c",
+        "label": "キューの先頭要素だけ"
+      },
+      {
+        "id": "d",
+        "label": "暗号鍵の長さだけ"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "DCF法は将来得られるキャッシュフローを割引率で現在価値に換算して評価する。"
+  },
+  {
+    "id": "fe-a-q059",
+    "examId": "kamoku-a",
+    "category": "ストラテジ",
+    "pattern": "single-choice",
+    "prompt": "データを時系列で変化の傾向として示すのに適したグラフはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "折れ線グラフ"
+      },
+      {
+        "id": "b",
+        "label": "ER図"
+      },
+      {
+        "id": "c",
+        "label": "状態遷移表だけ"
+      },
+      {
+        "id": "d",
+        "label": "WBSだけ"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "時系列の推移や傾向を示すには折れ線グラフが適している。"
+  },
+  {
+    "id": "fe-a-q060",
+    "examId": "kamoku-a",
+    "category": "ストラテジ",
+    "pattern": "single-choice",
+    "prompt": "AI利活用で説明可能性を重視する理由として、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "判断根拠を把握し、利用者や関係者が妥当性を検証しやすくするため"
+      },
+      {
+        "id": "b",
+        "label": "AIの処理を必ず手計算に戻すため"
+      },
+      {
+        "id": "c",
+        "label": "全てのデータを公開するため"
+      },
+      {
+        "id": "d",
+        "label": "ネットワークを不要にするため"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "説明可能性は、AIの判断を理解・検証し、適切な利用や説明責任に役立てるために重要である。"
+  },
+  {
+    "id": "fe-b-q001",
+    "examId": "kamoku-b",
+    "category": "セキュリティ",
+    "pattern": "single-choice",
+    "prompt": "社内利用者に届いたメールに、実在する取引先名と請求書確認用URLが含まれていた。URLのドメインが取引先の正規ドメインと1文字だけ異なる場合、最初に疑うべき攻撃はどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "フィッシング"
+      },
+      {
+        "id": "b",
+        "label": "リフレクション攻撃"
+      },
+      {
+        "id": "c",
+        "label": "ブルートフォース攻撃"
+      },
+      {
+        "id": "d",
+        "label": "ゼロ除算"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "正規サイトに似せたURLで認証情報などを入力させる手口はフィッシングである。"
+  },
+  {
+    "id": "fe-b-q002",
+    "examId": "kamoku-b",
+    "category": "セキュリティ",
+    "pattern": "single-choice",
+    "prompt": "Webサーバのログに、同じURLへ短時間に多数の異常なPOST要求があり、直後に応答時間が急増した。可用性への攻撃として最も疑うべきものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "DoS攻撃"
+      },
+      {
+        "id": "b",
+        "label": "辞書式圧縮"
+      },
+      {
+        "id": "c",
+        "label": "正規化"
+      },
+      {
+        "id": "d",
+        "label": "二分探索"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "大量の要求でサービス提供能力を低下させる攻撃はDoS攻撃に該当する。"
+  },
+  {
+    "id": "fe-b-q003",
+    "examId": "kamoku-b",
+    "category": "セキュリティ",
+    "pattern": "single-choice",
+    "prompt": "利用者が部署異動した後も旧部署の機密フォルダを閲覧できていた。是正策として最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "職務変更時にアクセス権を棚卸しし、不要な権限を削除する"
+      },
+      {
+        "id": "b",
+        "label": "全利用者へ管理者権限を付与する"
+      },
+      {
+        "id": "c",
+        "label": "フォルダ名だけを変更する"
+      },
+      {
+        "id": "d",
+        "label": "ログ取得を停止する"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "職務に必要な最小限の権限を維持するため、異動や退職時の権限見直しが必要である。"
+  },
+  {
+    "id": "fe-b-q004",
+    "examId": "kamoku-b",
+    "category": "セキュリティ",
+    "pattern": "single-choice",
+    "prompt": "ログイン画面で入力された文字列をそのままSQL文に連結している。最も優先して修正すべき実装はどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "プレースホルダを使ってSQL構造と入力値を分離する"
+      },
+      {
+        "id": "b",
+        "label": "送信ボタンの色を変更する"
+      },
+      {
+        "id": "c",
+        "label": "結果件数を常に0件にする"
+      },
+      {
+        "id": "d",
+        "label": "画面のフォントサイズを固定する"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "SQLインジェクション対策として、入力値をSQL文字列へ直接連結しない実装が必要である。"
+  },
+  {
+    "id": "fe-b-q005",
+    "examId": "kamoku-b",
+    "category": "アルゴリズムとプログラミング",
+    "pattern": "counting",
+    "prompt": "配列A = {2, 5, 8, 11, 14} の各要素について、偶数なら変数countを1増やす。処理後のcountはいくつか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "2"
+      },
+      {
+        "id": "b",
+        "label": "3"
+      },
+      {
+        "id": "c",
+        "label": "4"
+      },
+      {
+        "id": "d",
+        "label": "5"
+      }
+    ],
+    "correctChoiceIds": [
+      "b"
+    ],
+    "explanation": "偶数は2、8、14の3個である。"
+  },
+  {
+    "id": "fe-b-q006",
+    "examId": "kamoku-b",
+    "category": "アルゴリズムとプログラミング",
+    "pattern": "single-choice",
+    "prompt": "空のスタックに push(3), push(8), pop(), push(5), pop() を順に実行したとき、最後の pop() が返す値はどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "3"
+      },
+      {
+        "id": "b",
+        "label": "5"
+      },
+      {
+        "id": "c",
+        "label": "8"
+      },
+      {
+        "id": "d",
+        "label": "未定義の値"
+      }
+    ],
+    "correctChoiceIds": [
+      "b"
+    ],
+    "explanation": "スタックは後入れ先出しである。最初のpopで8を取り出し、その後pushした5が最後のpopで取り出される。"
+  },
+  {
+    "id": "fe-b-q007",
+    "examId": "kamoku-b",
+    "category": "アルゴリズムとプログラミング",
+    "pattern": "single-choice",
+    "prompt": "空のキューに enqueue(4), enqueue(9), dequeue(), enqueue(2), dequeue() を順に実行した。最後のdequeue()が返す値はどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "2"
+      },
+      {
+        "id": "b",
+        "label": "4"
+      },
+      {
+        "id": "c",
+        "label": "9"
+      },
+      {
+        "id": "d",
+        "label": "未定義"
+      }
+    ],
+    "correctChoiceIds": [
+      "c"
+    ],
+    "explanation": "キューは先入れ先出しである。最初のdequeueで4、最後のdequeueで9が取り出される。"
+  },
+  {
+    "id": "fe-b-q008",
+    "examId": "kamoku-b",
+    "category": "アルゴリズムとプログラミング",
+    "pattern": "counting",
+    "prompt": "変数sを0にして、iを1から5まで1ずつ増やしながら s ← s + i を実行する。終了時のsはいくつか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "10"
+      },
+      {
+        "id": "b",
+        "label": "15"
+      },
+      {
+        "id": "c",
+        "label": "20"
+      },
+      {
+        "id": "d",
+        "label": "25"
+      }
+    ],
+    "correctChoiceIds": [
+      "b"
+    ],
+    "explanation": "1+2+3+4+5=15である。"
+  },
+  {
+    "id": "fe-b-q009",
+    "examId": "kamoku-b",
+    "category": "アルゴリズムとプログラミング",
+    "pattern": "single-choice",
+    "prompt": "配列 {3, 7, 9, 12, 15, 20, 24} から15を二分探索する。最初に比較する値はどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "3"
+      },
+      {
+        "id": "b",
+        "label": "9"
+      },
+      {
+        "id": "c",
+        "label": "12"
+      },
+      {
+        "id": "d",
+        "label": "15"
+      }
+    ],
+    "correctChoiceIds": [
+      "c"
+    ],
+    "explanation": "要素数7の中央は4番目なので、最初に12と比較する。"
+  },
+  {
+    "id": "fe-b-q010",
+    "examId": "kamoku-b",
+    "category": "アルゴリズムとプログラミング",
+    "pattern": "single-choice",
+    "prompt": "バブルソートで隣接要素を昇順に交換する。配列 {4, 2, 3} に対して左から1回走査した直後の配列はどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "{2, 3, 4}"
+      },
+      {
+        "id": "b",
+        "label": "{2, 4, 3}"
+      },
+      {
+        "id": "c",
+        "label": "{4, 3, 2}"
+      },
+      {
+        "id": "d",
+        "label": "{3, 2, 4}"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "4と2を交換して{2,4,3}、次に4と3を交換して{2,3,4}となる。"
+  },
+  {
+    "id": "fe-b-q011",
+    "examId": "kamoku-b",
+    "category": "アルゴリズムとプログラミング",
+    "pattern": "single-choice",
+    "prompt": "関数 f(n) が n=0 のとき1を返し、それ以外では n × f(n-1) を返す。f(4) の値はどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "10"
+      },
+      {
+        "id": "b",
+        "label": "16"
+      },
+      {
+        "id": "c",
+        "label": "24"
+      },
+      {
+        "id": "d",
+        "label": "120"
+      }
+    ],
+    "correctChoiceIds": [
+      "c"
+    ],
+    "explanation": "4×3×2×1×f(0)=24である。"
+  },
+  {
+    "id": "fe-b-q012",
+    "examId": "kamoku-b",
+    "category": "アルゴリズムとプログラミング",
+    "pattern": "counting",
+    "prompt": "3行4列の二次元配列の全要素を、二重ループで1回ずつ処理する。処理回数は何回か。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "7"
+      },
+      {
+        "id": "b",
+        "label": "12"
+      },
+      {
+        "id": "c",
+        "label": "16"
+      },
+      {
+        "id": "d",
+        "label": "34"
+      }
+    ],
+    "correctChoiceIds": [
+      "b"
+    ],
+    "explanation": "3×4=12要素なので、処理回数は12回である。"
+  },
+  {
+    "id": "fe-b-q013",
+    "examId": "kamoku-b",
+    "category": "アルゴリズムとプログラミング",
+    "pattern": "single-choice",
+    "prompt": "文字列 S = \"abcabc\" に含まれる文字 'a' の個数を数えるといくつか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "1"
+      },
+      {
+        "id": "b",
+        "label": "2"
+      },
+      {
+        "id": "c",
+        "label": "3"
+      },
+      {
+        "id": "d",
+        "label": "6"
+      }
+    ],
+    "correctChoiceIds": [
+      "b"
+    ],
+    "explanation": "文字'a'は1文字目と4文字目に現れるので2個である。"
+  },
+  {
+    "id": "fe-b-q014",
+    "examId": "kamoku-b",
+    "category": "アルゴリズムとプログラミング",
+    "pattern": "single-choice",
+    "prompt": "要素数nの配列を先頭から末尾まで1回調べる線形探索の最悪時間計算量はどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "O(1)"
+      },
+      {
+        "id": "b",
+        "label": "O(log n)"
+      },
+      {
+        "id": "c",
+        "label": "O(n)"
+      },
+      {
+        "id": "d",
+        "label": "O(n^2)"
+      }
+    ],
+    "correctChoiceIds": [
+      "c"
+    ],
+    "explanation": "最悪の場合、全要素を1回ずつ調べるためO(n)である。"
+  },
+  {
+    "id": "fe-b-q015",
+    "examId": "kamoku-b",
+    "category": "アルゴリズムとプログラミング",
+    "pattern": "single-choice",
+    "prompt": "10進数13を2進数へ変換する処理で、正しい結果はどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "1011"
+      },
+      {
+        "id": "b",
+        "label": "1101"
+      },
+      {
+        "id": "c",
+        "label": "1110"
+      },
+      {
+        "id": "d",
+        "label": "10001"
+      }
+    ],
+    "correctChoiceIds": [
+      "b"
+    ],
+    "explanation": "13は8+4+1なので2進数では1101である。"
+  },
+  {
+    "id": "fe-b-q016",
+    "examId": "kamoku-b",
+    "category": "アルゴリズムとプログラミング",
+    "pattern": "single-choice",
+    "prompt": "ハッシュ表で衝突が発生した場合の処理として、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "チェイン法やオープンアドレス法などで別の格納方法を用いる"
+      },
+      {
+        "id": "b",
+        "label": "表全体を必ず削除する"
+      },
+      {
+        "id": "c",
+        "label": "キーを全て同じ値にする"
+      },
+      {
+        "id": "d",
+        "label": "探索を常に中止する"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "ハッシュ値が同じになる衝突には、チェイン法やオープンアドレス法などの対処方法がある。"
+  },
+  {
+    "id": "fe-b-q017",
+    "examId": "kamoku-b",
+    "category": "アルゴリズムとプログラミング",
+    "pattern": "single-choice",
+    "prompt": "幅優先探索で一般に利用されるデータ構造はどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "キュー"
+      },
+      {
+        "id": "b",
+        "label": "スタックだけ"
+      },
+      {
+        "id": "c",
+        "label": "ヒープだけ"
+      },
+      {
+        "id": "d",
+        "label": "リングバッファ禁止リスト"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "幅優先探索では、近い頂点から順に処理するためキューを用いるのが一般的である。"
+  },
+  {
+    "id": "fe-b-q018",
+    "examId": "kamoku-b",
+    "category": "アルゴリズムとプログラミング",
+    "pattern": "single-choice",
+    "prompt": "データ {2, 4, 4, 10} の平均値はどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "4"
+      },
+      {
+        "id": "b",
+        "label": "5"
+      },
+      {
+        "id": "c",
+        "label": "6"
+      },
+      {
+        "id": "d",
+        "label": "10"
+      }
+    ],
+    "correctChoiceIds": [
+      "b"
+    ],
+    "explanation": "合計は20、データ数は4なので平均は5である。"
+  },
+  {
+    "id": "fe-b-q019",
+    "examId": "kamoku-b",
+    "category": "アルゴリズムとプログラミング",
+    "pattern": "single-choice",
+    "prompt": "配列Aの添字が0から始まるとき、A = {6, 1, 9, 4} に対する A[2] の値はどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "1"
+      },
+      {
+        "id": "b",
+        "label": "4"
+      },
+      {
+        "id": "c",
+        "label": "6"
+      },
+      {
+        "id": "d",
+        "label": "9"
+      }
+    ],
+    "correctChoiceIds": [
+      "d"
+    ],
+    "explanation": "0始まりではA[0]=6、A[1]=1、A[2]=9である。"
+  },
+  {
+    "id": "fe-b-q020",
+    "examId": "kamoku-b",
+    "category": "アルゴリズムとプログラミング",
+    "pattern": "single-choice",
+    "prompt": "2つの整列済み配列を1つの整列済み配列にまとめる処理はどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "マージ"
+      },
+      {
+        "id": "b",
+        "label": "暗号化"
+      },
+      {
+        "id": "c",
+        "label": "正規化"
+      },
+      {
+        "id": "d",
+        "label": "認証"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "整列済み列を順に比較して統合する処理はマージであり、マージソートでも使われる。"
+  },
+  {
+    "id": "fe-a-q061",
+    "examId": "kamoku-a",
+    "category": "テクノロジ",
+    "pattern": "counting",
+    "prompt": "16進数 2F を10進数で表した値はどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "31"
+      },
+      {
+        "id": "b",
+        "label": "47"
+      },
+      {
+        "id": "c",
+        "label": "62"
+      },
+      {
+        "id": "d",
+        "label": "95"
+      }
+    ],
+    "correctChoiceIds": [
+      "b"
+    ],
+    "explanation": "2F(16)は2×16+15=47である。"
+  },
+  {
+    "id": "fe-a-q062",
+    "examId": "kamoku-a",
+    "category": "テクノロジ",
+    "pattern": "single-choice",
+    "prompt": "8ビットの2の補数表現で -5 を表すビット列はどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "00000101"
+      },
+      {
+        "id": "b",
+        "label": "11111010"
+      },
+      {
+        "id": "c",
+        "label": "11111011"
+      },
+      {
+        "id": "d",
+        "label": "10000101"
+      }
+    ],
+    "correctChoiceIds": [
+      "c"
+    ],
+    "explanation": "+5の00000101を反転して11111010、1を加えて11111011となる。"
+  },
+  {
+    "id": "fe-a-q063",
+    "examId": "kamoku-a",
+    "category": "テクノロジ",
+    "pattern": "counting",
+    "prompt": "キャッシュヒット率が90%、キャッシュアクセス時間が10ns、主記憶アクセス時間が100nsのとき、平均アクセス時間はどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "10ns"
+      },
+      {
+        "id": "b",
+        "label": "19ns"
+      },
+      {
+        "id": "c",
+        "label": "55ns"
+      },
+      {
+        "id": "d",
+        "label": "100ns"
+      }
+    ],
+    "correctChoiceIds": [
+      "b"
+    ],
+    "explanation": "0.9×10 + 0.1×100 = 19nsである。"
+  },
+  {
+    "id": "fe-a-q064",
+    "examId": "kamoku-a",
+    "category": "テクノロジ",
+    "pattern": "single-choice",
+    "prompt": "関係データベースで、検索条件に頻繁に使う列に索引を作成する主な目的はどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "検索時の行探索を高速化する"
+      },
+      {
+        "id": "b",
+        "label": "表の行数を必ず削減する"
+      },
+      {
+        "id": "c",
+        "label": "全ての更新処理を高速化する"
+      },
+      {
+        "id": "d",
+        "label": "外部キー制約を不要にする"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "索引は検索条件に合う行を効率よく探すための構造である。更新時には索引更新の負荷が増える場合がある。"
+  },
+  {
+    "id": "fe-a-q065",
+    "examId": "kamoku-a",
+    "category": "テクノロジ",
+    "pattern": "single-choice",
+    "prompt": "第3正規形の説明として、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "主キー以外の属性が、主キーに推移的に依存しない状態"
+      },
+      {
+        "id": "b",
+        "label": "全ての列を文字列型に統一した状態"
+      },
+      {
+        "id": "c",
+        "label": "索引を3個以上作成した状態"
+      },
+      {
+        "id": "d",
+        "label": "表を3行だけに分割した状態"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "第3正規形では、非キー属性間の推移的関数従属を排除する。"
+  },
+  {
+    "id": "fe-a-q066",
+    "examId": "kamoku-a",
+    "category": "テクノロジ",
+    "pattern": "single-choice",
+    "prompt": "仮想記憶方式でページフォールトが発生する状況はどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "参照したページが主記憶上に存在しない"
+      },
+      {
+        "id": "b",
+        "label": "CPUのクロック周波数が低下した"
+      },
+      {
+        "id": "c",
+        "label": "プリンタの用紙がなくなった"
+      },
+      {
+        "id": "d",
+        "label": "ファイル名が長すぎる"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "ページフォールトは、必要なページが主記憶にないため補助記憶から読み込む必要がある状態で発生する。"
+  },
+  {
+    "id": "fe-a-q067",
+    "examId": "kamoku-a",
+    "category": "テクノロジ",
+    "pattern": "counting",
+    "prompt": "IPv4ネットワークでプレフィックス長が /26 のサブネットに割り当て可能なホスト数はどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "30"
+      },
+      {
+        "id": "b",
+        "label": "32"
+      },
+      {
+        "id": "c",
+        "label": "62"
+      },
+      {
+        "id": "d",
+        "label": "64"
+      }
+    ],
+    "correctChoiceIds": [
+      "c"
+    ],
+    "explanation": "/26はホスト部6ビットなので64アドレスあり、ネットワークアドレスとブロードキャストアドレスを除いて62ホストである。"
+  },
+  {
+    "id": "fe-a-q068",
+    "examId": "kamoku-a",
+    "category": "テクノロジ",
+    "pattern": "single-choice",
+    "prompt": "RAID1の特徴として、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "同じデータを複数のディスクに書き込むミラーリングで可用性を高める"
+      },
+      {
+        "id": "b",
+        "label": "全てのデータを1台のディスクに圧縮して格納する"
+      },
+      {
+        "id": "c",
+        "label": "パリティだけを格納し、データ本体は保存しない"
+      },
+      {
+        "id": "d",
+        "label": "磁気テープだけで構成する"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "RAID1はミラーリングにより、一方のディスク障害時にもデータを保持しやすくする方式である。"
+  },
+  {
+    "id": "fe-a-q069",
+    "examId": "kamoku-a",
+    "category": "テクノロジ",
+    "pattern": "single-choice",
+    "prompt": "UMLのシーケンス図で主に表す内容はどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "オブジェクト間のメッセージの時系列"
+      },
+      {
+        "id": "b",
+        "label": "業務拠点の地理的配置"
+      },
+      {
+        "id": "c",
+        "label": "データベース表の物理容量"
+      },
+      {
+        "id": "d",
+        "label": "プロジェクト費用の累積曲線"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "シーケンス図は、ライフライン間で交わされるメッセージを時系列に表現する。"
+  },
+  {
+    "id": "fe-a-q070",
+    "examId": "kamoku-a",
+    "category": "テクノロジ",
+    "pattern": "matching",
+    "prompt": "TCPとUDPの特徴の組合せとして、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "TCP: コネクション型で到達確認を行う / UDP: コネクションレス型で軽量"
+      },
+      {
+        "id": "b",
+        "label": "TCP: 暗号専用 / UDP: 圧縮専用"
+      },
+      {
+        "id": "c",
+        "label": "TCP: 物理層 / UDP: プレゼンテーション層"
+      },
+      {
+        "id": "d",
+        "label": "TCP: IPアドレスを不要にする / UDP: ポート番号を不要にする"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "TCPは信頼性を重視したコネクション型、UDPは低遅延・軽量なコネクションレス型の通信で用いられる。"
+  },
+  {
+    "id": "fe-a-q071",
+    "examId": "kamoku-a",
+    "category": "テクノロジ",
+    "pattern": "single-choice",
+    "prompt": "REST APIで、同じリクエストを複数回送っても結果の状態が変わらない性質を表す用語はどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "冪等性"
+      },
+      {
+        "id": "b",
+        "label": "排他性"
+      },
+      {
+        "id": "c",
+        "label": "可逆圧縮"
+      },
+      {
+        "id": "d",
+        "label": "局所性"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "冪等性は、同じ操作を複数回実行しても一度実行した場合と同じ状態になる性質である。"
+  },
+  {
+    "id": "fe-a-q072",
+    "examId": "kamoku-a",
+    "category": "テクノロジ",
+    "pattern": "single-choice",
+    "prompt": "データベースの分離性が低いと発生し得る、未確定データを他のトランザクションが読み取る現象はどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "ダーティリード"
+      },
+      {
+        "id": "b",
+        "label": "ページフォールト"
+      },
+      {
+        "id": "c",
+        "label": "スラッシング"
+      },
+      {
+        "id": "d",
+        "label": "ループバック"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "ダーティリードは、コミットされていない更新を他トランザクションが読み取る現象である。"
+  },
+  {
+    "id": "fe-a-q073",
+    "examId": "kamoku-a",
+    "category": "セキュリティ",
+    "pattern": "single-choice",
+    "prompt": "SQLインジェクション対策として、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "プレースホルダを用いたプリペアドステートメントを利用する"
+      },
+      {
+        "id": "b",
+        "label": "入力値を全て画面にそのまま表示する"
+      },
+      {
+        "id": "c",
+        "label": "DBサーバの時刻を毎分変更する"
+      },
+      {
+        "id": "d",
+        "label": "SELECT文を全て禁止する"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "SQL文と入力値を分離して扱うことで、入力値がSQL構文として解釈される危険を下げられる。"
+  },
+  {
+    "id": "fe-a-q074",
+    "examId": "kamoku-a",
+    "category": "セキュリティ",
+    "pattern": "single-choice",
+    "prompt": "CSRF対策として、Webフォームに埋め込むランダムな値を検証する仕組みはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "CSRFトークン"
+      },
+      {
+        "id": "b",
+        "label": "サブネットマスク"
+      },
+      {
+        "id": "c",
+        "label": "RAIDパリティ"
+      },
+      {
+        "id": "d",
+        "label": "デフラグメント"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "CSRFトークンは、正規画面から送信されたリクエストかどうかを検証するために利用される。"
+  },
+  {
+    "id": "fe-a-q075",
+    "examId": "kamoku-a",
+    "category": "セキュリティ",
+    "pattern": "single-choice",
+    "prompt": "パスワードをハッシュ化して保存する際に、利用者ごとに異なるランダム値を加える目的はどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "同じパスワードでも異なるハッシュ値にし、総当たり表への耐性を高める"
+      },
+      {
+        "id": "b",
+        "label": "パスワードを復号しやすくする"
+      },
+      {
+        "id": "c",
+        "label": "ログイン画面を高速に描画する"
+      },
+      {
+        "id": "d",
+        "label": "通信経路を圧縮する"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "ソルトを用いると、同一パスワードでも保存値が異なり、レインボーテーブル攻撃などに強くなる。"
+  },
+  {
+    "id": "fe-a-q076",
+    "examId": "kamoku-a",
+    "category": "セキュリティ",
+    "pattern": "single-choice",
+    "prompt": "多要素認証の例として、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "パスワードに加えて、スマートフォンの認証アプリで生成されるコードを入力する"
+      },
+      {
+        "id": "b",
+        "label": "同じパスワードを2回入力する"
+      },
+      {
+        "id": "c",
+        "label": "利用者IDを長くするだけにする"
+      },
+      {
+        "id": "d",
+        "label": "画面の背景色を毎回変える"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "知識情報、所持情報、生体情報など異なる要素を組み合わせるのが多要素認証である。"
+  },
+  {
+    "id": "fe-a-q077",
+    "examId": "kamoku-a",
+    "category": "セキュリティ",
+    "pattern": "single-choice",
+    "prompt": "反射型XSSの対策として、出力時に特に重要な処理はどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "HTMLとして解釈される特殊文字をエスケープする"
+      },
+      {
+        "id": "b",
+        "label": "Cookieを全て平文で保存する"
+      },
+      {
+        "id": "c",
+        "label": "入力値をログに残さないようにするだけ"
+      },
+      {
+        "id": "d",
+        "label": "画像ファイルだけを圧縮する"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "利用者入力をHTMLへ出力するときは、文脈に応じたエスケープでスクリプトとして実行されないようにする。"
+  },
+  {
+    "id": "fe-a-q078",
+    "examId": "kamoku-a",
+    "category": "セキュリティ",
+    "pattern": "true-false",
+    "prompt": "TLSでは、サーバ証明書のチェーンを検証することで、信頼された認証局に基づくサーバの正当性確認を行える。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "正しい"
+      },
+      {
+        "id": "b",
+        "label": "誤り"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "クライアントはサーバ証明書から中間CA、ルートCAまでの証明書チェーンを検証する。"
+  },
+  {
+    "id": "fe-a-q079",
+    "examId": "kamoku-a",
+    "category": "マネジメント",
+    "pattern": "single-choice",
+    "prompt": "プロジェクトの所要期間を決める、遅延すると全体の完了が遅れる作業経路はどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "クリティカルパス"
+      },
+      {
+        "id": "b",
+        "label": "ブロードキャストドメイン"
+      },
+      {
+        "id": "c",
+        "label": "デフォルトゲートウェイ"
+      },
+      {
+        "id": "d",
+        "label": "ハッシュチェーン"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "クリティカルパス上の作業が遅れると、プロジェクト全体の完了時期に影響する。"
+  },
+  {
+    "id": "fe-a-q080",
+    "examId": "kamoku-a",
+    "category": "マネジメント",
+    "pattern": "single-choice",
+    "prompt": "サービス提供者と利用者の間で、応答時間や稼働率などのサービス水準を定める合意はどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "SLA"
+      },
+      {
+        "id": "b",
+        "label": "WBS"
+      },
+      {
+        "id": "c",
+        "label": "DFD"
+      },
+      {
+        "id": "d",
+        "label": "ARP"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "SLAはService Level Agreementの略で、サービス水準に関する合意である。"
+  },
+  {
+    "id": "fe-a-q081",
+    "examId": "kamoku-a",
+    "category": "マネジメント",
+    "pattern": "single-choice",
+    "prompt": "リスク対応で、保険加入や外部委託により影響を第三者へ移す対応はどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "移転"
+      },
+      {
+        "id": "b",
+        "label": "受容"
+      },
+      {
+        "id": "c",
+        "label": "回避"
+      },
+      {
+        "id": "d",
+        "label": "増幅"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "リスク移転は、リスクの影響や責任の一部を契約や保険などで第三者に移す対応である。"
+  },
+  {
+    "id": "fe-a-q082",
+    "examId": "kamoku-a",
+    "category": "マネジメント",
+    "pattern": "matching",
+    "prompt": "ITILにおけるインシデント管理と問題管理の組合せとして、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "インシデント管理: サービスの早期復旧 / 問題管理: 根本原因の除去"
+      },
+      {
+        "id": "b",
+        "label": "インシデント管理: 財務諸表作成 / 問題管理: 広告配信"
+      },
+      {
+        "id": "c",
+        "label": "インシデント管理: 暗号鍵生成 / 問題管理: 画像圧縮"
+      },
+      {
+        "id": "d",
+        "label": "インシデント管理: 在庫棚卸 / 問題管理: 商品陳列"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "インシデント管理はサービス復旧を重視し、問題管理は再発防止のため根本原因に取り組む。"
+  },
+  {
+    "id": "fe-a-q083",
+    "examId": "kamoku-a",
+    "category": "マネジメント",
+    "pattern": "counting",
+    "prompt": "EVMで、出来高価値EVが80、計画価値PVが100のとき、SPIはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "0.8"
+      },
+      {
+        "id": "b",
+        "label": "1.0"
+      },
+      {
+        "id": "c",
+        "label": "1.25"
+      },
+      {
+        "id": "d",
+        "label": "180"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "SPIはEV/PVで求める。80/100=0.8なので、計画より遅れている状態である。"
+  },
+  {
+    "id": "fe-a-q084",
+    "examId": "kamoku-a",
+    "category": "ストラテジ",
+    "pattern": "matching",
+    "prompt": "SWOT分析のSとTの組合せとして、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "S: 強み / T: 脅威"
+      },
+      {
+        "id": "b",
+        "label": "S: 速度 / T: 試験"
+      },
+      {
+        "id": "c",
+        "label": "S: 売上 / T: 税金"
+      },
+      {
+        "id": "d",
+        "label": "S: サーバ / T: 端末"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "SWOTはStrengths, Weaknesses, Opportunities, Threatsの4要素で分析する。"
+  },
+  {
+    "id": "fe-a-q085",
+    "examId": "kamoku-a",
+    "category": "ストラテジ",
+    "pattern": "matching",
+    "prompt": "BCPで用いるRTOとRPOの説明の組合せとして、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "RTO: 復旧までの目標時間 / RPO: どの時点までデータを戻すかの目標"
+      },
+      {
+        "id": "b",
+        "label": "RTO: 売上目標 / RPO: 広告費"
+      },
+      {
+        "id": "c",
+        "label": "RTO: 端末台数 / RPO: プリンタ台数"
+      },
+      {
+        "id": "d",
+        "label": "RTO: 暗号方式 / RPO: 鍵長"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "RTOは復旧時間目標、RPOは復旧時点目標であり、事業継続計画で重要な指標である。"
+  },
+  {
+    "id": "fe-a-q086",
+    "examId": "kamoku-a",
+    "category": "ストラテジ",
+    "pattern": "single-choice",
+    "prompt": "KGIとKPIの関係として、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "KGIは最終目標、KPIは目標達成度を測る中間指標である"
+      },
+      {
+        "id": "b",
+        "label": "KGIは通信規約、KPIは暗号鍵である"
+      },
+      {
+        "id": "c",
+        "label": "KGIはOS、KPIはCPUである"
+      },
+      {
+        "id": "d",
+        "label": "KGIは費用だけ、KPIは在庫だけを表す"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "KGIはKey Goal Indicator、KPIはKey Performance Indicatorであり、目標と進捗指標の関係で使われる。"
+  },
+  {
+    "id": "fe-a-q087",
+    "examId": "kamoku-a",
+    "category": "ストラテジ",
+    "pattern": "single-choice",
+    "prompt": "ERPの導入目的として、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "販売、購買、会計など企業資源に関する業務データを統合的に管理する"
+      },
+      {
+        "id": "b",
+        "label": "ネットワーク層だけを暗号化する"
+      },
+      {
+        "id": "c",
+        "label": "個人用端末の画面輝度を自動調整する"
+      },
+      {
+        "id": "d",
+        "label": "ディスクを物理的に破壊する"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "ERPは企業資源計画で、基幹業務を統合してデータの一元管理や業務効率化を図る。"
+  },
+  {
+    "id": "fe-a-q088",
+    "examId": "kamoku-a",
+    "category": "ストラテジ",
+    "pattern": "single-choice",
+    "prompt": "SaaSの説明として、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "インターネット経由でアプリケーション機能をサービスとして利用する形態"
+      },
+      {
+        "id": "b",
+        "label": "利用者が必ず物理サーバを購入して運用する形態"
+      },
+      {
+        "id": "c",
+        "label": "CPU命令セットの名称"
+      },
+      {
+        "id": "d",
+        "label": "磁気ディスクの記録方式"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "SaaSはSoftware as a Serviceで、アプリケーションをクラウドサービスとして利用する。"
+  },
+  {
+    "id": "fe-a-q089",
+    "examId": "kamoku-a",
+    "category": "ストラテジ",
+    "pattern": "counting",
+    "prompt": "投資額100万円、年間効果25万円のとき、単純回収期間はどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "2年"
+      },
+      {
+        "id": "b",
+        "label": "4年"
+      },
+      {
+        "id": "c",
+        "label": "25年"
+      },
+      {
+        "id": "d",
+        "label": "125年"
+      }
+    ],
+    "correctChoiceIds": [
+      "b"
+    ],
+    "explanation": "単純回収期間は投資額÷年間効果で求める。100÷25=4年である。"
+  },
+  {
+    "id": "fe-a-q090",
+    "examId": "kamoku-a",
+    "category": "ストラテジ",
+    "pattern": "single-choice",
+    "prompt": "バリューチェーン分析で主に明らかにすることはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "企業活動を価値創出の流れとして捉え、競争優位につながる活動を分析する"
+      },
+      {
+        "id": "b",
+        "label": "IPアドレスの割当範囲だけを決める"
+      },
+      {
+        "id": "c",
+        "label": "CPUの命令を逐次実行する順序だけを決める"
+      },
+      {
+        "id": "d",
+        "label": "バックアップ媒体を暗号化せず廃棄する"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "バリューチェーン分析は、主活動と支援活動から価値の源泉や改善点を把握するために用いられる。"
+  },
+  {
+    "id": "fe-b-q021",
+    "examId": "kamoku-b",
+    "category": "セキュリティ",
+    "pattern": "single-choice",
+    "prompt": "社外からWebサーバへのHTTPS通信だけを許可したい。ファイアウォールで許可すべき代表的な宛先ポート番号はどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "22"
+      },
+      {
+        "id": "b",
+        "label": "25"
+      },
+      {
+        "id": "c",
+        "label": "80"
+      },
+      {
+        "id": "d",
+        "label": "443"
+      }
+    ],
+    "correctChoiceIds": [
+      "d"
+    ],
+    "explanation": "HTTPSは通常TCPポート443を使用する。"
+  },
+  {
+    "id": "fe-b-q022",
+    "examId": "kamoku-b",
+    "category": "セキュリティ",
+    "pattern": "single-choice",
+    "prompt": "未知のマルウェア検知で、既知のシグネチャだけでなく不審な振る舞いを監視する方式はどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "ヒューリスティック検知"
+      },
+      {
+        "id": "b",
+        "label": "ミラーリング"
+      },
+      {
+        "id": "c",
+        "label": "スプーリング"
+      },
+      {
+        "id": "d",
+        "label": "正規化"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "ヒューリスティック検知は、既知パターンだけでなく挙動や特徴から不審さを判断する。"
+  },
+  {
+    "id": "fe-b-q023",
+    "examId": "kamoku-b",
+    "category": "セキュリティ",
+    "pattern": "single-choice",
+    "prompt": "複数回のログイン失敗後に同一アカウントを一時的に利用できなくする対策の主な目的はどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "パスワード総当たり攻撃の成功可能性を下げる"
+      },
+      {
+        "id": "b",
+        "label": "通信経路を圧縮する"
+      },
+      {
+        "id": "c",
+        "label": "画面表示を高速化する"
+      },
+      {
+        "id": "d",
+        "label": "DBの正規化を進める"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "アカウントロックや遅延は、試行回数を制限して総当たり攻撃を困難にする。"
+  },
+  {
+    "id": "fe-b-q024",
+    "examId": "kamoku-b",
+    "category": "セキュリティ",
+    "pattern": "matching",
+    "prompt": "共通鍵暗号方式と公開鍵暗号方式の特徴の組合せとして、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "共通鍵: 同じ鍵で暗号化・復号 / 公開鍵: 公開鍵と秘密鍵のペアを使う"
+      },
+      {
+        "id": "b",
+        "label": "共通鍵: 鍵を使わない / 公開鍵: 必ず紙で配布する"
+      },
+      {
+        "id": "c",
+        "label": "共通鍵: 画像専用 / 公開鍵: 音声専用"
+      },
+      {
+        "id": "d",
+        "label": "共通鍵: OSの機能 / 公開鍵: CPUの機能"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "共通鍵方式は鍵配送が課題で、公開鍵方式は鍵ペアを用いることで鍵配送問題を緩和する。"
+  },
+  {
+    "id": "fe-b-q025",
+    "examId": "kamoku-b",
+    "category": "セキュリティ",
+    "pattern": "multiple-select",
+    "prompt": "電子メールの送信ドメイン認証に関係する仕組みをすべて選べ。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "SPF"
+      },
+      {
+        "id": "b",
+        "label": "DKIM"
+      },
+      {
+        "id": "c",
+        "label": "DMARC"
+      },
+      {
+        "id": "d",
+        "label": "RAID1"
+      }
+    ],
+    "correctChoiceIds": [
+      "a",
+      "b",
+      "c"
+    ],
+    "explanation": "SPF、DKIM、DMARCは送信ドメイン認証やなりすまし対策で使われる。RAID1はストレージ冗長化である。"
+  },
+  {
+    "id": "fe-b-q026",
+    "examId": "kamoku-b",
+    "category": "セキュリティ",
+    "pattern": "true-false",
+    "prompt": "脆弱性修正パッチは、検証環境で影響確認を行った上で適用計画を立てることが望ましい。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "正しい"
+      },
+      {
+        "id": "b",
+        "label": "誤り"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "パッチ適用は重要だが、業務影響や互換性を確認し、優先度と手順を定めて進める。"
+  },
+  {
+    "id": "fe-b-q027",
+    "examId": "kamoku-b",
+    "category": "アルゴリズムとプログラミング",
+    "pattern": "counting",
+    "prompt": "次の処理を実行した後のsの値はどれか。s ← 0; iを1から5まで1ずつ増やしながら s ← s + i を実行する。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "5"
+      },
+      {
+        "id": "b",
+        "label": "10"
+      },
+      {
+        "id": "c",
+        "label": "15"
+      },
+      {
+        "id": "d",
+        "label": "20"
+      }
+    ],
+    "correctChoiceIds": [
+      "c"
+    ],
+    "explanation": "1+2+3+4+5=15である。"
+  },
+  {
+    "id": "fe-b-q028",
+    "examId": "kamoku-b",
+    "category": "アルゴリズムとプログラミング",
+    "pattern": "counting",
+    "prompt": "配列A={3, 8, 2, 6} の最大値を左から順に比較して求めるとき、最終的な最大値はどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "2"
+      },
+      {
+        "id": "b",
+        "label": "3"
+      },
+      {
+        "id": "c",
+        "label": "6"
+      },
+      {
+        "id": "d",
+        "label": "8"
+      }
+    ],
+    "correctChoiceIds": [
+      "d"
+    ],
+    "explanation": "3、8、2、6を順に比較すると最大値は8である。"
+  },
+  {
+    "id": "fe-b-q029",
+    "examId": "kamoku-b",
+    "category": "アルゴリズムとプログラミング",
+    "pattern": "single-choice",
+    "prompt": "線形探索の説明として、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "先頭から順に目的値と比較して探す"
+      },
+      {
+        "id": "b",
+        "label": "探索範囲を必ず半分ずつ狭める"
+      },
+      {
+        "id": "c",
+        "label": "ハッシュ値だけで必ず一回で見つける"
+      },
+      {
+        "id": "d",
+        "label": "木の根から葉までだけを探す"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "線形探索はデータを順番に調べる単純な探索法であり、未整列データにも適用できる。"
+  },
+  {
+    "id": "fe-b-q030",
+    "examId": "kamoku-b",
+    "category": "アルゴリズムとプログラミング",
+    "pattern": "single-choice",
+    "prompt": "スタックを用いる処理として、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "関数呼出しの戻り先管理"
+      },
+      {
+        "id": "b",
+        "label": "プリンタ待ち行列の先着順処理"
+      },
+      {
+        "id": "c",
+        "label": "IPアドレスの経路集約"
+      },
+      {
+        "id": "d",
+        "label": "データベースの外部キー制約"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "関数呼出しでは後から呼び出した関数から先に戻るため、LIFOのスタックが適している。"
+  },
+  {
+    "id": "fe-b-q031",
+    "examId": "kamoku-b",
+    "category": "アルゴリズムとプログラミング",
+    "pattern": "single-choice",
+    "prompt": "キューの利用例として、最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "印刷要求を到着順に処理する待ち行列"
+      },
+      {
+        "id": "b",
+        "label": "直前の処理だけを取り消す履歴"
+      },
+      {
+        "id": "c",
+        "label": "暗号鍵を秘密に保管する金庫"
+      },
+      {
+        "id": "d",
+        "label": "SQLの表結合条件"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "キューはFIFOなので、到着順に処理する待ち行列に適している。"
+  },
+  {
+    "id": "fe-b-q032",
+    "examId": "kamoku-b",
+    "category": "アルゴリズムとプログラミング",
+    "pattern": "counting",
+    "prompt": "関数 f(n) が n=0 のとき1を返し、それ以外では n×f(n-1) を返す。f(4) の値はどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "4"
+      },
+      {
+        "id": "b",
+        "label": "10"
+      },
+      {
+        "id": "c",
+        "label": "16"
+      },
+      {
+        "id": "d",
+        "label": "24"
+      }
+    ],
+    "correctChoiceIds": [
+      "d"
+    ],
+    "explanation": "f(4)=4×3×2×1×f(0)=24であり、階乗の計算である。"
+  },
+  {
+    "id": "fe-b-q033",
+    "examId": "kamoku-b",
+    "category": "アルゴリズムとプログラミング",
+    "pattern": "counting",
+    "prompt": "整列済み配列 {2, 5, 8, 11, 14, 17, 20} から14を二分探索する。最初に比較する値はどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "2"
+      },
+      {
+        "id": "b",
+        "label": "8"
+      },
+      {
+        "id": "c",
+        "label": "11"
+      },
+      {
+        "id": "d",
+        "label": "20"
+      }
+    ],
+    "correctChoiceIds": [
+      "c"
+    ],
+    "explanation": "要素数7の中央は4番目の11である。11より14が大きいので右半分へ進む。"
+  },
+  {
+    "id": "fe-b-q034",
+    "examId": "kamoku-b",
+    "category": "アルゴリズムとプログラミング",
+    "pattern": "counting",
+    "prompt": "選択ソートで配列 {4, 1, 3, 2} を昇順に整列する。1回目の最小値選択後の配列はどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "{1, 4, 3, 2}"
+      },
+      {
+        "id": "b",
+        "label": "{4, 3, 1, 2}"
+      },
+      {
+        "id": "c",
+        "label": "{2, 1, 3, 4}"
+      },
+      {
+        "id": "d",
+        "label": "{4, 1, 2, 3}"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "未整列範囲全体から最小値1を選び、先頭の4と交換する。"
+  },
+  {
+    "id": "fe-b-q035",
+    "examId": "kamoku-b",
+    "category": "アルゴリズムとプログラミング",
+    "pattern": "cloze",
+    "prompt": "配列の全要素に同じ処理を行うときは、添字を先頭から末尾まで変化させる（　）を用いると表現しやすい。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "繰返し処理"
+      },
+      {
+        "id": "b",
+        "label": "公開鍵暗号"
+      },
+      {
+        "id": "c",
+        "label": "正規化"
+      },
+      {
+        "id": "d",
+        "label": "監査証跡"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "配列走査ではfor文などの繰返し処理で添字を変化させながら各要素を処理する。"
+  }
 ]

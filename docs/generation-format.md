@@ -67,6 +67,8 @@ dist/studies/<slug>/mock-test/
 dist/studies/<slug>/mock-test/<exam-id>/
 ```
 
+For an exam variant, `questionCount` is the default attempt size shown to learners, not a hard limit on the backing pool. The study can contain more questions than `questionCount`; validation requires the pool to contain at least that many matching questions.
+
 ## Units
 
 `studies/<study-id>/data/units.json`

@@ -111,9 +111,9 @@ export function validateStudy(study, context = 'study') {
     const actualCount = (study.questions ?? []).filter((question) =>
       getQuestionExamIds(question).includes(variant.id),
     ).length
-    if (variant.questionCount && actualCount !== variant.questionCount) {
+    if (variant.questionCount && actualCount < variant.questionCount) {
       errors.push(
-        `${context}: examVariants "${variant.id}" expects ${variant.questionCount} questions but has ${actualCount}`,
+        `${context}: examVariants "${variant.id}" expects at least ${variant.questionCount} questions but has ${actualCount}`,
       )
     }
   }

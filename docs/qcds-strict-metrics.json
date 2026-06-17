@@ -9,8 +9,13 @@
         "npm run lint passed",
         "npm test passed: 3 tests",
         "npm run build passed: 3 studies generated",
-        "npm run e2e passed: 2 Chromium tests",
-        "Playwright runtime gate passed on desktop and mobile",
+        "npm run e2e passed: 3 Chromium tests",
+        "Playwright runtime gate passed for FE and color-test variants",
+        "Color-test grade-3: 60 minutes and 97 questions",
+        "Color-test grade-2: 70 minutes and 104 questions",
+        "Color-test grade-1-first: 80 minutes and 109 questions",
+        "Color-test grade-1-second: 90 minutes and 31 questions",
+        "Color-test learning units grouped by grade",
         "Questions hidden until Start",
         "Figure question rendered",
         "Read-only category metadata visible",
@@ -29,8 +34,8 @@
         "Static generator implemented",
         "Data contracts and templates implemented",
         "GitHub Pages workflow implemented",
-        "GitHub Pages workflow completed",
-        "Published URL returned HTTP 200"
+        "Color-test sources archived from materials",
+        "GitHub Pages workflow ready for branch push"
       ]
     },
     "satisfaction": {
@@ -39,13 +44,15 @@
       "evidence": [
         "Generated top page verified",
         "Generated study page verified",
+        "Color-test 3級, 2級, 1級1次, and 1級2次 mock tests verified",
+        "Color-test study page separates learning units by grade",
         "Generated top page title simplified",
         "Start-before-question behavior verified",
         "Figure question rendering verified",
         "Category displayed as read-only metadata",
         "Generated mock-test settings and answering verified",
         "Per-attempt answer-symbol randomization requested",
-        "Mobile screenshot reviewed"
+        "Syllabus-aligned timing and question counts verified"
       ]
     }
   },
@@ -57,6 +64,8 @@
     "topPage": true,
     "studyPage": true,
     "mockTestInteraction": true,
+    "colorTestVariants": true,
+    "colorTestUnitGroups": true,
     "answerSymbolRandomization": true,
     "questionsHiddenUntilStart": true,
     "figureQuestionRendered": true,

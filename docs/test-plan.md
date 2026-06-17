@@ -5,9 +5,9 @@
 | Check | Command | Purpose | Status |
 | --- | --- | --- | --- |
 | Lint | `npm run lint` | Generator, templates, and tests style check | Passed |
-| Unit tests | `npm test` | Schema validation, exam metric helpers, and FE variant counts | Passed: 3 tests |
+| Unit tests | `npm test` | Schema validation, exam metric helpers, FE variant counts, and 色彩検定 variant counts | Passed: 3 tests |
 | Static build | `npm run build` | Generate GitHub Pages files into `dist/` | Passed: 3 studies generated |
-| E2E smoke | `npm run e2e` | Browser verification of generated static site, FE variants, and per-attempt answer-symbol randomization | Passed: 2 Chromium tests |
+| E2E smoke | `npm run e2e` | Browser verification of generated static site, FE variants, 色彩検定 variants, and per-attempt answer-symbol randomization | Passed: 3 Chromium tests |
 | Docs ZIP | `npm run docs:zip` | Release documentation bundle | Passed |
 
 ## Runtime Gate
@@ -21,6 +21,16 @@ Required generated Web page gate for this task:
 - 科目A has 90 minutes and 60 questions. Passed.
 - 科目B mock-test page opens at `/studies/basic-info/mock-test/kamoku-b/`. Passed.
 - 科目B has 100 minutes and 20 questions. Passed.
+- 色彩検定 study page shows 4 mock-test choices: 3級, 2級, 1級1次, 1級2次. Passed.
+- 色彩検定 study page groups learning units by 3級, 2級, 1級1次, and 1級2次. Passed.
+- 色彩検定 3級 mock-test page opens at `/studies/color-test/mock-test/grade-3/`. Passed.
+- 色彩検定 3級 has 60 minutes and 97 questions. Passed.
+- 色彩検定 2級 mock-test page opens at `/studies/color-test/mock-test/grade-2/`. Passed.
+- 色彩検定 2級 has 70 minutes and 104 questions. Passed.
+- 色彩検定 1級1次 mock-test page opens at `/studies/color-test/mock-test/grade-1-first/`. Passed.
+- 色彩検定 1級1次 has 80 minutes and 109 questions. Passed.
+- 色彩検定 1級2次 mock-test page opens at `/studies/color-test/mock-test/grade-1-second/`. Passed.
+- 色彩検定 1級2次 has 90 minutes and 31 questions, shown in single-question mode with pager. Passed.
 - Questions are hidden until Start is pressed. Passed.
 - Display mode, total time, and font size controls work. Passed.
 - Category selector is absent during answering. Passed.
@@ -48,4 +58,5 @@ Runtime screenshots are stored under ignored `output/answer-symbol-runtime/`.
 - Source reading is performed by Codex during the session, not by a committed crawler.
 - PDF/web extraction adapters are not automated CLI commands yet.
 - The FE mock questions are original practice questions based on syllabus and public-question themes, not verbatim copies of published question booklets.
+- The 色彩検定 mock questions are original practice questions based on the official level guide, public examples, and public model-answer structure, not verbatim copies of published question booklets.
 - Inline generated figures are supported for registered figure kinds. Study-specific uploaded image asset copying is still a follow-up.

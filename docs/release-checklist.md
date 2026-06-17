@@ -2,9 +2,13 @@
 
 ## Scope
 
-- Randomize mock-test answer choice order and displayed A/B/C/D symbols on each attempt.
-- Keep existing 基本情報技術者試験 科目A as 90 minutes / 60 questions.
-- Keep existing 基本情報技術者試験 科目B as 100 minutes / 20 questions.
+- Expand 色彩検定 with 3級・2級・1級1次・1級2次 mock-test variants.
+- Group 色彩検定 learning units by grade on the generated study page.
+- Set 色彩検定 3級 as 60 minutes / 97 questions.
+- Set 色彩検定 2級 as 70 minutes / 104 questions.
+- Set 色彩検定 1級1次 as 80 minutes / 109 questions.
+- Set 色彩検定 1級2次 as 90 minutes / 31 questions.
+- Archive processed `materials/` input under `studies/color-test/sources/`.
 - Keep generated GitHub Pages output under ignored `dist/`.
 
 ## Required Before Push
@@ -17,14 +21,14 @@
 - [x] Runtime gate documented in `docs/qcds-evaluation.md`
 - [x] `npm run docs:zip`
 - [x] `git status --short --branch` reviewed
-- [x] Commit created on `codex/randomize-answer-symbols`
+- [x] Commit created on `codex/color-test-exam-variants`
 - [x] Branch pushed
-- [x] `main` pushed for production reflection
+- [ ] `main` pushed for production reflection when requested or appropriate
 
 ## Required After Main Push
 
-- [x] GitHub Pages workflow completed
-- [x] Published URL returns HTTP 200 when feasible
+- [ ] GitHub Pages workflow completed
+- [ ] Published URL returns HTTP 200 when feasible
 
 ## Release Artifact
 

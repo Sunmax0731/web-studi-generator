@@ -102,18 +102,7 @@ function renderIndex(studies) {
 }
 
 function renderStudyPage(study) {
-  const units = study.units
-    .map(
-      (unit) => `
-        <article class="unit-block">
-          <div>
-            <h2>${escapeHtml(unit.title)}</h2>
-            <p>${escapeHtml(unit.objective)}</p>
-            <ul>${unit.outline.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
-          </div>
-        </article>`,
-    )
-    .join('')
+  const units = renderUnitSections(study)
   const sources = study.sources
     .map(
       (source) => `
@@ -147,6 +136,37 @@ function renderStudyPage(study) {
         </aside>
       </section>`,
   })
+}
+
+function renderUnitSections(study) {
+  const renderUnit = (unit) => `
+    <article class="unit-block">
+      <div>
+        <h2>${escapeHtml(unit.title)}</h2>
+        <p>${escapeHtml(unit.objective)}</p>
+        <ul>${unit.outline.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
+      </div>
+    </article>`
+
+  const unitsHaveExamScope = study.examVariants?.length && study.units.some((unit) => getExamIds(unit).length > 0)
+  if (!unitsHaveExamScope) {
+    return study.units.map(renderUnit).join('')
+  }
+
+  return study.examVariants
+    .map((variant) => {
+      const variantUnits = study.units.filter((unit) => getExamIds(unit).includes(variant.id))
+      if (variantUnits.length === 0) return ''
+      return `
+        <section class="unit-group">
+          <header>
+            <h3>${escapeHtml(variant.title)}</h3>
+            <p>${escapeHtml(variant.description || `${variant.totalMinutes}分 / ${variant.questionCount}問`)}</p>
+          </header>
+          ${variantUnits.map(renderUnit).join('')}
+        </section>`
+    })
+    .join('')
 }
 
 function renderExamActions(study) {
@@ -317,6 +337,12 @@ function buildDefaultVariant(study) {
 function questionMatchesVariant(question, variantId) {
   if (Array.isArray(question.examIds)) return question.examIds.includes(variantId)
   return question.examId === variantId
+}
+
+function getExamIds(item) {
+  if (Array.isArray(item.examIds)) return item.examIds
+  if (item.examId) return [item.examId]
+  return []
 }
 
 function studyHeader(study) {

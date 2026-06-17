@@ -2,20 +2,131 @@
   "id": "color-test",
   "slug": "color-test",
   "title": "色彩検定",
-  "description": "色相、明度、彩度、配色技法、慣用色名を学習し、視覚ヒント付きの選択式問題で確認する静的学習サイトです。",
+  "description": "3級・2級・1級の公式範囲に沿って、色彩基礎、配色、光と色、測色、実技対策を級別模擬試験で確認する静的学習サイトです。",
   "accent": "#0f766e",
-  "categories": ["色の三属性", "配色", "色名・慣用色"],
+  "categories": [
+    "色彩基礎",
+    "PCCS・表色系",
+    "配色技法",
+    "光と色",
+    "色彩心理",
+    "ファッション・インテリア",
+    "ビジュアル・景観",
+    "色彩文化・ビジネス",
+    "測色・1級実技"
+  ],
   "examSettings": {
     "presentationMode": "multi",
-    "totalMinutes": 45,
+    "totalMinutes": 60,
     "fontFamily": "system",
     "fontSize": 17
   },
+  "examVariants": [
+    {
+      "id": "grade-3",
+      "title": "3級 模擬試験",
+      "description": "60分 / 97問。色彩基礎、PCCS、配色、色彩心理、生活分野を中心に確認します。",
+      "totalMinutes": 60,
+      "questionCount": 97,
+      "categoryOrder": [
+        "色彩基礎",
+        "PCCS・表色系",
+        "配色技法",
+        "色彩心理",
+        "ファッション・インテリア"
+      ]
+    },
+    {
+      "id": "grade-2",
+      "title": "2級 模擬試験",
+      "description": "70分 / 104問。光と色、表色系、配色、ファッション、インテリア、景観まで確認します。",
+      "totalMinutes": 70,
+      "questionCount": 104,
+      "categoryOrder": [
+        "光と色",
+        "PCCS・表色系",
+        "配色技法",
+        "色彩心理",
+        "ファッション・インテリア",
+        "ビジュアル・景観"
+      ]
+    },
+    {
+      "id": "grade-1-first",
+      "title": "1級1次 模擬試験",
+      "description": "80分 / 109問。色彩文化、ビジネス、測色、表色系、各分野の専門知識を確認します。",
+      "totalMinutes": 80,
+      "questionCount": 109,
+      "categoryOrder": [
+        "色彩文化・ビジネス",
+        "光と色",
+        "PCCS・表色系",
+        "測色・1級実技",
+        "色彩心理",
+        "ファッション・インテリア",
+        "ビジュアル・景観"
+      ]
+    },
+    {
+      "id": "grade-1-second",
+      "title": "1級2次 模擬試験",
+      "description": "90分 / 31問。色票選択、測色、配色イメージ、記述判断を1問ずつ確認します。",
+      "totalMinutes": 90,
+      "questionCount": 31,
+      "presentationMode": "single",
+      "categoryOrder": [
+        "測色・1級実技",
+        "PCCS・表色系",
+        "配色技法",
+        "色彩文化・ビジネス"
+      ]
+    }
+  ],
   "sources": [
+    {
+      "kind": "local",
+      "label": "色彩検定 URL メモ",
+      "path": "studies/color-test/sources/2026-06-17T13-32-08-883Z/color-test/source-links.md"
+    },
     {
       "kind": "local",
       "label": "色彩検定 サンプル資料",
       "path": "studies/color-test/sources/sample-notes.md"
+    },
+    {
+      "kind": "web",
+      "label": "色彩検定協会 各級の目安",
+      "url": "https://www.aft.or.jp/pages/feature/level"
+    },
+    {
+      "kind": "web",
+      "label": "色彩検定協会 検定出題例3級",
+      "url": "https://www.aft.or.jp/pages/feature/exam3"
+    },
+    {
+      "kind": "web",
+      "label": "色彩検定協会 2025年度冬期 模範解答",
+      "url": "https://www.aft.or.jp/informations/detail/475"
+    },
+    {
+      "kind": "web",
+      "label": "色彩検定協会 2025年度 1級2次 模範解答",
+      "url": "https://www.aft.or.jp/informations/detail/486"
+    },
+    {
+      "kind": "web",
+      "label": "色彩101 色彩検定対策",
+      "url": "https://shikisai101.com/shikisaikentei/"
+    },
+    {
+      "kind": "web",
+      "label": "日本カラーコーディネーター協会 色彩検定情報",
+      "url": "https://www.j-color.jp/siken/p01.php"
+    },
+    {
+      "kind": "web",
+      "label": "Pmana 色彩検定講座一覧",
+      "url": "https://pmana.jp/pc/lec.php?mode=kentei_list&view_mode=all&kentei_gid=30"
     }
   ]
 }

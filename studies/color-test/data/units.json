@@ -1,23 +1,150 @@
 [
   {
     "id": "color-test-unit-1",
-    "category": "色の三属性",
-    "title": "色の三属性",
-    "objective": "色相、明度、彩度の違いを図と文章で説明できる。",
-    "outline": ["色相環", "明度スケール", "彩度の変化"]
+    "category": "色彩基礎",
+    "examIds": [
+      "grade-3"
+    ],
+    "title": "3級基礎: 色のはたらきと三属性",
+    "objective": "色相、明度、彩度、色の見え方、色彩心理の基本語を区別できる。",
+    "outline": [
+      "色の三属性",
+      "有彩色と無彩色",
+      "色の心理的効果",
+      "混色の基礎"
+    ]
   },
   {
     "id": "color-test-unit-2",
-    "category": "配色",
-    "title": "配色技法",
-    "objective": "類似色相、補色色相、トーン配色を例から判定する。",
-    "outline": ["類似配色", "補色配色", "トーン統一"]
+    "category": "PCCS・表色系",
+    "examIds": [
+      "grade-3",
+      "grade-2",
+      "grade-1-first",
+      "grade-1-second"
+    ],
+    "title": "PCCS と表色系",
+    "objective": "PCCS の色相・トーン、マンセル表色系、XYZ 表色系の役割を説明できる。",
+    "outline": [
+      "PCCS 色相環",
+      "トーン分類",
+      "マンセル表色系",
+      "XYZ 表色系"
+    ]
   },
   {
     "id": "color-test-unit-3",
-    "category": "色名・慣用色",
-    "title": "色名の整理",
-    "objective": "系統色名と慣用色名の役割を区別できる。",
-    "outline": ["系統色名", "慣用色名", "色の印象"]
+    "category": "配色技法",
+    "examIds": [
+      "grade-3",
+      "grade-2",
+      "grade-1-second"
+    ],
+    "title": "配色技法と色彩調和",
+    "objective": "同一・類似・対照・補色・トーン配色などを用途に応じて判定できる。",
+    "outline": [
+      "色相差による配色",
+      "トーンによる配色",
+      "セパレーション",
+      "アクセントカラー"
+    ]
+  },
+  {
+    "id": "color-test-unit-4",
+    "category": "光と色",
+    "examIds": [
+      "grade-2",
+      "grade-1-first"
+    ],
+    "title": "光、照明、混色",
+    "objective": "分光、演色性、加法混色・減法混色、照明条件と見えの関係を理解する。",
+    "outline": [
+      "光源と分光分布",
+      "演色性",
+      "加法混色",
+      "減法混色"
+    ]
+  },
+  {
+    "id": "color-test-unit-5",
+    "category": "色彩心理",
+    "examIds": [
+      "grade-3",
+      "grade-2",
+      "grade-1-first"
+    ],
+    "title": "色彩心理とイメージ",
+    "objective": "色の誘目性、視認性、進出・後退、イメージ語と配色の関係を説明できる。",
+    "outline": [
+      "色の感情効果",
+      "視認性と可読性",
+      "配色イメージ",
+      "安全色"
+    ]
+  },
+  {
+    "id": "color-test-unit-6",
+    "category": "ファッション・インテリア",
+    "examIds": [
+      "grade-3",
+      "grade-2",
+      "grade-1-first"
+    ],
+    "title": "生活分野の色彩計画",
+    "objective": "ファッション、インテリア、プロダクトで使われる配色と素材感を整理できる。",
+    "outline": [
+      "ファッション配色",
+      "インテリア配色",
+      "素材と色",
+      "CMF の基礎"
+    ]
+  },
+  {
+    "id": "color-test-unit-7",
+    "category": "ビジュアル・景観",
+    "examIds": [
+      "grade-2",
+      "grade-1-first"
+    ],
+    "title": "ビジュアルデザインと景観色彩",
+    "objective": "メディア、サイン、景観における色彩設計の考え方を説明できる。",
+    "outline": [
+      "ビジュアルデザイン",
+      "サイン計画",
+      "景観色彩",
+      "ユニバーサルデザイン"
+    ]
+  },
+  {
+    "id": "color-test-unit-8",
+    "category": "色彩文化・ビジネス",
+    "examIds": [
+      "grade-1-first",
+      "grade-1-second"
+    ],
+    "title": "1級: 色彩文化とビジネス",
+    "objective": "色彩文化史、色彩調和論、カラーマーケティング、カラーリサーチを整理できる。",
+    "outline": [
+      "色彩文化史",
+      "色彩調和論",
+      "カラーリサーチ",
+      "カラーマーケティング"
+    ]
+  },
+  {
+    "id": "color-test-unit-9",
+    "category": "測色・1級実技",
+    "examIds": [
+      "grade-1-first",
+      "grade-1-second"
+    ],
+    "title": "1級: 測色と2次実技",
+    "objective": "測色、色度図、色票選択、配色イメージの記述・実技判断に対応する。",
+    "outline": [
+      "測色",
+      "色度座標",
+      "色票の選択",
+      "配色イメージ判定"
+    ]
   }
 ]

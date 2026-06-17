@@ -72,9 +72,12 @@ Each unit has:
 
 - `id`
 - `category`
+- `examId` or `examIds` optional, for grouping units by `examVariants`
 - `title`
 - `objective`
 - `outline`
+
+When units declare `examId` or `examIds`, the generated study page groups learning units under the matching exam variant headings. This is useful for studies such as 色彩検定 where one certification page contains multiple grade-specific mock tests.
 
 ## Questions
 
@@ -127,6 +130,7 @@ Supported `figure.kind` values:
 
 - required study fields
 - categories
+- optional unit exam IDs
 - non-empty units and questions
 - supported question patterns
 - supported figure kinds

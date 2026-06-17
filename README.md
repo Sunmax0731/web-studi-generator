@@ -8,12 +8,13 @@
 
 ## 使い方
 
-1. ローカル資料を `materials/<study-id>/` に置きます。
-2. Web ページを使いたい場合は、Codex とのチャットで URL を送ります。
-3. Codex が資料と URL を読み取り、`studies/<study-id>/study.config.json` と `studies/<study-id>/data/*.json` を更新します。
+1. ローカル資料を一時投入用の `materials/` に置きます。
+2. Web ページを使いたい場合は、調査対象 URL を `materials/` 内の Markdown またはテキストにも保存し、Codex とのチャットでも URL を送ります。
+3. Codex がチャット指示を実行トリガーとして資料と URL を読み取り、`studies/<study-id>/study.config.json` と `studies/<study-id>/data/*.json` を更新します。
 4. `npm run generate` または `npm run build` で `dist/` に静的サイトを生成します。
 5. `npm run e2e` で生成ページと模擬テストの操作を確認します。
-6. `main` に push すると GitHub Actions が `dist/` を GitHub Pages に公開します。
+6. 処理済み資料は `studies/<study-id>/sources/` に移動し、`materials/` は空に戻します。
+7. `main` に push すると GitHub Actions が `dist/` を GitHub Pages に公開します。
 
 ## 現在のサンプル学習サイト
 
@@ -24,7 +25,7 @@
 ## リポジトリ構成
 
 ```text
-materials/              Codex が読むローカル資料置き場
+materials/              実行ごとの一時資料置き場。処理後は空に戻す
 studies/                学習サイト定義と生成済み JSON データ
 templates/              静的 HTML/CSS/JS テンプレート
 scripts/                ジェネレーターと検証ヘルパー
@@ -48,6 +49,7 @@ dist/                   GitHub Pages 用の生成結果。Git 管理外
 - フォントサイズ設定
 - 選択式回答
 - 正誤フィードバック
+- 図・画像付き問題文
 
 対応する問題形式:
 

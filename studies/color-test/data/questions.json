@@ -5,6 +5,11 @@
     "pattern": "true-false",
     "prompt": "彩度は色の鮮やかさを表す属性である。",
     "visualHint": "低彩度から高彩度へ変化するカラーバーを添付できます。",
+    "figure": {
+      "kind": "spectrum",
+      "title": "彩度の変化",
+      "caption": "低彩度から高彩度へ鮮やかさが変化するイメージ"
+    },
     "choices": [
       { "id": "a", "label": "正しい" },
       { "id": "b", "label": "誤り" }

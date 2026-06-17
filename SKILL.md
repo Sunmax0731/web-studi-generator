@@ -12,22 +12,26 @@ Use this workflow when changing or using `web-studi-generator`.
 
 ## Source Intake Workflow
 
-1. User places local documents under `materials/<study-id>/`.
-2. User sends Web page URLs in chat.
-3. Codex reads local documents and browses URLs when needed.
-4. Codex records sources in `studies/<study-id>/study.config.json`.
-5. Codex updates:
+1. User places local documents under `materials/`.
+2. User stores target Web page URLs as Markdown or text files under `materials/`, and sends the same URLs in chat.
+3. The chat instruction is the execution trigger.
+4. Codex reads local documents and browses URLs when needed.
+5. Codex records sources in `studies/<study-id>/study.config.json`.
+6. Codex updates:
    - `studies/<study-id>/data/units.json`
    - `studies/<study-id>/data/questions.json`
-6. Codex runs `npm run generate`.
-7. Codex validates the generated static site and pushes to `main` when release is requested.
+7. Codex moves processed input files from `materials/` to `studies/<study-id>/sources/`.
+8. Codex leaves `materials/` empty.
+9. Codex runs `npm run generate`.
+10. Codex validates the generated static site and pushes to `main` when release is requested.
 
 ## Implementation Guidance
 
 - Do not rebuild this as a frontend authoring app.
 - Keep generator logic in `scripts/`.
 - Keep static templates in `templates/`.
-- Keep source materials in `materials/`.
+- Keep `materials/` as an untracked temporary inbox only.
+- Keep processed source materials in `studies/<study-id>/sources/`.
 - Keep publishable generated output in `dist/`; it is ignored by Git.
 - Validate study data before rendering.
 - Generated mock-test pages may use small vanilla JavaScript for learner-side settings, timing, answering, and scoring.
@@ -51,7 +55,10 @@ For browser QA, verify:
 - All registered studies are linked.
 - A study page shows units and sources.
 - A mock-test page opens.
-- Display mode, category, total time, font, and font size controls work.
+- Questions are hidden until Start is pressed.
+- Display mode, total time, font, and font size controls work.
+- Category appears as read-only question metadata.
+- Figure/image questions render.
 - Answer selection shows feedback.
 - Remaining time, average answer time, and remaining-question pace are visible.
 - Desktop and mobile widths do not overlap or clip primary text.

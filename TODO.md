@@ -4,6 +4,14 @@
 
 - [x] Pivot from frontend authoring app to Codex-driven static site generator.
 - [x] Add graphical usage guide image to README.
+- [x] Store chat-provided research URLs as text/Markdown under `materials/` during a run.
+- [x] Move processed materials from `materials/` to `studies/<study-id>/sources/` and leave `materials/` empty after a run.
+- [x] Hide mock-test questions until the learner presses Start.
+- [x] Support generated questions with image/figure blocks.
+- [x] Remove answer-time category filter and show category as read-only question metadata.
+- [x] Remove category icons/pill styling from study-unit rows.
+- [x] Randomize question order on each attempt while keeping questions grouped by category.
+- [x] Simplify the generated top page title to `資格試験学習ページ` with no explanatory subtitle.
 - [x] Add `materials/` local source-document intake contract.
 - [x] Add `studies/` registry, study config, units, and questions data contract.
 - [x] Add sample generated content for 基本情報技術者試験, 色彩検定, and 狩猟免許（わな）.

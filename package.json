@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "generate": "node scripts/generate.mjs",
+    "archive:materials": "node scripts/archive-materials.mjs",
     "dev": "npm run generate && vite preview --host 127.0.0.1 --port 4173",
     "build": "npm run generate",
     "test": "node --test tests/unit/*.test.mjs",

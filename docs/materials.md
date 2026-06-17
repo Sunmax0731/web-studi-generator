@@ -1,42 +1,58 @@
 # Materials
 
-`materials/` is the local source-document intake directory.
+`materials/` is a temporary, untracked inbox for one Codex generation run.
 
-## Directory Rule
+## Trigger
+
+The execution trigger is a chat instruction. Nothing runs automatically when files are placed under `materials/`.
+
+## What To Put In `materials/`
+
+Place local source documents directly under `materials/` for the current run:
 
 ```text
-materials/<study-id>/
+materials/
+  syllabus.pdf
+  notes.md
+  source-links.md
 ```
 
-Examples:
+Target Web page URLs should also be saved as Markdown or text, for example:
+
+```markdown
+# Source URLs
+
+- https://example.com/page-1
+- https://example.com/page-2
+```
+
+Send the same URLs in chat so Codex can browse them during the session.
+
+## After A Run
+
+After Codex reads the input and updates `studies/<study-id>/`, processed materials are moved to:
 
 ```text
-materials/basic-info/
-materials/color-test/
-materials/trap-hunting/
+studies/<study-id>/sources/
 ```
 
-## Accepted Local Inputs
+Then `materials/` is left empty. The directory is ignored by Git, so user-provided raw materials are not accidentally committed.
 
-- Markdown
-- plain text
-- PDF
-- images used as figures or source references
-- exported notes
+## Helper Command
 
-## Web Page URL Intake
+Codex may use this helper after processing input:
 
-Web page URLs are not required to be pre-written into the repository. The expected workflow is:
+```powershell
+npm run archive:materials -- <study-id>
+```
 
-1. User sends URL(s) in chat.
-2. Codex browses and extracts relevant learning content.
-3. Codex records the source in `studies/<study-id>/study.config.json`.
-4. Codex updates generated data in `studies/<study-id>/data/`.
-5. Codex runs validation and publishes through GitHub Pages when requested.
+The helper moves all current `materials/` contents to a timestamped folder under `studies/<study-id>/sources/`.
 
 ## Source Recording
 
-Sources are recorded in `study.config.json`:
+Sources used in generated pages are recorded in `study.config.json`.
+
+Web source:
 
 ```json
 {
@@ -46,12 +62,12 @@ Sources are recorded in `study.config.json`:
 }
 ```
 
-Local files use:
+Archived local source:
 
 ```json
 {
   "kind": "local",
-  "label": "Local source note",
-  "path": "materials/example/source.md"
+  "label": "Archived source note",
+  "path": "studies/example/sources/2026-06-17T10-00-00-000Z/notes.md"
 }
 ```

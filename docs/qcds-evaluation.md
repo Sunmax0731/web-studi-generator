@@ -15,7 +15,7 @@ Only these exact ratings are allowed:
 | Quality | A- | `npm run lint`, `npm test`, `npm run build`, `npm run e2e`, and Playwright runtime gate passed. Source extraction remains Codex-session driven rather than a committed crawler. |
 | Cost | A- | Static generation uses Node, local JSON, and GitHub Pages without backend hosting. |
 | Delivery | A- | Static generator, data contracts, templates, tests, and GitHub Pages workflow are implemented. Workflow completed and published URL returned HTTP 200. |
-| Satisfaction | A- | Generated top page, study page, mock-test settings, answering, and responsive mobile render were verified. |
+| Satisfaction | A- | Generated top page title, study page, start-before-question behavior, figure question rendering, read-only category metadata, mock-test settings, answering, and responsive mobile render were verified. |
 
 ## Runtime Gate
 
@@ -27,6 +27,10 @@ Required generated Web page gate:
 - Headless browser: Playwright Chromium.
 - Non-blank render: passed.
 - Top page, study page, and mock-test page visible: passed.
+- Questions hidden until Start: passed.
+- Figure/image question render: passed.
+- Category selector absent during answering: passed.
+- Read-only category metadata visible while solving: passed.
 - Mock-test settings and answer interaction verified: passed.
 - Responsive width checked: passed at 390x900.
 

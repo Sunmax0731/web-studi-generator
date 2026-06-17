@@ -5,6 +5,11 @@
     "pattern": "single-choice",
     "prompt": "二分探索の前提として最も適切なものはどれか。",
     "visualHint": "整列済み配列を中央から半分ずつ探索する図を添付できます。",
+    "figure": {
+      "kind": "binary-search",
+      "title": "二分探索の確認位置",
+      "caption": "整列済み配列の中央を確認し、探索範囲を半分に絞るイメージ"
+    },
     "choices": [
       { "id": "a", "label": "対象データがキー順に整列されている" },
       { "id": "b", "label": "対象データがハッシュ化されている" },

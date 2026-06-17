@@ -65,6 +65,7 @@ Each question has:
 - `pattern`
 - `prompt`
 - `visualHint` optional
+- `figure` optional
 - `choices`
 - `correctChoiceIds`
 - `explanation`
@@ -78,6 +79,24 @@ Supported `pattern` values:
 - `counting`
 - `true-false`
 
+Optional `figure` values:
+
+```json
+{
+  "kind": "spectrum",
+  "title": "彩度の変化",
+  "caption": "低彩度から高彩度へ変化するイメージ"
+}
+```
+
+Supported `figure.kind` values:
+
+- `binary-search`
+- `spectrum`
+- `notice`
+
+`category` is generated into the question data and displayed as read-only metadata during answering. Learners do not select categories on the mock-test page.
+
 ## Validation
 
 `scripts/lib/schema.mjs` validates:
@@ -86,6 +105,7 @@ Supported `pattern` values:
 - categories
 - non-empty units and questions
 - supported question patterns
+- supported figure kinds
 - answer choices
 - correct answer IDs
 - single-answer restrictions for non-multiple-select questions

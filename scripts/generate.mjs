@@ -64,15 +64,13 @@ function renderIndex(studies) {
     .join('')
 
   return pageShell({
-    title: 'Studi Generator',
+    title: '資格試験学習ページ',
     bodyClass: 'home',
     assetPrefix: '.',
     homeHref: './',
     main: `
       <section class="hero-band">
-        <p class="label">Static Study Site Generator</p>
-        <h1>資料と URL から学習ページと模擬テストを生成する土台</h1>
-        <p>ローカルの <code>materials/</code> とチャットで受け取った Web ページ URL をもとに、Codex が <code>studies/</code> の JSON を更新し、GitHub Pages 用の静的 HTML を生成します。</p>
+        <h1>資格試験学習ページ</h1>
       </section>
       <section class="study-grid" aria-label="生成済み学習サイト">
         ${cards}
@@ -85,7 +83,6 @@ function renderStudyPage(study) {
     .map(
       (unit) => `
         <article class="unit-block">
-          <div class="unit-category">${escapeHtml(unit.category)}</div>
           <div>
             <h2>${escapeHtml(unit.title)}</h2>
             <p>${escapeHtml(unit.objective)}</p>
@@ -131,7 +128,7 @@ function renderStudyPage(study) {
 }
 
 function renderMockTestPage(study) {
-  const categories = JSON.stringify(['すべて', ...study.categories])
+  const categoryOrder = JSON.stringify(study.categories)
   const questions = JSON.stringify(study.questions)
   const settings = JSON.stringify(study.examSettings)
 
@@ -153,9 +150,6 @@ function renderMockTestPage(study) {
               <option value="multi">1ページに複数問</option>
               <option value="single">1ページに1問</option>
             </select>
-          </label>
-          <label>カテゴリ
-            <select data-setting="category"></select>
           </label>
           <label>全体の解答時間（分）
             <input data-setting="totalMinutes" type="number" min="5" max="240" step="5" />
@@ -193,7 +187,7 @@ function renderMockTestPage(study) {
       </section>
       <script>
         window.STUDI_EXAM = {
-          categories: ${categories},
+          categoryOrder: ${categoryOrder},
           questions: ${questions},
           settings: ${settings},
           patternLabels: ${JSON.stringify(questionPatternLabels)}

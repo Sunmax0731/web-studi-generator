@@ -10,7 +10,10 @@
         "npm test passed: 3 tests",
         "npm run build passed: 3 studies generated",
         "npm run e2e passed: 1 Chromium test",
-        "Playwright runtime gate passed on desktop and mobile"
+        "Playwright runtime gate passed on desktop and mobile",
+        "Questions hidden until Start",
+        "Figure question rendered",
+        "Read-only category metadata visible"
       ]
     },
     "cost": {
@@ -35,6 +38,10 @@
       "evidence": [
         "Generated top page verified",
         "Generated study page verified",
+        "Generated top page title simplified",
+        "Start-before-question behavior verified",
+        "Figure question rendering verified",
+        "Category displayed as read-only metadata",
         "Generated mock-test settings and answering verified",
         "Mobile screenshot reviewed"
       ]
@@ -48,6 +55,10 @@
     "topPage": true,
     "studyPage": true,
     "mockTestInteraction": true,
+    "questionsHiddenUntilStart": true,
+    "figureQuestionRendered": true,
+    "categorySelectorHidden": true,
+    "categoryMetadataReadOnly": true,
     "responsiveCheck": true
   }
 }

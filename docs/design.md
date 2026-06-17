@@ -15,7 +15,7 @@ The generated output is a GitHub Pages study site with:
 Mock-test pages must include:
 
 - one-question and multi-question display mode
-- category filtering
+- category metadata generated in advance and shown read-only while answering
 - total exam time setting
 - elapsed time
 - remaining time
@@ -25,6 +25,9 @@ Mock-test pages must include:
 - font family control
 - font size control
 - answer selection and feedback
+- start-before-display behavior: questions are hidden until Start is pressed
+- generated question figures/images
+- randomized question order on each attempt, grouped by category
 
 ## Visual Direction
 

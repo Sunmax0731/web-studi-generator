@@ -16,6 +16,8 @@ export const questionPatternLabels = {
   'true-false': '正誤方式',
 }
 
+export const figureKinds = ['binary-search', 'spectrum', 'notice']
+
 export function validateStudy(study, context = 'study') {
   const errors = []
 
@@ -55,6 +57,14 @@ export function validateStudy(study, context = 'study') {
     }
     if (question.pattern !== 'multiple-select' && (question.correctChoiceIds ?? []).length !== 1) {
       errors.push(`${label}: ${question.pattern} must have exactly one correct choice`)
+    }
+    if (question.figure) {
+      if (!figureKinds.includes(question.figure.kind)) {
+        errors.push(`${label}: unsupported figure kind "${question.figure.kind}"`)
+      }
+      if (!question.figure.caption) {
+        errors.push(`${label}: figure.caption is required when figure is set`)
+      }
     }
   }
 

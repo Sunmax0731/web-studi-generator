@@ -16,7 +16,8 @@ This repository is part of the WebApp domain under `D:\AI\WebApp`.
 - Update `TODO.md` before implementing newly discovered work.
 - Keep implementation, docs, test evidence, QCDS, and release checklist aligned in the same task.
 - Store temporary runtime screenshots, traces, and debug captures under `output/`; do not commit them.
-- Keep local source documents under `materials/`.
+- Treat `materials/` as an untracked per-run inbox for local documents and URL notes.
+- After a Codex generation run, move processed materials to `studies/<study-id>/sources/` and leave `materials/` empty.
 - Keep generated study definitions under `studies/`.
 - Keep generated deploy output under `dist/`; do not commit it.
 - If project structure, workflow, or canonical paths change, update this file and `SKILL.md`.

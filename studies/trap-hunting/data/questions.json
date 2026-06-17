@@ -19,6 +19,11 @@
     "pattern": "single-choice",
     "prompt": "わなを設置した場合に必要な表示として最も適切なものはどれか。",
     "visualHint": "標識札の配置例を図で示せます。",
+    "figure": {
+      "kind": "notice",
+      "title": "わなの標識例",
+      "caption": "わな設置場所に設置者情報などを示す標識を置くイメージ"
+    },
     "choices": [
       { "id": "a", "label": "設置者情報などを示す標識" },
       { "id": "b", "label": "獲物の販売価格" },

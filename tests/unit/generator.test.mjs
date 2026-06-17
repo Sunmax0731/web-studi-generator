@@ -33,12 +33,15 @@ test('answer correctness handles multiple selection without order dependence', (
 
 test('registered studies satisfy the static generation schema', async () => {
   const registry = JSON.parse(await readFile(path.join(repoRoot, 'studies', 'registry.json'), 'utf8'))
+  let figureCount = 0
   for (const entry of registry.studies) {
     const studyRoot = path.join(repoRoot, 'studies', entry.id)
     const config = JSON.parse(await readFile(path.join(studyRoot, 'study.config.json'), 'utf8'))
     const units = JSON.parse(await readFile(path.join(studyRoot, 'data', 'units.json'), 'utf8'))
     const questions = JSON.parse(await readFile(path.join(studyRoot, 'data', 'questions.json'), 'utf8'))
+    figureCount += questions.filter((question) => question.figure).length
     const errors = validateStudy({ ...config, units, questions }, entry.id)
     assert.deepEqual(errors, [])
   }
+  assert.ok(figureCount >= 3)
 })

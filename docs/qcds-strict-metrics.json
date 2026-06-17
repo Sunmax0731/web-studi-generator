@@ -24,7 +24,9 @@
       "evidence": [
         "Static generator implemented",
         "Data contracts and templates implemented",
-        "GitHub Pages workflow implemented"
+        "GitHub Pages workflow implemented",
+        "GitHub Pages workflow completed",
+        "Published URL returned HTTP 200"
       ]
     },
     "satisfaction": {

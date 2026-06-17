@@ -23,8 +23,8 @@
 - [x] Pass `npm run e2e`.
 - [x] Pass browser runtime gate with screenshots under `output/`.
 - [x] Create docs ZIP with `npm run docs:zip`.
-- [ ] Commit and push to GitHub.
-- [ ] Confirm GitHub Pages workflow and published URL when feasible.
+- [x] Commit and push to GitHub.
+- [x] Confirm GitHub Pages workflow and published URL when feasible.
 
 ## Follow-Up Backlog
 

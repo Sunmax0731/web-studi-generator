@@ -16,15 +16,15 @@
 - [x] `npm run e2e`
 - [x] Runtime gate documented in `docs/qcds-evaluation.md`
 - [x] `npm run docs:zip`
-- [ ] `git status --short --branch` reviewed
-- [ ] Commit created on `codex/static-site-generator-foundation`
-- [ ] Branch pushed
-- [ ] `main` pushed when release is requested
+- [x] `git status --short --branch` reviewed
+- [x] Commit created on `codex/static-site-generator-foundation`
+- [x] Branch pushed
+- [x] `main` pushed when release is requested
 
 ## Required After Main Push
 
-- [ ] GitHub Pages workflow completed
-- [ ] Published URL returns HTTP 200 when feasible
+- [x] GitHub Pages workflow completed
+- [x] Published URL returns HTTP 200 when feasible
 
 ## Release Artifact
 

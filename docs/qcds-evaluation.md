@@ -14,7 +14,7 @@ Only these exact ratings are allowed:
 | --- | --- | --- |
 | Quality | A- | `npm run lint`, `npm test`, `npm run build`, `npm run e2e`, and Playwright runtime gate passed. Source extraction remains Codex-session driven rather than a committed crawler. |
 | Cost | A- | Static generation uses Node, local JSON, and GitHub Pages without backend hosting. |
-| Delivery | A- | Static generator, data contracts, templates, tests, and GitHub Pages workflow are implemented. Awaiting final push and workflow confirmation. |
+| Delivery | A- | Static generator, data contracts, templates, tests, and GitHub Pages workflow are implemented. Workflow completed and published URL returned HTTP 200. |
 | Satisfaction | A- | Generated top page, study page, mock-test settings, answering, and responsive mobile render were verified. |
 
 ## Runtime Gate

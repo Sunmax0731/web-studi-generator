@@ -7,7 +7,8 @@
 | Lint | `npm run lint` | Generator, templates, and tests style check | Passed |
 | Unit tests | `npm test` | Schema validation, exam metric helpers, FE variant counts, and 色彩検定 variant counts | Passed: 3 tests |
 | Static build | `npm run build` | Generate GitHub Pages files into `dist/` | Passed: 3 studies generated |
-| E2E smoke | `npm run e2e` | Browser verification of generated static site, FE variants, 色彩検定 variants, and per-attempt answer-symbol randomization | Passed: 3 Chromium tests |
+| E2E smoke | `npm run e2e` | Browser verification of generated static site, FE variants, 色彩検定 variants, per-attempt question-count selection, and answer-symbol randomization | Passed: 4 Chromium tests |
+| Runtime gate | Playwright fallback script | Open generated mock-test page, set question count, start attempt, check desktop/mobile rendering and console health | Passed |
 | Docs ZIP | `npm run docs:zip` | Release documentation bundle | Passed |
 
 ## Runtime Gate
@@ -19,6 +20,8 @@ Required generated Web page gate for this task:
 - Basic information study page shows 科目A and 科目B mock-test choices. Passed.
 - 科目A mock-test page opens at `/studies/basic-info/mock-test/kamoku-a/`. Passed.
 - 科目A has 90 minutes and 60 questions. Passed.
+- 科目A question-count setting defaults to 60 and can start an attempt with 10 questions. Passed.
+- 科目A single-question mode respects a 3-question attempt and shows `1 / 3` in the pager. Passed.
 - 科目B mock-test page opens at `/studies/basic-info/mock-test/kamoku-b/`. Passed.
 - 科目B has 100 minutes and 20 questions. Passed.
 - 色彩検定 study page shows 4 mock-test choices: 3級, 2級, 1級1次, 1級2次. Passed.
@@ -32,7 +35,7 @@ Required generated Web page gate for this task:
 - 色彩検定 1級2次 mock-test page opens at `/studies/color-test/mock-test/grade-1-second/`. Passed.
 - 色彩検定 1級2次 has 90 minutes and 31 questions, shown in single-question mode with pager. Passed.
 - Questions are hidden until Start is pressed. Passed.
-- Display mode, total time, and font size controls work. Passed.
+- Display mode, total time, question count, and font size controls work. Passed.
 - Category selector is absent during answering. Passed.
 - Category is shown as read-only question metadata. Passed.
 - Figure question renders in 科目A. Passed.
@@ -40,8 +43,9 @@ Required generated Web page gate for this task:
 - Answer selection shows correctness feedback. Passed.
 - Remaining time, average answer time, and remaining-question pace are visible. Passed.
 - Desktop and mobile widths do not overlap or clip primary text. Passed at 1440x1000 and 390x900.
+- Browser plugin path was attempted but `iab` was unavailable; Playwright fallback verified `/studies/basic-info/mock-test/kamoku-a/` with 7 desktop questions and 5 mobile questions, no console warnings/errors, and no framework overlay. Passed.
 
-Runtime screenshots are stored under ignored `output/answer-symbol-runtime/`.
+Runtime screenshots are stored under ignored `output/playwright/`.
 
 ## Manual Scenario For Future Source Intake
 

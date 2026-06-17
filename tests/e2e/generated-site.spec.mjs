@@ -19,6 +19,7 @@ test('generated static site starts FE subject A and B mock tests with official c
   await expect(page).toHaveTitle('基本情報技術者試験 科目A 模擬試験')
   await expect(page.getByRole('heading', { name: '表示と時間の設定' })).toBeVisible()
   await expect(page.getByLabel('全体の解答時間（分）')).toHaveValue('90')
+  await expect(page.locator('[data-setting="questionCount"]')).toHaveValue('60')
   await expect(page.locator('[data-setting="category"]')).toHaveCount(0)
   await expect(page.locator('.question-card')).toHaveCount(0)
   await expect(page.getByText('開始を押すと問題が表示されます')).toBeVisible()
@@ -41,9 +42,27 @@ test('generated static site starts FE subject A and B mock tests with official c
   await page.goto('/studies/basic-info/mock-test/kamoku-b/')
   await expect(page).toHaveTitle('基本情報技術者試験 科目B 模擬試験')
   await expect(page.getByLabel('全体の解答時間（分）')).toHaveValue('100')
+  await expect(page.locator('[data-setting="questionCount"]')).toHaveValue('20')
   await page.getByRole('button', { name: '開始' }).click()
   await expect(page.locator('.question-card')).toHaveCount(20)
   await expect(page.locator('.question-card').first().locator('.question-meta')).toContainText('セキュリティ')
+})
+
+test('mock-test question count can be set per attempt', async ({ page }) => {
+  await page.goto('/studies/basic-info/mock-test/kamoku-a/')
+
+  await expect(page.locator('[data-setting="questionCount"]')).toHaveAttribute('max', '60')
+  await page.locator('[data-setting="questionCount"]').fill('10')
+  await page.getByRole('button', { name: '開始' }).click()
+  await expect(page.locator('.question-card')).toHaveCount(10)
+  await expect(page.locator('[data-metric="pace"]')).toContainText('10問 /')
+
+  await page.getByRole('button', { name: 'リセット' }).click()
+  await page.getByLabel('表示方法').selectOption('single')
+  await page.locator('[data-setting="questionCount"]').fill('3')
+  await page.getByRole('button', { name: '開始' }).click()
+  await expect(page.locator('.question-card')).toHaveCount(1)
+  await expect(page.locator('[data-page-status]')).toHaveText('1 / 3')
 })
 
 test('mock-test answer symbols are reassigned when choices are randomized between attempts', async ({ page }) => {

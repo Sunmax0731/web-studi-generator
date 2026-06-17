@@ -18,6 +18,7 @@
 - [x] Add `templates/` static CSS, favicon, and learner-side mock-test runtime.
 - [x] Add `scripts/generate.mjs` to generate GitHub Pages files into `dist/`.
 - [x] Support exam display settings in generated pages: one-question/multi-question, category, total time, font, and font size.
+- [x] Allow learners to specify the number of questions for a mock-test attempt before starting.
 - [x] Support learner metrics in generated pages: elapsed time, remaining time, average answer time, remaining question count, and per-question available time.
 - [x] Support answer selection and correctness feedback for the six required question patterns.
 - [x] Add GitHub Pages deployment workflow.

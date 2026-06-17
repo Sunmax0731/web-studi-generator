@@ -2,13 +2,11 @@
 
 ## Scope
 
-- Expand 色彩検定 with 3級・2級・1級1次・1級2次 mock-test variants.
-- Group 色彩検定 learning units by grade on the generated study page.
-- Set 色彩検定 3級 as 60 minutes / 97 questions.
-- Set 色彩検定 2級 as 70 minutes / 104 questions.
-- Set 色彩検定 1級1次 as 80 minutes / 109 questions.
-- Set 色彩検定 1級2次 as 90 minutes / 31 questions.
-- Archive processed `materials/` input under `studies/color-test/sources/`.
+- Add a question-count setting to generated mock-test pages.
+- Default the setting to each mock-test variant's configured question count.
+- Clamp requested question counts between 1 and the available generated questions.
+- Randomly sample the requested number of questions at Start while preserving category-grouped display.
+- Verify multi-question and single-question modes with reduced question counts.
 - Keep generated GitHub Pages output under ignored `dist/`.
 
 ## Required Before Push
@@ -21,7 +19,7 @@
 - [x] Runtime gate documented in `docs/qcds-evaluation.md`
 - [x] `npm run docs:zip`
 - [x] `git status --short --branch` reviewed
-- [x] Commit created on `codex/color-test-exam-variants`
+- [x] Commit created on `codex/question-count-setting`
 - [x] Branch pushed
 - [ ] `main` pushed for production reflection when requested or appropriate
 

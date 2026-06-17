@@ -37,10 +37,13 @@ Required fields:
 {
   "presentationMode": "multi",
   "totalMinutes": 60,
+  "questionCount": 40,
   "fontFamily": "system",
   "fontSize": 17
 }
 ```
+
+`questionCount` is optional for the default generated page. When omitted, the generated mock-test runtime uses all available questions. Learners can adjust the question count before pressing Start; the runtime clamps the value between 1 and the available question count for that mock test.
 
 Optional `examVariants` generates multiple mock-test pages for one study:
 

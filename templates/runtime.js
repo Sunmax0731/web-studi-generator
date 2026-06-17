@@ -7,6 +7,7 @@
     settings: {
       presentationMode: exam.settings.presentationMode || 'multi',
       totalMinutes: exam.settings.totalMinutes || 45,
+      questionCount: clampQuestionCount(exam.settings.questionCount, exam.questions.length),
       fontFamily: exam.settings.fontFamily || 'system',
       fontSize: exam.settings.fontSize || 17,
     },
@@ -29,6 +30,7 @@
   const els = {
     presentationMode: root.querySelector('[data-setting="presentationMode"]'),
     totalMinutes: root.querySelector('[data-setting="totalMinutes"]'),
+    questionCount: root.querySelector('[data-setting="questionCount"]'),
     fontFamily: root.querySelector('[data-setting="fontFamily"]'),
     fontSize: root.querySelector('[data-setting="fontSize"]'),
     fontSizeOutput: root.querySelector('[data-font-size-output]'),
@@ -48,6 +50,8 @@
   function initialiseControls() {
     els.presentationMode.value = state.settings.presentationMode
     els.totalMinutes.value = String(state.settings.totalMinutes)
+    els.questionCount.max = String(exam.questions.length)
+    els.questionCount.value = String(state.settings.questionCount)
     els.fontFamily.value = state.settings.fontFamily
     els.fontSize.value = String(state.settings.fontSize)
     els.fontSizeOutput.value = `${state.settings.fontSize}px`
@@ -64,6 +68,17 @@
     els.totalMinutes.addEventListener('input', () => {
       state.settings.totalMinutes = Number(els.totalMinutes.value)
       updateMetrics(state.activeQuestions)
+    })
+    els.questionCount.addEventListener('input', () => {
+      const requestedQuestionCount = Number(els.questionCount.value)
+      if (Number.isFinite(requestedQuestionCount) && requestedQuestionCount > 0) {
+        state.settings.questionCount = clampQuestionCount(requestedQuestionCount, exam.questions.length)
+      }
+      if (!state.started) updateMetrics([])
+    })
+    els.questionCount.addEventListener('change', () => {
+      state.settings.questionCount = clampQuestionCount(els.questionCount.value, exam.questions.length)
+      els.questionCount.value = String(state.settings.questionCount)
     })
     els.fontFamily.addEventListener('change', () => {
       state.settings.fontFamily = els.fontFamily.value
@@ -281,24 +296,40 @@
   }
 
   function prepareAttemptQuestions() {
-    return groupedRandomQuestions().map((question) => ({
+    return groupedRandomQuestions(state.settings.questionCount).map((question) => ({
       ...question,
       choices: shuffle(question.choices),
     }))
   }
 
-  function groupedRandomQuestions() {
+  function groupedRandomQuestions(questionCount) {
     const categoryOrder = exam.categoryOrder || []
     const orderedCategories = [
       ...categoryOrder,
-      ...exam.questions
-        .map((question) => question.category)
-        .filter((category) => !categoryOrder.includes(category)),
+      ...new Set(
+        exam.questions
+          .map((question) => question.category)
+          .filter((category) => !categoryOrder.includes(category)),
+      ),
     ]
-
-    return orderedCategories.flatMap((category) =>
-      shuffle(exam.questions.filter((question) => question.category === category)),
+    const selectedQuestionIds = new Set(
+      shuffle(exam.questions)
+        .slice(0, clampQuestionCount(questionCount, exam.questions.length))
+        .map((question) => question.id),
     )
+
+    return orderedCategories.flatMap((category) => {
+      const selectedCategoryQuestions = exam.questions.filter(
+        (question) => question.category === category && selectedQuestionIds.has(question.id),
+      )
+      return shuffle(selectedCategoryQuestions)
+    })
+  }
+
+  function clampQuestionCount(value, availableQuestionCount) {
+    const max = Math.max(Number(availableQuestionCount) || 0, 1)
+    const requested = Math.trunc(Number(value) || max)
+    return Math.min(Math.max(requested, 1), max)
   }
 
   function shuffle(items) {

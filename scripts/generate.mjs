@@ -260,6 +260,9 @@ function renderMockTestPage(study, variant, links) {
           <label>全体の解答時間（分）
             <input data-setting="totalMinutes" type="number" min="5" max="240" step="5" />
           </label>
+          <label>問題数
+            <input data-setting="questionCount" type="number" min="1" step="1" />
+          </label>
           <label>フォント
             <select data-setting="fontFamily">
               <option value="system">System UI</option>
@@ -317,6 +320,7 @@ function buildExamVariants(study) {
         ...study.examSettings,
         presentationMode: variant.presentationMode || study.examSettings.presentationMode,
         totalMinutes: variant.totalMinutes,
+        questionCount: variant.questionCount || questions.length,
       },
     }
   })
@@ -330,7 +334,10 @@ function buildDefaultVariant(study) {
     questionCount: study.questions.length,
     questions: study.questions,
     categoryOrder: study.categories,
-    settings: study.examSettings,
+    settings: {
+      ...study.examSettings,
+      questionCount: study.examSettings.questionCount || study.questions.length,
+    },
   }
 }
 

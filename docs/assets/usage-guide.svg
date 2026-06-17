@@ -1,0 +1,179 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="820" viewBox="0 0 1280 820" role="img" aria-labelledby="title desc">
+  <title id="title">Studi Generator の使い方</title>
+  <desc id="desc">資料とURLからCodexで学習サイトを生成し、GitHub Pagesに公開する手順</desc>
+  <defs>
+    <style>
+      .bg { fill: #f5f7fb; }
+      .ink { fill: #14213d; }
+      .muted { fill: #52657c; }
+      .panel { fill: #ffffff; stroke: #d9e3ef; stroke-width: 1.4; }
+      .panelTop { fill: #163b72; }
+      .teal { fill: #0f766e; }
+      .blue { fill: #2563eb; }
+      .amber { fill: #b45309; }
+      .softBlue { fill: #eaf3ff; }
+      .softTeal { fill: #e6f7f5; }
+      .softAmber { fill: #fff4df; }
+      .line { stroke: #2563eb; stroke-width: 4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .thinLine { stroke: #c7d5e7; stroke-width: 1.3; fill: none; }
+      .title { font: 800 42px "Noto Sans JP", "Yu Gothic", Arial, sans-serif; }
+      .subtitle { font: 500 20px "Noto Sans JP", "Yu Gothic", Arial, sans-serif; }
+      .h2 { font: 800 20px "Noto Sans JP", "Yu Gothic", Arial, sans-serif; }
+      .body { font: 500 15px "Noto Sans JP", "Yu Gothic", Arial, sans-serif; }
+      .small { font: 700 13px "Noto Sans JP", "Yu Gothic", Arial, sans-serif; }
+      .stepNo { font: 900 24px Arial, sans-serif; }
+      .code { font: 700 14px "Consolas", "Roboto Mono", monospace; }
+    </style>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#0f172a" flood-opacity="0.10"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1280" height="820"/>
+  <rect x="40" y="34" width="1200" height="752" rx="18" fill="#ffffff" opacity="0.62"/>
+
+  <g transform="translate(72 66)">
+    <rect x="0" y="0" width="54" height="54" rx="12" fill="#14213d"/>
+    <text x="27" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="900" fill="#fff">SG</text>
+    <text class="title ink" x="72" y="38">Studi Generator の使い方</text>
+    <text class="subtitle muted" x="72" y="72">資料と URL から静的な学習ページと模擬テストを生成し、GitHub Pages に公開します。</text>
+  </g>
+
+  <g transform="translate(64 166)" filter="url(#shadow)">
+    <g transform="translate(0 0)">
+      <rect class="panel" width="180" height="188" rx="10"/>
+      <rect class="panelTop" width="180" height="44" rx="10"/>
+      <circle cx="26" cy="22" r="15" fill="#fff"/>
+      <text class="stepNo" x="26" y="30" text-anchor="middle" fill="#163b72">1</text>
+      <text class="h2" x="54" y="29" fill="#fff">資料を置く</text>
+      <rect x="48" y="72" width="84" height="58" rx="8" class="softAmber"/>
+      <path d="M56 88h72M56 104h56M56 120h64" stroke="#b45309" stroke-width="5" stroke-linecap="round"/>
+      <rect x="36" y="140" width="108" height="28" rx="6" fill="#163b72"/>
+      <text class="code" x="90" y="159" text-anchor="middle" fill="#fff">materials/</text>
+    </g>
+
+    <path class="line" marker-end="url(#arrow)" d="M190 94h42"/>
+
+    <g transform="translate(240 0)">
+      <rect class="panel" width="180" height="188" rx="10"/>
+      <rect width="180" height="44" rx="10" fill="#0f766e"/>
+      <circle cx="26" cy="22" r="15" fill="#fff"/>
+      <text class="stepNo" x="26" y="30" text-anchor="middle" fill="#0f766e">2</text>
+      <text class="h2" x="54" y="29" fill="#fff">URLを渡す</text>
+      <rect x="28" y="78" width="124" height="42" rx="21" class="softTeal" stroke="#0f766e"/>
+      <text class="code" x="90" y="104" text-anchor="middle">https://...</text>
+      <path d="M48 140h84" stroke="#0f766e" stroke-width="6" stroke-linecap="round"/>
+      <circle cx="62" cy="140" r="12" class="teal"/>
+      <circle cx="118" cy="140" r="12" fill="#9bd8d1"/>
+    </g>
+
+    <path class="line" marker-end="url(#arrow)" d="M430 94h42"/>
+
+    <g transform="translate(480 0)">
+      <rect class="panel" width="180" height="188" rx="10"/>
+      <rect class="panelTop" width="180" height="44" rx="10"/>
+      <circle cx="26" cy="22" r="15" fill="#fff"/>
+      <text class="stepNo" x="26" y="30" text-anchor="middle" fill="#163b72">3</text>
+      <text class="h2" x="54" y="29" fill="#fff">Codex生成</text>
+      <rect x="54" y="72" width="72" height="58" rx="18" class="softBlue" stroke="#2563eb"/>
+      <circle cx="78" cy="100" r="6" class="blue"/>
+      <circle cx="102" cy="100" r="6" class="blue"/>
+      <path d="M76 118c10 8 20 8 30 0" class="line" stroke-width="3"/>
+      <text class="small muted" x="90" y="158" text-anchor="middle">資料を読んで</text>
+      <text class="small muted" x="90" y="176" text-anchor="middle">単元・問題化</text>
+    </g>
+
+    <path class="line" marker-end="url(#arrow)" d="M670 94h42"/>
+
+    <g transform="translate(720 0)">
+      <rect class="panel" width="180" height="188" rx="10"/>
+      <rect class="panelTop" width="180" height="44" rx="10"/>
+      <circle cx="26" cy="22" r="15" fill="#fff"/>
+      <text class="stepNo" x="26" y="30" text-anchor="middle" fill="#163b72">4</text>
+      <text class="h2" x="54" y="29" fill="#fff">JSON保存</text>
+      <rect x="42" y="70" width="96" height="88" rx="8" class="softBlue"/>
+      <text class="code" x="90" y="102" text-anchor="middle">{ }</text>
+      <rect x="48" y="130" width="84" height="28" rx="6" fill="#163b72"/>
+      <text class="code" x="90" y="149" text-anchor="middle" fill="#fff">studies/</text>
+      <text class="small muted" x="90" y="178" text-anchor="middle">units / questions</text>
+    </g>
+
+    <path class="line" marker-end="url(#arrow)" d="M910 94h42"/>
+
+    <g transform="translate(960 0)">
+      <rect class="panel" width="180" height="188" rx="10"/>
+      <rect width="180" height="44" rx="10" fill="#2563eb"/>
+      <circle cx="26" cy="22" r="15" fill="#fff"/>
+      <text class="stepNo" x="26" y="30" text-anchor="middle" fill="#2563eb">5</text>
+      <text class="h2" x="54" y="29" fill="#fff">公開</text>
+      <rect x="32" y="74" width="116" height="68" rx="8" class="softBlue" stroke="#2563eb"/>
+      <path d="M54 100h72M54 118h48" stroke="#2563eb" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="132" cy="142" r="18" fill="#16a34a"/>
+      <path d="m122 142 7 7 14-16" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <text class="small muted" x="90" y="174" text-anchor="middle">GitHub Pages</text>
+    </g>
+  </g>
+
+  <g transform="translate(92 410)">
+    <rect class="panel" width="1096" height="214" rx="12"/>
+    <text class="h2 ink" x="26" y="38">実際の作業手順</text>
+    <line class="thinLine" x1="26" y1="56" x2="1070" y2="56"/>
+
+    <g transform="translate(26 84)">
+      <circle cx="12" cy="12" r="12" class="blue"/>
+      <text x="12" y="17" text-anchor="middle" font-family="Arial" font-size="14" font-weight="800" fill="#fff">1</text>
+      <text class="body ink" x="34" y="7">ローカル資料を</text>
+      <text class="code" x="34" y="30">materials/&lt;study-id&gt;/</text>
+      <text class="body ink" x="190" y="30">に保存する</text>
+    </g>
+
+    <g transform="translate(374 84)">
+      <circle cx="12" cy="12" r="12" class="teal"/>
+      <text x="12" y="17" text-anchor="middle" font-family="Arial" font-size="14" font-weight="800" fill="#fff">2</text>
+      <text class="body ink" x="34" y="7">WebページURLをチャットで送る</text>
+      <text class="body muted" x="34" y="31">Codex が内容を読み取り、出典として記録</text>
+    </g>
+
+    <g transform="translate(728 84)">
+      <circle cx="12" cy="12" r="12" class="amber"/>
+      <text x="12" y="17" text-anchor="middle" font-family="Arial" font-size="14" font-weight="800" fill="#fff">3</text>
+      <text class="body ink" x="34" y="7">Codex が</text>
+      <text class="code" x="96" y="7">studies/</text>
+      <text class="body ink" x="164" y="7">を更新</text>
+      <text class="body muted" x="34" y="31">単元・問題・解説・試験設定をJSON化</text>
+    </g>
+
+    <g transform="translate(26 148)">
+      <circle cx="12" cy="12" r="12" class="blue"/>
+      <text x="12" y="17" text-anchor="middle" font-family="Arial" font-size="14" font-weight="800" fill="#fff">4</text>
+      <text class="body ink" x="34" y="7">生成と確認を実行</text>
+      <text class="code" x="34" y="31">npm run build</text>
+      <text class="body muted" x="160" y="31">で dist/ を作成</text>
+    </g>
+
+    <g transform="translate(374 148)">
+      <circle cx="12" cy="12" r="12" class="teal"/>
+      <text x="12" y="17" text-anchor="middle" font-family="Arial" font-size="14" font-weight="800" fill="#fff">5</text>
+      <text class="body ink" x="34" y="7">動作確認</text>
+      <text class="code" x="34" y="31">npm run e2e</text>
+      <text class="body muted" x="152" y="31">で模擬テスト操作を検証</text>
+    </g>
+
+    <g transform="translate(728 148)">
+      <circle cx="12" cy="12" r="12" class="amber"/>
+      <text x="12" y="17" text-anchor="middle" font-family="Arial" font-size="14" font-weight="800" fill="#fff">6</text>
+      <text class="body ink" x="34" y="7">main に push</text>
+      <text class="body muted" x="34" y="31">GitHub Actions が Pages へ自動公開</text>
+    </g>
+  </g>
+
+  <g transform="translate(92 650)">
+    <rect width="1096" height="86" rx="12" fill="#14213d"/>
+    <text class="h2" x="28" y="34" fill="#fff">利用者が触る場所は2つだけ</text>
+    <text class="body" x="28" y="62" fill="#dbeafe">1. ローカル資料を materials/ に置く　　2. WebページURLをチャットで渡す</text>
+    <text class="body" x="696" y="62" fill="#dbeafe">以降は Codex が生成・検証・公開まで進めます。</text>
+  </g>
+</svg>

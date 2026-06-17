@@ -3,6 +3,7 @@
 ## Static Generator Foundation
 
 - [x] Pivot from frontend authoring app to Codex-driven static site generator.
+- [x] Add graphical usage guide image to README.
 - [x] Add `materials/` local source-document intake contract.
 - [x] Add `studies/` registry, study config, units, and questions data contract.
 - [x] Add sample generated content for 基本情報技術者試験, 色彩検定, and 狩猟免許（わな）.

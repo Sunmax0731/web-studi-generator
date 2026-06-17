@@ -34,6 +34,13 @@ button,
   cursor: pointer;
 }
 
+button:disabled {
+  cursor: not-allowed;
+  border-color: #d7e0ea;
+  color: #8a9bb0;
+  background: #eef2f6;
+}
+
 button:focus-visible,
 a:focus-visible,
 select:focus-visible,
@@ -230,6 +237,7 @@ code {
 
 .button,
 .timer-buttons button,
+.score-actions button,
 .pager button {
   display: inline-flex;
   align-items: center;
@@ -391,8 +399,23 @@ code {
 
 .timer-buttons {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(88px, 1fr));
   gap: 8px;
+}
+
+.timer-buttons button {
+  min-width: 88px;
+  padding: 0 10px;
+  white-space: nowrap;
+  font-size: 13px;
+}
+
+.score-actions {
+  display: grid;
+}
+
+.score-actions button[hidden] {
+  display: none;
 }
 
 .metric-grid {
@@ -422,6 +445,43 @@ code {
 .question-surface {
   font-family: var(--exam-font-family);
   font-size: var(--exam-font-size);
+}
+
+.result-summary {
+  display: grid;
+  gap: 2px;
+  margin-bottom: 14px;
+  padding: 12px 14px;
+  border: 1px solid #dbe3ef;
+  border-radius: 8px;
+  color: #334155;
+  background: #f8fafc;
+}
+
+.result-summary[hidden] {
+  display: none;
+}
+
+.result-summary strong {
+  font-size: 17px;
+}
+
+.result-summary span {
+  color: #475569;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.result-summary.passed {
+  border-color: #86efac;
+  color: #166534;
+  background: #f0fdf4;
+}
+
+.result-summary.failed {
+  border-color: #fcd34d;
+  color: #92400e;
+  background: #fffbeb;
 }
 
 .start-message {

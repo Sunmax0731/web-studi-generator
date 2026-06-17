@@ -257,6 +257,12 @@ function renderMockTestPage(study, variant, links) {
               <option value="single">1ページに1問</option>
             </select>
           </label>
+          <label>回答モード
+            <select data-setting="answerMode">
+              <option value="exam">試験モード（最後に採点）</option>
+              <option value="study">勉強モード（すぐ確認）</option>
+            </select>
+          </label>
           <label>全体の解答時間（分）
             <input data-setting="totalMinutes" type="number" min="5" max="240" step="5" />
           </label>
@@ -278,6 +284,9 @@ function renderMockTestPage(study, variant, links) {
             <button type="button" data-action="pause">一時停止</button>
             <button type="button" data-action="reset">リセット</button>
           </div>
+          <div class="score-actions">
+            <button type="button" data-action="score">採点する</button>
+          </div>
         </aside>
         <section class="exam-workspace">
           <div class="metric-grid" aria-label="解答状況">
@@ -286,6 +295,7 @@ function renderMockTestPage(study, variant, links) {
             <div><span>残りの解答時間</span><strong data-metric="remaining">0:00</strong></div>
             <div><span>残問 / 1問あたり</span><strong data-metric="pace">0問 / 0:00</strong></div>
           </div>
+          <div class="result-summary" data-result-summary hidden></div>
           <div class="question-surface" data-question-surface></div>
           <div class="pager" data-pager hidden>
             <button type="button" data-action="previous">前の問題</button>

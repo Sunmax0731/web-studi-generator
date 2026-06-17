@@ -2,7 +2,7 @@
   "id": "trap-hunting",
   "slug": "trap-hunting",
   "title": "狩猟免許",
-  "description": "網猟、わな猟、第一種銃猟、第二種銃猟の免許区分ごとに、法令、猟具、鳥獣、保護管理を確認する静的模擬テストです。",
+  "description": "網猟、わな猟、第一種銃猟、第二種銃猟の免許区分ごとに、法令、猟具、鳥獣、保護管理を学習できます。",
   "accent": "#0f766e",
   "categories": ["法令", "猟具", "鳥獣", "鳥獣保護管理"],
   "examSettings": {

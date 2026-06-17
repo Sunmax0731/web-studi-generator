@@ -22,6 +22,7 @@
 - [x] Support learner metrics in generated pages: elapsed time, remaining time, average answer time, remaining question count, and per-question available time.
 - [x] Support answer selection and correctness feedback for the six required question patterns.
 - [x] Add GitHub Pages deployment workflow.
+- [x] Add mock-test exam/study mode switching with deferred scoring, context-aware controls, and no-wrapping timer buttons.
 
 ## Validation And Release
 

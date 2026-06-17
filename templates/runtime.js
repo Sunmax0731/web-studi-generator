@@ -6,6 +6,7 @@
   const state = {
     settings: {
       presentationMode: exam.settings.presentationMode || 'multi',
+      answerMode: exam.settings.answerMode || 'exam',
       totalMinutes: exam.settings.totalMinutes || 45,
       questionCount: clampQuestionCount(exam.settings.questionCount, exam.questions.length),
       fontFamily: exam.settings.fontFamily || 'system',
@@ -18,6 +19,7 @@
     timerId: null,
     runningSince: null,
     started: false,
+    submitted: false,
   }
 
   const fontMap = {
@@ -29,6 +31,7 @@
 
   const els = {
     presentationMode: root.querySelector('[data-setting="presentationMode"]'),
+    answerMode: root.querySelector('[data-setting="answerMode"]'),
     totalMinutes: root.querySelector('[data-setting="totalMinutes"]'),
     questionCount: root.querySelector('[data-setting="questionCount"]'),
     fontFamily: root.querySelector('[data-setting="fontFamily"]'),
@@ -37,10 +40,17 @@
     surface: root.querySelector('[data-question-surface]'),
     pager: root.querySelector('[data-pager]'),
     pageStatus: root.querySelector('[data-page-status]'),
+    resultSummary: root.querySelector('[data-result-summary]'),
     elapsed: root.querySelector('[data-metric="elapsed"]'),
     average: root.querySelector('[data-metric="average"]'),
     remaining: root.querySelector('[data-metric="remaining"]'),
     pace: root.querySelector('[data-metric="pace"]'),
+    startButton: root.querySelector('[data-action="start"]'),
+    pauseButton: root.querySelector('[data-action="pause"]'),
+    resetButton: root.querySelector('[data-action="reset"]'),
+    scoreButton: root.querySelector('[data-action="score"]'),
+    previousButton: root.querySelector('[data-action="previous"]'),
+    nextButton: root.querySelector('[data-action="next"]'),
   }
 
   initialiseControls()
@@ -49,6 +59,7 @@
 
   function initialiseControls() {
     els.presentationMode.value = state.settings.presentationMode
+    els.answerMode.value = state.settings.answerMode
     els.totalMinutes.value = String(state.settings.totalMinutes)
     els.questionCount.max = String(exam.questions.length)
     els.questionCount.value = String(state.settings.questionCount)
@@ -57,12 +68,18 @@
     els.fontSizeOutput.value = `${state.settings.fontSize}px`
     applyFontSettings()
     updateMetrics([])
+    updateControls()
   }
 
   function bindEvents() {
     els.presentationMode.addEventListener('change', () => {
       state.settings.presentationMode = els.presentationMode.value
       state.currentIndex = 0
+      render()
+    })
+    els.answerMode.addEventListener('change', () => {
+      state.settings.answerMode = els.answerMode.value
+      state.submitted = false
       render()
     })
     els.totalMinutes.addEventListener('input', () => {
@@ -90,22 +107,25 @@
       applyFontSettings()
     })
 
-    root.querySelector('[data-action="start"]').addEventListener('click', startAttempt)
-    root.querySelector('[data-action="pause"]').addEventListener('click', pauseTimer)
-    root.querySelector('[data-action="reset"]').addEventListener('click', resetAttempt)
-    root.querySelector('[data-action="previous"]').addEventListener('click', () => {
+    els.startButton.addEventListener('click', startAttempt)
+    els.pauseButton.addEventListener('click', pauseTimer)
+    els.resetButton.addEventListener('click', resetAttempt)
+    els.scoreButton.addEventListener('click', scoreAttempt)
+    els.previousButton.addEventListener('click', () => {
       state.currentIndex = Math.max(state.currentIndex - 1, 0)
       render()
     })
-    root.querySelector('[data-action="next"]').addEventListener('click', () => {
+    els.nextButton.addEventListener('click', () => {
       state.currentIndex = Math.min(state.currentIndex + 1, state.activeQuestions.length - 1)
       render()
     })
   }
 
   function startAttempt() {
+    if (state.timerId || state.submitted) return
     if (!state.started) {
       state.started = true
+      state.submitted = false
       state.answers = {}
       state.currentIndex = 0
       state.elapsedSeconds = 0
@@ -125,6 +145,7 @@
     state.elapsedSeconds = 0
     state.timerId = null
     state.runningSince = null
+    state.submitted = false
     render()
   }
 
@@ -135,6 +156,7 @@
       const activeElapsed = Math.floor((Date.now() - state.runningSince) / 1000)
       updateMetrics(state.activeQuestions, state.elapsedSeconds + activeElapsed)
     }, 500)
+    updateControls()
   }
 
   function pauseTimer() {
@@ -144,14 +166,24 @@
     state.timerId = null
     state.runningSince = null
     updateMetrics(state.activeQuestions)
+    updateControls()
+  }
+
+  function scoreAttempt() {
+    if (!canScoreAttempt()) return
+    pauseTimer()
+    state.submitted = true
+    render()
   }
 
   function render() {
     if (!state.started) {
       els.surface.replaceChildren(renderStartMessage())
       els.pager.hidden = true
+      updateResultSummary()
       updateMetrics([])
       applyFontSettings()
+      updateControls()
       return
     }
 
@@ -170,6 +202,8 @@
 
     applyFontSettings()
     updateMetrics(state.activeQuestions)
+    updateResultSummary()
+    updateControls()
   }
 
   function renderStartMessage() {
@@ -177,7 +211,6 @@
     section.className = 'start-message'
     section.innerHTML = `
       <h2>開始を押すと問題が表示されます</h2>
-      <p>問題と選択肢の記号は開始ごとにランダムな順番になります。</p>
     `
     return section
   }
@@ -212,16 +245,17 @@
       const button = document.createElement('button')
       button.type = 'button'
       button.setAttribute('aria-pressed', selected.includes(choice.id) ? 'true' : 'false')
+      button.disabled = state.submitted
       button.innerHTML = `<b>${escapeHtml(displaySymbol)}</b><span>${escapeHtml(choice.label)}</span>`
       button.addEventListener('click', () => selectChoice(question, choice.id))
       choiceList.append(button)
     })
 
-    if (selected.length > 0) {
+    if (shouldShowFeedback(question)) {
       const feedback = document.createElement('div')
       const correct = isAnswerCorrect(question, selected)
       feedback.className = correct ? 'answer-feedback correct' : 'answer-feedback'
-      feedback.textContent = `${correct ? '正解です。' : '選択を見直してください。'} ${question.explanation}`
+      feedback.textContent = `${correct ? '正解です。' : feedbackMessage()} ${question.explanation}`
       article.append(feedback)
     }
 
@@ -284,6 +318,7 @@
   }
 
   function selectChoice(question, choiceId) {
+    if (state.submitted) return
     const previous = state.answers[question.id] || []
     const next =
       question.pattern === 'multiple-select'
@@ -293,6 +328,80 @@
         : [choiceId]
     state.answers[question.id] = next
     render()
+  }
+
+  function shouldShowFeedback(question) {
+    const selected = state.answers[question.id] || []
+    return selected.length > 0 && (state.settings.answerMode === 'study' || state.submitted)
+  }
+
+  function feedbackMessage() {
+    return state.submitted ? '不正解です。' : '選択を見直してください。'
+  }
+
+  function updateResultSummary() {
+    if (!els.resultSummary) return
+
+    if (!state.started || state.settings.answerMode !== 'exam') {
+      els.resultSummary.hidden = true
+      els.resultSummary.replaceChildren()
+      els.resultSummary.className = 'result-summary'
+      return
+    }
+
+    const answeredCount = answeredQuestionsCount()
+    const totalQuestions = state.activeQuestions.length
+    els.resultSummary.hidden = false
+
+    if (!state.submitted) {
+      els.resultSummary.className = 'result-summary pending'
+      els.resultSummary.textContent =
+        answeredCount === totalQuestions
+          ? '全問回答済みです。採点すると点数と合否を確認できます。'
+          : `未回答 ${totalQuestions - answeredCount}問。全問回答後に採点できます。`
+      return
+    }
+
+    const correctCount = state.activeQuestions.filter((question) =>
+      isAnswerCorrect(question, state.answers[question.id] || []),
+    ).length
+    const percent = totalQuestions === 0 ? 0 : Math.round((correctCount / totalQuestions) * 100)
+    const passed = percent >= passRate()
+    els.resultSummary.className = passed ? 'result-summary passed' : 'result-summary failed'
+    els.resultSummary.innerHTML = `
+      <strong>採点結果: ${correctCount} / ${totalQuestions}問（${percent}%）</strong>
+      <span>${passed ? '合格' : '不合格'}（合格基準 ${passRate()}%）</span>
+    `
+  }
+
+  function updateControls() {
+    const running = Boolean(state.timerId)
+    const singleMode = state.started && state.settings.presentationMode === 'single' && state.activeQuestions.length > 1
+    els.startButton.disabled = running || state.submitted
+    els.startButton.textContent = state.started ? (running ? '実行中' : '再開') : '開始'
+    els.pauseButton.disabled = !running
+    els.resetButton.disabled = !state.started
+    els.previousButton.disabled = !singleMode || state.currentIndex === 0
+    els.nextButton.disabled = !singleMode || state.currentIndex >= state.activeQuestions.length - 1
+    els.scoreButton.hidden = state.settings.answerMode !== 'exam'
+    els.scoreButton.disabled = !canScoreAttempt()
+  }
+
+  function canScoreAttempt() {
+    return state.started && state.settings.answerMode === 'exam' && !state.submitted && allQuestionsAnswered()
+  }
+
+  function allQuestionsAnswered() {
+    return state.activeQuestions.length > 0 && answeredQuestionsCount() === state.activeQuestions.length
+  }
+
+  function answeredQuestionsCount() {
+    return state.activeQuestions.filter((question) => (state.answers[question.id] || []).length > 0).length
+  }
+
+  function passRate() {
+    const configuredRate = Number(exam.settings.passRate)
+    return Number.isFinite(configuredRate) ? configuredRate : 60
   }
 
   function prepareAttemptQuestions() {

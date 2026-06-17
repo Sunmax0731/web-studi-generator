@@ -19,12 +19,18 @@ test('generated static site starts FE subject A and B mock tests with official c
   await expect(page).toHaveTitle('基本情報技術者試験 科目A 模擬試験')
   await expect(page.getByRole('heading', { name: '表示と時間の設定' })).toBeVisible()
   await expect(page.getByLabel('全体の解答時間（分）')).toHaveValue('90')
+  await expect(page.getByLabel('回答モード')).toHaveValue('exam')
   await expect(page.locator('[data-setting="questionCount"]')).toHaveValue('60')
   await expect(page.locator('[data-setting="questionCount"]')).toHaveAttribute('max', '90')
   await expect(page.locator('[data-setting="category"]')).toHaveCount(0)
   await expect(page.locator('.question-card')).toHaveCount(0)
   await expect(page.getByText('開始を押すと問題が表示されます')).toBeVisible()
+  await expect(page.getByText('問題と選択肢の記号は開始ごとにランダムな順番になります。')).toHaveCount(0)
+  await expect(page.getByRole('button', { name: '一時停止' })).toBeDisabled()
+  await expect(page.getByRole('button', { name: 'リセット' })).toBeDisabled()
+  await expect(page.getByRole('button', { name: '採点する' })).toBeDisabled()
 
+  await page.getByLabel('回答モード').selectOption('study')
   await page.getByLabel('表示方法').selectOption('single')
   await page.locator('input[data-setting="fontSize"]').fill('20')
   await page.evaluate(() => {
@@ -34,6 +40,11 @@ test('generated static site starts FE subject A and B mock tests with official c
   await expect(page.locator('[data-question-surface]')).toHaveCSS('font-size', '20px')
   await expect(page.locator('.question-card')).toHaveCount(1)
   await expect(page.locator('.pager')).toBeVisible()
+  await expect(page.getByRole('button', { name: '前の問題' })).toBeDisabled()
+  await expect(page.getByRole('button', { name: '次の問題' })).toBeEnabled()
+  await page.getByRole('button', { name: '次の問題' }).click()
+  await expect(page.locator('[data-page-status]')).toHaveText('2 / 60')
+  await expect(page.getByRole('button', { name: '前の問題' })).toBeEnabled()
   await page.getByLabel('表示方法').selectOption('multi')
   await expect(page.locator('.question-card')).toHaveCount(60)
   await expect(page.locator('.question-meta').first()).toContainText('分類:')
@@ -51,6 +62,32 @@ test('generated static site starts FE subject A and B mock tests with official c
   await page.getByRole('button', { name: '開始' }).click()
   await expect(page.locator('.question-card')).toHaveCount(20)
   await expect(page.locator('.question-card').first().locator('.question-meta')).toContainText('セキュリティ')
+})
+
+test('mock-test exam mode defers feedback until all questions are scored', async ({ page }) => {
+  await page.goto('/studies/basic-info/mock-test/kamoku-a/')
+
+  await expect(page.getByLabel('回答モード')).toHaveValue('exam')
+  await page.locator('[data-setting="questionCount"]').fill('3')
+  await page.getByRole('button', { name: '開始' }).click()
+  await expect(page.locator('.question-card')).toHaveCount(3)
+  await expect(page.locator('.answer-feedback')).toHaveCount(0)
+  await expect(page.getByRole('button', { name: '採点する' })).toBeDisabled()
+
+  const cards = page.locator('.question-card')
+  const cardCount = await cards.count()
+  for (let index = 0; index < cardCount; index += 1) {
+    await cards.nth(index).locator('.choice-list button').first().click()
+  }
+
+  await expect(page.locator('.answer-feedback')).toHaveCount(0)
+  await expect(page.locator('[data-result-summary]')).toContainText('全問回答済み')
+  await expect(page.getByRole('button', { name: '採点する' })).toBeEnabled()
+  await page.getByRole('button', { name: '採点する' }).click()
+  await expect(page.locator('[data-result-summary]')).toContainText('採点結果')
+  await expect(page.locator('[data-result-summary]')).toContainText('合格')
+  await expect(page.locator('.answer-feedback')).toHaveCount(3)
+  await expect(page.locator('.choice-list button').first()).toBeDisabled()
 })
 
 test('mock-test question count can be set per attempt', async ({ page }) => {
@@ -158,6 +195,11 @@ test('hunting license variants open with license-specific tool categories', asyn
     await page.getByRole('button', { name: '開始' }).click()
     await expect(page.locator('.question-card')).toHaveCount(30)
     await expect(page.locator('.question-meta').first()).toContainText('分類:')
+
+    await page.getByRole('button', { name: 'リセット' }).click()
+    await page.locator('[data-setting="questionCount"]').fill('54')
+    await page.getByRole('button', { name: '開始' }).click()
+    await expect(page.locator('.question-card')).toHaveCount(54)
     await expect(page.locator('.question-card').filter({ hasText: toolText }).first()).toBeVisible()
   }
 })

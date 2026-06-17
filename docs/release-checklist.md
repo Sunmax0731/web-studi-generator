@@ -20,12 +20,12 @@
 - [x] `git status --short --branch` reviewed
 - [x] Commit created on `codex/update-hunting-license-exams`
 - [x] Branch pushed
-- [ ] `main` pushed for production reflection when requested or appropriate
+- [x] `main` pushed for production reflection when requested or appropriate
 
 ## Required After Main Push
 
-- [ ] GitHub Pages workflow completed
-- [ ] Published URL returns HTTP 200 when feasible
+- [x] GitHub Pages workflow completed
+- [x] Published URL returns HTTP 200 when feasible
 
 ## Release Artifact
 

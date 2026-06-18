@@ -25,9 +25,9 @@
     {
       "id": "grade-3",
       "title": "3級 模擬試験",
-      "description": "60分 / 15問。色彩基礎、PCCS、配色、色彩心理、生活分野を中心に確認します。",
+      "description": "60分 / 100問。色彩基礎、PCCS、配色、色彩心理、生活分野を中心に確認します。",
       "totalMinutes": 60,
-      "questionCount": 15,
+      "questionCount": 100,
       "categoryOrder": [
         "色彩基礎",
         "PCCS・表色系",
@@ -39,9 +39,9 @@
     {
       "id": "grade-2",
       "title": "2級 模擬試験",
-      "description": "70分 / 17問。光と色、表色系、配色、ファッション、インテリア、景観まで確認します。",
+      "description": "70分 / 100問。光と色、表色系、配色、ファッション、インテリア、景観まで確認します。",
       "totalMinutes": 70,
-      "questionCount": 17,
+      "questionCount": 100,
       "categoryOrder": [
         "光と色",
         "PCCS・表色系",
@@ -54,9 +54,9 @@
     {
       "id": "grade-1-first",
       "title": "1級1次 模擬試験",
-      "description": "80分 / 16問。色彩文化、ビジネス、測色、表色系、各分野の専門知識を確認します。",
+      "description": "80分 / 100問。色彩文化、ビジネス、測色、表色系、各分野の専門知識を確認します。",
       "totalMinutes": 80,
-      "questionCount": 16,
+      "questionCount": 100,
       "categoryOrder": [
         "色彩文化・ビジネス",
         "光と色",
@@ -112,6 +112,11 @@
       "kind": "web",
       "label": "色彩検定協会 2025年度 1級2次 模範解答",
       "url": "https://www.aft.or.jp/informations/detail/486"
+    },
+    {
+      "kind": "web",
+      "label": "オンスク 色彩検定3級の過去問からみる出題傾向",
+      "url": "https://onsuku.jp/training/shikisai3/trend"
     },
     {
       "kind": "web",

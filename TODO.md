@@ -26,6 +26,7 @@
 - [x] Keep key mock-test metrics visible in a sticky left pane, show registered question counts, and add an incorrect-only scored review setting.
 - [x] Rework mock-test exam layout to a top settings/status panel, hide setup controls during attempts, move study navigation, set color-test default counts from official answer structure, and make production deployment the default completion path.
 - [x] Keep mock-test status and action controls sticky during scrolling, persist scored attempt history, and visualize accuracy/time trends with charts.
+- [x] Restore color-test written exam default question counts to 100 based on current source review.
 
 ## Validation And Release
 

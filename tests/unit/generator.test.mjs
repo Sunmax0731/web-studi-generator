@@ -52,9 +52,9 @@ test('registered studies satisfy the static generation schema', async () => {
     }
     if (entry.id === 'color-test') {
       const expectedVariants = [
-        ['grade-3', 60, 15, 97],
-        ['grade-2', 70, 17, 104],
-        ['grade-1-first', 80, 16, 109],
+        ['grade-3', 60, 100, 100],
+        ['grade-2', 70, 100, 104],
+        ['grade-1-first', 80, 100, 109],
         ['grade-1-second', 90, 5, 31],
       ]
       assert.deepEqual(

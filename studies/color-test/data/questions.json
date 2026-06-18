@@ -2759,6 +2759,93 @@
     "explanation": "彩度は色の鮮やかさを表す属性です。"
   },
   {
+    "id": "color-test-grade-3-q098",
+    "examId": "grade-3",
+    "category": "PCCS・表色系",
+    "pattern": "single-choice",
+    "prompt": "3級 模擬試験 第98問: PCCS の色相環で、補色関係を考えるときに確認する位置として最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "色相環で向かい合う位置"
+      },
+      {
+        "id": "b",
+        "label": "明度が同じ位置だけ"
+      },
+      {
+        "id": "c",
+        "label": "彩度がゼロの位置"
+      },
+      {
+        "id": "d",
+        "label": "隣り合う同系色だけ"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "補色は色相環でほぼ反対側に位置する色どうしの関係です。"
+  },
+  {
+    "id": "color-test-grade-3-q099",
+    "examId": "grade-3",
+    "category": "配色技法",
+    "pattern": "cloze",
+    "prompt": "3級 模擬試験 第99問: 次の空欄に入る説明として最も適切なものを選べ。アクセントカラーは、配色全体の中で（　）。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "小面積で変化や注目点を作る色"
+      },
+      {
+        "id": "b",
+        "label": "必ず最も広い面積を占める色"
+      },
+      {
+        "id": "c",
+        "label": "背景と完全に同じ色"
+      },
+      {
+        "id": "d",
+        "label": "無彩色だけに限られる色"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "アクセントカラーは小さな面積で変化や強調を与える役割を持ちます。"
+  },
+  {
+    "id": "color-test-grade-3-q100",
+    "examId": "grade-3",
+    "category": "色彩心理",
+    "pattern": "single-choice",
+    "prompt": "3級 模擬試験 第100問: 色の心理的効果を扱うときの考え方として最も適切なものはどれか。",
+    "choices": [
+      {
+        "id": "a",
+        "label": "文化や状況によって印象が変わることを踏まえる"
+      },
+      {
+        "id": "b",
+        "label": "すべての人が常に同じ印象を持つと決める"
+      },
+      {
+        "id": "c",
+        "label": "色相だけで明度や彩度を無視する"
+      },
+      {
+        "id": "d",
+        "label": "照明条件は見え方に関係しないと考える"
+      }
+    ],
+    "correctChoiceIds": [
+      "a"
+    ],
+    "explanation": "色の印象は色の属性だけでなく、文化、経験、場面、照明条件にも影響されます。"
+  },
+  {
     "id": "color-test-grade-2-q001",
     "examId": "grade-2",
     "category": "光と色",

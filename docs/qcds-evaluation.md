@@ -12,10 +12,10 @@ Only these exact ratings are allowed:
 
 | Area | Rating | Evidence |
 | --- | --- | --- |
-| Quality | A- | Mock-test pages now keep status/action controls sticky while scrolling, save scored attempts to browser-local history, and visualize accuracy/time/category trends while preserving the stacked exam layout. `npm run lint`, `npm test`, `npm run build`, and `npm run e2e` passed. |
+| Quality | A- | Color-test written-style variants now default to 100 questions while 1級2次 preserves the practical 5-question default. `npm run lint`, `npm test`, `npm run build`, and `npm run e2e` passed. |
 | Cost | A- | The solution remains static JSON plus Node generation with no backend, crawler, or runtime service dependency. |
-| Delivery | A- | Existing generated HTML/CSS/vanilla runtime patterns were reused; the change stays scoped to templates, runtime, tests, and docs. |
-| Satisfaction | A- | Learners can reach timing and action controls while answering long tests, then review and compare past results with simple charts on the same static page. |
+| Delivery | A- | Existing study configuration and generated-page validation were reused; the change stays scoped to color-test study data, tests, and docs. |
+| Satisfaction | A- | Learners who expect roughly 100 color-test questions now see that volume by default for written-style mock tests, while the practical 1級2次 flow remains concise. |
 
 ## Runtime Gate
 
@@ -31,7 +31,7 @@ Required generated Web page gate:
 - Status/action controls stay sticky during question scrolling: passed.
 - Scored attempt history is saved locally and rendered after scoring: passed.
 - Accuracy trend, answer-time, and category accuracy charts render after scoring: passed.
-- 色彩検定 default counts are 3級15, 2級17, 1級1次16, 1級2次5: passed.
+- 色彩検定 default counts are 3級100, 2級100, 1級1次100, 1級2次5: passed.
 - Incorrect-only review is disabled before scoring and filters to wrong answers after scoring: passed.
 - Removed randomization note from the mock-test start message: passed.
 - Removed the requested static mock-test phrase from the 狩猟免許 study page description: passed.

@@ -24,7 +24,7 @@ Required generated Web page gate for this task:
 - Timer/status metrics and action buttons remain visible while scrolling through questions. Passed.
 - Scored attempts are saved to browser-local history. Passed.
 - Accuracy trend, answer-time, and category accuracy charts render after scoring. Passed.
-- 色彩検定 defaults use the official answer-structure counts: 3級15問, 2級17問, 1級1次16問, 1級2次5問. Passed.
+- 色彩検定 defaults use 100 questions for written-style variants and preserve the practical 1級2次 default: 3級100問, 2級100問, 1級1次100問, 1級2次5問. Passed.
 - The incorrect-only review setting is disabled before scoring and filters the scored review to wrong answers after scoring. Passed.
 - Removed the randomization note from the mock-test start message. Passed.
 - Removed the requested static mock-test phrase from the 狩猟免許 study page description. Passed.

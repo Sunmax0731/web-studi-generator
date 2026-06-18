@@ -178,7 +178,7 @@ test('mock-test answer symbols are reassigned when choices are randomized betwee
   expect(secondOrder).not.toEqual(firstOrder)
 })
 
-test('color test grade variants open with syllabus timings and question counts', async ({ page }) => {
+test('color test grade variants open with syllabus timings and default question counts', async ({ page }) => {
   await page.goto('/studies/color-test/')
 
   await expect(page.getByRole('heading', { name: '色彩検定' })).toBeVisible()
@@ -194,9 +194,9 @@ test('color test grade variants open with syllabus timings and question counts',
   await expect(page.locator('.unit-group').filter({ hasText: '1級2次 模擬試験' }).locator('.unit-block')).toHaveCount(4)
 
   const variants = [
-    ['grade-3', '3級 模擬試験', '60', 15, 97, false],
-    ['grade-2', '2級 模擬試験', '70', 17, 104, false],
-    ['grade-1-first', '1級1次 模擬試験', '80', 16, 109, false],
+    ['grade-3', '3級 模擬試験', '60', 100, 100, false],
+    ['grade-2', '2級 模擬試験', '70', 100, 104, false],
+    ['grade-1-first', '1級1次 模擬試験', '80', 100, 109, false],
     ['grade-1-second', '1級2次 模擬試験', '90', 5, 31, true],
   ]
 

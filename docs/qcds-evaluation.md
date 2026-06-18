@@ -12,10 +12,10 @@ Only these exact ratings are allowed:
 
 | Area | Rating | Evidence |
 | --- | --- | --- |
-| Quality | A- | Mock-test pages now keep registered counts and key progress metrics in the sticky left pane, support incorrect-only review after scoring, and retain exam/study scoring behavior. `npm run lint`, `npm test`, `npm run build`, and `npm run e2e` passed. |
+| Quality | A- | Mock-test pages now stack settings/status above answers, hide setup-only controls during active attempts, move study navigation into the settings panel, and use official answer-structure defaults for 色彩検定. `npm run lint`, `npm test`, `npm run build`, and `npm run e2e` passed. |
 | Cost | A- | The solution remains static JSON plus Node generation with no backend, crawler, or runtime service dependency. |
 | Delivery | A- | Existing generated HTML/CSS/vanilla runtime patterns were reused; the change stays scoped to templates, runtime, tests, and docs. |
-| Satisfaction | A- | Learners can keep timing and unanswered status visible while scrolling, see the registered question pool size, and review only missed questions after scoring. |
+| Satisfaction | A- | Learners get a cleaner exam surface, keep timing/status visible above the answer area, avoid accidental setting edits during an attempt, and start 色彩検定 variants with more exam-shaped default counts. |
 
 ## Runtime Gate
 
@@ -25,7 +25,10 @@ Required generated Web page gate:
 
 - 基本情報技術者試験 科目A mock-test page visible at `/studies/basic-info/mock-test/kamoku-a/`: passed.
 - Questions remain hidden until Start: passed.
-- Registered question count and key timing/progress metrics stay in the desktop sticky left pane: passed.
+- Settings/status and answering areas are stacked vertically: passed.
+- Registered question count and key timing/progress metrics stay visible in the top settings/status panel: passed.
+- Setup-only controls are hidden during active attempts: passed.
+- 色彩検定 default counts are 3級15, 2級17, 1級1次16, 1級2次5: passed.
 - Incorrect-only review is disabled before scoring and filters to wrong answers after scoring: passed.
 - Removed randomization note from the mock-test start message: passed.
 - Removed the requested static mock-test phrase from the 狩猟免許 study page description: passed.

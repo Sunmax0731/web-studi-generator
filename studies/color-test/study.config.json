@@ -25,9 +25,9 @@
     {
       "id": "grade-3",
       "title": "3級 模擬試験",
-      "description": "60分 / 97問。色彩基礎、PCCS、配色、色彩心理、生活分野を中心に確認します。",
+      "description": "60分 / 15問。色彩基礎、PCCS、配色、色彩心理、生活分野を中心に確認します。",
       "totalMinutes": 60,
-      "questionCount": 97,
+      "questionCount": 15,
       "categoryOrder": [
         "色彩基礎",
         "PCCS・表色系",
@@ -39,9 +39,9 @@
     {
       "id": "grade-2",
       "title": "2級 模擬試験",
-      "description": "70分 / 104問。光と色、表色系、配色、ファッション、インテリア、景観まで確認します。",
+      "description": "70分 / 17問。光と色、表色系、配色、ファッション、インテリア、景観まで確認します。",
       "totalMinutes": 70,
-      "questionCount": 104,
+      "questionCount": 17,
       "categoryOrder": [
         "光と色",
         "PCCS・表色系",
@@ -54,9 +54,9 @@
     {
       "id": "grade-1-first",
       "title": "1級1次 模擬試験",
-      "description": "80分 / 109問。色彩文化、ビジネス、測色、表色系、各分野の専門知識を確認します。",
+      "description": "80分 / 16問。色彩文化、ビジネス、測色、表色系、各分野の専門知識を確認します。",
       "totalMinutes": 80,
-      "questionCount": 109,
+      "questionCount": 16,
       "categoryOrder": [
         "色彩文化・ビジネス",
         "光と色",
@@ -70,9 +70,9 @@
     {
       "id": "grade-1-second",
       "title": "1級2次 模擬試験",
-      "description": "90分 / 31問。色票選択、測色、配色イメージ、記述判断を1問ずつ確認します。",
+      "description": "90分 / 5問。色票選択、測色、配色イメージ、記述判断を1問ずつ確認します。",
       "totalMinutes": 90,
-      "questionCount": 31,
+      "questionCount": 5,
       "presentationMode": "single",
       "categoryOrder": [
         "測色・1級実技",

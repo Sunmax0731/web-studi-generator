@@ -245,12 +245,12 @@ function renderMockTestPage(study, variant, links) {
         <p>${escapeHtml(variant.description || `${variant.totalMinutes}分 / ${variant.questionCount}問`)}</p>
         <h2>${escapeHtml(variant.title)}</h2>
       </section>
-      <section class="action-row">
-        <a class="button" href="${links.studyHref}">学習ページへ戻る</a>
-      </section>
       <section class="exam-app" data-exam-root>
         <aside class="settings-panel" aria-label="模擬テスト設定">
-          <h2>表示と時間の設定</h2>
+          <div class="settings-panel-header">
+            <h2>設定と解答状況</h2>
+            <a class="button" href="${links.studyHref}">学習ページへ戻る</a>
+          </div>
           <label>表示方法
             <select data-setting="presentationMode">
               <option value="multi">1ページに複数問</option>

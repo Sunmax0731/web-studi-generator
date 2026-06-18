@@ -83,6 +83,14 @@
 
     els.metrics.classList.add('exam-metrics')
     els.settingsPanel.insertBefore(els.metrics, els.settingsPanel.children[1] || null)
+    ;[
+      els.presentationMode,
+      els.answerMode,
+      els.totalMinutes,
+      els.questionCount,
+      els.fontFamily,
+      els.fontSize,
+    ].forEach((control) => control?.closest('label')?.classList.add('setup-control'))
 
     const registeredMetric = createMetric('registered', '登録問題数', `${exam.questions.length}問`)
     const unansweredMetric = createMetric('unanswered', '未回答問題数', '0問')
@@ -288,6 +296,7 @@
   function renderQuestion(question, localIndex) {
     const article = document.createElement('article')
     article.className = 'question-card'
+    article.dataset.questionId = question.id
     const displayIndex = questionDisplayIndex(question, localIndex)
     const selected = state.answers[question.id] || []
     article.innerHTML = `
@@ -467,6 +476,8 @@
     const running = Boolean(state.timerId)
     const visibleQuestions = getVisibleQuestions()
     const singleMode = state.started && state.settings.presentationMode === 'single' && visibleQuestions.length > 1
+    root.classList.toggle('is-attempt-active', state.started && !state.submitted)
+    root.classList.toggle('is-submitted', state.submitted)
     els.startButton.disabled = running || state.submitted
     els.startButton.textContent = state.started ? (running ? '実行中' : '再開') : '開始'
     els.pauseButton.disabled = !running

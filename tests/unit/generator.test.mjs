@@ -52,17 +52,17 @@ test('registered studies satisfy the static generation schema', async () => {
     }
     if (entry.id === 'color-test') {
       const expectedVariants = [
-        ['grade-3', 60, 97],
-        ['grade-2', 70, 104],
-        ['grade-1-first', 80, 109],
-        ['grade-1-second', 90, 31],
+        ['grade-3', 60, 15, 97],
+        ['grade-2', 70, 17, 104],
+        ['grade-1-first', 80, 16, 109],
+        ['grade-1-second', 90, 5, 31],
       ]
       assert.deepEqual(
         config.examVariants.map((variant) => [variant.id, variant.totalMinutes, variant.questionCount]),
-        expectedVariants,
+        expectedVariants.map(([id, minutes, questionCount]) => [id, minutes, questionCount]),
       )
-      for (const [examId, , questionCount] of expectedVariants) {
-        assert.equal(questions.filter((question) => question.examId === examId).length, questionCount)
+      for (const [examId, , , poolCount] of expectedVariants) {
+        assert.equal(questions.filter((question) => question.examId === examId).length, poolCount)
       }
     }
     if (entry.id === 'trap-hunting') {

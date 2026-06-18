@@ -24,7 +24,7 @@ Use this workflow when changing or using `web-studi-generator`.
 7. Codex moves processed input files from `materials/` to `studies/<study-id>/sources/`.
 8. Codex leaves `materials/` empty.
 9. Codex runs `npm run generate`.
-10. Codex validates the generated static site and pushes to `main` when release is requested.
+10. Codex validates the generated static site, pushes to `main`, watches GitHub Pages, and confirms the published URL unless the user explicitly asks not to release.
 
 ## Implementation Guidance
 
@@ -66,6 +66,8 @@ For browser QA, verify:
 - Answer choice order and displayed symbols randomize per attempt.
 - Answer selection shows feedback.
 - Remaining time, average answer time, and remaining-question pace are visible.
+- Mock-test settings/status and answering areas are stacked vertically.
+- Setup-only controls are hidden during an active attempt while timer, scoring, and review controls remain available.
 - Desktop and mobile widths do not overlap or clip primary text.
 
 ## GitHub Pages
@@ -73,3 +75,4 @@ For browser QA, verify:
 - Push to `main` triggers `.github/workflows/pages.yml`.
 - The workflow deploys `dist/` to GitHub Pages.
 - After push, confirm the workflow completes and the published URL returns HTTP 200 when feasible.
+- Treat production reflection as the default completion path for this repository after successful validation, unless the user explicitly says to stop before production.

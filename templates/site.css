@@ -365,16 +365,36 @@ code {
 }
 
 .exam-app {
-  grid-template-columns: 320px minmax(0, 1fr);
+  grid-template-columns: 1fr;
 }
 
 .settings-panel {
   display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 14px;
-  position: sticky;
-  top: 82px;
-  max-height: calc(100vh - 104px);
-  overflow-y: auto;
+  position: static;
+  max-height: none;
+  overflow: visible;
+}
+
+.settings-panel-header {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.settings-panel-header .button {
+  flex: 0 0 auto;
+}
+
+.setup-control {
+  grid-column: span 2;
+}
+
+.exam-app.is-attempt-active .setup-control {
+  display: none;
 }
 
 .settings-panel label {
@@ -400,6 +420,7 @@ code {
 }
 
 .timer-buttons {
+  grid-column: span 3;
   display: grid;
   grid-template-columns: repeat(3, minmax(88px, 1fr));
   gap: 8px;
@@ -413,6 +434,7 @@ code {
 }
 
 .score-actions {
+  grid-column: span 1;
   display: grid;
 }
 
@@ -428,7 +450,8 @@ code {
 }
 
 .exam-metrics {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   margin-bottom: 0;
 }
 
@@ -455,6 +478,7 @@ code {
 }
 
 .settings-panel .review-filter {
+  grid-column: span 2;
   display: flex;
   gap: 9px;
   align-items: center;
@@ -675,6 +699,15 @@ code {
     position: static;
     max-height: none;
     overflow: visible;
+    grid-template-columns: 1fr;
+  }
+
+  .settings-panel-header,
+  .setup-control,
+  .timer-buttons,
+  .score-actions,
+  .settings-panel .review-filter {
+    grid-column: 1;
   }
 
   .metric-grid {
@@ -706,5 +739,10 @@ code {
 
   .metric-grid {
     grid-template-columns: 1fr;
+  }
+
+  .settings-panel-header {
+    align-items: stretch;
+    flex-direction: column;
   }
 }

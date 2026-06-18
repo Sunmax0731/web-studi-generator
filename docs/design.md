@@ -30,6 +30,7 @@ Mock-test pages must include:
 - start-before-display behavior: questions are hidden until Start is pressed
 - generated question figures/images
 - randomized question order on each attempt, grouped by category
+- setup controls hidden during active attempts
 
 ## Visual Direction
 
@@ -43,6 +44,5 @@ Mock-test pages must include:
 
 - top page cards collapse to one column
 - study page source panel moves below units on narrow screens
-- mock-test settings move above questions on narrow screens
-- mock-test metrics remain in the sticky left pane on desktop
+- mock-test settings/status panel stays above the answer panel on desktop and mobile
 - primary Japanese text must not overlap or clip at mobile width

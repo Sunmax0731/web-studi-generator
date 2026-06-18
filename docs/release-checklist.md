@@ -2,10 +2,11 @@
 
 ## Scope
 
-- Move key mock-test metrics into the sticky left pane so elapsed time, average answer time, remaining time, unanswered count, and per-question remaining time stay visible while scrolling.
-- Display the registered question pool count for the current mock-test variant.
-- Add a scored-review setting that shows only incorrectly answered questions after scoring.
-- Preserve existing exam/study answer modes, scoring, and responsive behavior.
+- Stack the mock-test settings/status panel above the answer panel on desktop and mobile.
+- Hide setup-only controls during active attempts while keeping timing, pause/reset, scoring, and review controls available.
+- Move the study-page return link into the settings/status panel header.
+- Set 色彩検定 default attempt counts from official answer structure: 3級15問, 2級17問, 1級1次16問, 1級2次5問, while keeping registered pool counts visible.
+- Update `SKILL.md` so production reflection is the default completion path after successful validation.
 - Keep generated GitHub Pages output under ignored `dist/`.
 
 ## Required Before Push
@@ -18,14 +19,14 @@
 - [x] Runtime gate documented in `docs/qcds-evaluation.md`
 - [x] `npm run docs:zip`
 - [x] `git status --short --branch` reviewed
-- [x] Commit created on `codex/mock-test-persistent-metrics-review-filter`
-- [x] Branch pushed
-- [x] `main` pushed for production reflection when requested or appropriate
+- [ ] Commit created on `codex/mock-test-top-panel-production-default`
+- [ ] Branch pushed
+- [ ] `main` pushed for production reflection
 
 ## Required After Main Push
 
-- [x] GitHub Pages workflow completed
-- [x] Published URL returns HTTP 200 when feasible
+- [ ] GitHub Pages workflow completed
+- [ ] Published URL returns HTTP 200 when feasible
 
 ## Release Artifact
 

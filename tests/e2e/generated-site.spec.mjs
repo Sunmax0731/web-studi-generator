@@ -17,7 +17,8 @@ test('generated static site starts FE subject A and B mock tests with official c
 
   await page.locator('.exam-choice').filter({ hasText: '科目A 模擬試験' }).getByRole('link', { name: '開始' }).click()
   await expect(page).toHaveTitle('基本情報技術者試験 科目A 模擬試験')
-  await expect(page.getByRole('heading', { name: '表示と時間の設定' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: '設定と解答状況' })).toBeVisible()
+  await expect(page.locator('.settings-panel').getByRole('link', { name: '学習ページへ戻る' })).toBeVisible()
   await expect(page.getByLabel('全体の解答時間（分）')).toHaveValue('90')
   await expect(page.getByLabel('回答モード')).toHaveValue('exam')
   await expect(page.locator('[data-setting="questionCount"]')).toHaveValue('60')
@@ -43,13 +44,20 @@ test('generated static site starts FE subject A and B mock tests with official c
   await page.getByRole('button', { name: '開始' }).click()
   await expect(page.locator('[data-question-surface]')).toHaveCSS('font-size', '20px')
   await expect(page.locator('.question-card')).toHaveCount(1)
+  await expect(page.locator('.exam-app')).toHaveClass(/is-attempt-active/)
+  await expect(page.locator('.setup-control').first()).toBeHidden()
+  await expect(page.locator('[data-action="pause"]')).toBeVisible()
   await expect(page.locator('.pager')).toBeVisible()
   await expect(page.getByRole('button', { name: '前の問題' })).toBeDisabled()
   await expect(page.getByRole('button', { name: '次の問題' })).toBeEnabled()
   await page.getByRole('button', { name: '次の問題' }).click()
   await expect(page.locator('[data-page-status]')).toHaveText('2 / 60')
   await expect(page.getByRole('button', { name: '前の問題' })).toBeEnabled()
+  await page.getByRole('button', { name: 'リセット' }).click()
+  await expect(page.locator('.setup-control').first()).toBeVisible()
+  await page.getByLabel('回答モード').selectOption('study')
   await page.getByLabel('表示方法').selectOption('multi')
+  await page.getByRole('button', { name: '開始' }).click()
   await expect(page.locator('.question-card')).toHaveCount(60)
   await expect(page.locator('.question-meta').first()).toContainText('分類:')
   await expect(page.locator('.question-figure').first()).toBeVisible()
@@ -175,23 +183,26 @@ test('color test grade variants open with syllabus timings and question counts',
   await expect(page.locator('.unit-group').filter({ hasText: '1級2次 模擬試験' }).locator('.unit-block')).toHaveCount(4)
 
   const variants = [
-    ['grade-3', '3級 模擬試験', '60', 97, false],
-    ['grade-2', '2級 模擬試験', '70', 104, false],
-    ['grade-1-first', '1級1次 模擬試験', '80', 109, false],
-    ['grade-1-second', '1級2次 模擬試験', '90', 31, true],
+    ['grade-3', '3級 模擬試験', '60', 15, 97, false],
+    ['grade-2', '2級 模擬試験', '70', 17, 104, false],
+    ['grade-1-first', '1級1次 模擬試験', '80', 16, 109, false],
+    ['grade-1-second', '1級2次 模擬試験', '90', 5, 31, true],
   ]
 
-  for (const [id, title, minutes, questions, singleMode] of variants) {
+  for (const [id, title, minutes, defaultQuestions, poolQuestions, singleMode] of variants) {
     await page.goto(`/studies/color-test/mock-test/${id}/`)
     await expect(page).toHaveTitle(`色彩検定 ${title}`)
     await expect(page.getByLabel('全体の解答時間（分）')).toHaveValue(minutes)
+    await expect(page.locator('[data-setting="questionCount"]')).toHaveValue(String(defaultQuestions))
+    await expect(page.locator('[data-setting="questionCount"]')).toHaveAttribute('max', String(poolQuestions))
+    await expect(page.locator('[data-metric="registered"]')).toContainText(String(poolQuestions))
     await expect(page.locator('.question-card')).toHaveCount(0)
     await expect(page.getByText('開始を押すと問題が表示されます')).toBeVisible()
     await page.getByRole('button', { name: '開始' }).click()
-    await expect(page.locator('.question-card')).toHaveCount(singleMode ? 1 : questions)
+    await expect(page.locator('.question-card')).toHaveCount(singleMode ? 1 : defaultQuestions)
     if (singleMode) {
       await expect(page.locator('.pager')).toBeVisible()
-      await expect(page.locator('[data-page-status]')).toHaveText(`1 / ${questions}`)
+      await expect(page.locator('[data-page-status]')).toHaveText(`1 / ${defaultQuestions}`)
     }
     await expect(page.locator('.question-meta').first()).toContainText('分類:')
   }
@@ -245,10 +256,10 @@ async function answerFirstQuestionCorrectly(page) {
 }
 
 async function answerQuestionForResult(page, card, shouldBeCorrect) {
-  const prompt = (await card.locator('h2').textContent()).trim()
+  const questionId = await card.getAttribute('data-question-id')
   const labels = await page.evaluate(
-    ({ promptText, correct }) => {
-      const question = globalThis.STUDI_EXAM.questions.find((candidate) => candidate.prompt === promptText)
+    ({ id, correct }) => {
+      const question = globalThis.STUDI_EXAM.questions.find((candidate) => candidate.id === id)
       if (!question) return []
       const choiceIds = correct
         ? question.correctChoiceIds
@@ -258,7 +269,7 @@ async function answerQuestionForResult(page, card, shouldBeCorrect) {
         .map((choiceId) => question.choices.find((choice) => choice.id === choiceId)?.label)
         .filter(Boolean)
     },
-    { promptText: prompt, correct: shouldBeCorrect },
+    { id: questionId, correct: shouldBeCorrect },
   )
 
   expect(labels.length).toBeGreaterThan(0)

@@ -18,14 +18,14 @@
 - [x] Runtime gate documented in `docs/qcds-evaluation.md`
 - [x] `npm run docs:zip`
 - [x] `git status --short --branch` reviewed
-- [ ] Commit created on `codex/mock-test-sticky-history-charts`
-- [ ] Branch pushed
-- [ ] `main` pushed for production reflection
+- [x] Commit created on `codex/mock-test-sticky-history-charts`
+- [x] Branch pushed
+- [x] `main` pushed for production reflection
 
 ## Required After Main Push
 
-- [ ] GitHub Pages workflow completed
-- [ ] Published URL returns HTTP 200 when feasible
+- [x] GitHub Pages workflow completed
+- [x] Published URL returns HTTP 200 when feasible
 
 ## Release Artifact
 

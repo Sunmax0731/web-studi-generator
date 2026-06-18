@@ -31,6 +31,9 @@ Mock-test pages must include:
 - generated question figures/images
 - randomized question order on each attempt, grouped by category
 - setup controls hidden during active attempts
+- sticky status/action controls during active attempts and review
+- browser-local attempt history
+- graph visualization for accuracy trend, answer time, and category accuracy
 
 ## Visual Direction
 
@@ -45,4 +48,5 @@ Mock-test pages must include:
 - top page cards collapse to one column
 - study page source panel moves below units on narrow screens
 - mock-test settings/status panel stays above the answer panel on desktop and mobile
+- active mock-test controls stay reachable while scrolling long question lists
 - primary Japanese text must not overlap or clip at mobile width

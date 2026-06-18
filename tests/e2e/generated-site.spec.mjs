@@ -47,6 +47,7 @@ test('generated static site starts FE subject A and B mock tests with official c
   await expect(page.locator('.exam-app')).toHaveClass(/is-attempt-active/)
   await expect(page.locator('.setup-control').first()).toBeHidden()
   await expect(page.locator('[data-action="pause"]')).toBeVisible()
+  await expect(page.locator('.settings-panel')).toHaveCSS('position', 'sticky')
   await expect(page.locator('.pager')).toBeVisible()
   await expect(page.getByRole('button', { name: '前の問題' })).toBeDisabled()
   await expect(page.getByRole('button', { name: '次の問題' })).toBeEnabled()
@@ -59,6 +60,9 @@ test('generated static site starts FE subject A and B mock tests with official c
   await page.getByLabel('表示方法').selectOption('multi')
   await page.getByRole('button', { name: '開始' }).click()
   await expect(page.locator('.question-card')).toHaveCount(60)
+  await page.evaluate(() => globalThis.scrollTo(0, 1200))
+  await expect(page.locator('[data-metric="elapsed"]')).toBeVisible()
+  await expect(page.locator('[data-action="pause"]')).toBeVisible()
   await expect(page.locator('.question-meta').first()).toContainText('分類:')
   await expect(page.locator('.question-figure').first()).toBeVisible()
 
@@ -104,6 +108,9 @@ test('mock-test exam mode defers feedback until all questions are scored', async
 })
 
 test('scored review can show only incorrect answers', async ({ page }) => {
+  await page.addInitScript(() => {
+    globalThis.localStorage.clear()
+  })
   await page.goto('/studies/basic-info/mock-test/kamoku-a/')
 
   await page.locator('[data-setting="questionCount"]').fill('3')
@@ -119,6 +126,10 @@ test('scored review can show only incorrect answers', async ({ page }) => {
   await page.locator('[data-action="score"]').click()
   await expect(page.locator('.answer-feedback.correct')).toHaveCount(1)
   await expect(page.locator('[data-setting="incorrectOnly"]')).toBeEnabled()
+  await expect(page.locator('[data-history-panel]')).toContainText('成績履歴')
+  await expect(page.locator('.history-chart')).toHaveCount(2)
+  await expect(page.locator('.category-chart')).toBeVisible()
+  await expect(page.locator('.history-table tbody tr')).toHaveCount(1)
 
   await page.locator('[data-setting="incorrectOnly"]').check()
   await expect(page.locator('.question-card')).toHaveCount(2)

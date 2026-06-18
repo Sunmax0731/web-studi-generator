@@ -12,10 +12,10 @@ Only these exact ratings are allowed:
 
 | Area | Rating | Evidence |
 | --- | --- | --- |
-| Quality | A- | Mock-test pages now stack settings/status above answers, hide setup-only controls during active attempts, move study navigation into the settings panel, and use official answer-structure defaults for 色彩検定. `npm run lint`, `npm test`, `npm run build`, and `npm run e2e` passed. |
+| Quality | A- | Mock-test pages now keep status/action controls sticky while scrolling, save scored attempts to browser-local history, and visualize accuracy/time/category trends while preserving the stacked exam layout. `npm run lint`, `npm test`, `npm run build`, and `npm run e2e` passed. |
 | Cost | A- | The solution remains static JSON plus Node generation with no backend, crawler, or runtime service dependency. |
 | Delivery | A- | Existing generated HTML/CSS/vanilla runtime patterns were reused; the change stays scoped to templates, runtime, tests, and docs. |
-| Satisfaction | A- | Learners get a cleaner exam surface, keep timing/status visible above the answer area, avoid accidental setting edits during an attempt, and start 色彩検定 variants with more exam-shaped default counts. |
+| Satisfaction | A- | Learners can reach timing and action controls while answering long tests, then review and compare past results with simple charts on the same static page. |
 
 ## Runtime Gate
 
@@ -28,6 +28,9 @@ Required generated Web page gate:
 - Settings/status and answering areas are stacked vertically: passed.
 - Registered question count and key timing/progress metrics stay visible in the top settings/status panel: passed.
 - Setup-only controls are hidden during active attempts: passed.
+- Status/action controls stay sticky during question scrolling: passed.
+- Scored attempt history is saved locally and rendered after scoring: passed.
+- Accuracy trend, answer-time, and category accuracy charts render after scoring: passed.
 - 色彩検定 default counts are 3級15, 2級17, 1級1次16, 1級2次5: passed.
 - Incorrect-only review is disabled before scoring and filters to wrong answers after scoring: passed.
 - Removed randomization note from the mock-test start message: passed.

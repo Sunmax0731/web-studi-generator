@@ -7,8 +7,8 @@
 | Lint | `npm run lint` | Generator, templates, study data, and tests style check | Passed |
 | Unit tests | `npm test` | Schema validation, exam metric helpers, FE/color variants, and 狩猟免許 4-variant pool counts | Passed: 3 tests |
 | Static build | `npm run build` | Generate GitHub Pages files into `dist/` | Passed: 3 studies generated |
-| E2E smoke | `npm run e2e` | Browser verification of generated static site, existing variants, top settings/status panel, setup-control hiding during attempts, registered counts, color-test default counts, exam/study answer modes, incorrect-only scored review, per-attempt question-count selection, answer-symbol randomization, and study variants | Passed: 7 Chromium tests |
-| Runtime gate | Playwright fallback script | Open generated mock-test pages, verify desktop/mobile rendering, top settings/status panel, setup-control hiding during attempts, color-test default counts, context-aware controls, exam scoring, study feedback, and button wrapping | Passed |
+| E2E smoke | `npm run e2e` | Browser verification of generated static site, existing variants, sticky status/action controls, local attempt history, charts, setup-control hiding during attempts, registered counts, color-test default counts, exam/study answer modes, incorrect-only scored review, per-attempt question-count selection, answer-symbol randomization, and study variants | Passed: 7 Chromium tests |
+| Runtime gate | Playwright fallback script | Open generated mock-test pages, verify desktop/mobile rendering, sticky status/action controls during scroll, local attempt history, chart rendering, context-aware controls, exam scoring, study feedback, and button wrapping | Passed |
 | Docs ZIP | `npm run docs:zip` | Release documentation bundle | Passed |
 
 ## Runtime Gate
@@ -21,6 +21,9 @@ Required generated Web page gate for this task:
 - Registered question count is visible in the top settings/status panel. Passed.
 - Elapsed time, average answer time, remaining time, unanswered count, and per-question remaining time stay visible in the top settings/status panel. Passed.
 - Setup-only settings are hidden during an active attempt while timer/scoring controls remain visible. Passed.
+- Timer/status metrics and action buttons remain visible while scrolling through questions. Passed.
+- Scored attempts are saved to browser-local history. Passed.
+- Accuracy trend, answer-time, and category accuracy charts render after scoring. Passed.
 - 色彩検定 defaults use the official answer-structure counts: 3級15問, 2級17問, 1級1次16問, 1級2次5問. Passed.
 - The incorrect-only review setting is disabled before scoring and filters the scored review to wrong answers after scoring. Passed.
 - Removed the randomization note from the mock-test start message. Passed.

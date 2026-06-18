@@ -44,6 +44,7 @@
     pager: root.querySelector('[data-pager]'),
     pageStatus: root.querySelector('[data-page-status]'),
     resultSummary: root.querySelector('[data-result-summary]'),
+    historyPanel: root.querySelector('[data-history-panel]'),
     registered: null,
     unanswered: null,
     elapsed: root.querySelector('[data-metric="elapsed"]'),
@@ -75,6 +76,7 @@
     els.fontSizeOutput.value = `${state.settings.fontSize}px`
     applyFontSettings()
     updateMetrics([])
+    updateHistoryPanel()
     updateControls()
   }
 
@@ -228,6 +230,7 @@
     if (!canScoreAttempt()) return
     pauseTimer()
     state.submitted = true
+    saveAttemptResult()
     render()
   }
 
@@ -237,6 +240,7 @@
       els.pager.hidden = true
       updateResultSummary()
       updateMetrics([])
+      updateHistoryPanel()
       applyFontSettings()
       updateControls()
       return
@@ -251,6 +255,7 @@
       applyFontSettings()
       updateMetrics(state.activeQuestions)
       updateResultSummary()
+      updateHistoryPanel()
       updateControls()
       return
     }
@@ -271,6 +276,7 @@
     applyFontSettings()
     updateMetrics(state.activeQuestions)
     updateResultSummary()
+    updateHistoryPanel()
     updateControls()
   }
 
@@ -470,6 +476,236 @@
       <strong>採点結果: ${correctCount} / ${totalQuestions}問（${percent}%）</strong>
       <span>${passed ? '合格' : '不合格'}（合格基準 ${passRate()}%）</span>
     `
+  }
+
+  function saveAttemptResult() {
+    const totalQuestions = state.activeQuestions.length
+    const correctCount = state.activeQuestions.filter((question) =>
+      isAnswerCorrect(question, state.answers[question.id] || []),
+    ).length
+    const answeredCount = answeredQuestionsCount()
+    const record = {
+      id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+      examId: exam.id || location.pathname,
+      examTitle: exam.title || document.title,
+      studyTitle: exam.studyTitle || '',
+      completedAt: new Date().toISOString(),
+      totalQuestions,
+      answeredCount,
+      correctCount,
+      percent: totalQuestions === 0 ? 0 : Math.round((correctCount / totalQuestions) * 100),
+      elapsedSeconds: state.elapsedSeconds,
+      averageAnswerSeconds: answeredCount === 0 ? 0 : state.elapsedSeconds / answeredCount,
+      categoryResults: categoryResults(),
+    }
+    const history = [record, ...loadHistory()].slice(0, 30)
+    saveHistory(history)
+  }
+
+  function categoryResults() {
+    const results = new Map()
+    state.activeQuestions.forEach((question) => {
+      const current = results.get(question.category) || { category: question.category, total: 0, correct: 0 }
+      current.total += 1
+      if (isAnswerCorrect(question, state.answers[question.id] || [])) current.correct += 1
+      results.set(question.category, current)
+    })
+    return [...results.values()].map((result) => ({
+      ...result,
+      percent: result.total === 0 ? 0 : Math.round((result.correct / result.total) * 100),
+    }))
+  }
+
+  function updateHistoryPanel() {
+    if (!els.historyPanel) return
+    const history = loadHistory()
+    if (history.length === 0) {
+      els.historyPanel.className = 'history-panel empty'
+      els.historyPanel.innerHTML = `
+        <header>
+          <h2>成績履歴</h2>
+          <p>採点後に結果が保存され、正解率や解答時間の推移を確認できます。</p>
+        </header>
+      `
+      return
+    }
+
+    const latest = history[0]
+    els.historyPanel.className = 'history-panel'
+    els.historyPanel.innerHTML = `
+      <header>
+        <div>
+          <h2>成績履歴</h2>
+          <p>${history.length}回分の結果をこのブラウザに保存しています。</p>
+        </div>
+        <div class="history-summary">
+          <span>最新 ${latest.percent}%</span>
+          <span>最高 ${Math.max(...history.map((item) => item.percent))}%</span>
+          <span>平均 ${Math.round(history.reduce((sum, item) => sum + item.percent, 0) / history.length)}%</span>
+        </div>
+      </header>
+      <div class="history-charts">
+        <article>
+          <h3>正解率の推移</h3>
+          ${lineChart(history)}
+        </article>
+        <article>
+          <h3>解答時間</h3>
+          ${barChart(history)}
+        </article>
+        <article>
+          <h3>カテゴリ別正答率</h3>
+          ${categoryChart(latest.categoryResults || [])}
+        </article>
+      </div>
+      <div class="history-table-wrap">
+        <table class="history-table">
+          <thead>
+            <tr>
+              <th>日時</th>
+              <th>正解率</th>
+              <th>正解</th>
+              <th>解答時間</th>
+              <th>平均</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${history
+              .slice(0, 8)
+              .map(
+                (item) => `
+                  <tr>
+                    <td>${escapeHtml(formatDateTime(item.completedAt))}</td>
+                    <td>${item.percent}%</td>
+                    <td>${item.correctCount} / ${item.totalQuestions}</td>
+                    <td>${formatDuration(item.elapsedSeconds)}</td>
+                    <td>${formatDuration(item.averageAnswerSeconds)}</td>
+                  </tr>
+                `,
+              )
+              .join('')}
+          </tbody>
+        </table>
+      </div>
+    `
+  }
+
+  function loadHistory() {
+    try {
+      const value = window.localStorage.getItem(historyKey())
+      const parsed = value ? JSON.parse(value) : []
+      return Array.isArray(parsed) ? parsed.filter(isHistoryRecord) : []
+    } catch {
+      return []
+    }
+  }
+
+  function saveHistory(history) {
+    try {
+      window.localStorage.setItem(historyKey(), JSON.stringify(history))
+    } catch {
+      // Ignore storage failures so answering still works in private or restricted browsers.
+    }
+  }
+
+  function historyKey() {
+    return `studi:attempt-history:${location.pathname}`
+  }
+
+  function isHistoryRecord(item) {
+    return (
+      item &&
+      Number.isFinite(Number(item.totalQuestions)) &&
+      Number.isFinite(Number(item.correctCount)) &&
+      Number.isFinite(Number(item.percent)) &&
+      Number.isFinite(Number(item.elapsedSeconds))
+    )
+  }
+
+  function lineChart(history) {
+    const values = history
+      .slice(0, 10)
+      .reverse()
+      .map((item) => Math.max(Math.min(Number(item.percent) || 0, 100), 0))
+    if (values.length === 1) values.unshift(values[0])
+    const points = values
+      .map((value, index) => {
+        const x = 24 + (index * 252) / Math.max(values.length - 1, 1)
+        const y = 104 - value
+        return `${x},${y}`
+      })
+      .join(' ')
+    const circles = values
+      .map((value, index) => {
+        const x = 24 + (index * 252) / Math.max(values.length - 1, 1)
+        const y = 104 - value
+        return `<circle cx="${x}" cy="${y}" r="4"><title>${value}%</title></circle>`
+      })
+      .join('')
+    return `
+      <svg class="history-chart" viewBox="0 0 300 126" role="img" aria-label="正解率の推移グラフ">
+        <line x1="24" y1="104" x2="276" y2="104" />
+        <line x1="24" y1="4" x2="24" y2="104" />
+        <polyline points="${points}" />
+        ${circles}
+        <text x="28" y="16">100%</text>
+        <text x="28" y="120">0%</text>
+      </svg>
+    `
+  }
+
+  function barChart(history) {
+    const values = history
+      .slice(0, 8)
+      .reverse()
+      .map((item) => Math.max(Number(item.elapsedSeconds) || 0, 0))
+    const max = Math.max(...values, 1)
+    const bars = values
+      .map((value, index) => {
+        const width = 22
+        const gap = 9
+        const height = Math.max((value / max) * 88, 2)
+        const x = 34 + index * (width + gap)
+        const y = 104 - height
+        return `<rect x="${x}" y="${y}" width="${width}" height="${height}"><title>${formatDuration(value)}</title></rect>`
+      })
+      .join('')
+    return `
+      <svg class="history-chart bar" viewBox="0 0 300 126" role="img" aria-label="解答時間の棒グラフ">
+        <line x1="24" y1="104" x2="276" y2="104" />
+        ${bars}
+        <text x="28" y="16">${formatDuration(max)}</text>
+      </svg>
+    `
+  }
+
+  function categoryChart(results) {
+    const rows = [...results].sort((a, b) => b.total - a.total).slice(0, 6)
+    if (rows.length === 0) return '<p class="history-empty">カテゴリ別データはまだありません。</p>'
+    return `
+      <div class="category-chart">
+        ${rows
+          .map(
+            (row) => `
+              <div>
+                <span>${escapeHtml(row.category)}</span>
+                <strong>${row.percent}%</strong>
+                <i style="--value:${Math.max(Math.min(row.percent, 100), 0)}%"></i>
+              </div>
+            `,
+          )
+          .join('')}
+      </div>
+    `
+  }
+
+  function formatDateTime(value) {
+    const date = new Date(value)
+    if (Number.isNaN(date.getTime())) return '記録日時不明'
+    return `${date.getMonth() + 1}/${date.getDate()} ${date.getHours().toString().padStart(2, '0')}:${date
+      .getMinutes()
+      .toString()
+      .padStart(2, '0')}`
   }
 
   function updateControls() {

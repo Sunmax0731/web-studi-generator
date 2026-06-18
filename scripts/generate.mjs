@@ -296,6 +296,7 @@ function renderMockTestPage(study, variant, links) {
             <div><span>残問 / 1問あたり</span><strong data-metric="pace">0問 / 0:00</strong></div>
           </div>
           <div class="result-summary" data-result-summary hidden></div>
+          <section class="history-panel" data-history-panel aria-label="過去の成績"></section>
           <div class="question-surface" data-question-surface></div>
           <div class="pager" data-pager hidden>
             <button type="button" data-action="previous">前の問題</button>
@@ -307,6 +308,9 @@ function renderMockTestPage(study, variant, links) {
       <script>
         window.STUDI_EXAM = {
           categoryOrder: ${categoryOrder},
+          id: ${JSON.stringify(variant.id)},
+          title: ${JSON.stringify(variant.title)},
+          studyTitle: ${JSON.stringify(study.title)},
           questions: ${questions},
           settings: ${settings},
           patternLabels: ${JSON.stringify(questionPatternLabels)}

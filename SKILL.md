@@ -68,6 +68,8 @@ For browser QA, verify:
 - Remaining time, average answer time, and remaining-question pace are visible.
 - Mock-test settings/status and answering areas are stacked vertically.
 - Setup-only controls are hidden during an active attempt while timer, scoring, and review controls remain available.
+- Timer/status metrics and action buttons remain visible while scrolling through questions.
+- Scored attempts are saved in browser-local history and rendered with accuracy/time/category charts.
 - Desktop and mobile widths do not overlap or clip primary text.
 
 ## GitHub Pages

@@ -22,9 +22,11 @@ Mock-test pages must include:
 - average answer time
 - remaining question count
 - available time per remaining question
+- registered question count
 - font family control
 - font size control
 - answer selection and feedback
+- scored review filter for showing incorrect answers only
 - start-before-display behavior: questions are hidden until Start is pressed
 - generated question figures/images
 - randomized question order on each attempt, grouped by category
@@ -42,4 +44,5 @@ Mock-test pages must include:
 - top page cards collapse to one column
 - study page source panel moves below units on narrow screens
 - mock-test settings move above questions on narrow screens
+- mock-test metrics remain in the sticky left pane on desktop
 - primary Japanese text must not overlap or clip at mobile width

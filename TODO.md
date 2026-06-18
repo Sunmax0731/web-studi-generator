@@ -23,6 +23,7 @@
 - [x] Support answer selection and correctness feedback for the six required question patterns.
 - [x] Add GitHub Pages deployment workflow.
 - [x] Add mock-test exam/study mode switching with deferred scoring, context-aware controls, and no-wrapping timer buttons.
+- [x] Keep key mock-test metrics visible in a sticky left pane, show registered question counts, and add an incorrect-only scored review setting.
 
 ## Validation And Release
 

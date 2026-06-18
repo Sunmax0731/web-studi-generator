@@ -7,8 +7,8 @@
 | Lint | `npm run lint` | Generator, templates, study data, and tests style check | Passed |
 | Unit tests | `npm test` | Schema validation, exam metric helpers, FE/color variants, and 狩猟免許 4-variant pool counts | Passed: 3 tests |
 | Static build | `npm run build` | Generate GitHub Pages files into `dist/` | Passed: 3 studies generated |
-| E2E smoke | `npm run e2e` | Browser verification of generated static site, existing variants, exam/study answer modes, per-attempt question-count selection, answer-symbol randomization, and 狩猟免許 variants | Passed: 6 Chromium tests |
-| Runtime gate | Playwright fallback script | Open generated mock-test page, verify desktop/mobile rendering, context-aware controls, exam scoring, study feedback, and button wrapping | Passed |
+| E2E smoke | `npm run e2e` | Browser verification of generated static site, existing variants, sticky left-pane metrics, registered counts, exam/study answer modes, incorrect-only scored review, per-attempt question-count selection, answer-symbol randomization, and study variants | Passed: 7 Chromium tests |
+| Runtime gate | Playwright fallback script | Open generated mock-test page, verify desktop/mobile rendering, sticky left-pane metrics, registered counts, incorrect-only scored review, context-aware controls, exam scoring, study feedback, and button wrapping | Passed |
 | Docs ZIP | `npm run docs:zip` | Release documentation bundle | Passed |
 
 ## Runtime Gate
@@ -17,6 +17,9 @@ Required generated Web page gate for this task:
 
 - Mock-test page opens at `/studies/basic-info/mock-test/kamoku-a/`. Passed.
 - Questions are hidden until Start is pressed. Passed.
+- Registered question count is visible in the mock-test left pane. Passed.
+- Elapsed time, average answer time, remaining time, unanswered count, and per-question remaining time stay in the sticky left pane on desktop. Passed.
+- The incorrect-only review setting is disabled before scoring and filters the scored review to wrong answers after scoring. Passed.
 - Removed the randomization note from the mock-test start message. Passed.
 - Removed the requested static mock-test phrase from the 狩猟免許 study page description. Passed.
 - Pause and reset buttons are disabled before an attempt starts. Passed.

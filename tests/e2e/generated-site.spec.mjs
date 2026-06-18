@@ -22,6 +22,10 @@ test('generated static site starts FE subject A and B mock tests with official c
   await expect(page.getByLabel('回答モード')).toHaveValue('exam')
   await expect(page.locator('[data-setting="questionCount"]')).toHaveValue('60')
   await expect(page.locator('[data-setting="questionCount"]')).toHaveAttribute('max', '90')
+  await expect(page.locator('.settings-panel [data-metric="registered"]')).toContainText('90')
+  await expect(page.locator('.settings-panel [data-metric="elapsed"]')).toBeVisible()
+  await expect(page.locator('.exam-workspace [data-metric="elapsed"]')).toHaveCount(0)
+  await expect(page.locator('[data-setting="incorrectOnly"]')).toBeDisabled()
   await expect(page.locator('[data-setting="category"]')).toHaveCount(0)
   await expect(page.locator('.question-card')).toHaveCount(0)
   await expect(page.getByText('開始を押すと問題が表示されます')).toBeVisible()
@@ -52,7 +56,8 @@ test('generated static site starts FE subject A and B mock tests with official c
 
   await answerFirstQuestionCorrectly(page)
   await expect(page.locator('.answer-feedback.correct')).toBeVisible()
-  await expect(page.getByText('残問 / 1問あたり')).toBeVisible()
+  await expect(page.locator('[data-metric="unanswered"]')).toBeVisible()
+  await expect(page.locator('[data-metric="pace"]')).toBeVisible()
 
   await page.goto('/studies/basic-info/mock-test/kamoku-b/')
   await expect(page).toHaveTitle('基本情報技術者試験 科目B 模擬試験')
@@ -90,6 +95,31 @@ test('mock-test exam mode defers feedback until all questions are scored', async
   await expect(page.locator('.choice-list button').first()).toBeDisabled()
 })
 
+test('scored review can show only incorrect answers', async ({ page }) => {
+  await page.goto('/studies/basic-info/mock-test/kamoku-a/')
+
+  await page.locator('[data-setting="questionCount"]').fill('3')
+  await page.locator('[data-action="start"]').click()
+  await expect(page.locator('.question-card')).toHaveCount(3)
+  await expect(page.locator('[data-setting="incorrectOnly"]')).toBeDisabled()
+
+  const cards = page.locator('.question-card')
+  await answerQuestionForResult(page, cards.nth(0), true)
+  await answerQuestionForResult(page, cards.nth(1), false)
+  await answerQuestionForResult(page, cards.nth(2), false)
+
+  await page.locator('[data-action="score"]').click()
+  await expect(page.locator('.answer-feedback.correct')).toHaveCount(1)
+  await expect(page.locator('[data-setting="incorrectOnly"]')).toBeEnabled()
+
+  await page.locator('[data-setting="incorrectOnly"]').check()
+  await expect(page.locator('.question-card')).toHaveCount(2)
+  await expect(page.locator('.answer-feedback.correct')).toHaveCount(0)
+
+  await page.locator('[data-setting="incorrectOnly"]').uncheck()
+  await expect(page.locator('.question-card')).toHaveCount(3)
+})
+
 test('mock-test question count can be set per attempt', async ({ page }) => {
   await page.goto('/studies/basic-info/mock-test/kamoku-a/')
 
@@ -97,7 +127,8 @@ test('mock-test question count can be set per attempt', async ({ page }) => {
   await page.locator('[data-setting="questionCount"]').fill('10')
   await page.getByRole('button', { name: '開始' }).click()
   await expect(page.locator('.question-card')).toHaveCount(10)
-  await expect(page.locator('[data-metric="pace"]')).toContainText('10問 /')
+  await expect(page.locator('[data-metric="unanswered"]')).toContainText('10')
+  await expect(page.locator('[data-metric="pace"]')).toContainText(':')
 
   await page.getByRole('button', { name: 'リセット' }).click()
   await page.getByLabel('表示方法').selectOption('single')
@@ -210,6 +241,29 @@ async function answerFirstQuestionCorrectly(page) {
   for (let index = 0; index < choiceCount; index += 1) {
     await firstCard.locator('.choice-list button').nth(index).click()
     if ((await page.locator('.answer-feedback.correct').count()) > 0) return
+  }
+}
+
+async function answerQuestionForResult(page, card, shouldBeCorrect) {
+  const prompt = (await card.locator('h2').textContent()).trim()
+  const labels = await page.evaluate(
+    ({ promptText, correct }) => {
+      const question = globalThis.STUDI_EXAM.questions.find((candidate) => candidate.prompt === promptText)
+      if (!question) return []
+      const choiceIds = correct
+        ? question.correctChoiceIds
+        : [question.choices.find((choice) => !question.correctChoiceIds.includes(choice.id))?.id]
+      return choiceIds
+        .filter(Boolean)
+        .map((choiceId) => question.choices.find((choice) => choice.id === choiceId)?.label)
+        .filter(Boolean)
+    },
+    { promptText: prompt, correct: shouldBeCorrect },
+  )
+
+  expect(labels.length).toBeGreaterThan(0)
+  for (const label of labels) {
+    await card.locator('.choice-list button').filter({ hasText: label }).click()
   }
 }
 

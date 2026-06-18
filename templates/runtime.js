@@ -11,6 +11,7 @@
       questionCount: clampQuestionCount(exam.settings.questionCount, exam.questions.length),
       fontFamily: exam.settings.fontFamily || 'system',
       fontSize: exam.settings.fontSize || 17,
+      incorrectOnly: false,
     },
     answers: {},
     activeQuestions: [],
@@ -37,14 +38,19 @@
     fontFamily: root.querySelector('[data-setting="fontFamily"]'),
     fontSize: root.querySelector('[data-setting="fontSize"]'),
     fontSizeOutput: root.querySelector('[data-font-size-output]'),
+    settingsPanel: root.querySelector('.settings-panel'),
+    metrics: root.querySelector('.metric-grid'),
     surface: root.querySelector('[data-question-surface]'),
     pager: root.querySelector('[data-pager]'),
     pageStatus: root.querySelector('[data-page-status]'),
     resultSummary: root.querySelector('[data-result-summary]'),
+    registered: null,
+    unanswered: null,
     elapsed: root.querySelector('[data-metric="elapsed"]'),
     average: root.querySelector('[data-metric="average"]'),
     remaining: root.querySelector('[data-metric="remaining"]'),
     pace: root.querySelector('[data-metric="pace"]'),
+    incorrectOnly: null,
     startButton: root.querySelector('[data-action="start"]'),
     pauseButton: root.querySelector('[data-action="pause"]'),
     resetButton: root.querySelector('[data-action="reset"]'),
@@ -58,6 +64,7 @@
   render()
 
   function initialiseControls() {
+    initialiseStatusPanel()
     els.presentationMode.value = state.settings.presentationMode
     els.answerMode.value = state.settings.answerMode
     els.totalMinutes.value = String(state.settings.totalMinutes)
@@ -71,6 +78,38 @@
     updateControls()
   }
 
+  function initialiseStatusPanel() {
+    if (!els.settingsPanel || !els.metrics) return
+
+    els.metrics.classList.add('exam-metrics')
+    els.settingsPanel.insertBefore(els.metrics, els.settingsPanel.children[1] || null)
+
+    const registeredMetric = createMetric('registered', '登録問題数', `${exam.questions.length}問`)
+    const unansweredMetric = createMetric('unanswered', '未回答問題数', '0問')
+    els.metrics.insertBefore(registeredMetric, els.metrics.firstElementChild)
+    els.metrics.insertBefore(unansweredMetric, els.remaining.closest('div'))
+    els.registered = registeredMetric.querySelector('[data-metric="registered"]')
+    els.unanswered = unansweredMetric.querySelector('[data-metric="unanswered"]')
+
+    const paceLabel = els.pace.closest('div')?.querySelector('span')
+    if (paceLabel) paceLabel.textContent = '1問あたり'
+
+    const reviewFilter = document.createElement('label')
+    reviewFilter.className = 'review-filter'
+    reviewFilter.innerHTML = `
+      <input data-setting="incorrectOnly" type="checkbox" />
+      <span>採点後に誤回答のみ表示</span>
+    `
+    els.scoreButton.closest('.score-actions')?.after(reviewFilter)
+    els.incorrectOnly = reviewFilter.querySelector('[data-setting="incorrectOnly"]')
+  }
+
+  function createMetric(name, label, value) {
+    const item = document.createElement('div')
+    item.innerHTML = `<span>${label}</span><strong data-metric="${name}">${value}</strong>`
+    return item
+  }
+
   function bindEvents() {
     els.presentationMode.addEventListener('change', () => {
       state.settings.presentationMode = els.presentationMode.value
@@ -80,6 +119,7 @@
     els.answerMode.addEventListener('change', () => {
       state.settings.answerMode = els.answerMode.value
       state.submitted = false
+      state.settings.incorrectOnly = false
       render()
     })
     els.totalMinutes.addEventListener('input', () => {
@@ -111,12 +151,17 @@
     els.pauseButton.addEventListener('click', pauseTimer)
     els.resetButton.addEventListener('click', resetAttempt)
     els.scoreButton.addEventListener('click', scoreAttempt)
+    els.incorrectOnly?.addEventListener('change', () => {
+      state.settings.incorrectOnly = els.incorrectOnly.checked
+      state.currentIndex = 0
+      render()
+    })
     els.previousButton.addEventListener('click', () => {
       state.currentIndex = Math.max(state.currentIndex - 1, 0)
       render()
     })
     els.nextButton.addEventListener('click', () => {
-      state.currentIndex = Math.min(state.currentIndex + 1, state.activeQuestions.length - 1)
+      state.currentIndex = Math.min(state.currentIndex + 1, getVisibleQuestions().length - 1)
       render()
     })
   }
@@ -129,6 +174,7 @@
       state.answers = {}
       state.currentIndex = 0
       state.elapsedSeconds = 0
+      state.settings.incorrectOnly = false
       state.activeQuestions = prepareAttemptQuestions()
       render()
     }
@@ -146,6 +192,7 @@
     state.timerId = null
     state.runningSince = null
     state.submitted = false
+    state.settings.incorrectOnly = false
     render()
   }
 
@@ -187,17 +234,30 @@
       return
     }
 
+    const visibleQuestions = getVisibleQuestions()
+    state.currentIndex = clampCurrentIndex(visibleQuestions)
+
+    if (visibleQuestions.length === 0) {
+      els.surface.replaceChildren(renderEmptyReviewMessage())
+      els.pager.hidden = true
+      applyFontSettings()
+      updateMetrics(state.activeQuestions)
+      updateResultSummary()
+      updateControls()
+      return
+    }
+
     const shownQuestions =
       state.settings.presentationMode === 'single'
-        ? state.activeQuestions.slice(state.currentIndex, state.currentIndex + 1)
-        : state.activeQuestions
+        ? visibleQuestions.slice(state.currentIndex, state.currentIndex + 1)
+        : visibleQuestions
 
     els.surface.replaceChildren(...shownQuestions.map((question, index) => renderQuestion(question, index)))
 
-    const singleMode = state.settings.presentationMode === 'single' && state.activeQuestions.length > 1
+    const singleMode = state.settings.presentationMode === 'single' && visibleQuestions.length > 1
     els.pager.hidden = !singleMode
     if (singleMode) {
-      els.pageStatus.textContent = `${state.currentIndex + 1} / ${state.activeQuestions.length}`
+      els.pageStatus.textContent = `${state.currentIndex + 1} / ${visibleQuestions.length}`
     }
 
     applyFontSettings()
@@ -215,10 +275,20 @@
     return section
   }
 
+  function renderEmptyReviewMessage() {
+    const section = document.createElement('section')
+    section.className = 'start-message empty-review-message'
+    section.innerHTML = `
+      <h2>誤回答はありません</h2>
+      <p>採点後フィルタを解除すると全問の解説を確認できます。</p>
+    `
+    return section
+  }
+
   function renderQuestion(question, localIndex) {
     const article = document.createElement('article')
     article.className = 'question-card'
-    const displayIndex = state.settings.presentationMode === 'single' ? state.currentIndex + 1 : localIndex + 1
+    const displayIndex = questionDisplayIndex(question, localIndex)
     const selected = state.answers[question.id] || []
     article.innerHTML = `
       <div class="question-meta">
@@ -335,6 +405,25 @@
     return selected.length > 0 && (state.settings.answerMode === 'study' || state.submitted)
   }
 
+  function getVisibleQuestions() {
+    if (!shouldShowIncorrectOnly()) return state.activeQuestions
+    return state.activeQuestions.filter((question) => !isAnswerCorrect(question, state.answers[question.id] || []))
+  }
+
+  function shouldShowIncorrectOnly() {
+    return state.submitted && state.settings.answerMode === 'exam' && state.settings.incorrectOnly
+  }
+
+  function clampCurrentIndex(questions) {
+    if (questions.length === 0) return 0
+    return Math.min(Math.max(state.currentIndex, 0), questions.length - 1)
+  }
+
+  function questionDisplayIndex(question, localIndex) {
+    const originalIndex = state.activeQuestions.findIndex((activeQuestion) => activeQuestion.id === question.id)
+    return originalIndex >= 0 ? originalIndex + 1 : localIndex + 1
+  }
+
   function feedbackMessage() {
     return state.submitted ? '不正解です。' : '選択を見直してください。'
   }
@@ -376,15 +465,21 @@
 
   function updateControls() {
     const running = Boolean(state.timerId)
-    const singleMode = state.started && state.settings.presentationMode === 'single' && state.activeQuestions.length > 1
+    const visibleQuestions = getVisibleQuestions()
+    const singleMode = state.started && state.settings.presentationMode === 'single' && visibleQuestions.length > 1
     els.startButton.disabled = running || state.submitted
     els.startButton.textContent = state.started ? (running ? '実行中' : '再開') : '開始'
     els.pauseButton.disabled = !running
     els.resetButton.disabled = !state.started
     els.previousButton.disabled = !singleMode || state.currentIndex === 0
-    els.nextButton.disabled = !singleMode || state.currentIndex >= state.activeQuestions.length - 1
+    els.nextButton.disabled = !singleMode || state.currentIndex >= visibleQuestions.length - 1
     els.scoreButton.hidden = state.settings.answerMode !== 'exam'
     els.scoreButton.disabled = !canScoreAttempt()
+    if (els.incorrectOnly) {
+      const canFilterReview = state.submitted && state.settings.answerMode === 'exam'
+      els.incorrectOnly.disabled = !canFilterReview
+      els.incorrectOnly.checked = canFilterReview && state.settings.incorrectOnly
+    }
   }
 
   function canScoreAttempt() {
@@ -451,17 +546,22 @@
   }
 
   function updateMetrics(questions, liveElapsed = state.elapsedSeconds) {
-    const answeredCount = questions.filter((question) => (state.answers[question.id] || []).length > 0).length
+    const totalQuestions = state.started ? questions.length : state.settings.questionCount
+    const answeredCount = state.started
+      ? questions.filter((question) => (state.answers[question.id] || []).length > 0).length
+      : 0
     const stats = calculateExamStats({
       answeredCount,
       elapsedSeconds: liveElapsed,
-      totalQuestions: questions.length,
+      totalQuestions,
       totalMinutes: state.settings.totalMinutes,
     })
+    if (els.registered) els.registered.textContent = `${exam.questions.length}問`
+    if (els.unanswered) els.unanswered.textContent = `${stats.unansweredCount}問`
     els.elapsed.textContent = formatDuration(liveElapsed)
     els.average.textContent = formatDuration(stats.averageAnswerSeconds)
     els.remaining.textContent = formatDuration(stats.remainingSeconds)
-    els.pace.textContent = `${stats.unansweredCount}問 / ${formatDuration(stats.secondsPerRemainingQuestion)}`
+    els.pace.textContent = formatDuration(stats.secondsPerRemainingQuestion)
   }
 
   function applyFontSettings() {

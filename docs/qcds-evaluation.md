@@ -12,10 +12,10 @@ Only these exact ratings are allowed:
 
 | Area | Rating | Evidence |
 | --- | --- | --- |
-| Quality | A- | Mock-test pages now support exam mode with deferred scoring and pass/fail, study mode with immediate feedback, disabled controls for unavailable actions, one-line timer button labels, and the requested text removals. `npm run lint`, `npm test`, `npm run build`, and `npm run e2e` passed. |
+| Quality | A- | Mock-test pages now keep registered counts and key progress metrics in the sticky left pane, support incorrect-only review after scoring, and retain exam/study scoring behavior. `npm run lint`, `npm test`, `npm run build`, and `npm run e2e` passed. |
 | Cost | A- | The solution remains static JSON plus Node generation with no backend, crawler, or runtime service dependency. |
-| Delivery | A- | Existing generated HTML/CSS/vanilla runtime patterns were reused; the change stays scoped to templates, runtime, tests, docs, and the one requested study description. |
-| Satisfaction | A- | Learners can choose between final scoring and immediate feedback, and unavailable controls no longer invite actions before the attempt state supports them. |
+| Delivery | A- | Existing generated HTML/CSS/vanilla runtime patterns were reused; the change stays scoped to templates, runtime, tests, and docs. |
+| Satisfaction | A- | Learners can keep timing and unanswered status visible while scrolling, see the registered question pool size, and review only missed questions after scoring. |
 
 ## Runtime Gate
 
@@ -25,6 +25,8 @@ Required generated Web page gate:
 
 - 基本情報技術者試験 科目A mock-test page visible at `/studies/basic-info/mock-test/kamoku-a/`: passed.
 - Questions remain hidden until Start: passed.
+- Registered question count and key timing/progress metrics stay in the desktop sticky left pane: passed.
+- Incorrect-only review is disabled before scoring and filters to wrong answers after scoring: passed.
 - Removed randomization note from the mock-test start message: passed.
 - Removed the requested static mock-test phrase from the 狩猟免許 study page description: passed.
 - Pause, reset, score, previous, and next controls disable according to the current attempt state: passed.
